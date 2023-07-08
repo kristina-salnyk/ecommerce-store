@@ -1,14 +1,15 @@
 import React from 'react-native';
 
-import Products from '../../components/organisms/ProductList/ProductList';
-import ScreenContainer from '../../containers/ScreenContainer/ScreenContainer';
+import ProductListTemplate from '../../components/templates/ProductListTemplate';
+import SearchBar from '../../components/organisms/SearchBar';
+import ScreenContainer from '../../containers/ScreenContainer';
+import {products} from '../../constants/data';
 
-const MainScreen = () => {
-  return (
-    <ScreenContainer>
-      <Products />
-    </ScreenContainer>
-  );
-};
+const MainScreen = () => (
+  <ScreenContainer>
+    <SearchBar />
+    <ProductListTemplate products={products} />
+  </ScreenContainer>
+);
 
 export default MainScreen;

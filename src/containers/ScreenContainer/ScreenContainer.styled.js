@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 
 export const ScreenContainerStyled = styled.View`
-  padding: ${({theme}) => theme.space[1]};
+  padding-bottom: ${({theme}) => theme.space[6]};
+  flex: 1;
 `;

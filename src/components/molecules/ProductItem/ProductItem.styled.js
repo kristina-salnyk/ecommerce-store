@@ -1,5 +1,10 @@
 import {Platform} from 'react-native';
-import styled, {css} from 'styled-components/native';
+import styled from 'styled-components/native';
+
+export const ProductItemWrap = styled.View`
+  padding: ${({theme}) => theme.space[1]};
+  width: ${({width}) => width}%;
+`;
 
 export const ProductItemStyled = styled.View`
   padding: ${({theme}) => theme.space[1]};
@@ -7,17 +12,17 @@ export const ProductItemStyled = styled.View`
   border-radius: ${({theme}) => theme.shape.radius.xs};
   flex-grow: 1;
 
-  ${Platform.select({
-    ios: css`
-      shadow-color: ${({theme}) => theme.color.black};
-      shadow-offset: 0px 0px;
-      shadow-opacity: 0.2;
-      shadow-radius: 8px;
-    `,
-    android: css`
-      elevation: 5;
-    `,
-  })}
+  ${({theme}) =>
+    Platform.OS === 'ios'
+      ? `
+        shadow-color: ${theme.color.black};
+        shadow-offset: 0px 0px;
+        shadow-opacity: 0.2;
+        shadow-radius: 4px;
+      `
+      : `
+        elevation: 5;
+      `}
 `;
 
 export const ProductItemImage = styled.Image`

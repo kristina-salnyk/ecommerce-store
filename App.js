@@ -1,17 +1,18 @@
 import {useState} from 'react';
-import React, {Button, SafeAreaView} from 'react-native';
+import React, {Button} from 'react-native';
 import {ThemeProvider} from 'styled-components';
 
 import theme from './src/theme/theme';
-import MainScreen from './src/screens/MainScreen/MainScreen';
-import ProductDetailsScreen from './src/screens/ProductDetailsScreen/ProductDetailsScreen';
+import MainScreen from './src/screens/MainScreen';
+import ProductDetailsScreen from './src/screens/ProductDetailsScreen';
+import AppContainer from './src/containers/AppContainer';
 
 const App = () => {
   const [currentView, setCurrentView] = useState('Main');
 
   return (
     <ThemeProvider theme={theme}>
-      <SafeAreaView>
+      <AppContainer>
         {currentView === 'Main' && <MainScreen />}
         {currentView === 'ProductDetails' && <ProductDetailsScreen />}
         <Button
@@ -24,7 +25,7 @@ const App = () => {
             );
           }}
         />
-      </SafeAreaView>
+      </AppContainer>
     </ThemeProvider>
   );
 };

@@ -1,6 +1,6 @@
 import React, {Text} from 'react-native';
 
-import ScreenContainer from '../../containers/ScreenContainer/ScreenContainer';
+import ScreenContainer from '../../containers/ScreenContainer';
 
 const ProductDetailsScreen = () => {
   return (

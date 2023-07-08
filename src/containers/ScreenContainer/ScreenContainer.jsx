@@ -3,12 +3,15 @@ import PropTypes from 'prop-types';
 
 import {ScreenContainerStyled} from './ScreenContainer.styled';
 
-const ScreenContainer = ({children}) => {
-  return <ScreenContainerStyled>{children}</ScreenContainerStyled>;
-};
+const ScreenContainer = ({children}) => (
+  <ScreenContainerStyled>{children}</ScreenContainerStyled>
+);
 
 export default ScreenContainer;
 
 ScreenContainer.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+  ]).isRequired,
 };

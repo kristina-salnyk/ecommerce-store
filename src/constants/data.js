@@ -555,4 +555,594 @@ export const products = [
       },
     },
   },
+  {
+    id: '5',
+    type: 'product',
+    attributes: {
+      name: 'Denim Shirt',
+      description:
+        'Est cupiditate dolorem tempora cum. Pariatur facilis similique quidem doloremque nemo expedita provident inventore. Odit ratione in tempora consequatur a voluptatum. Nostrum possimus fugit tenetur delectus.',
+      available_on: '2021-08-15T04:34:02.280-05:00',
+      slug: 'denim-shirt',
+      meta_description: null,
+      meta_keywords: null,
+      updated_at: '2023-06-29T21:16:09.885-05:00',
+      sku: 'Shirts_denimshirt_60.99',
+      purchasable: true,
+      in_stock: true,
+      backorderable: false,
+      available: true,
+      currency: 'USD',
+      price: '60.99',
+      display_price: '$60.99',
+      compare_at_price: '79.99',
+      display_compare_at_price: '$79.99',
+    },
+    relationships: {
+      variants: {
+        data: [
+          {
+            id: '117',
+            type: 'variant',
+          },
+        ],
+      },
+      option_types: {
+        data: [
+          {
+            id: '1',
+            type: 'option_type',
+          },
+          {
+            id: '3',
+            type: 'option_type',
+          },
+        ],
+      },
+      product_properties: {
+        data: [
+          {
+            id: '137',
+            type: 'product_property',
+          },
+          {
+            id: '138',
+            type: 'product_property',
+          },
+          {
+            id: '139',
+            type: 'product_property',
+          },
+          {
+            id: '140',
+            type: 'product_property',
+          },
+          {
+            id: '141',
+            type: 'product_property',
+          },
+          {
+            id: '142',
+            type: 'product_property',
+          },
+          {
+            id: '143',
+            type: 'product_property',
+          },
+          {
+            id: '144',
+            type: 'product_property',
+          },
+        ],
+      },
+      taxons: {
+        data: [
+          {
+            id: '2',
+            type: 'taxon',
+          },
+          {
+            id: '5',
+            type: 'taxon',
+          },
+        ],
+      },
+      images: {
+        data: [
+          {
+            id: '234',
+            type: 'image',
+          },
+          {
+            id: '356',
+            type: 'image',
+          },
+        ],
+      },
+      default_variant: {
+        data: {
+          id: '117',
+          type: 'variant',
+        },
+      },
+      primary_variant: {
+        data: {
+          id: '1',
+          type: 'variant',
+        },
+      },
+    },
+  },
+  {
+    id: '6',
+    type: 'product',
+    attributes: {
+      name: 'Denim Shirt',
+      description:
+        'Est cupiditate dolorem tempora cum. Pariatur facilis similique quidem doloremque nemo expedita provident inventore. Odit ratione in tempora consequatur a voluptatum. Nostrum possimus fugit tenetur delectus.',
+      available_on: '2021-08-15T04:34:02.280-05:00',
+      slug: 'denim-shirt',
+      meta_description: null,
+      meta_keywords: null,
+      updated_at: '2023-06-29T21:16:09.885-05:00',
+      sku: 'Shirts_denimshirt_60.99',
+      purchasable: true,
+      in_stock: true,
+      backorderable: false,
+      available: true,
+      currency: 'USD',
+      price: '60.99',
+      display_price: '$60.99',
+      compare_at_price: '79.99',
+      display_compare_at_price: '$79.99',
+    },
+    relationships: {
+      variants: {
+        data: [
+          {
+            id: '117',
+            type: 'variant',
+          },
+        ],
+      },
+      option_types: {
+        data: [
+          {
+            id: '1',
+            type: 'option_type',
+          },
+          {
+            id: '3',
+            type: 'option_type',
+          },
+        ],
+      },
+      product_properties: {
+        data: [
+          {
+            id: '137',
+            type: 'product_property',
+          },
+          {
+            id: '138',
+            type: 'product_property',
+          },
+          {
+            id: '139',
+            type: 'product_property',
+          },
+          {
+            id: '140',
+            type: 'product_property',
+          },
+          {
+            id: '141',
+            type: 'product_property',
+          },
+          {
+            id: '142',
+            type: 'product_property',
+          },
+          {
+            id: '143',
+            type: 'product_property',
+          },
+          {
+            id: '144',
+            type: 'product_property',
+          },
+        ],
+      },
+      taxons: {
+        data: [
+          {
+            id: '2',
+            type: 'taxon',
+          },
+          {
+            id: '5',
+            type: 'taxon',
+          },
+        ],
+      },
+      images: {
+        data: [
+          {
+            id: '234',
+            type: 'image',
+          },
+          {
+            id: '356',
+            type: 'image',
+          },
+        ],
+      },
+      default_variant: {
+        data: {
+          id: '117',
+          type: 'variant',
+        },
+      },
+      primary_variant: {
+        data: {
+          id: '1',
+          type: 'variant',
+        },
+      },
+    },
+  },
+  {
+    id: '7',
+    type: 'product',
+    attributes: {
+      name: 'Denim Shirt',
+      description:
+        'Est cupiditate dolorem tempora cum. Pariatur facilis similique quidem doloremque nemo expedita provident inventore. Odit ratione in tempora consequatur a voluptatum. Nostrum possimus fugit tenetur delectus.',
+      available_on: '2021-08-15T04:34:02.280-05:00',
+      slug: 'denim-shirt',
+      meta_description: null,
+      meta_keywords: null,
+      updated_at: '2023-06-29T21:16:09.885-05:00',
+      sku: 'Shirts_denimshirt_60.99',
+      purchasable: true,
+      in_stock: true,
+      backorderable: false,
+      available: true,
+      currency: 'USD',
+      price: '60.99',
+      display_price: '$60.99',
+      compare_at_price: '79.99',
+      display_compare_at_price: '$79.99',
+    },
+    relationships: {
+      variants: {
+        data: [
+          {
+            id: '117',
+            type: 'variant',
+          },
+        ],
+      },
+      option_types: {
+        data: [
+          {
+            id: '1',
+            type: 'option_type',
+          },
+          {
+            id: '3',
+            type: 'option_type',
+          },
+        ],
+      },
+      product_properties: {
+        data: [
+          {
+            id: '137',
+            type: 'product_property',
+          },
+          {
+            id: '138',
+            type: 'product_property',
+          },
+          {
+            id: '139',
+            type: 'product_property',
+          },
+          {
+            id: '140',
+            type: 'product_property',
+          },
+          {
+            id: '141',
+            type: 'product_property',
+          },
+          {
+            id: '142',
+            type: 'product_property',
+          },
+          {
+            id: '143',
+            type: 'product_property',
+          },
+          {
+            id: '144',
+            type: 'product_property',
+          },
+        ],
+      },
+      taxons: {
+        data: [
+          {
+            id: '2',
+            type: 'taxon',
+          },
+          {
+            id: '5',
+            type: 'taxon',
+          },
+        ],
+      },
+      images: {
+        data: [
+          {
+            id: '234',
+            type: 'image',
+          },
+          {
+            id: '356',
+            type: 'image',
+          },
+        ],
+      },
+      default_variant: {
+        data: {
+          id: '117',
+          type: 'variant',
+        },
+      },
+      primary_variant: {
+        data: {
+          id: '1',
+          type: 'variant',
+        },
+      },
+    },
+  },
+  {
+    id: '8',
+    type: 'product',
+    attributes: {
+      name: 'Denim Shirt',
+      description:
+        'Est cupiditate dolorem tempora cum. Pariatur facilis similique quidem doloremque nemo expedita provident inventore. Odit ratione in tempora consequatur a voluptatum. Nostrum possimus fugit tenetur delectus.',
+      available_on: '2021-08-15T04:34:02.280-05:00',
+      slug: 'denim-shirt',
+      meta_description: null,
+      meta_keywords: null,
+      updated_at: '2023-06-29T21:16:09.885-05:00',
+      sku: 'Shirts_denimshirt_60.99',
+      purchasable: true,
+      in_stock: true,
+      backorderable: false,
+      available: true,
+      currency: 'USD',
+      price: '60.99',
+      display_price: '$60.99',
+      compare_at_price: '79.99',
+      display_compare_at_price: '$79.99',
+    },
+    relationships: {
+      variants: {
+        data: [
+          {
+            id: '117',
+            type: 'variant',
+          },
+        ],
+      },
+      option_types: {
+        data: [
+          {
+            id: '1',
+            type: 'option_type',
+          },
+          {
+            id: '3',
+            type: 'option_type',
+          },
+        ],
+      },
+      product_properties: {
+        data: [
+          {
+            id: '137',
+            type: 'product_property',
+          },
+          {
+            id: '138',
+            type: 'product_property',
+          },
+          {
+            id: '139',
+            type: 'product_property',
+          },
+          {
+            id: '140',
+            type: 'product_property',
+          },
+          {
+            id: '141',
+            type: 'product_property',
+          },
+          {
+            id: '142',
+            type: 'product_property',
+          },
+          {
+            id: '143',
+            type: 'product_property',
+          },
+          {
+            id: '144',
+            type: 'product_property',
+          },
+        ],
+      },
+      taxons: {
+        data: [
+          {
+            id: '2',
+            type: 'taxon',
+          },
+          {
+            id: '5',
+            type: 'taxon',
+          },
+        ],
+      },
+      images: {
+        data: [
+          {
+            id: '234',
+            type: 'image',
+          },
+          {
+            id: '356',
+            type: 'image',
+          },
+        ],
+      },
+      default_variant: {
+        data: {
+          id: '117',
+          type: 'variant',
+        },
+      },
+      primary_variant: {
+        data: {
+          id: '1',
+          type: 'variant',
+        },
+      },
+    },
+  },
+  {
+    id: '9',
+    type: 'product',
+    attributes: {
+      name: 'Denim Shirt',
+      description:
+        'Est cupiditate dolorem tempora cum. Pariatur facilis similique quidem doloremque nemo expedita provident inventore. Odit ratione in tempora consequatur a voluptatum. Nostrum possimus fugit tenetur delectus.',
+      available_on: '2021-08-15T04:34:02.280-05:00',
+      slug: 'denim-shirt',
+      meta_description: null,
+      meta_keywords: null,
+      updated_at: '2023-06-29T21:16:09.885-05:00',
+      sku: 'Shirts_denimshirt_60.99',
+      purchasable: true,
+      in_stock: true,
+      backorderable: false,
+      available: true,
+      currency: 'USD',
+      price: '60.99',
+      display_price: '$60.99',
+      compare_at_price: '79.99',
+      display_compare_at_price: '$79.99',
+    },
+    relationships: {
+      variants: {
+        data: [
+          {
+            id: '117',
+            type: 'variant',
+          },
+        ],
+      },
+      option_types: {
+        data: [
+          {
+            id: '1',
+            type: 'option_type',
+          },
+          {
+            id: '3',
+            type: 'option_type',
+          },
+        ],
+      },
+      product_properties: {
+        data: [
+          {
+            id: '137',
+            type: 'product_property',
+          },
+          {
+            id: '138',
+            type: 'product_property',
+          },
+          {
+            id: '139',
+            type: 'product_property',
+          },
+          {
+            id: '140',
+            type: 'product_property',
+          },
+          {
+            id: '141',
+            type: 'product_property',
+          },
+          {
+            id: '142',
+            type: 'product_property',
+          },
+          {
+            id: '143',
+            type: 'product_property',
+          },
+          {
+            id: '144',
+            type: 'product_property',
+          },
+        ],
+      },
+      taxons: {
+        data: [
+          {
+            id: '2',
+            type: 'taxon',
+          },
+          {
+            id: '5',
+            type: 'taxon',
+          },
+        ],
+      },
+      images: {
+        data: [
+          {
+            id: '234',
+            type: 'image',
+          },
+          {
+            id: '356',
+            type: 'image',
+          },
+        ],
+      },
+      default_variant: {
+        data: {
+          id: '117',
+          type: 'variant',
+        },
+      },
+      primary_variant: {
+        data: {
+          id: '1',
+          type: 'variant',
+        },
+      },
+    },
+  },
 ];

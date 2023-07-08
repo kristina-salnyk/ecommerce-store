@@ -2,7 +2,6 @@ import {useMemo} from 'react';
 import React from 'react-native';
 import PropTypes from 'prop-types';
 
-import ProductItemContainer from '../../../containers/ProductItemContainer/ProductItemContainer';
 import parseNumber from '../../../utils/parseNumber';
 import {
   ProductItemCompareAtPrice,
@@ -12,6 +11,7 @@ import {
   ProductItemPrice,
   ProductItemStyled,
   ProductItemTitle,
+  ProductItemWrap,
 } from './ProductItem.styled';
 
 const ProductItem = ({
@@ -34,7 +34,7 @@ const ProductItem = ({
   );
 
   return (
-    <ProductItemContainer width={options.columnWidth}>
+    <ProductItemWrap width={options.width}>
       <ProductItemStyled>
         <ProductItemImage
           source={{uri: 'https://picsum.photos/150/150'}}
@@ -53,7 +53,7 @@ const ProductItem = ({
           )}
         </ProductItemCost>
       </ProductItemStyled>
-    </ProductItemContainer>
+    </ProductItemWrap>
   );
 };
 
@@ -65,6 +65,5 @@ ProductItem.propTypes = {
   priceView: PropTypes.string.isRequired,
   compareAtPrice: PropTypes.string,
   compareAtPriceView: PropTypes.string,
-  options: PropTypes.shape({columnWidth: PropTypes.number.isRequired})
-    .isRequired,
+  options: PropTypes.shape({width: PropTypes.number.isRequired}).isRequired,
 };
