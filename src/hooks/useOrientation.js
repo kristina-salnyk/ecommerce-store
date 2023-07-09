@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-import {useDimensions} from './useDimensions';
+import useDimensions from './useDimensions';
 
 const useOrientation = () => {
   const dimensions = useDimensions();

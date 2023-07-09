@@ -1,4 +1,5 @@
 import React, {FlatList} from 'react-native';
+import PropTypes from 'prop-types';
 
 import ProductItem from '../../molecules/ProductItem';
 
@@ -22,3 +23,11 @@ const ProductList = ({products, options}) => (
 );
 
 export default ProductList;
+
+ProductList.propTypes = {
+  products: PropTypes.array.isRequired,
+  options: PropTypes.shape({
+    columnNum: PropTypes.number.isRequired,
+    columnWidth: PropTypes.number.isRequired,
+  }).isRequired,
+};

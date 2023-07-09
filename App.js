@@ -1,5 +1,4 @@
-import {useState} from 'react';
-import React, {Button} from 'react-native';
+import React from 'react-native';
 import {ThemeProvider} from 'styled-components';
 
 import theme from './src/theme/theme';
@@ -8,23 +7,13 @@ import ProductDetailsScreen from './src/screens/ProductDetailsScreen';
 import AppContainer from './src/containers/AppContainer';
 
 const App = () => {
-  const [currentView, setCurrentView] = useState('Main');
+  const currentView = 'ProductDetails'; // 'ProductDetails' : 'Main'
 
   return (
     <ThemeProvider theme={theme}>
       <AppContainer>
         {currentView === 'Main' && <MainScreen />}
         {currentView === 'ProductDetails' && <ProductDetailsScreen />}
-        <Button
-          title={
-            currentView === 'Main' ? 'Go to Product Details' : 'Back to Main'
-          }
-          onPress={() => {
-            setCurrentView(prevState =>
-              prevState === 'Main' ? 'ProductDetails' : 'Main',
-            );
-          }}
-        />
       </AppContainer>
     </ThemeProvider>
   );

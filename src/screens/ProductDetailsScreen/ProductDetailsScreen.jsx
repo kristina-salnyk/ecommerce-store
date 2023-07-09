@@ -1,13 +1,12 @@
-import React, {Text} from 'react-native';
+import React from 'react-native';
 
 import ScreenContainer from '../../containers/ScreenContainer';
+import ProductDetailsTemplate from '../../components/templates/ProductDetailsTemplate';
+import {products} from '../../constants/data';
 
-const ProductDetailsScreen = () => {
-  return (
-    <ScreenContainer>
-      <Text>Product Details Screen</Text>
-    </ScreenContainer>
-  );
-};
-
+const ProductDetailsScreen = () => (
+  <ScreenContainer>
+    <ProductDetailsTemplate product={products[0]} />
+  </ScreenContainer>
+);
 export default ProductDetailsScreen;

@@ -2,6 +2,12 @@ export const products = [
   {
     id: '1',
     type: 'product',
+    images: [
+      'https://picsum.photos/600/600',
+      'https://picsum.photos/600/600',
+      'https://picsum.photos/600/600',
+      'https://picsum.photos/600/600',
+    ],
     attributes: {
       name: 'Denim Shirt',
       description:

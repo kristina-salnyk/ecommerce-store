@@ -3,7 +3,7 @@ import {Dimensions} from 'react-native';
 
 import getDimensions from '../utils/getDimensions';
 
-export const useDimensions = () => {
+const useDimensions = () => {
   const [dimensions, setDimensions] = useState(getDimensions);
 
   useEffect(() => {
@@ -16,3 +16,5 @@ export const useDimensions = () => {
 
   return dimensions;
 };
+
+export default useDimensions;
