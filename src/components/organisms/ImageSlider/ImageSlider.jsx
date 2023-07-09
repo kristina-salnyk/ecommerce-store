@@ -2,10 +2,10 @@ import React, {useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import Carousel from 'react-native-snap-carousel';
 
-import ImageItem from '../../molecules/ImageItem';
-import SliderPagination from '../../atoms/SliderPagination';
+import ProductImage from '../../atoms/ProductImage';
+import SliderPagination from '../../molecules/SliderPagination';
 import SliderButton from '../../atoms/SliderButton';
-import {CarouselWrap, ImageSliderWrap} from './ImageSlider.styled';
+import {CarouselWrap, ImageSliderStyled} from './ImageSlider.styled';
 
 const ImageSlider = ({images, options}) => {
   const [sliderWidth, setSliderWidth] = useState(300);
@@ -32,7 +32,7 @@ const ImageSlider = ({images, options}) => {
 
   return (
     <>
-      <ImageSliderWrap>
+      <ImageSliderStyled>
         <SliderButton
           name="arrow-left"
           onPress={onPressPrev}
@@ -43,7 +43,7 @@ const ImageSlider = ({images, options}) => {
             ref={carouselRef}
             data={images}
             renderItem={({item}) => (
-              <ImageItem
+              <ProductImage
                 image={item}
                 options={{
                   width: sliderWidth,
@@ -62,7 +62,7 @@ const ImageSlider = ({images, options}) => {
           onPress={onPressNext}
           disabled={isNextDisabled}
         />
-      </ImageSliderWrap>
+      </ImageSliderStyled>
       <SliderPagination
         carouselRef={carouselRef}
         dotsLength={images.length}

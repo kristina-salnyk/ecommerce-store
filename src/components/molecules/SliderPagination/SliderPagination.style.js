@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 export const SliderPaginationStyle = StyleSheet.create({
   container: {
-    marginTop: -15,
+    marginVertical: -15,
   },
   dot: {
     width: 10,

@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-export const ImageSliderWrap = styled.View`
+export const ImageSliderStyled = styled.View`
   flex-direction: row;
   align-items: center;
 `;

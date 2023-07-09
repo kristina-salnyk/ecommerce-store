@@ -1,18 +1,10 @@
-import {useMemo} from 'react';
 import React from 'react-native';
 import PropTypes from 'prop-types';
 
-import parseNumber from '../../../utils/parseNumber';
-import {
-  ProductItemCompareAtPrice,
-  ProductItemCost,
-  ProductItemDiscount,
-  ProductItemImage,
-  ProductItemPrice,
-  ProductItemStyled,
-  ProductItemTitle,
-  ProductItemWrap,
-} from './ProductItem.styled';
+import ProductName from '../../atoms/ProductName';
+import ProductCost from '../../atoms/ProductCost';
+import ProductImage from '../../atoms/ProductImage';
+import {ProductItemStyled, ProductItemWrap} from './ProductItem.styled';
 
 const ProductItem = ({
   name,
@@ -21,41 +13,24 @@ const ProductItem = ({
   compareAtPrice,
   compareAtPriceView,
   options,
-}) => {
-  const priceNum = parseNumber(price);
-  const compareAtPriceNum = parseNumber(compareAtPrice);
-
-  const discount = useMemo(
-    () =>
-      compareAtPriceNum
-        ? Math.round(((compareAtPriceNum - priceNum) * 100) / compareAtPriceNum)
-        : 0,
-    [compareAtPriceNum, priceNum],
-  );
-
-  return (
-    <ProductItemWrap width={options.width}>
-      <ProductItemStyled>
-        <ProductItemImage
-          source={{uri: 'https://picsum.photos/150/150'}}
-          alt={name}
-        />
-        <ProductItemTitle>{name}</ProductItemTitle>
-        <ProductItemCost>
-          <ProductItemPrice>{priceView}</ProductItemPrice>
-          {compareAtPriceNum > 0 && (
-            <ProductItemCompareAtPrice>
-              {compareAtPriceView}
-            </ProductItemCompareAtPrice>
-          )}
-          {discount > 0 && (
-            <ProductItemDiscount>{`${discount}% Off`}</ProductItemDiscount>
-          )}
-        </ProductItemCost>
-      </ProductItemStyled>
-    </ProductItemWrap>
-  );
-};
+}) => (
+  <ProductItemWrap width={options.width}>
+    <ProductItemStyled>
+      <ProductImage
+        image="https://picsum.photos/150/150"
+        alt={name}
+        options={{height: 150}}
+      />
+      <ProductName name={name} />
+      <ProductCost
+        price={price}
+        priceView={priceView}
+        compareAtPrice={compareAtPrice}
+        compareAtPriceView={compareAtPriceView}
+      />
+    </ProductItemStyled>
+  </ProductItemWrap>
+);
 
 export default ProductItem;
 
