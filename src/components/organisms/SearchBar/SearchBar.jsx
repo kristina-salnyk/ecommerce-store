@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import React from 'react-native';
 import {useTheme} from 'styled-components';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Input from '../../atoms/Input';
 import {SearchBarStyled} from './SearchBar.styled';
@@ -15,7 +15,7 @@ const SearchBar = () => {
       <Input
         value={searchQuery}
         onChange={setSearchQuery}
-        icon={<MaterialIcon name="search" size={30} color={theme.color.gray} />}
+        icon={<Icon name="search" size={30} color={theme.color.gray} />}
       />
     </SearchBarStyled>
   );

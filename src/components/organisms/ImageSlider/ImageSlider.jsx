@@ -1,42 +1,72 @@
 import React, {useRef, useState} from 'react';
-import Carousel, {Pagination} from 'react-native-snap-carousel';
 import PropTypes from 'prop-types';
-import {useTheme} from 'styled-components';
+import Carousel from 'react-native-snap-carousel';
 
 import ImageItem from '../../molecules/ImageItem';
-import {ImageSliderStyle} from './ImageSlider.style';
+import SliderPagination from '../../atoms/SliderPagination';
+import SliderButton from '../../atoms/SliderButton';
+import {CarouselWrap, ImageSliderWrap} from './ImageSlider.styled';
 
 const ImageSlider = ({images, options}) => {
-  const theme = useTheme();
+  const [sliderWidth, setSliderWidth] = useState(300);
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef(null);
+  const isPrevDisabled = currentIndex <= 0;
+  const isNextDisabled = currentIndex >= images.length - 1;
+
+  const onLayoutCarousel = event => {
+    setSliderWidth(event.nativeEvent.layout.width);
+  };
+
+  const onPressNext = () => {
+    if (carouselRef.current) {
+      carouselRef.current.snapToNext();
+    }
+  };
+
+  const onPressPrev = () => {
+    if (carouselRef.current) {
+      carouselRef.current.snapToPrev();
+    }
+  };
 
   return (
     <>
-      <Carousel
-        ref={carouselRef}
-        data={images}
-        renderItem={({item}) => (
-          <ImageItem
-            image={item}
-            options={{width: options.sliderWidth, height: options.sliderHeight}}
+      <ImageSliderWrap>
+        <SliderButton
+          name="arrow-left"
+          onPress={onPressPrev}
+          disabled={isPrevDisabled}
+        />
+        <CarouselWrap onLayout={onLayoutCarousel}>
+          <Carousel
+            ref={carouselRef}
+            data={images}
+            renderItem={({item}) => (
+              <ImageItem
+                image={item}
+                options={{
+                  width: sliderWidth,
+                  height: options.sliderHeight,
+                }}
+              />
+            )}
+            sliderWidth={sliderWidth}
+            itemWidth={sliderWidth}
+            itemHeight={options.sliderHeight}
+            onSnapToItem={index => setCurrentIndex(index)}
           />
-        )}
-        sliderWidth={options.sliderWidth}
-        itemWidth={options.sliderWidth}
-        itemHeight={options.sliderHeight}
-        onSnapToItem={index => setCurrentIndex(index)}
-      />
-      <Pagination
+        </CarouselWrap>
+        <SliderButton
+          name="arrow-right"
+          onPress={onPressNext}
+          disabled={isNextDisabled}
+        />
+      </ImageSliderWrap>
+      <SliderPagination
         carouselRef={carouselRef}
         dotsLength={images.length}
         activeDotIndex={currentIndex}
-        containerStyle={ImageSliderStyle.container}
-        dotStyle={ImageSliderStyle.dot}
-        dotColor={theme.color.primary}
-        inactiveDotColor={theme.color.lightGray}
-        inactiveDotScale={1}
-        tappableDots={true}
       />
     </>
   );
@@ -47,7 +77,6 @@ export default ImageSlider;
 ImageSlider.propTypes = {
   images: PropTypes.array.isRequired,
   options: PropTypes.shape({
-    sliderWidth: PropTypes.number.isRequired,
     sliderHeight: PropTypes.number.isRequired,
   }),
 };

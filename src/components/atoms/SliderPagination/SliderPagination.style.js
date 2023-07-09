@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-export const ImageSliderStyle = StyleSheet.create({
+export const SliderPaginationStyle = StyleSheet.create({
   container: {
     marginTop: -15,
   },
