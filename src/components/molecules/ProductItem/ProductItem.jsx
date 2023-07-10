@@ -7,6 +7,7 @@ import ProductImage from '../../atoms/ProductImage';
 import {ProductItemStyled, ProductItemWrap} from './ProductItem.styled';
 
 const ProductItem = ({
+  id,
   name,
   price,
   priceView,
@@ -14,10 +15,10 @@ const ProductItem = ({
   compareAtPriceView,
   options,
 }) => (
-  <ProductItemWrap width={options.width}>
+  <ProductItemWrap width={options.itemWidth}>
     <ProductItemStyled>
       <ProductImage
-        image="https://picsum.photos/150/150"
+        image={`https://picsum.photos/id/${id}/150/150`}
         alt={name}
         options={{height: 150}}
       />
@@ -35,10 +36,11 @@ const ProductItem = ({
 export default ProductItem;
 
 ProductItem.propTypes = {
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   priceView: PropTypes.string.isRequired,
   compareAtPrice: PropTypes.string,
   compareAtPriceView: PropTypes.string,
-  options: PropTypes.shape({width: PropTypes.number.isRequired}).isRequired,
+  options: PropTypes.shape({itemWidth: PropTypes.number.isRequired}).isRequired,
 };

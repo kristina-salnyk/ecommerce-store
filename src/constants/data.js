@@ -1,13 +1,14 @@
+export const colors = [
+  {id: '1', name: 'Blue'},
+  {id: '2', name: 'Red'},
+  {id: '3', name: 'Black'},
+  {id: '4', name: 'Gray'},
+];
+
 export const products = [
   {
     id: '1',
     type: 'product',
-    images: [
-      'https://picsum.photos/600/600',
-      'https://picsum.photos/600/600',
-      'https://picsum.photos/600/600',
-      'https://picsum.photos/600/600',
-    ],
     attributes: {
       name: 'Denim Shirt',
       description:

@@ -9,4 +9,5 @@ const ProductDetailsScreen = () => (
     <ProductDetailsTemplate product={products[0]} />
   </ScreenContainer>
 );
+
 export default ProductDetailsScreen;

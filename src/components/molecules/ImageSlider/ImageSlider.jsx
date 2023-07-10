@@ -1,9 +1,10 @@
 import React, {useRef, useState} from 'react';
+import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import Carousel from 'react-native-snap-carousel';
 
 import ProductImage from '../../atoms/ProductImage';
-import SliderPagination from '../../molecules/SliderPagination';
+import SliderPagination from '../../atoms/SliderPagination';
 import SliderButton from '../../atoms/SliderButton';
 import {CarouselWrap, ImageSliderStyled} from './ImageSlider.styled';
 
@@ -31,7 +32,7 @@ const ImageSlider = ({images, options}) => {
   };
 
   return (
-    <>
+    <View>
       <ImageSliderStyled>
         <SliderButton
           name="arrow-left"
@@ -44,7 +45,7 @@ const ImageSlider = ({images, options}) => {
             data={images}
             renderItem={({item}) => (
               <ProductImage
-                image={item}
+                image={`https://picsum.photos/id/${item.id}/600/600`}
                 options={{
                   width: sliderWidth,
                   height: options.sliderHeight,
@@ -68,7 +69,7 @@ const ImageSlider = ({images, options}) => {
         dotsLength={images.length}
         activeDotIndex={currentIndex}
       />
-    </>
+    </View>
   );
 };
 

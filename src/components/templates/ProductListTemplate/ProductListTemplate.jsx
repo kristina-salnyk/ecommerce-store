@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 
 import ProductList from '../../organisms/ProductList';
 import useOrientation from '../../../hooks/useOrientation';
-import {ProductListTemplateStyled} from './ProductListTemplate.styled';
+import SearchBar from '../../molecules/SearchBar';
+import {
+  ProductListTemplateStyled,
+  ProductListWrap,
+} from './ProductListTemplate.styled';
 
 const ProductListTemplate = ({products}) => {
   const orientation = useOrientation();
@@ -12,7 +16,10 @@ const ProductListTemplate = ({products}) => {
 
   return (
     <ProductListTemplateStyled>
-      <ProductList products={products} options={{columnNum, columnWidth}} />
+      <SearchBar />
+      <ProductListWrap>
+        <ProductList products={products} options={{columnNum, columnWidth}} />
+      </ProductListWrap>
     </ProductListTemplateStyled>
   );
 };
