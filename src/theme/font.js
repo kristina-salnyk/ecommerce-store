@@ -2,9 +2,9 @@ const size = Object.freeze({
   xs: '11px',
   s: '14px',
   m: '16px',
-  ml: '18px',
-  l: '24px',
-  xl: '28px',
+  l: '20px',
+  xl: '24px',
+  xxl: '28px',
 });
 
 const weight = Object.freeze({

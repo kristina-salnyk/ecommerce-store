@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 import {ProductNameStyled} from './ProductName.styled';
 
-const ProductName = ({name}) => <ProductNameStyled>{name}</ProductNameStyled>;
+const ProductName = ({text}) => <ProductNameStyled>{text}</ProductNameStyled>;
 
 export default ProductName;
 
 ProductName.propTypes = {
-  name: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };

@@ -23,5 +23,5 @@ export const ProductCompareAtPrice = styled.Text`
 export const ProductDiscount = styled.Text`
   font-size: ${({theme}) => theme.font.size.s};
   font-weight: ${({theme}) => theme.font.weight.bold};
-  color: ${({theme}) => theme.color.primary};
+  color: ${({theme}) => theme.color.secondary};
 `;

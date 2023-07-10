@@ -5,27 +5,35 @@ import ImageSlider from '../../organisms/ImageSlider';
 import useOrientation from '../../../hooks/useOrientation';
 import useDimensions from '../../../hooks/useDimensions';
 import ProductDetails from '../../organisms/ProductDetails';
-import {ProductDetailsTemplateStyled} from './ProductDetailsTemplate.styled';
+import Button from '../../atoms/Button';
+import {
+  ProductDetailsTemplateStyled,
+  ProductDetailsWrap,
+} from './ProductDetailsTemplate.styled';
 
 const ProductDetailsTemplate = ({product}) => {
   const orientation = useOrientation();
   const dimensions = useDimensions();
   const sliderHeight =
-    orientation === 'landscape' ? dimensions.height - 80 : 300;
+    orientation === 'landscape' ? dimensions.height - 140 : 300;
 
   return (
-    <ScrollView>
-      <ProductDetailsTemplateStyled>
-        <ImageSlider images={product.images} options={{sliderHeight}} />
-        <ProductDetails
-          name={product.attributes.name}
-          price={product.attributes.price}
-          priceView={product.attributes.display_price}
-          compareAtPrice={product.attributes.compare_at_price}
-          compareAtPriceView={product.attributes.display_compare_at_price}
-        />
-      </ProductDetailsTemplateStyled>
-    </ScrollView>
+    <ProductDetailsTemplateStyled>
+      <ScrollView>
+        <ProductDetailsWrap>
+          <ImageSlider images={product.images} options={{sliderHeight}} />
+          <ProductDetails
+            name={product.attributes.name}
+            description={product.attributes.description}
+            price={product.attributes.price}
+            priceView={product.attributes.display_price}
+            compareAtPrice={product.attributes.compare_at_price}
+            compareAtPriceView={product.attributes.display_compare_at_price}
+          />
+        </ProductDetailsWrap>
+      </ScrollView>
+      <Button text="Add to cart" onPress={() => {}} />
+    </ProductDetailsTemplateStyled>
   );
 };
 

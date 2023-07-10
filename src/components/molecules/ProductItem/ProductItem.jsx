@@ -21,7 +21,7 @@ const ProductItem = ({
         alt={name}
         options={{height: 150}}
       />
-      <ProductName name={name} />
+      <ProductName text={name} />
       <ProductCost
         price={price}
         priceView={priceView}
