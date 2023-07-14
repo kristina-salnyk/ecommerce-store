@@ -9,12 +9,12 @@ import ProductDescription from '../../atoms/ProductDescription';
 import ProductSelect from '../../atoms/ProductSelect';
 import Title from '../../atoms/Title';
 import useRefreshing from '../../../hooks/useRefreshing';
-import ProductPicture from '../../../interfaces/ProductPicture';
+import ProductProperty from '../../../interfaces/ProductProperty';
 import {PRODUCT_COLORS} from '../../../constants/data';
 import {ProductDetailsWrap} from './ProductDetails.styled';
 
 interface ProductDetailsProps {
-  images: ProductPicture[];
+  images: ProductProperty[];
   name: string;
   description: string;
   price: string;
