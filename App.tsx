@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {StatusBar} from 'react-native';
 import {ThemeProvider} from 'styled-components';
 
-import RootNavigator from './src/navigation';
+import RootNavigator from './src/navigation/RootNavigator';
 import theme from './src/theme/theme';
 
 const App: FC = () => (

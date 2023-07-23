@@ -3,11 +3,11 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 import ScreenContainer from '../../containers/ScreenContainer';
 import ProductDetailsTemplate from '../../components/templates/ProductDetailsTemplate';
-import {MainStackParamList} from '../../navigation/types';
+import {RootStackParamList} from '../../navigation/types';
 import {PRODUCTS} from '../../constants/data';
 
 type ProductDetailsScreenProp = NativeStackScreenProps<
-  MainStackParamList,
+  RootStackParamList,
   'ProductDetails'
 >;
 
