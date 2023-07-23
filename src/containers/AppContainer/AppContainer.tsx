@@ -3,7 +3,7 @@ import React, {FC} from 'react';
 
 import {AppContainerStyled} from './AppContainer.styled';
 
-const AppContainer: FC<PropsWithChildren<{}>> = ({children}) => (
+const AppContainer: FC<PropsWithChildren> = ({children}) => (
   <AppContainerStyled>{children}</AppContainerStyled>
 );
 

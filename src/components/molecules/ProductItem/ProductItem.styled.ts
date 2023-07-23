@@ -1,7 +1,7 @@
 import {Platform} from 'react-native';
 import styled from 'styled-components/native';
 
-export const ProductItemWrap = styled.View<{percentWidth: number}>`
+export const ProductItemWrap = styled.TouchableOpacity<{percentWidth: number}>`
   padding: ${({theme}) => theme.space.x8};
   width: ${({percentWidth}) => percentWidth}%;
 `;

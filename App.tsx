@@ -1,17 +1,14 @@
 import React, {FC} from 'react';
+import {StatusBar} from 'react-native';
 import {ThemeProvider} from 'styled-components';
 
+import RootNavigator from './src/navigation';
 import theme from './src/theme/theme';
-// import MainScreen from './src/screens/MainScreen';
-import ProductDetailsScreen from './src/screens/ProductDetailsScreen';
-import AppContainer from './src/containers/AppContainer';
 
 const App: FC = () => (
   <ThemeProvider theme={theme}>
-    <AppContainer>
-      {/*<MainScreen />*/}
-      <ProductDetailsScreen />
-    </AppContainer>
+    <RootNavigator />
+    <StatusBar barStyle="light-content" />
   </ThemeProvider>
 );
 

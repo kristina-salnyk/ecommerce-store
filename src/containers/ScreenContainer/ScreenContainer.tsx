@@ -3,7 +3,7 @@ import React, {FC} from 'react';
 
 import {ScreenContainerStyled} from './ScreenContainer.styled';
 
-const ScreenContainer: FC<PropsWithChildren<{}>> = ({children}) => (
+const ScreenContainer: FC<PropsWithChildren> = ({children}) => (
   <ScreenContainerStyled>{children}</ScreenContainerStyled>
 );
 
