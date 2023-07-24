@@ -1,13 +1,13 @@
 export type RootStackParamList = {
-  Drawer: undefined;
+  Drawer: {screen: string};
   ProductDetails: {productId: string};
   Search: undefined;
 };
 
 export type DrawerParamList = {
-  Main: undefined;
-  MyProfile: undefined;
-  MyWishList: undefined;
-  MyCart: undefined;
-  MyOrders: undefined;
+  Main: {isDrawerLink: boolean};
+  MyProfile: {isDrawerLink: boolean};
+  MyWishList: {isDrawerLink: boolean};
+  MyCart: {isDrawerLink: boolean};
+  MyOrders: {isDrawerLink: boolean};
 };

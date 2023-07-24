@@ -14,6 +14,7 @@ export const RootStack = createNativeStackNavigator<RootStackParamList>();
 const RootNavigator = () => (
   <NavigationContainer>
     <RootStack.Navigator
+      initialRouteName="Drawer"
       screenOptions={{
         header: ({navigation, route, options}) => (
           <HeaderContainer>
@@ -35,7 +36,11 @@ const RootNavigator = () => (
         component={ProductDetailsScreen}
         options={{headerTitle: ''}}
       />
-      <RootStack.Screen name="Search" component={SearchScreen} />
+      <RootStack.Screen
+        name="Search"
+        component={SearchScreen}
+        options={{headerTitle: 'Search'}}
+      />
     </RootStack.Navigator>
   </NavigationContainer>
 );

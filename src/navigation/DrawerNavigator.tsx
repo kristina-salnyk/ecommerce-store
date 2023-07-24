@@ -8,13 +8,21 @@ import OrdersScreen from '../screens/OrdersScreen';
 import HeaderContainer from '../containers/HeaderContainer';
 import MainScreen from '../screens/MainScreen';
 import HeaderTemplate from '../components/templates/HeaderTemplate';
+import DrawerContent from '../components/organisms/DrawerContent';
+import DrawerContainer from '../containers/DrawerContainer';
 import {DrawerParamList} from './types';
+import {PERCENTAGE_FILLED_BY_DRAWER} from '../constants/shared';
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
 
 const DrawerNavigator = () => (
   <Drawer.Navigator
     initialRouteName="Main"
+    drawerContent={() => (
+      <DrawerContainer>
+        <DrawerContent />
+      </DrawerContainer>
+    )}
     screenOptions={{
       header: ({navigation, route, options, layout}) => (
         <HeaderContainer>
@@ -23,10 +31,10 @@ const DrawerNavigator = () => (
             route={route}
             options={options}
             layout={layout}
-            drawerToggleShown={true}
           />
         </HeaderContainer>
       ),
+      drawerStyle: {width: `${PERCENTAGE_FILLED_BY_DRAWER}%`},
     }}>
     <Drawer.Screen
       name="Main"
@@ -55,5 +63,4 @@ const DrawerNavigator = () => (
     />
   </Drawer.Navigator>
 );
-
 export default DrawerNavigator;

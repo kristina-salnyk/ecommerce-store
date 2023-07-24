@@ -1,30 +1,34 @@
 import React, {FC, useCallback} from 'react';
-import {DrawerActions, useNavigation} from '@react-navigation/native';
+import {
+  DrawerActions,
+  RouteProp,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import IconButton from '../../atoms/IconButton';
-import {RootStackParamList} from '../../../navigation/types';
-import {HeaderRight, HeaderTitle, HeaderWrap} from './Header.styled';
+import {DrawerParamList, RootStackParamList} from '../../../navigation/types';
+import {HeaderRight, HeaderStyled, HeaderTitle} from './Header.styled';
 
 interface HeaderProps {
   title: string;
   routeName: string;
-  drawerToggleShown?: boolean;
 }
 
-const Header: FC<HeaderProps> = ({
-  title,
-  routeName,
-  drawerToggleShown = false,
-}) => {
+const Header: FC<HeaderProps> = ({title, routeName}) => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const {params} = useRoute<RouteProp<DrawerParamList>>();
+  const isDrawerLink = params?.isDrawerLink;
 
   const addToFavorite = useCallback(() => {}, []);
 
-  const navigateToCart = useCallback(() => {}, []);
+  const navigateToCart = useCallback(
+    () => navigation.navigate('Drawer', {screen: 'MyCart'}),
+    [navigation],
+  );
 
   const toggleDrawer = useCallback(
     () => navigation.dispatch(DrawerActions.toggleDrawer()),
@@ -32,8 +36,8 @@ const Header: FC<HeaderProps> = ({
   );
 
   return (
-    <HeaderWrap>
-      {drawerToggleShown ? (
+    <HeaderStyled>
+      {routeName === 'Main' || isDrawerLink ? (
         <IconButton
           IconComponent={MaterialCommunityIcon}
           iconName="menu"
@@ -55,13 +59,15 @@ const Header: FC<HeaderProps> = ({
             onPress={addToFavorite}
           />
         )}
-        <IconButton
-          IconComponent={MaterialIcon}
-          iconName="shopping-cart"
-          onPress={navigateToCart}
-        />
+        {routeName !== 'MyCart' && (
+          <IconButton
+            IconComponent={MaterialCommunityIcon}
+            iconName="cart"
+            onPress={navigateToCart}
+          />
+        )}
       </HeaderRight>
-    </HeaderWrap>
+    </HeaderStyled>
   );
 };
 

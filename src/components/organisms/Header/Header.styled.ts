@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-export const HeaderWrap = styled.SafeAreaView`
+export const HeaderStyled = styled.View`
   flex-direction: row;
   justify-content: space-between;
 `;
