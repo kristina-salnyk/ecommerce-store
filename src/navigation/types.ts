@@ -5,9 +5,9 @@ export type RootStackParamList = {
 };
 
 export type DrawerParamList = {
-  Main: {isDrawerLink: boolean};
-  MyProfile: {isDrawerLink: boolean};
-  MyWishList: {isDrawerLink: boolean};
-  MyCart: {isDrawerLink: boolean};
-  MyOrders: {isDrawerLink: boolean};
+  Main: undefined;
+  MyProfile: undefined;
+  MyWishList: undefined;
+  MyCart: undefined;
+  MyOrders: undefined;
 };

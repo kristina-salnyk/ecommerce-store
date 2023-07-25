@@ -1,47 +1,45 @@
 import React, {FC, useCallback} from 'react';
-import {
-  DrawerActions,
-  RouteProp,
-  useNavigation,
-  useRoute,
-} from '@react-navigation/native';
+import {DrawerActions, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import IconButton from '../../atoms/IconButton';
-import {DrawerParamList, RootStackParamList} from '../../../navigation/types';
+import {RootStackParamList} from '../../../navigation/types';
 import {HeaderRight, HeaderStyled, HeaderTitle} from './Header.styled';
 
 interface HeaderProps {
   title: string;
   routeName: string;
+  drawerToggleShown?: boolean;
 }
 
-const Header: FC<HeaderProps> = ({title, routeName}) => {
+const Header: FC<HeaderProps> = ({
+  title,
+  routeName,
+  drawerToggleShown = false,
+}) => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-  const {params} = useRoute<RouteProp<DrawerParamList>>();
-  const isDrawerLink = params?.isDrawerLink;
 
-  const addToFavorite = useCallback(() => {}, []);
+  const onPressWish = useCallback(() => {}, []);
 
-  const navigateToCart = useCallback(
+  const onPressCart = useCallback(
     () => navigation.navigate('Drawer', {screen: 'MyCart'}),
     [navigation],
   );
 
-  const toggleDrawer = useCallback(
+  const onPressToggleDrawer = useCallback(
     () => navigation.dispatch(DrawerActions.toggleDrawer()),
     [navigation],
   );
 
   return (
     <HeaderStyled>
-      {routeName === 'Main' || isDrawerLink ? (
+      {drawerToggleShown ? (
         <IconButton
           IconComponent={MaterialCommunityIcon}
           iconName="menu"
-          onPress={toggleDrawer}
+          onPress={onPressToggleDrawer}
         />
       ) : (
         <IconButton
@@ -56,14 +54,14 @@ const Header: FC<HeaderProps> = ({title, routeName}) => {
           <IconButton
             IconComponent={FontAwesomeIcon}
             iconName="heart-o"
-            onPress={addToFavorite}
+            onPress={onPressWish}
           />
         )}
         {routeName !== 'MyCart' && (
           <IconButton
             IconComponent={MaterialCommunityIcon}
             iconName="cart"
-            onPress={navigateToCart}
+            onPress={onPressCart}
           />
         )}
       </HeaderRight>

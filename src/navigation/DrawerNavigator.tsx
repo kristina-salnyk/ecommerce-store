@@ -17,7 +17,6 @@ const Drawer = createDrawerNavigator<DrawerParamList>();
 
 const DrawerNavigator = () => (
   <Drawer.Navigator
-    initialRouteName="Main"
     drawerContent={() => (
       <DrawerContainer>
         <DrawerContent />
@@ -31,6 +30,7 @@ const DrawerNavigator = () => (
             route={route}
             options={options}
             layout={layout}
+            drawerToggleShown={true}
           />
         </HeaderContainer>
       ),

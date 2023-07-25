@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {ScrollView} from 'react-native';
+import {Linking, ScrollView, Share} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {DrawerNavigationProp} from '@react-navigation/drawer';
 import IoniconsIcon from 'react-native-vector-icons/Ionicons';
@@ -19,17 +19,51 @@ import {
 const DrawerContent: FC = () => {
   const navigation = useNavigation<DrawerNavigationProp<DrawerParamList>>();
 
-  const handleNavigation = (screenName: keyof DrawerParamList) => {
-    navigation.reset({
-      index: 0,
-      routes: [{name: screenName, params: {isDrawerLink: true}}],
-    });
+  const onPressDrawerLink = (screenName: keyof DrawerParamList) => {
+    navigation.navigate(screenName);
+  };
+
+  const onPressEmailLink = async () => {
+    const canOpen = await Linking.canOpenURL('mailto:commerce.store@mail.com');
+    if (canOpen) {
+      try {
+        await Linking.openURL('mailto:kristina.salnyk@gmail.com');
+      } catch (error) {
+        console.log('Error opening email:', error);
+      }
+    } else {
+      console.log('Device does not support opening email URLs.');
+    }
+  };
+
+  const onPressCallLink = async () => {
+    const canOpen = await Linking.canOpenURL('tel:+1234567890');
+    if (canOpen) {
+      try {
+        await Linking.openURL('tel:+1234567890');
+      } catch (error) {
+        console.log('Error calling:', error);
+      }
+    } else {
+      console.log('Device does not support calling phone numbers.');
+    }
+  };
+
+  const onPressShareLink = async () => {
+    try {
+      await Share.share({
+        message: 'Check out Commerce Store app!',
+        url: 'https://www.commerce-store.com',
+      });
+    } catch (error) {
+      console.log('Error sharing:', error);
+    }
   };
 
   return (
     <ScrollView>
       <DrawerContentBlock>
-        <DrawerLogo onPress={() => handleNavigation('Main')}>
+        <DrawerLogo onPress={() => onPressDrawerLink('Main')}>
           <DrawerLogoText>Ecommerce{'\n'}Store</DrawerLogoText>
         </DrawerLogo>
       </DrawerContentBlock>
@@ -39,25 +73,25 @@ const DrawerContent: FC = () => {
           IconComponent={IoniconsIcon}
           iconName="person"
           text="My Profile"
-          onPress={() => handleNavigation('MyProfile')}
+          onPress={() => onPressDrawerLink('MyProfile')}
         />
         <DrawerLink
           IconComponent={FontAwesomeIcon}
           iconName="heart"
           text="My Wish List"
-          onPress={() => handleNavigation('MyWishList')}
+          onPress={() => onPressDrawerLink('MyWishList')}
         />
         <DrawerLink
           IconComponent={MaterialCommunityIcon}
           iconName="cart"
           text="My Cart"
-          onPress={() => handleNavigation('MyCart')}
+          onPress={() => onPressDrawerLink('MyCart')}
         />
         <DrawerLink
           IconComponent={MaterialCommunityIcon}
           iconName="cart-check"
           text="My Orders"
-          onPress={() => handleNavigation('MyOrders')}
+          onPress={() => onPressDrawerLink('MyOrders')}
         />
       </DrawerContentBlock>
       <HorizontalLineStyled />
@@ -67,13 +101,13 @@ const DrawerContent: FC = () => {
           IconComponent={IoniconsIcon}
           iconName="mail"
           text="Email"
-          onPress={() => {}}
+          onPress={onPressEmailLink}
         />
         <DrawerLink
           IconComponent={FontAwesomeIcon}
           iconName="phone"
           text="Call"
-          onPress={() => {}}
+          onPress={onPressCallLink}
         />
       </DrawerContentBlock>
       <HorizontalLineStyled />
@@ -82,7 +116,7 @@ const DrawerContent: FC = () => {
           IconComponent={IoniconsIcon}
           iconName="share-social"
           text="Share"
-          onPress={() => {}}
+          onPress={onPressShareLink}
         />
       </DrawerContentBlock>
     </ScrollView>
