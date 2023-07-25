@@ -14,6 +14,7 @@ const color: Readonly<Record<string, string>> = {
   greenAccentLight: '#A5DC86',
   orangeAccent: '#F39649',
   orangeAccentLight: '#FEB96B',
+  backDrop: 'rgba(28, 31, 39, 0.7)',
 };
 
 export default color;

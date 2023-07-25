@@ -23,3 +23,20 @@ export const PAGINATION_DOT_SCALE = 1;
 export const ICON_SIZE = 30;
 
 export const DRAWER_ICON_SIZE = 25;
+
+export const MODAL_ICON_SIZE = 60;
+
+export const MODAL_OPTIONS = {
+  ERROR: {
+    iconName: 'closecircleo',
+    iconColor: 'redAccent',
+  },
+  WARNING: {
+    iconName: 'exclamationcircleo',
+    iconColor: 'orangeAccent',
+  },
+  SUCCESS: {
+    iconName: 'checkcircleo',
+    iconColor: 'greenAccent',
+  },
+};

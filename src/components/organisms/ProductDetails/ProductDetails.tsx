@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import {RefreshControl, ScrollView} from 'react-native';
 
 import ImageSlider from '../../molecules/ImageSlider';
@@ -21,6 +21,8 @@ interface ProductDetailsProps {
   priceView: string;
   compareAtPrice: string | null;
   compareAtPriceView: string | null;
+  selectedColorId: string;
+  onSelectColor: (id: string) => void;
   options: {
     sliderSize?: number;
   };
@@ -34,10 +36,11 @@ const ProductDetails: FC<ProductDetailsProps> = ({
   priceView,
   compareAtPrice,
   compareAtPriceView,
+  selectedColorId,
+  onSelectColor,
   options,
 }) => {
   const [refreshing, onRefresh] = useRefreshing();
-  const [selectedColorId, setSelectedColorId] = useState<string>('');
 
   return (
     <ScrollView
@@ -58,7 +61,7 @@ const ProductDetails: FC<ProductDetailsProps> = ({
         <ProductSelect
           variants={PRODUCT_COLORS}
           selectedId={selectedColorId}
-          onSelect={setSelectedColorId}
+          onSelect={onSelectColor}
         />
         <HorizontalLine />
         <Title text="Description" />

@@ -5,7 +5,7 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import IconButton from '../../atoms/IconButton';
-import {RootStackParamList} from '../../../navigation/types';
+import {MainStackParamList} from '../../../navigation/types';
 import {HeaderRight, HeaderStyled, HeaderTitle} from './Header.styled';
 
 interface HeaderProps {
@@ -19,7 +19,7 @@ const Header: FC<HeaderProps> = ({
   routeName,
   drawerToggleShown = false,
 }) => {
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
 
   const onPressWish = useCallback(() => {}, []);
 

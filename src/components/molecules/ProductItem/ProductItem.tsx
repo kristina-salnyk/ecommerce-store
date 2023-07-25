@@ -6,7 +6,7 @@ import ProductName from '../../atoms/ProductName';
 import ProductCost from '../../atoms/ProductCost';
 import ProductImage from '../../atoms/ProductImage';
 import getImagePathById from '../../../utils/getImagePathById';
-import {RootStackParamList} from '../../../navigation/types';
+import {MainStackParamList} from '../../../navigation/types';
 import {ITEM_IMAGE_SIZE} from '../../../constants/shared';
 import {ProductItemStyled, ProductItemWrap} from './ProductItem.styled';
 
@@ -31,7 +31,7 @@ const ProductItem: FC<ProductItemProps> = ({
   compareAtPriceView,
   options,
 }) => {
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
 
   return (
     <ProductItemWrap
