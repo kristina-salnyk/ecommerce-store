@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {TouchableOpacity} from 'react-native';
 
-import {ICON_SIZE} from '../../../constants/shared';
+import {DEFAULT_ICON_SIZE} from '../../../constants/shared';
 import {SliderButtonIcon} from './SliderButton.styled';
 
 interface SliderButtonProps {
@@ -12,7 +12,11 @@ interface SliderButtonProps {
 
 const SliderButton: FC<SliderButtonProps> = ({iconName, disabled, onPress}) => (
   <TouchableOpacity disabled={disabled} onPress={onPress}>
-    <SliderButtonIcon name={iconName} size={ICON_SIZE} disabled={disabled} />
+    <SliderButtonIcon
+      name={iconName}
+      size={DEFAULT_ICON_SIZE}
+      disabled={disabled}
+    />
   </TouchableOpacity>
 );
 

@@ -1,6 +1,7 @@
 export type RootStackParamList = {
   Root: undefined;
   Modal: {
+    type: string;
     title: string;
     message?: string;
     options: {
@@ -14,6 +15,9 @@ export type MainStackParamList = {
   Drawer: {screen: string};
   ProductDetails: {productId: string};
   Search: undefined;
+  SignUp: undefined;
+  Login: undefined;
+  ForgotPassword: undefined;
 };
 
 export type DrawerParamList = {

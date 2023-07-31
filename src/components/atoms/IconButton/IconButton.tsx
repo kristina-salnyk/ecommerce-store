@@ -3,7 +3,7 @@ import {TouchableOpacity} from 'react-native';
 import {IconProps} from 'react-native-vector-icons/Icon';
 import {useTheme} from 'styled-components';
 
-import {ICON_SIZE} from '../../../constants/shared';
+import {DEFAULT_ICON_SIZE} from '../../../constants/shared';
 
 interface IconButtonProps {
   IconComponent: ComponentType<IconProps>;
@@ -22,7 +22,7 @@ const IconButton: FC<IconButtonProps> = ({
     <TouchableOpacity onPress={onPress}>
       <IconComponent
         name={iconName}
-        size={ICON_SIZE}
+        size={DEFAULT_ICON_SIZE}
         color={theme.color.white}
       />
     </TouchableOpacity>

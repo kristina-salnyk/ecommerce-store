@@ -20,7 +20,9 @@ export const SLIDER_BOTTOM_INDENT = 130;
 
 export const PAGINATION_DOT_SCALE = 1;
 
-export const ICON_SIZE = 30;
+export const DEFAULT_ICON_SIZE = 30;
+
+export const BUTTON_ICON_SIZE = 20;
 
 export const DRAWER_ICON_SIZE = 25;
 
@@ -39,4 +41,22 @@ export const MODAL_OPTIONS = {
     iconName: 'checkcircleo',
     iconColor: 'greenAccent',
   },
+};
+
+export const MODAL_TYPES = {
+  INFO: 'info',
+  LOGIN: 'login',
+  LOGOUT: 'logout',
+};
+
+export const MODAL_TITLES = {
+  colorNotSelected: 'Select color',
+  productAdded: 'Product added to your cart',
+  userNotAuthorized: 'Login To Continue',
+  userLogout: 'Are you sure you want to logout?',
+};
+
+export const MODAL_MESSAGES = {
+  colorNotSelected: 'Please select your color to add this item in your cart',
+  userNotAuthorized: 'Please login to add product in your cart',
 };

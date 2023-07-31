@@ -2,8 +2,8 @@ import React, {FC, useCallback, useRef, useState} from 'react';
 import {LayoutChangeEvent, View} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 
+import SliderPagination from '../SliderPagination';
 import ProductImage from '../../atoms/ProductImage';
-import SliderPagination from '../../atoms/SliderPagination';
 import SliderButton from '../../atoms/SliderButton';
 import ProductProperty from '../../../interfaces/ProductProperty';
 import getImagePathById from '../../../utils/getImagePathById';
