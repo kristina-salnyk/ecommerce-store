@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 
 export const InputWrap = styled.View`
   position: relative;
+  padding-top: ${({theme}) => theme.space.x8};
 `;
 
 export const IconWrap = styled.View`
@@ -15,7 +16,7 @@ export const IconWrap = styled.View`
 
 export const InputLabelWrap = styled.View`
   position: absolute;
-  top: -${({theme}) => theme.space.x8};
+  top: 0;
   left: ${({theme}) => theme.space.x16};
   padding: 0 ${({theme}) => theme.space.x4};
   background-color: ${({theme}) => theme.color.white};

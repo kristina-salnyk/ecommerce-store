@@ -2,7 +2,6 @@ import React, {FC} from 'react';
 import {RefreshControl, ScrollView} from 'react-native';
 
 import ImageSlider from '../../molecules/ImageSlider';
-import ProductName from '../../atoms/ProductName';
 import ProductCost from '../../atoms/ProductCost';
 import HorizontalLine from '../../atoms/HorizontalLine';
 import ProductDescription from '../../atoms/ProductDescription';
@@ -11,7 +10,7 @@ import Title from '../../atoms/Title';
 import useRefreshing from '../../../hooks/useRefreshing';
 import ProductProperty from '../../../interfaces/ProductProperty';
 import {PRODUCT_COLORS} from '../../../constants/data';
-import {ProductDetailsWrap} from './ProductDetails.styled';
+import {ProductDetailsWrap, ProductNameStyled} from './ProductDetails.styled';
 
 interface ProductDetailsProps {
   images: ProductProperty[];
@@ -49,7 +48,7 @@ const ProductDetails: FC<ProductDetailsProps> = ({
       }>
       <ProductDetailsWrap>
         <ImageSlider images={images} options={options} />
-        <ProductName text={name} />
+        <ProductNameStyled text={name} />
         <ProductCost
           price={price}
           priceView={priceView}

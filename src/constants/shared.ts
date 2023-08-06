@@ -12,7 +12,9 @@ export const PORTRAIT_LIST_COLUMNS = 2;
 
 export const LANDSCAPE_LIST_COLUMNS = 4;
 
-export const ITEM_IMAGE_SIZE = 160;
+export const PRODUCT_ITEM_IMAGE_SIZE = 160;
+
+export const PURCHASE_ITEM_IMAGE_SIZE = 120;
 
 export const SLIDER_SIZE = 300;
 

@@ -5,7 +5,7 @@ import Button from '../../atoms/Button';
 
 export const SignUpFormStyled = styled.View`
   padding: ${({theme}) => theme.space.x16} 0;
-  gap: ${({theme}) => theme.space.x24};
+  gap: ${({theme}) => theme.space.x16};
   flex: 1;
 `;
 

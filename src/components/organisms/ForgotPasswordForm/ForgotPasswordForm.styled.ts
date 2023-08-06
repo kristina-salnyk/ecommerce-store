@@ -4,7 +4,7 @@ import Button from '../../atoms/Button';
 
 export const ForgotPasswordFormStyled = styled.View`
   padding: ${({theme}) => theme.space.x16} 0;
-  gap: ${({theme}) => theme.space.x24};
+  gap: ${({theme}) => theme.space.x16};
   flex: 1;
 `;
 

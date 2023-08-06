@@ -1,18 +1,15 @@
 import styled from 'styled-components/native';
 
-import Link from '../../atoms/Link';
 import Button from '../../atoms/Button';
 
-export const LoginFormStyled = styled.View`
-  padding: ${({theme}) => theme.space.x16} 0;
+export const EmptyCartStyled = styled.View`
+  margin: 0 auto;
+  width: 100%;
+  align-items: center;
   gap: ${({theme}) => theme.space.x16};
-  flex: 1;
-`;
-
-export const LinkStyled = styled(Link)`
-  align-self: center;
 `;
 
 export const ButtonStyled = styled(Button)`
   margin-top: ${({theme}) => theme.space.x16};
+  align-self: stretch;
 `;

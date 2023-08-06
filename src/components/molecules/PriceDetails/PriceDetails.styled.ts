@@ -1,18 +1,15 @@
 import styled from 'styled-components/native';
 import {Platform} from 'react-native';
 
-import ProductName from '../../atoms/ProductName';
-
-export const ProductItemWrap = styled.TouchableOpacity<{percentWidth: number}>`
+export const PriceDetailsWrap = styled.View`
   padding: ${({theme}) => theme.space.x8};
-  width: ${({percentWidth}) => percentWidth}%;
 `;
 
-export const ProductItemStyled = styled.View`
-  padding: ${({theme}) => theme.space.x8};
+export const PriceDetailsStyled = styled.View`
+  padding: ${({theme}) => theme.space.x8} ${({theme}) => theme.space.x16}
+    ${({theme}) => theme.space.x16};
   background-color: ${({theme}) => theme.color.white};
   border-radius: ${({theme}) => theme.shape.radius.xs};
-  flex-grow: 1;
 
   ${({theme}) =>
     `shadow-color: ${theme.color.black};
@@ -27,8 +24,4 @@ export const ProductItemStyled = styled.View`
         elevation: 4;
       `
     }`}
-`;
-
-export const ProductNameStyled = styled(ProductName)`
-  margin: ${({theme}) => theme.space.x8} 0;
 `;
