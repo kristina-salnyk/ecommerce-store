@@ -1,5 +1,5 @@
 import React, {FC, useCallback} from 'react';
-import {Linking, ScrollView, Share} from 'react-native';
+import {ScrollView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {DrawerNavigationProp} from '@react-navigation/drawer';
 import IoniconsIcon from 'react-native-vector-icons/Ionicons';
@@ -11,6 +11,9 @@ import Logo from '../../atoms/Logo';
 import Title from '../../atoms/Title';
 import DrawerLink from '../../atoms/DrawerLink';
 import {useAuth} from '../../../contexts/AuthContext';
+import openCallLink from '../../../utils/openCallLink';
+import openEmailLink from '../../../utils/openEmailLink';
+import openShareLink from '../../../utils/openShareLink';
 import {
   DrawerContentBlock,
   DrawerLogo,
@@ -27,45 +30,6 @@ const DrawerContent: FC = () => {
     (screenName: keyof DrawerParamList) => navigation.navigate(screenName),
     [navigation],
   );
-
-  const onPressEmailLink = useCallback(async () => {
-    const canOpen = await Linking.canOpenURL('mailto:commerce.store@mail.com');
-
-    if (canOpen) {
-      try {
-        await Linking.openURL('mailto:kristina.salnyk@gmail.com');
-      } catch (error) {
-        console.log('Error opening email:', error);
-      }
-    } else {
-      console.log('Device does not support opening email URLs.');
-    }
-  }, []);
-
-  const onPressCallLink = useCallback(async () => {
-    const canOpen = await Linking.canOpenURL('tel:+1234567890');
-
-    if (canOpen) {
-      try {
-        await Linking.openURL('tel:+1234567890');
-      } catch (error) {
-        console.log('Error calling:', error);
-      }
-    } else {
-      console.log('Device does not support calling phone numbers.');
-    }
-  }, []);
-
-  const onPressShareLink = useCallback(async () => {
-    try {
-      await Share.share({
-        message: 'Check out Commerce Store app!',
-        url: 'https://www.commerce-store.com',
-      });
-    } catch (error) {
-      console.log('Error sharing:', error);
-    }
-  }, []);
 
   return (
     <ScrollView>
@@ -112,13 +76,13 @@ const DrawerContent: FC = () => {
           IconComponent={IoniconsIcon}
           iconName="mail"
           text="Email"
-          onPress={onPressEmailLink}
+          onPress={openEmailLink}
         />
         <DrawerLink
           IconComponent={FontAwesomeIcon}
           iconName="phone"
           text="Call"
-          onPress={onPressCallLink}
+          onPress={openCallLink}
         />
       </DrawerContentBlock>
       <HorizontalLineStyled />
@@ -127,7 +91,7 @@ const DrawerContent: FC = () => {
           IconComponent={IoniconsIcon}
           iconName="share-social"
           text="Share"
-          onPress={onPressShareLink}
+          onPress={openShareLink}
         />
       </DrawerContentBlock>
     </ScrollView>
