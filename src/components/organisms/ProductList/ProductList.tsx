@@ -1,20 +1,70 @@
-import React, {FC} from 'react';
-import {FlatList, RefreshControl} from 'react-native';
+import React, {FC, useCallback, useEffect, useState} from 'react';
+import {FlatList, RefreshControl, View} from 'react-native';
 
+import Splash from '../../molecules/Splash';
 import ProductItem from '../../molecules/ProductItem';
-import useRefreshing from '../../../hooks/useRefreshing';
-import Product from '../../../interfaces/Product';
+import {getProductsThunk} from '../../../store/products/thunk';
+import {updateIsRefreshing} from '../../../store/products/actionCreators';
+import {
+  useAppDispatch,
+  useAppSelector,
+  useAppThunkDispatch,
+} from '../../../store/hooks';
+import {
+  selectIsLoading,
+  selectIsLoadingMore,
+  selectIsRefreshing,
+  selectItems,
+  selectTotalPages,
+} from '../../../store/products/selectors';
 
 interface ProductListProps {
-  products: Product[];
   options: {
     columnNum: number;
     columnPercentWidth: number;
   };
 }
 
-const ProductList: FC<ProductListProps> = ({products, options}) => {
-  const [refreshing, onRefresh] = useRefreshing();
+const ProductList: FC<ProductListProps> = ({options}) => {
+  const dispatch = useAppDispatch();
+  const thunkDispatch = useAppThunkDispatch();
+  const [page, setPage] = useState(1);
+
+  const getProducts = useCallback(() => {
+    (async () => {
+      thunkDispatch(getProductsThunk(page));
+    })();
+  }, [thunkDispatch, page]);
+
+  useEffect(() => {
+    getProducts();
+  }, [getProducts, page]);
+
+  const getMoreProducts = () => {
+    if (isLoadingMore || page >= totalPages) {
+      return;
+    }
+    setPage(page + 1);
+  };
+
+  const refreshProducts = useCallback(() => {
+    dispatch(updateIsRefreshing(true));
+    if (page === 1) {
+      getProducts();
+      return;
+    }
+    setPage(1);
+  }, [dispatch, getProducts, page]);
+
+  const products = useAppSelector(selectItems);
+  const totalPages = useAppSelector(selectTotalPages);
+  const isLoading = useAppSelector(selectIsLoading);
+  const isLoadingMore = useAppSelector(selectIsLoadingMore);
+  const isRefreshing = useAppSelector(selectIsRefreshing);
+
+  if (isLoading && !isRefreshing) {
+    return <Splash />;
+  }
 
   return (
     <FlatList
@@ -32,8 +82,11 @@ const ProductList: FC<ProductListProps> = ({products, options}) => {
           options={{itemPercentWidth: options.columnPercentWidth}}
         />
       )}
+      onEndReachedThreshold={0.2}
+      onEndReached={getMoreProducts}
+      ListFooterComponent={() => <View>{isLoadingMore && <Splash />}</View>}
       refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        <RefreshControl refreshing={isRefreshing} onRefresh={refreshProducts} />
       }
     />
   );

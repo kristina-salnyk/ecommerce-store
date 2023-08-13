@@ -8,12 +8,12 @@ import ProductDescription from '../../atoms/ProductDescription';
 import ProductSelect from '../../atoms/ProductSelect';
 import Title from '../../atoms/Title';
 import useRefreshing from '../../../hooks/useRefreshing';
-import ProductProperty from '../../../interfaces/ProductProperty';
+import ProductRelationship from '../../../interfaces/ProductRelationship';
 import {PRODUCT_COLORS} from '../../../constants/data';
 import {ProductDetailsWrap, ProductNameStyled} from './ProductDetails.styled';
 
 interface ProductDetailsProps {
-  images: ProductProperty[];
+  images: ProductRelationship[];
   name: string;
   description: string;
   price: string;
@@ -39,12 +39,12 @@ const ProductDetails: FC<ProductDetailsProps> = ({
   onSelectColor,
   options,
 }) => {
-  const [refreshing, onRefresh] = useRefreshing();
+  const [isRefreshing, onRefresh] = useRefreshing();
 
   return (
     <ScrollView
       refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        <RefreshControl refreshing={isRefreshing} onRefresh={onRefresh} />
       }>
       <ProductDetailsWrap>
         <ImageSlider images={images} options={options} />

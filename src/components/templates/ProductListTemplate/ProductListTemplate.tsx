@@ -3,7 +3,6 @@ import React, {FC} from 'react';
 import ProductList from '../../organisms/ProductList';
 import SearchBar from '../../molecules/SearchBar';
 import useOrientation from '../../../hooks/useOrientation';
-import Product from '../../../interfaces/Product';
 import {
   LANDSCAPE_LIST_COLUMNS,
   ORIENTATION_TYPES,
@@ -15,11 +14,7 @@ import {
   ProductListWrap,
 } from './ProductListTemplate.styled';
 
-interface ProductListTemplateProps {
-  products: Product[];
-}
-
-const ProductListTemplate: FC<ProductListTemplateProps> = ({products}) => {
+const ProductListTemplate: FC = () => {
   const orientation = useOrientation();
   const columnNum =
     orientation === ORIENTATION_TYPES.LANDSCAPE
@@ -33,10 +28,7 @@ const ProductListTemplate: FC<ProductListTemplateProps> = ({products}) => {
     <ProductListTemplateStyled>
       <SearchBar />
       <ProductListWrap>
-        <ProductList
-          products={products}
-          options={{columnNum, columnPercentWidth}}
-        />
+        <ProductList options={{columnNum, columnPercentWidth}} />
       </ProductListWrap>
     </ProductListTemplateStyled>
   );

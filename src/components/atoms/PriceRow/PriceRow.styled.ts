@@ -8,7 +8,7 @@ export const PriceRowStyled = styled.View`
 
 export const PriceRowText = styled.Text<{color: string | undefined}>`
   font-size: ${({theme}) => theme.font.size.m};
-  color: ${({theme, color}) => theme.color[color ?? 'gray']};
+  color: ${({theme, color}) => color ?? theme.color.gray};
 `;
 
 export const PriceRowValue = styled.Text<{
@@ -17,5 +17,5 @@ export const PriceRowValue = styled.Text<{
 }>`
   font-size: ${({theme}) => theme.font.size.m};
   color: ${({theme, isHighlighted, color}) =>
-    theme.color[isHighlighted ? 'secondary' : color ?? 'gray']};
+    color ?? theme.color[isHighlighted ? 'secondary' : 'gray']};
 `;

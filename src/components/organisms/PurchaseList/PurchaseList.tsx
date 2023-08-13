@@ -11,7 +11,7 @@ interface PurchaseListProps {
 }
 
 const PurchaseList: FC<PurchaseListProps> = ({cart}) => {
-  const [refreshing, onRefresh] = useRefreshing();
+  const [isRefreshing, onRefresh] = useRefreshing();
 
   return (
     <FlatList
@@ -39,7 +39,7 @@ const PurchaseList: FC<PurchaseListProps> = ({cart}) => {
         />
       )}
       refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        <RefreshControl refreshing={isRefreshing} onRefresh={onRefresh} />
       }
     />
   );

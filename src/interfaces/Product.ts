@@ -1,4 +1,4 @@
-import ProductProperty from './ProductProperty';
+import ProductRelationship from './ProductRelationship';
 
 interface Product {
   id: string;
@@ -25,25 +25,25 @@ interface Product {
   };
   relationships: {
     variants: {
-      data: ProductProperty[];
+      data: ProductRelationship[];
     };
     option_types: {
-      data: ProductProperty[];
+      data: ProductRelationship[];
     };
     product_properties: {
-      data: ProductProperty[];
+      data: ProductRelationship[];
     };
     taxons: {
-      data: ProductProperty[];
+      data: ProductRelationship[];
     };
     images: {
-      data: ProductProperty[];
+      data: ProductRelationship[];
     };
     default_variant?: {
-      data: ProductProperty | null;
+      data: ProductRelationship | null;
     };
     primary_variant?: {
-      data: ProductProperty | null;
+      data: ProductRelationship | null;
     };
   };
 }
