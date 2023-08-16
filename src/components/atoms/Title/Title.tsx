@@ -1,11 +1,10 @@
 import React, {FC} from 'react';
-import {StyleProp} from 'react-native';
+import {TextProps} from 'react-native';
 
 import {TitleStyled} from './Title.styled';
 
-interface TitleProps {
+interface TitleProps extends TextProps {
   text: string;
-  style?: StyleProp<object>;
 }
 
 const Title: FC<TitleProps> = ({text, style}) => (

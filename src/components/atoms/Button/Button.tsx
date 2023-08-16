@@ -1,17 +1,16 @@
 import React, {ComponentType, FC} from 'react';
-import {StyleProp, ViewStyle} from 'react-native';
+import {TouchableOpacityProps} from 'react-native';
 import {useTheme} from 'styled-components';
 import {IconProps} from 'react-native-vector-icons/Icon';
 
 import {BUTTON_ICON_SIZE} from '../../../constants/shared';
 import {ButtonStyled, ButtonText} from './Button.styled';
 
-interface ButtonProps {
+interface ButtonProps extends TouchableOpacityProps {
   text: string;
   onPress: () => void;
   IconComponent?: ComponentType<IconProps>;
   iconName?: string;
-  style?: StyleProp<ViewStyle>;
 }
 
 const Button: FC<ButtonProps> = ({

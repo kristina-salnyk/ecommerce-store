@@ -1,16 +1,15 @@
 import React, {ComponentType, FC} from 'react';
-import {StyleProp, TouchableOpacity} from 'react-native';
+import {TouchableOpacity, TouchableOpacityProps} from 'react-native';
 import {IconProps} from 'react-native-vector-icons/Icon';
 import {useTheme} from 'styled-components';
 
 import {DEFAULT_ICON_SIZE} from '../../../constants/shared';
 
-interface IconButtonProps {
+interface IconButtonProps extends TouchableOpacityProps {
   IconComponent: ComponentType<IconProps>;
   iconName: string;
   onPress: () => void;
   color?: string;
-  style?: StyleProp<object>;
 }
 
 const IconButton: FC<IconButtonProps> = ({

@@ -21,6 +21,7 @@ import {
   PurchaseItemWrap,
   PurchaseQuantityWrap,
 } from './PurchaseItem.styled';
+import parseNumber from '../../../utils/parseNumber';
 
 interface PurchaseItemProps {
   id: string;
@@ -46,8 +47,8 @@ const PurchaseItem: FC<PurchaseItemProps> = ({
   const [currentQuantity, setCurrentQuantity] = useState(quantity);
   const theme = useTheme();
 
-  const priceNum = Number(price);
-  const promoNum = Number(promo);
+  const priceNum = parseNumber(price);
+  const promoNum = parseNumber(promo);
 
   const compareAtPrice = useMemo(
     () => (priceNum + promoNum).toString(),
@@ -59,13 +60,13 @@ const PurchaseItem: FC<PurchaseItemProps> = ({
     [compareAtPrice, currency],
   );
 
-  const onPressIncreaseQuantity = () => {
+  const onPressIncreaseQuantity = useCallback(() => {
     setCurrentQuantity(prevState => prevState + 1);
-  };
+  }, []);
 
-  const onPressDecreaseQuantity = () => {
+  const onPressDecreaseQuantity = useCallback(() => {
     setCurrentQuantity(prevState => prevState - 1);
-  };
+  }, []);
 
   const onPressDelete = useCallback(() => {}, []);
 
@@ -75,7 +76,7 @@ const PurchaseItem: FC<PurchaseItemProps> = ({
         <PurchaseItemDetailsWrap>
           <PurchaseImageWrap width={PURCHASE_ITEM_IMAGE_SIZE}>
             <ProductImage
-              path={getImagePathById(id, PURCHASE_ITEM_IMAGE_SIZE)}
+              source={{uri: getImagePathById(id, PURCHASE_ITEM_IMAGE_SIZE)}}
               options={{
                 height: PURCHASE_ITEM_IMAGE_SIZE,
                 width: PURCHASE_ITEM_IMAGE_SIZE,

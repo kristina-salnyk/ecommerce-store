@@ -42,7 +42,7 @@ const ProductItem: FC<ProductItemProps> = ({
       onPress={() => navigation.push('ProductDetails', {productId: id})}>
       <ProductItemStyled>
         <ProductImage
-          path={getImagePathById(id, PRODUCT_ITEM_IMAGE_SIZE)}
+          source={{uri: getImagePathById(id, PRODUCT_ITEM_IMAGE_SIZE)}}
           options={{
             height: PRODUCT_ITEM_IMAGE_SIZE,
             width: PRODUCT_ITEM_IMAGE_SIZE,
