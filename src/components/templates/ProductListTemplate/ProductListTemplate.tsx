@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 
 import ProductList from '../../organisms/ProductList';
-import useOrientation from '../../../hooks/useOrientation';
 import SearchBar from '../../molecules/SearchBar';
+import useOrientation from '../../../hooks/useOrientation';
 import Product from '../../../interfaces/Product';
 import {
   LANDSCAPE_LIST_COLUMNS,

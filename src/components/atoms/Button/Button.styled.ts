@@ -3,6 +3,11 @@ import styled from 'styled-components/native';
 
 export const ButtonStyled = styled.TouchableOpacity`
   padding: ${({theme}) => theme.space.x16} 0;
+  min-width: 140px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: ${({theme}) => theme.space.x8};
   background-color: ${({theme}) => theme.color.primary};
   border-radius: ${({theme}) => theme.shape.radius.xs};
 

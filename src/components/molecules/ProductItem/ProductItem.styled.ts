@@ -1,7 +1,9 @@
-import {Platform} from 'react-native';
 import styled from 'styled-components/native';
+import {Platform} from 'react-native';
 
-export const ProductItemWrap = styled.View<{percentWidth: number}>`
+import ProductName from '../../atoms/ProductName';
+
+export const ProductItemWrap = styled.TouchableOpacity<{percentWidth: number}>`
   padding: ${({theme}) => theme.space.x8};
   width: ${({percentWidth}) => percentWidth}%;
 `;
@@ -25,4 +27,8 @@ export const ProductItemStyled = styled.View`
         elevation: 4;
       `
     }`}
+`;
+
+export const ProductNameStyled = styled(ProductName)`
+  margin: ${({theme}) => theme.space.x8} 0;
 `;

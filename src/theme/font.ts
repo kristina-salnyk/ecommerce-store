@@ -5,6 +5,7 @@ const size: Readonly<Record<string, string>> = {
   l: '20px',
   xl: '24px',
   xxl: '28px',
+  xxxl: '40px',
 };
 
 const weight: Readonly<Record<string, string>> = {

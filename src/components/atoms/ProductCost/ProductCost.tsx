@@ -35,7 +35,7 @@ const ProductCost: FC<ProductCostProps> = ({
   return (
     <ProductCostStyled>
       <ProductPrice>{priceView}</ProductPrice>
-      {compareAtPriceNum > 0 && (
+      {compareAtPriceNum > 0 && compareAtPriceNum !== priceNum && (
         <ProductCompareAtPrice>{compareAtPriceView}</ProductCompareAtPrice>
       )}
       {discount > 0 && <ProductDiscount>{`${discount}% Off`}</ProductDiscount>}
