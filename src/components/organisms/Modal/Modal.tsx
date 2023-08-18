@@ -6,8 +6,8 @@ import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import {RootStackParamList} from '../../../navigation/types';
 import Title from '../../atoms/Title';
 import Message from '../../atoms/Message';
-import InfoModalActions from '../../molecules/InfoModalActions';
-import LoginModalActions from '../../molecules/LoginModalActions';
+import ConfirmModalActions from '../../molecules/ConfirmModalActions';
+import AuthModalActions from '../../molecules/AuthModalActions';
 import LogoutModalActions from '../../molecules/LogoutModalActions';
 import {MODAL_ICON_SIZE, MODAL_TYPES} from '../../../constants/shared';
 import {ModalStyled} from './Modal.styled';
@@ -26,8 +26,8 @@ const Modal: FC = () => {
       />
       <Title text={title} />
       {message && <Message text={message} />}
-      {type === MODAL_TYPES.INFO && <InfoModalActions />}
-      {type === MODAL_TYPES.LOGIN && <LoginModalActions />}
+      {type === MODAL_TYPES.CONFIRM && <ConfirmModalActions />}
+      {type === MODAL_TYPES.AUTH && <AuthModalActions />}
       {type === MODAL_TYPES.LOGOUT && <LogoutModalActions />}
     </ModalStyled>
   );

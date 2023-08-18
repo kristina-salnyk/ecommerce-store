@@ -1,5 +1,6 @@
 import {AppDispatch, AppThunk} from '../index';
 import {
+  setError,
   setProducts,
   updateIsLoading,
   updateIsLoadingMore,
@@ -32,6 +33,10 @@ export const getProductsThunk =
 
       dispatch(setProducts({items, totalPages}));
     } catch (error) {
-      console.log('Error getting products', error);
+      dispatch(
+        setError(
+          error instanceof Error ? error.message : 'Unknown error' + error,
+        ),
+      );
     }
   };

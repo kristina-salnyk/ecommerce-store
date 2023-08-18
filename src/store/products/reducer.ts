@@ -1,4 +1,5 @@
 import {
+  PRODUCTS_SET_ERROR,
   PRODUCTS_SET_LIST,
   PRODUCTS_UPDATE_IS_LOADING,
   PRODUCTS_UPDATE_IS_LOADING_MORE,
@@ -40,11 +41,21 @@ const reducer = (
         error: null,
       };
     case PRODUCTS_UPDATE_IS_LOADING:
-      return {...state, isLoading: action.payload};
+      return {...state, isLoading: action.payload, error: null};
     case PRODUCTS_UPDATE_IS_LOADING_MORE:
-      return {...state, isLoadingMore: action.payload};
+      return {...state, isLoadingMore: action.payload, error: null};
     case PRODUCTS_UPDATE_IS_REFRESHING:
-      return {...state, isRefreshing: action.payload};
+      return {...state, isRefreshing: action.payload, error: null};
+    case PRODUCTS_SET_ERROR:
+      return {
+        ...state,
+        items: [],
+        totalPages: 0,
+        isLoading: false,
+        isLoadingMore: false,
+        isRefreshing: false,
+        error: action.payload,
+      };
     default:
       return state;
   }

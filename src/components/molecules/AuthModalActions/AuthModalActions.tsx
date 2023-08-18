@@ -4,9 +4,9 @@ import {StackNavigationProp} from '@react-navigation/stack';
 
 import {MainStackParamList} from '../../../navigation/types';
 import Button from '../../atoms/Button';
-import {LoginModalActionsStyled} from './LoginModalActions.styled';
+import {AuthModalActionsStyled} from './AuthModalActions.styled';
 
-const LoginModalActions: FC = () => {
+const AuthModalActions: FC = () => {
   const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
 
   const onPressLogin = useCallback(
@@ -20,11 +20,11 @@ const LoginModalActions: FC = () => {
   );
 
   return (
-    <LoginModalActionsStyled>
+    <AuthModalActionsStyled>
       <Button text="Login" onPress={onPressLogin} />
       <Button text="Sign up" onPress={onPressSignUp} />
-    </LoginModalActionsStyled>
+    </AuthModalActionsStyled>
   );
 };
 
-export default LoginModalActions;
+export default AuthModalActions;

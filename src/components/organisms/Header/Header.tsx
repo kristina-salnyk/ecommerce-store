@@ -36,7 +36,7 @@ const Header: FC<HeaderProps> = ({title, routeName}) => {
   const onPressOpenCart = useCallback(() => {
     if (!token) {
       rootNavigation.navigate('Modal', {
-        type: MODAL_TYPES.LOGIN,
+        type: MODAL_TYPES.AUTH,
         title: MODAL_TITLES.userNotAuthorized,
         options: MODAL_OPTIONS.ERROR,
       });

@@ -1,9 +1,11 @@
 import {
+  PRODUCTS_SET_ERROR,
   PRODUCTS_SET_LIST,
   PRODUCTS_UPDATE_IS_LOADING,
   PRODUCTS_UPDATE_IS_LOADING_MORE,
   PRODUCTS_UPDATE_IS_REFRESHING,
   PRODUCTS_UPDATE_LIST,
+  ProductsSetErrorAction,
   ProductsSetListAction,
   ProductsUpdateIsLoadingAction,
   ProductsUpdateIsLoadingMoreAction,
@@ -52,6 +54,13 @@ export const updateIsRefreshing = (
 ): ProductsUpdateIsRefreshingAction => {
   return {
     type: PRODUCTS_UPDATE_IS_REFRESHING,
+    payload: data,
+  };
+};
+
+export const setError = (data: string): ProductsSetErrorAction => {
+  return {
+    type: PRODUCTS_SET_ERROR,
     payload: data,
   };
 };

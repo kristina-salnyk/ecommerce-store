@@ -10,6 +10,8 @@ export const PRODUCTS_UPDATE_IS_LOADING_MORE = 'products/updateIsLoadingMore';
 
 export const PRODUCTS_UPDATE_IS_REFRESHING = 'products/updateIsRefreshing';
 
+export const PRODUCTS_SET_ERROR = 'products/setError';
+
 export interface ProductsSetListAction {
   type: typeof PRODUCTS_SET_LIST;
   payload: {
@@ -38,9 +40,15 @@ export interface ProductsUpdateIsRefreshingAction {
   payload: boolean;
 }
 
+export interface ProductsSetErrorAction {
+  type: typeof PRODUCTS_SET_ERROR;
+  payload: string;
+}
+
 export type ProductsAction =
   | ProductsSetListAction
   | ProductsUpdateListAction
   | ProductsUpdateIsLoadingAction
   | ProductsUpdateIsLoadingMoreAction
-  | ProductsUpdateIsRefreshingAction;
+  | ProductsUpdateIsRefreshingAction
+  | ProductsSetErrorAction;

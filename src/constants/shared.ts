@@ -48,8 +48,8 @@ export const MODAL_OPTIONS = {
 };
 
 export const MODAL_TYPES = {
-  INFO: 'info',
-  LOGIN: 'login',
+  CONFIRM: 'confirm',
+  AUTH: 'auth',
   LOGOUT: 'logout',
 };
 

@@ -4,16 +4,16 @@ import {StackNavigationProp} from '@react-navigation/stack';
 
 import {RootStackParamList} from '../../../navigation/types';
 import Button from '../../atoms/Button';
-import {InfoModalActionsStyled} from './InfoModalActions.styled';
+import {ConfirmModalActionsStyled} from './ConfirmModalActions.styled';
 
-const InfoModalActions: FC = () => {
+const ConfirmModalActions: FC = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   return (
-    <InfoModalActionsStyled>
+    <ConfirmModalActionsStyled>
       <Button text="Ok" onPress={navigation.goBack} />
-    </InfoModalActionsStyled>
+    </ConfirmModalActionsStyled>
   );
 };
 
-export default InfoModalActions;
+export default ConfirmModalActions;

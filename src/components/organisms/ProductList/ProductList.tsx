@@ -1,5 +1,5 @@
-import React, {FC, useCallback, useEffect, useState} from 'react';
-import {FlatList, RefreshControl, View} from 'react-native';
+import React, {FC, ReactElement, useCallback, useEffect, useState} from 'react';
+import {FlatList, RefreshControl} from 'react-native';
 
 import Splash from '../../molecules/Splash';
 import ProductItem from '../../molecules/ProductItem';
@@ -11,12 +11,15 @@ import {
   useAppThunkDispatch,
 } from '../../../store/hooks';
 import {
+  selectError,
   selectIsLoading,
   selectIsLoadingMore,
   selectIsRefreshing,
   selectItems,
   selectTotalPages,
 } from '../../../store/products/selectors';
+import NotificationBox from '../NotificationBox';
+import noResults from '../../../assets/images/no-results.png';
 
 interface ProductListProps {
   options: {
@@ -47,24 +50,59 @@ const ProductList: FC<ProductListProps> = ({options}) => {
     setPage(page + 1);
   };
 
-  const refreshProducts = useCallback(() => {
-    dispatch(updateIsRefreshing(true));
+  const refreshProductsList = useCallback(() => {
     if (page === 1) {
       getProducts();
       return;
     }
     setPage(1);
-  }, [dispatch, getProducts, page]);
+  }, [getProducts, page]);
+
+  const refreshProducts = useCallback(() => {
+    dispatch(updateIsRefreshing(true));
+    refreshProductsList();
+  }, [dispatch, refreshProductsList]);
 
   const products = useAppSelector(selectItems);
   const totalPages = useAppSelector(selectTotalPages);
   const isLoading = useAppSelector(selectIsLoading);
   const isLoadingMore = useAppSelector(selectIsLoadingMore);
   const isRefreshing = useAppSelector(selectIsRefreshing);
+  const error = useAppSelector(selectError);
 
   if (isLoading && !isRefreshing) {
     return <Splash />;
   }
+
+  const renderListEmptyComponent = (): ReactElement => {
+    if (error) {
+      return (
+        <NotificationBox
+          imageSource={noResults}
+          title="Error!"
+          message="Somthing went wrong. Please try again later"
+          action="Refresh"
+          onPress={refreshProductsList}
+        />
+      );
+    }
+    return (
+      <NotificationBox
+        imageSource={noResults}
+        title="Products List is Empty!"
+        message="No results have been received"
+        action="Refresh"
+        onPress={refreshProductsList}
+      />
+    );
+  };
+
+  const renderListFooterComponent = (): ReactElement | null => {
+    if (isLoadingMore) {
+      return <Splash />;
+    }
+    return null;
+  };
 
   return (
     <FlatList
@@ -84,7 +122,8 @@ const ProductList: FC<ProductListProps> = ({options}) => {
       )}
       onEndReachedThreshold={0.2}
       onEndReached={getMoreProducts}
-      ListFooterComponent={() => <View>{isLoadingMore && <Splash />}</View>}
+      ListEmptyComponent={renderListEmptyComponent()}
+      ListFooterComponent={renderListFooterComponent()}
       refreshControl={
         <RefreshControl refreshing={isRefreshing} onRefresh={refreshProducts} />
       }

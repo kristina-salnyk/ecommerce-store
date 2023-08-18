@@ -6,10 +6,10 @@ import {MainStackParamList} from './types';
 import ProductDetailsScreen from '../screens/ProductDetailsScreen';
 import SearchScreen from '../screens/SearchScreen';
 import LoginScreen from '../screens/LoginScreen';
-import SplashScreen from '../screens/SplashScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
 import HeaderContainer from '../containers/HeaderContainer';
+import Splash from '../components/molecules/Splash';
 import HeaderTemplate from '../components/templates/HeaderTemplate';
 import {useAuth} from '../contexts/AuthContext';
 
@@ -21,7 +21,7 @@ const MainNavigator = () => {
   } = useAuth();
 
   if (isLoading) {
-    return <SplashScreen />;
+    return <Splash />;
   }
 
   return (

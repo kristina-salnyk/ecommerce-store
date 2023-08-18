@@ -11,3 +11,5 @@ export const selectIsLoadingMore = (state: RootState) =>
 
 export const selectIsRefreshing = (state: RootState) =>
   state.products.isRefreshing;
+
+export const selectError = (state: RootState) => state.products.error;

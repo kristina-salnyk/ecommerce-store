@@ -1,5 +1,5 @@
 import React, {FC, useCallback, useRef, useState} from 'react';
-import {LayoutChangeEvent, View} from 'react-native';
+import {LayoutChangeEvent} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 
 import SliderPagination from '../SliderPagination';
@@ -44,7 +44,7 @@ const ImageSlider: FC<ImageSliderProps> = ({images, options}) => {
   }, []);
 
   return (
-    <View>
+    <>
       <ImageSliderStyled>
         <SliderButton
           iconName="arrow-left"
@@ -81,7 +81,7 @@ const ImageSlider: FC<ImageSliderProps> = ({images, options}) => {
         dotsLength={images.length}
         activeDotIndex={currentIndex}
       />
-    </View>
+    </>
   );
 };
 

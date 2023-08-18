@@ -36,7 +36,7 @@ const ProductDetailsTemplate: FC<ProductDetailsTemplateProps> = ({product}) => {
   const addProductToCart = useCallback(() => {
     if (!token) {
       navigation.navigate('Modal', {
-        type: MODAL_TYPES.LOGIN,
+        type: MODAL_TYPES.AUTH,
         title: MODAL_TITLES.userNotAuthorized,
         message: MODAL_MESSAGES.userNotAuthorized,
         options: MODAL_OPTIONS.ERROR,
@@ -46,7 +46,7 @@ const ProductDetailsTemplate: FC<ProductDetailsTemplateProps> = ({product}) => {
 
     if (!selectedColorId) {
       navigation.navigate('Modal', {
-        type: MODAL_TYPES.INFO,
+        type: MODAL_TYPES.CONFIRM,
         title: MODAL_TITLES.colorNotSelected,
         message: MODAL_MESSAGES.colorNotSelected,
         options: MODAL_OPTIONS.ERROR,
@@ -55,7 +55,7 @@ const ProductDetailsTemplate: FC<ProductDetailsTemplateProps> = ({product}) => {
     }
 
     navigation.navigate('Modal', {
-      type: MODAL_TYPES.INFO,
+      type: MODAL_TYPES.CONFIRM,
       title: MODAL_TITLES.productAdded,
       options: MODAL_OPTIONS.SUCCESS,
     });
