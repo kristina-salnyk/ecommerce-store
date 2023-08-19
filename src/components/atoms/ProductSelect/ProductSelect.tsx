@@ -1,27 +1,29 @@
 import React, {FC} from 'react';
 
 import SelectButton from '../SelectButton';
-import ProductColor from '../../../interfaces/ProductColor';
+import formatColorOption from '../../../utils/formatColorOption';
+import ProductOption from '../../../interfaces/ProductOption';
 import {ProductSelectStyled} from './ProductSelect.styled';
 
 interface ProductSelectProps {
-  variants: ProductColor[];
+  colorOptions: ProductOption[];
   selectedId: string;
   onSelect: (id: string) => void;
 }
 
 const ProductSelect: FC<ProductSelectProps> = ({
-  variants,
+  colorOptions,
   selectedId,
   onSelect,
 }) => (
   <ProductSelectStyled>
-    {variants.map(item => (
+    {colorOptions.map(option => (
       <SelectButton
-        key={item.id}
-        text={item.name}
-        selected={item.id === selectedId}
-        onPress={() => onSelect(item.id)}
+        key={option.id}
+        text={formatColorOption(option.name)}
+        color={option.presentation}
+        selected={option.id === selectedId}
+        onPress={() => onSelect(option.id)}
       />
     ))}
   </ProductSelectStyled>

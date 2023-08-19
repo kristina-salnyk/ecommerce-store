@@ -1,4 +1,3 @@
-import ProductColor from '../interfaces/ProductColor';
 import Product from '../interfaces/Product';
 import Cart from '../interfaces/Cart';
 
@@ -139,13 +138,6 @@ export const CART: Cart = {
     },
   ],
 };
-
-export const PRODUCT_COLORS: ProductColor[] = [
-  {id: '1', name: 'Blue'},
-  {id: '2', name: 'Red'},
-  {id: '3', name: 'Black'},
-  {id: '4', name: 'Gray'},
-];
 
 export const PRODUCTS: Product[] = [
   {

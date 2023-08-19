@@ -2,10 +2,12 @@ import {Action, applyMiddleware, combineReducers, createStore} from 'redux';
 import thunkMiddleware, {ThunkAction, ThunkDispatch} from 'redux-thunk';
 
 import productsReducer from './products/reducer';
+import productReducer from './product/reducer';
 import cartReducer from './cart/reducer';
 
 const rootReducer = combineReducers({
   products: productsReducer,
+  product: productReducer,
   cart: cartReducer,
 });
 

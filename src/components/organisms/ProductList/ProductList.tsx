@@ -3,6 +3,7 @@ import {FlatList, RefreshControl} from 'react-native';
 
 import Splash from '../../molecules/Splash';
 import ProductItem from '../../molecules/ProductItem';
+import NotificationBox from '../NotificationBox';
 import {getProductsThunk} from '../../../store/products/thunk';
 import {updateIsRefreshing} from '../../../store/products/actionCreators';
 import {
@@ -18,7 +19,6 @@ import {
   selectItems,
   selectTotalPages,
 } from '../../../store/products/selectors';
-import NotificationBox from '../NotificationBox';
 import noResults from '../../../assets/images/no-results.png';
 
 interface ProductListProps {
@@ -29,9 +29,9 @@ interface ProductListProps {
 }
 
 const ProductList: FC<ProductListProps> = ({options}) => {
+  const [page, setPage] = useState(1);
   const dispatch = useAppDispatch();
   const thunkDispatch = useAppThunkDispatch();
-  const [page, setPage] = useState(1);
 
   const getProducts = useCallback(() => {
     (async () => {
@@ -80,7 +80,7 @@ const ProductList: FC<ProductListProps> = ({options}) => {
         <NotificationBox
           imageSource={noResults}
           title="Error!"
-          message="Somthing went wrong. Please try again later"
+          message="Something went wrong. Please try again later"
           action="Refresh"
           onPress={refreshProductsList}
         />
@@ -113,6 +113,7 @@ const ProductList: FC<ProductListProps> = ({options}) => {
         <ProductItem
           id={item.id}
           name={item.attributes.name}
+          slug={item.attributes.slug}
           price={item.attributes.price}
           priceView={item.attributes.display_price}
           compareAtPrice={item.attributes.compare_at_price}

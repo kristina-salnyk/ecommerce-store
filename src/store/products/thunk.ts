@@ -7,6 +7,7 @@ import {
   updateProducts,
 } from './actionCreators';
 import {getProductsList} from '../../api/products';
+import ProductOptionType from '../../interfaces/ProductOptionType';
 
 export const getProductsThunk =
   (page: number): AppThunk =>
@@ -23,7 +24,10 @@ export const getProductsThunk =
       const response = await getProductsList(page);
       const {
         data: items,
-        meta: {total_pages: totalPages},
+        meta: {
+          total_pages: totalPages,
+          filters: {option_types: optionTypes},
+        },
       } = response.data;
 
       if (isUpdating) {
@@ -31,7 +35,11 @@ export const getProductsThunk =
         return;
       }
 
-      dispatch(setProducts({items, totalPages}));
+      const colorOptions = optionTypes.find(
+        (type: ProductOptionType) => type.name === 'color',
+      ).option_values;
+
+      dispatch(setProducts({items, totalPages, colorOptions}));
     } catch (error) {
       dispatch(
         setError(

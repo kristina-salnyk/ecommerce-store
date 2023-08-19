@@ -16,6 +16,7 @@ import {
 interface ProductItemProps {
   id: string;
   name: string;
+  slug: string;
   price: string;
   priceView: string;
   compareAtPrice: string | null;
@@ -28,6 +29,7 @@ interface ProductItemProps {
 const ProductItem: FC<ProductItemProps> = ({
   id,
   name,
+  slug,
   price,
   priceView,
   compareAtPrice,
@@ -39,7 +41,7 @@ const ProductItem: FC<ProductItemProps> = ({
   return (
     <ProductItemWrap
       percentWidth={options.itemPercentWidth}
-      onPress={() => navigation.push('ProductDetails', {productId: id})}>
+      onPress={() => navigation.push('ProductDetails', {productSlug: slug})}>
       <ProductItemStyled>
         <ProductImage
           path={getImagePathById(id, PRODUCT_ITEM_IMAGE_SIZE)}

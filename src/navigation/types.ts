@@ -13,7 +13,7 @@ export type RootStackParamList = {
 
 export type MainStackParamList = {
   Drawer: {screen: string};
-  ProductDetails: {productId: string};
+  ProductDetails: {productSlug: string};
   Search: undefined;
   SignUp: undefined;
   Login: undefined;

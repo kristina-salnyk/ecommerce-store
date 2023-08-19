@@ -7,7 +7,7 @@ interface Product {
     name: string;
     description: string;
     available_on?: string | null;
-    slug?: string;
+    slug: string;
     price: string;
     currency: string;
     display_price: string;

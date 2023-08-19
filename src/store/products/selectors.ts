@@ -4,6 +4,9 @@ export const selectItems = (state: RootState) => state.products.items;
 
 export const selectTotalPages = (state: RootState) => state.products.totalPages;
 
+export const selectColorOptions = (state: RootState) =>
+  state.products.colorOptions;
+
 export const selectIsLoading = (state: RootState) => state.products.isLoading;
 
 export const selectIsLoadingMore = (state: RootState) =>

@@ -12,6 +12,7 @@ import ProductsState from '../../interfaces/ProductsState';
 const initialState: ProductsState = {
   items: [],
   totalPages: 0,
+  colorOptions: [],
   isLoading: false,
   isLoadingMore: false,
   isRefreshing: false,
@@ -24,11 +25,12 @@ const reducer = (
 ): ProductsState => {
   switch (action.type) {
     case PRODUCTS_SET_LIST:
-      const {items, totalPages} = action.payload;
+      const {items, totalPages, colorOptions} = action.payload;
       return {
         ...state,
         items: [...items],
         totalPages,
+        colorOptions,
         isLoading: false,
         isRefreshing: false,
         error: null,
@@ -51,6 +53,7 @@ const reducer = (
         ...state,
         items: [],
         totalPages: 0,
+        colorOptions: [],
         isLoading: false,
         isLoadingMore: false,
         isRefreshing: false,

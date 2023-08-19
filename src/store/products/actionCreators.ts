@@ -13,10 +13,12 @@ import {
   ProductsUpdateListAction,
 } from './actionTypes';
 import Product from '../../interfaces/Product';
+import ProductOption from '../../interfaces/ProductOption';
 
 export const setProducts = (data: {
   items: Product[];
   totalPages: number;
+  colorOptions: ProductOption[];
 }): ProductsSetListAction => {
   return {
     type: PRODUCTS_SET_LIST,

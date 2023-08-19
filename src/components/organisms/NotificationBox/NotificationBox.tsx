@@ -4,7 +4,7 @@ import {Image, ImageSourcePropType} from 'react-native';
 import Title from '../../atoms/Title';
 import Message from '../../atoms/Message';
 import useOrientation from '../../../hooks/useOrientation';
-import {ButtonStyled, NotificationBoxStyled} from './NotificationBox.styled';
+import {LinkStyled, NotificationBoxStyled} from './NotificationBox.styled';
 
 interface NotificationBoxProps {
   imageSource: ImageSourcePropType;
@@ -28,7 +28,7 @@ const NotificationBox: FC<NotificationBoxProps> = ({
       <Image source={imageSource} alt={title} />
       <Title text={title} />
       <Message text={message} />
-      <ButtonStyled text={action} onPress={onPress} />
+      <LinkStyled text={action} onPress={onPress} />
     </NotificationBoxStyled>
   );
 };

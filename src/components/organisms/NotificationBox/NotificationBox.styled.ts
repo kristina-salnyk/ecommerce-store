@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-import Button from '../../atoms/Button';
+import Link from '../../atoms/Link';
 import {ORIENTATION_TYPES} from '../../../constants/shared';
 
 export const NotificationBoxStyled = styled.View<{orientation: string}>`
@@ -15,7 +15,6 @@ export const NotificationBoxStyled = styled.View<{orientation: string}>`
       : 'justify-content: center;'};
 `;
 
-export const ButtonStyled = styled(Button)`
-  margin: ${({theme}) => theme.space.x16} ${({theme}) => theme.space.x8} 0;
-  align-self: stretch;
+export const LinkStyled = styled(Link)`
+  align-self: center;
 `;
