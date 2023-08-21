@@ -31,7 +31,7 @@ const reducer = (
     case PRODUCT_UPDATE_ITEM:
       return {
         ...state,
-        item: {...action.payload},
+        item: {...state.item, ...action.payload},
         error: null,
       };
     case PRODUCT_UPDATE_IS_LOADING:

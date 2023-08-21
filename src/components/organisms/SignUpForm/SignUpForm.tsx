@@ -1,10 +1,25 @@
-import React, {FC, useCallback, useState} from 'react';
+import React, {FC, useCallback, useEffect, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 
-import {MainStackParamList} from '../../../navigation/types';
+import {
+  MainStackParamList,
+  RootStackParamList,
+} from '../../../navigation/types';
 import Input from '../../atoms/Input';
-import {useAuth} from '../../../contexts/AuthContext';
+import {
+  useAppDispatch,
+  useAppSelector,
+  useAppThunkDispatch,
+} from '../../../store/hooks';
+import {signUpThunk} from '../../../store/account/thunk';
+import {selectError} from '../../../store/account/selectors';
+import {
+  MODAL_OPTIONS,
+  MODAL_TYPES,
+  NOTIFICATIONS,
+} from '../../../constants/shared';
+import {setError} from '../../../store/account/actionCreators';
 import {ButtonStyled, LinkStyled, SignUpFormStyled} from './SignUpForm.styled';
 
 const SignUpForm: FC = () => {
@@ -12,12 +27,33 @@ const SignUpForm: FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [passwordConfirmation, setPasswordConfirmation] = useState<string>('');
+  const rootNavigation =
+    useNavigation<StackNavigationProp<RootStackParamList>>();
   const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
-  const {signUp} = useAuth();
+  const dispatch = useAppDispatch();
+  const thunkDispatch = useAppThunkDispatch();
+
+  const error = useAppSelector(selectError);
+
+  useEffect(() => {
+    if (error) {
+      rootNavigation.navigate('Modal', {
+        type: MODAL_TYPES.confirm,
+        title: NOTIFICATIONS.selectColorModal.title,
+        message: NOTIFICATIONS.selectColorModal.message,
+        options: MODAL_OPTIONS.error,
+      });
+    }
+    return () => {
+      dispatch(setError(null));
+    };
+  }, [dispatch, error, rootNavigation]);
 
   const onPressSignUp = useCallback(() => {
-    signUp({username, email, password});
-  }, [username, email, password, signUp]);
+    (async () => {
+      thunkDispatch(signUpThunk({username, email, password}));
+    })();
+  }, [thunkDispatch, username, email, password]);
 
   const onPressSignIn = useCallback(() => {
     navigation.reset({

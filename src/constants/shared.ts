@@ -33,34 +33,55 @@ export const DRAWER_ICON_SIZE = 25;
 export const MODAL_ICON_SIZE = 60;
 
 export const MODAL_OPTIONS = {
-  ERROR: {
+  error: {
     iconName: 'closecircleo',
     iconColor: 'redAccent',
   },
-  WARNING: {
+  warning: {
     iconName: 'exclamationcircleo',
     iconColor: 'orangeAccent',
   },
-  SUCCESS: {
+  success: {
     iconName: 'checkcircleo',
     iconColor: 'greenAccent',
   },
 };
 
 export const MODAL_TYPES = {
-  CONFIRM: 'confirm',
-  AUTH: 'auth',
-  LOGOUT: 'logout',
+  confirm: 'confirm',
+  auth: 'auth',
+  logout: 'logout',
 };
 
-export const MODAL_TITLES = {
-  colorNotSelected: 'Select color',
-  productAdded: 'Product added to your cart',
-  userNotAuthorized: 'Login To Continue',
-  userLogout: 'Are you sure you want to logout?',
-};
-
-export const MODAL_MESSAGES = {
-  colorNotSelected: 'Please select your color to add this item in your cart',
-  userNotAuthorized: 'Please login to add product in your cart',
+export const NOTIFICATIONS = {
+  selectColorModal: {
+    title: 'Select color',
+    message: 'Please select your color to add this item in your cart',
+  },
+  productAddedModal: {
+    title: 'Product added to your cart',
+  },
+  notAuthorizedModal: {
+    title: 'Login To Continue',
+    message: 'Please login to add product in your cart',
+  },
+  logoutModal: {
+    title: 'Are you sure you want to logout?',
+  },
+  loginFailedNotification: {
+    title: 'Login Failed',
+    message: 'Something went wrong. Please try again later',
+  },
+  loadingFailedNotification: {
+    title: 'Loading Failed',
+    message: 'Something went wrong. Please try again later',
+  },
+  emptyProductDetailsNotification: {
+    title: 'No Product Details',
+    message: 'No product details received',
+  },
+  emptyProductsNotification: {
+    title: 'No Products',
+    message: 'No products received',
+  },
 };

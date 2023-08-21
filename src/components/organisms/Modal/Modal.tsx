@@ -26,9 +26,9 @@ const Modal: FC = () => {
       />
       <Title text={title} />
       {message && <Message text={message} />}
-      {type === MODAL_TYPES.CONFIRM && <ConfirmModalActions />}
-      {type === MODAL_TYPES.AUTH && <AuthModalActions />}
-      {type === MODAL_TYPES.LOGOUT && <LogoutModalActions />}
+      {type === MODAL_TYPES.confirm && <ConfirmModalActions />}
+      {type === MODAL_TYPES.auth && <AuthModalActions />}
+      {type === MODAL_TYPES.logout && <LogoutModalActions />}
     </ModalStyled>
   );
 };

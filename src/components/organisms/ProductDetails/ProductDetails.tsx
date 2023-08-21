@@ -3,6 +3,10 @@ import {RefreshControl, ScrollView} from 'react-native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 
+import {
+  MainStackParamList,
+  RootStackParamList,
+} from '../../../navigation/types';
 import Title from '../../atoms/Title';
 import Button from '../../atoms/Button';
 import ProductCost from '../../atoms/ProductCost';
@@ -13,10 +17,6 @@ import Splash from '../../molecules/Splash';
 import ImageSlider from '../../molecules/ImageSlider';
 import NotificationBox from '../NotificationBox';
 import noResults from '../../../assets/images/no-results.png';
-import {
-  MainStackParamList,
-  RootStackParamList,
-} from '../../../navigation/types';
 import {
   useAppDispatch,
   useAppSelector,
@@ -31,12 +31,11 @@ import {
   selectItem,
 } from '../../../store/product/selectors';
 import {selectColorOptions} from '../../../store/products/selectors';
-import {useAuth} from '../../../contexts/AuthContext';
+import {selectToken} from '../../../store/account/selectors';
 import {
-  MODAL_MESSAGES,
   MODAL_OPTIONS,
-  MODAL_TITLES,
   MODAL_TYPES,
+  NOTIFICATIONS,
 } from '../../../constants/shared';
 import {ProductDetailsWrap, ProductNameStyled} from './ProductDetails.styled';
 
@@ -53,9 +52,13 @@ const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const dispatch = useAppDispatch();
   const thunkDispatch = useAppThunkDispatch();
-  const {
-    state: {token},
-  } = useAuth();
+
+  const token = useAppSelector(selectToken);
+  const colorOptions = useAppSelector(selectColorOptions);
+  const product = useAppSelector(selectItem);
+  const isLoading = useAppSelector(selectIsLoading);
+  const isRefreshing = useAppSelector(selectIsRefreshing);
+  const error = useAppSelector(selectError);
 
   const getProduct = useCallback(() => {
     (async () => {
@@ -75,36 +78,30 @@ const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
   const addProductToCart = useCallback(() => {
     if (!token) {
       navigation.navigate('Modal', {
-        type: MODAL_TYPES.AUTH,
-        title: MODAL_TITLES.userNotAuthorized,
-        message: MODAL_MESSAGES.userNotAuthorized,
-        options: MODAL_OPTIONS.ERROR,
+        type: MODAL_TYPES.auth,
+        title: NOTIFICATIONS.notAuthorizedModal.title,
+        message: NOTIFICATIONS.notAuthorizedModal.message,
+        options: MODAL_OPTIONS.error,
       });
       return;
     }
 
     if (!selectedColorId) {
       navigation.navigate('Modal', {
-        type: MODAL_TYPES.CONFIRM,
-        title: MODAL_TITLES.colorNotSelected,
-        message: MODAL_MESSAGES.colorNotSelected,
-        options: MODAL_OPTIONS.ERROR,
+        type: MODAL_TYPES.confirm,
+        title: NOTIFICATIONS.selectColorModal.title,
+        message: NOTIFICATIONS.selectColorModal.message,
+        options: MODAL_OPTIONS.error,
       });
       return;
     }
 
     navigation.navigate('Modal', {
-      type: MODAL_TYPES.CONFIRM,
-      title: MODAL_TITLES.productAdded,
-      options: MODAL_OPTIONS.SUCCESS,
+      type: MODAL_TYPES.confirm,
+      title: NOTIFICATIONS.productAddedModal.title,
+      options: MODAL_OPTIONS.success,
     });
   }, [navigation, selectedColorId, token]);
-
-  const colorOptions = useAppSelector(selectColorOptions);
-  const product = useAppSelector(selectItem);
-  const isLoading = useAppSelector(selectIsLoading);
-  const isRefreshing = useAppSelector(selectIsRefreshing);
-  const error = useAppSelector(selectError);
 
   if (isLoading && !isRefreshing) {
     return <Splash />;
@@ -115,8 +112,8 @@ const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
       return (
         <NotificationBox
           imageSource={noResults}
-          title="Error!"
-          message="Something went wrong. Please try again later"
+          title={NOTIFICATIONS.loadingFailedNotification.title}
+          message={NOTIFICATIONS.loadingFailedNotification.message}
           action="Refresh"
           onPress={getProduct}
         />
@@ -125,8 +122,8 @@ const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
     return (
       <NotificationBox
         imageSource={noResults}
-        title="Product Details is Empty!"
-        message="No result have been received"
+        title={NOTIFICATIONS.emptyProductDetailsNotification.title}
+        message={NOTIFICATIONS.emptyProductDetailsNotification.message}
         action="Refresh"
         onPress={getProduct}
       />

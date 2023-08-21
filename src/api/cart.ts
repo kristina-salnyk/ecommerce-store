@@ -1,5 +1,6 @@
-import {api} from './index';
+import {AxiosResponse} from 'axios';
+import {storefrontApi} from './index';
 
-export const getCart = async () => {
-  return await api.get('/cart');
+export const getCart = async (): Promise<AxiosResponse> => {
+  return await storefrontApi.get('/cart');
 };

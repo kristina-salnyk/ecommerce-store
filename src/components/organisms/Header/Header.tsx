@@ -12,8 +12,8 @@ import IconButton from '../../atoms/IconButton';
 import {useAuth} from '../../../contexts/AuthContext';
 import {
   MODAL_OPTIONS,
-  MODAL_TITLES,
   MODAL_TYPES,
+  NOTIFICATIONS,
 } from '../../../constants/shared';
 import {HeaderRight, HeaderStyled, HeaderTitle} from './Header.styled';
 
@@ -36,9 +36,9 @@ const Header: FC<HeaderProps> = ({title, routeName}) => {
   const onPressOpenCart = useCallback(() => {
     if (!token) {
       rootNavigation.navigate('Modal', {
-        type: MODAL_TYPES.AUTH,
-        title: MODAL_TITLES.userNotAuthorized,
-        options: MODAL_OPTIONS.ERROR,
+        type: MODAL_TYPES.auth,
+        title: NOTIFICATIONS.notAuthorizedModal.title,
+        options: MODAL_OPTIONS.error,
       });
       return;
     }

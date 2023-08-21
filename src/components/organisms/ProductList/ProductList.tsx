@@ -33,6 +33,13 @@ const ProductList: FC<ProductListProps> = ({options}) => {
   const dispatch = useAppDispatch();
   const thunkDispatch = useAppThunkDispatch();
 
+  const products = useAppSelector(selectItems);
+  const totalPages = useAppSelector(selectTotalPages);
+  const isLoading = useAppSelector(selectIsLoading);
+  const isLoadingMore = useAppSelector(selectIsLoadingMore);
+  const isRefreshing = useAppSelector(selectIsRefreshing);
+  const error = useAppSelector(selectError);
+
   const getProducts = useCallback(() => {
     (async () => {
       thunkDispatch(getProductsThunk(page));
@@ -62,13 +69,6 @@ const ProductList: FC<ProductListProps> = ({options}) => {
     dispatch(updateIsRefreshing(true));
     refreshProductsList();
   }, [dispatch, refreshProductsList]);
-
-  const products = useAppSelector(selectItems);
-  const totalPages = useAppSelector(selectTotalPages);
-  const isLoading = useAppSelector(selectIsLoading);
-  const isLoadingMore = useAppSelector(selectIsLoadingMore);
-  const isRefreshing = useAppSelector(selectIsRefreshing);
-  const error = useAppSelector(selectError);
 
   if (isLoading && !isRefreshing) {
     return <Splash />;
