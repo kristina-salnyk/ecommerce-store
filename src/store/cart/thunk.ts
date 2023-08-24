@@ -3,7 +3,7 @@ import {Action} from 'redux';
 import {ThunkAction} from 'redux-thunk';
 
 import {RootState} from '../index';
-import {getCart} from '../../api/cart';
+import {getCart} from '../../services/api/cart';
 import {setCart} from './actionCreators';
 
 export const getCartThunk =

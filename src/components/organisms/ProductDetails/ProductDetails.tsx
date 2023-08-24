@@ -112,8 +112,8 @@ const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
       return (
         <NotificationBox
           imageSource={noResults}
-          title={NOTIFICATIONS.loadingFailedNotification.title}
-          message={NOTIFICATIONS.loadingFailedNotification.message}
+          title={NOTIFICATIONS.signUpFailedNotification.title}
+          message={NOTIFICATIONS.signUpFailedNotification.message}
           action="Refresh"
           onPress={getProduct}
         />

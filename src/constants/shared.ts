@@ -14,7 +14,7 @@ export const LANDSCAPE_LIST_COLUMNS = 4;
 
 export const PRODUCT_ITEMS_PER_PAGE = 20;
 
-export const PRODUCT_ITEM_IMAGE_SIZE = 160;
+export const PRODUCT_ITEM_IMAGE_SIZE = 150;
 
 export const PURCHASE_ITEM_IMAGE_SIZE = 120;
 
@@ -51,6 +51,7 @@ export const MODAL_TYPES = {
   confirm: 'confirm',
   auth: 'auth',
   logout: 'logout',
+  login: 'login',
 };
 
 export const NOTIFICATIONS = {
@@ -68,11 +69,26 @@ export const NOTIFICATIONS = {
   logoutModal: {
     title: 'Are you sure you want to logout?',
   },
-  loginFailedNotification: {
+  loginModal: {
+    title: 'Sign Up Successful',
+  },
+  emptyFieldsModal: {
+    title: 'Validation Failed',
+    message: 'Please fill all the fields',
+  },
+  passwordConfirmationModal: {
+    title: 'Validation Failed',
+    message: 'Password and confirm password must be same',
+  },
+  signUpFailedModal: {
+    title: 'Sign Up Failed',
+    message: 'Something went wrong. Please try again later',
+  },
+  loginFailedModal: {
     title: 'Login Failed',
     message: 'Something went wrong. Please try again later',
   },
-  loadingFailedNotification: {
+  signUpFailedNotification: {
     title: 'Loading Failed',
     message: 'Something went wrong. Please try again later',
   },
@@ -83,5 +99,9 @@ export const NOTIFICATIONS = {
   emptyProductsNotification: {
     title: 'No Products',
     message: 'No products received',
+  },
+  emptyCartNotification: {
+    title: 'Your Cart is Empty',
+    message: 'Add product to your cart',
   },
 };

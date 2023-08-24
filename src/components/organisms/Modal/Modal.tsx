@@ -11,6 +11,7 @@ import AuthModalActions from '../../molecules/AuthModalActions';
 import LogoutModalActions from '../../molecules/LogoutModalActions';
 import {MODAL_ICON_SIZE, MODAL_TYPES} from '../../../constants/shared';
 import {ModalStyled} from './Modal.styled';
+import LoginModalActions from '../../molecules/LoginModalActions';
 
 const Modal: FC = () => {
   const route = useRoute<RouteProp<RootStackParamList, 'Modal'>>();
@@ -29,6 +30,7 @@ const Modal: FC = () => {
       {type === MODAL_TYPES.confirm && <ConfirmModalActions />}
       {type === MODAL_TYPES.auth && <AuthModalActions />}
       {type === MODAL_TYPES.logout && <LogoutModalActions />}
+      {type === MODAL_TYPES.login && <LoginModalActions />}
     </ModalStyled>
   );
 };

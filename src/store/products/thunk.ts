@@ -6,7 +6,7 @@ import {
   updateIsLoadingMore,
   updateProducts,
 } from './actionCreators';
-import {getProductsList} from '../../api/products';
+import {getProductsList} from '../../services/api/products';
 import ProductOptionType from '../../interfaces/ProductOptionType';
 
 export const getProductsThunk =

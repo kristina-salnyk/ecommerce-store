@@ -1,9 +1,9 @@
-import * as actionTypes from './actionTypes';
 import Cart from '../../interfaces/Cart';
+import {CART_SET_ITEM} from './actionTypes';
 
-export const setCart = (cart: Cart | null) => {
+export const setCart = (data: Cart | null) => {
   return {
-    type: actionTypes.CART_GET,
-    payload: {...cart},
+    type: CART_SET_ITEM,
+    payload: {...data},
   };
 };

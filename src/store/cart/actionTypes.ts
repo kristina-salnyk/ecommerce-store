@@ -1,1 +1,1 @@
-export const CART_GET = 'cart/get';
+export const CART_SET_ITEM = 'cart/setItem';

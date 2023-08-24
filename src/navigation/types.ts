@@ -1,5 +1,5 @@
 export type RootStackParamList = {
-  Root: undefined;
+  Root: {screen: string};
   Modal: {
     type: string;
     title: string;

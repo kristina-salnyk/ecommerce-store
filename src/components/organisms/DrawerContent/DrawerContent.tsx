@@ -10,10 +10,11 @@ import {DrawerParamList} from '../../../navigation/types';
 import Logo from '../../atoms/Logo';
 import Title from '../../atoms/Title';
 import DrawerLink from '../../atoms/DrawerLink';
-import {useAuth} from '../../../contexts/AuthContext';
 import openCallLink from '../../../utils/openCallLink';
 import openEmailLink from '../../../utils/openEmailLink';
 import openShareLink from '../../../utils/openShareLink';
+import {useAppSelector} from '../../../store/hooks';
+import {selectToken} from '../../../store/account/selectors';
 import {
   DrawerContentBlock,
   DrawerLogo,
@@ -22,9 +23,8 @@ import {
 
 const DrawerContent: FC = () => {
   const navigation = useNavigation<DrawerNavigationProp<DrawerParamList>>();
-  const {
-    state: {token},
-  } = useAuth();
+
+  const token = useAppSelector(selectToken);
 
   const onPressDrawerLink = useCallback(
     (screenName: keyof DrawerParamList) => navigation.navigate(screenName),

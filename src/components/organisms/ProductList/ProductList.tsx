@@ -20,6 +20,7 @@ import {
   selectTotalPages,
 } from '../../../store/products/selectors';
 import noResults from '../../../assets/images/no-results.png';
+import {NOTIFICATIONS} from '../../../constants/shared';
 
 interface ProductListProps {
   options: {
@@ -74,27 +75,19 @@ const ProductList: FC<ProductListProps> = ({options}) => {
     return <Splash />;
   }
 
-  const renderListEmptyComponent = (): ReactElement => {
+  const renderListEmptyComponent = (): ReactElement | null => {
     if (error) {
       return (
         <NotificationBox
           imageSource={noResults}
-          title="Error!"
-          message="Something went wrong. Please try again later"
+          title={NOTIFICATIONS.signUpFailedNotification.title}
+          message={NOTIFICATIONS.signUpFailedNotification.message}
           action="Refresh"
           onPress={refreshProductsList}
         />
       );
     }
-    return (
-      <NotificationBox
-        imageSource={noResults}
-        title="Products List is Empty!"
-        message="No results have been received"
-        action="Refresh"
-        onPress={refreshProductsList}
-      />
-    );
+    return null;
   };
 
   const renderListFooterComponent = (): ReactElement | null => {

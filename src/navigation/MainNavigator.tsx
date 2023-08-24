@@ -11,16 +11,16 @@ import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
 import HeaderContainer from '../containers/HeaderContainer';
 import Splash from '../components/molecules/Splash';
 import HeaderTemplate from '../components/templates/HeaderTemplate';
-import {useAuth} from '../contexts/AuthContext';
+import {selectIsRefreshing, selectToken} from '../store/account/selectors';
+import {useAppSelector} from '../store/hooks';
 
 export const MainStack = createNativeStackNavigator<MainStackParamList>();
 
 const MainNavigator = () => {
-  const {
-    state: {token, isLoading},
-  } = useAuth();
+  const token = useAppSelector(selectToken);
+  const isRefreshing = useAppSelector(selectIsRefreshing);
 
-  if (isLoading) {
+  if (isRefreshing) {
     return <Splash />;
   }
 

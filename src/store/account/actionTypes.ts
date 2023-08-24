@@ -2,7 +2,9 @@ export const ACCOUNT_SIGN_UP = 'account/signUp';
 
 export const ACCOUNT_LOGIN = 'account/login';
 
-export const ACCOUNT_REFRESH_TOKEN = 'account/refreshToken';
+export const ACCOUNT_LOGOUT = 'account/logout';
+
+export const ACCOUNT_UPDATE_USER = 'account/updateUser';
 
 export const ACCOUNT_UPDATE_IS_LOADING = 'account/updateIsLoading';
 
@@ -17,12 +19,16 @@ export interface AccountSignUpAction {
 
 export interface AccountLoginAction {
   type: typeof ACCOUNT_LOGIN;
-  payload: string;
+  payload: string | null;
 }
 
-export interface AccountRefreshTokenAction {
-  type: typeof ACCOUNT_REFRESH_TOKEN;
-  payload: string;
+export interface AccountLogoutAction {
+  type: typeof ACCOUNT_LOGOUT;
+}
+
+export interface AccountUpdateUserAction {
+  type: typeof ACCOUNT_UPDATE_USER;
+  payload: {username?: string; email?: string};
 }
 
 export interface AccountUpdateIsLoadingAction {
@@ -43,7 +49,8 @@ export interface AccountSetErrorAction {
 export type AccountAction =
   | AccountSignUpAction
   | AccountLoginAction
-  | AccountRefreshTokenAction
+  | AccountLogoutAction
+  | AccountUpdateUserAction
   | AccountUpdateIsLoadingAction
   | AccountUpdateIsRefreshingAction
   | AccountSetErrorAction;

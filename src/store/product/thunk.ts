@@ -1,6 +1,6 @@
 import {AppDispatch, AppThunk} from '../index';
 import {setError, setProduct, updateIsLoading} from './actionCreators';
-import {getProduct} from '../../api/products';
+import {getProduct} from '../../services/api/products';
 
 export const getProductThunk =
   (slug: string): AppThunk =>

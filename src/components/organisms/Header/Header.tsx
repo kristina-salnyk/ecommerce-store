@@ -9,7 +9,8 @@ import {
   RootStackParamList,
 } from '../../../navigation/types';
 import IconButton from '../../atoms/IconButton';
-import {useAuth} from '../../../contexts/AuthContext';
+import {useAppSelector} from '../../../store/hooks';
+import {selectToken} from '../../../store/account/selectors';
 import {
   MODAL_OPTIONS,
   MODAL_TYPES,
@@ -27,9 +28,8 @@ const Header: FC<HeaderProps> = ({title, routeName}) => {
     useNavigation<StackNavigationProp<RootStackParamList>>();
   const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
   const backShown = navigation.canGoBack();
-  const {
-    state: {token},
-  } = useAuth();
+
+  const token = useAppSelector(selectToken);
 
   const onPressAddToWish = useCallback(() => {}, []);
 

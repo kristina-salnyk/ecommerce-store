@@ -13,7 +13,7 @@ import {
   useAppSelector,
   useAppThunkDispatch,
 } from '../../../store/hooks';
-import {selectError} from '../../../store/account/selectors';
+import {selectError, selectIsLoading} from '../../../store/account/selectors';
 import {setError} from '../../../store/account/actionCreators';
 import {loginThunk} from '../../../store/account/thunk';
 import {
@@ -21,7 +21,14 @@ import {
   MODAL_TYPES,
   NOTIFICATIONS,
 } from '../../../constants/shared';
-import {ButtonStyled, LinkStyled, LoginFormStyled} from './LoginForm.styled';
+import {
+  ButtonStyled,
+  LinkStyled,
+  LoginFormFieldsWrap,
+  LoginFormStyled,
+  LoginFormWrap,
+  SplashStyled,
+} from './LoginForm.styled';
 
 const LoginForm: FC = () => {
   const [email, setEmail] = useState<string>('');
@@ -33,19 +40,19 @@ const LoginForm: FC = () => {
   const thunkDispatch = useAppThunkDispatch();
 
   const error = useAppSelector(selectError);
+  const isLoading = useAppSelector(selectIsLoading);
 
   useEffect(() => {
     if (error) {
       rootNavigation.navigate('Modal', {
         type: MODAL_TYPES.confirm,
-        title: NOTIFICATIONS.loginFailedNotification.title,
+        title: NOTIFICATIONS.loginFailedModal.title,
         message: error,
         options: MODAL_OPTIONS.error,
       });
-    }
-    return () => {
+
       dispatch(setError(null));
-    };
+    }
   }, [dispatch, error, rootNavigation]);
 
   const onPressForgotPassword = useCallback(() => {
@@ -56,10 +63,20 @@ const LoginForm: FC = () => {
   }, [navigation]);
 
   const onPressSignIn = useCallback(() => {
+    if (!email || !password) {
+      rootNavigation.navigate('Modal', {
+        type: MODAL_TYPES.confirm,
+        title: NOTIFICATIONS.emptyFieldsModal.title,
+        message: NOTIFICATIONS.emptyFieldsModal.message,
+        options: MODAL_OPTIONS.warning,
+      });
+      return;
+    }
+
     (async () => {
-      thunkDispatch(loginThunk({email, password}));
+      thunkDispatch(loginThunk({email, password}, thunkDispatch));
     })();
-  }, [email, password, thunkDispatch]);
+  }, [email, password, rootNavigation, thunkDispatch]);
 
   const onPressSignUp = useCallback(() => {
     navigation.reset({
@@ -70,13 +87,18 @@ const LoginForm: FC = () => {
 
   return (
     <LoginFormStyled>
-      <Input value={email} onChange={setEmail} label="Email" />
-      <Input
-        value={password}
-        onChange={setPassword}
-        label="Password"
-        isSecure={true}
-      />
+      <LoginFormWrap>
+        <LoginFormFieldsWrap>
+          <Input value={email} onChange={setEmail} label="Email" />
+          <Input
+            value={password}
+            onChange={setPassword}
+            label="Password"
+            isSecure={true}
+          />
+        </LoginFormFieldsWrap>
+        {isLoading && <SplashStyled />}
+      </LoginFormWrap>
       <Link text="Forgot Password?" onPress={onPressForgotPassword} />
       <ButtonStyled text="Sign In" onPress={onPressSignIn} />
       <LinkStyled text="New here? Sign Up" onPress={onPressSignUp} />

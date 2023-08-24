@@ -28,6 +28,7 @@
     "react-native-vector-icons": "^9.2.0",
     "react-redux": "^8.1.2",
     "redux": "^4.2.1",
+    "redux-subscriber": "^1.1.0",
     "redux-thunk": "^2.4.2",
     "styled-components": "^6.0.1"
   },
@@ -43,6 +44,7 @@
     "@types/react-native-snap-carousel": "^3.8.5",
     "@types/react-native-vector-icons": "^6.4.13",
     "@types/react-test-renderer": "^18.0.0",
+    "@types/redux-subscriber": "^1.1.0",
     "babel-jest": "^29.2.1",
     "eslint": "^8.19.0",
     "jest": "^29.2.1",

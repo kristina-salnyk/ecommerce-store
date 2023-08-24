@@ -22,7 +22,7 @@ const AuthModalActions: FC = () => {
   return (
     <AuthModalActionsStyled>
       <Button text="Login" onPress={onPressLogin} />
-      <Button text="Sign up" onPress={onPressSignUp} />
+      <Button text="Sign Up" onPress={onPressSignUp} />
     </AuthModalActionsStyled>
   );
 };
