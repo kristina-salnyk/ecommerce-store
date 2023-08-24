@@ -8,11 +8,7 @@ import {
 } from '../../../navigation/types';
 import Link from '../../atoms/Link';
 import Input from '../../atoms/Input';
-import {
-  useAppDispatch,
-  useAppSelector,
-  useAppThunkDispatch,
-} from '../../../store/hooks';
+import {useAppDispatch, useAppSelector} from '../../../store/hooks';
 import {selectError, selectIsLoading} from '../../../store/account/selectors';
 import {setError} from '../../../store/account/actionCreators';
 import {loginThunk} from '../../../store/account/thunk';
@@ -37,7 +33,6 @@ const LoginForm: FC = () => {
     useNavigation<StackNavigationProp<RootStackParamList>>();
   const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
   const dispatch = useAppDispatch();
-  const thunkDispatch = useAppThunkDispatch();
 
   const error = useAppSelector(selectError);
   const isLoading = useAppSelector(selectIsLoading);
@@ -73,10 +68,8 @@ const LoginForm: FC = () => {
       return;
     }
 
-    (async () => {
-      thunkDispatch(loginThunk({email, password}, thunkDispatch));
-    })();
-  }, [email, password, rootNavigation, thunkDispatch]);
+    dispatch(loginThunk({email, password}));
+  }, [email, password, rootNavigation, dispatch]);
 
   const onPressSignUp = useCallback(() => {
     navigation.reset({

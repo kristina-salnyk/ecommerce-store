@@ -40,10 +40,7 @@ const reducer = (
       return {...state, isRefreshing: action.payload, error: null};
     case PRODUCT_SET_ERROR:
       return {
-        ...state,
-        item: null,
-        isLoading: false,
-        isRefreshing: false,
+        ...initialState,
         error: action.payload,
       };
     default:

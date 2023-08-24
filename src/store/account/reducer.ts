@@ -42,11 +42,7 @@ const reducer = (
       };
     case ACCOUNT_LOGOUT:
       return {
-        ...state,
-        user: {username: '', email: ''},
-        token: null,
-        isLoading: false,
-        error: null,
+        ...initialState,
       };
     case ACCOUNT_UPDATE_USER:
       return {...state, user: {...state.user, ...action.payload}};

@@ -50,13 +50,7 @@ const reducer = (
       return {...state, isRefreshing: action.payload, error: null};
     case PRODUCTS_SET_ERROR:
       return {
-        ...state,
-        items: [],
-        totalPages: 0,
-        colorOptions: [],
-        isLoading: false,
-        isLoadingMore: false,
-        isRefreshing: false,
+        ...initialState,
         error: action.payload,
       };
     default:

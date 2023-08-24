@@ -1,4 +1,4 @@
-import {AppDispatch, AppThunk, AppThunkDispatch} from '../index';
+import {AppDispatch, AppThunk} from '../index';
 import {
   setError,
   updateIsLoading,
@@ -37,10 +37,7 @@ export const signUpThunk =
   };
 
 export const loginThunk =
-  (
-    data: {email: string; password: string},
-    thunkDispatch: AppThunkDispatch,
-  ): AppThunk =>
+  (data: {email: string; password: string}): AppThunk =>
   async (dispatch: AppDispatch) => {
     try {
       dispatch(updateIsLoading(true));
@@ -48,7 +45,7 @@ export const loginThunk =
       const response = await login(data.email, data.password);
       const {access_token: token} = response.data;
 
-      thunkDispatch(currentThunk(token));
+      dispatch(currentThunk(token));
 
       dispatch(updateLogin(token));
     } catch (error) {

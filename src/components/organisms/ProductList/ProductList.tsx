@@ -6,11 +6,7 @@ import ProductItem from '../../molecules/ProductItem';
 import NotificationBox from '../NotificationBox';
 import {getProductsThunk} from '../../../store/products/thunk';
 import {updateIsRefreshing} from '../../../store/products/actionCreators';
-import {
-  useAppDispatch,
-  useAppSelector,
-  useAppThunkDispatch,
-} from '../../../store/hooks';
+import {useAppDispatch, useAppSelector} from '../../../store/hooks';
 import {
   selectError,
   selectIsLoading,
@@ -32,7 +28,6 @@ interface ProductListProps {
 const ProductList: FC<ProductListProps> = ({options}) => {
   const [page, setPage] = useState(1);
   const dispatch = useAppDispatch();
-  const thunkDispatch = useAppThunkDispatch();
 
   const products = useAppSelector(selectItems);
   const totalPages = useAppSelector(selectTotalPages);
@@ -42,10 +37,8 @@ const ProductList: FC<ProductListProps> = ({options}) => {
   const error = useAppSelector(selectError);
 
   const getProducts = useCallback(() => {
-    (async () => {
-      thunkDispatch(getProductsThunk(page));
-    })();
-  }, [thunkDispatch, page]);
+    dispatch(getProductsThunk(page));
+  }, [dispatch, page]);
 
   useEffect(() => {
     getProducts();

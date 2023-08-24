@@ -44,7 +44,7 @@ subscribe('account.token', async state => {
   }
 });
 
-(async () => {
+const initApp = async () => {
   try {
     store.dispatch(updateIsRefreshing(true));
 
@@ -57,17 +57,13 @@ subscribe('account.token', async state => {
   } finally {
     store.dispatch(updateIsRefreshing(false));
   }
-})();
+};
+
+initApp();
 
 export type RootState = ReturnType<typeof store.getState>;
 
-export type AppDispatch = typeof store.dispatch;
-
-export type AppThunkDispatch = ThunkDispatch<
-  RootState,
-  unknown,
-  Action<string>
->;
+export type AppDispatch = ThunkDispatch<RootState, unknown, Action<string>>;
 
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,

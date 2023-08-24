@@ -16,7 +16,6 @@ import {CART} from '../../../constants/data';
 const PurchaseList: FC = () => {
   const [isRefreshing, onRefresh] = useRefreshing();
   const navigation = useNavigation<DrawerNavigationProp<DrawerParamList>>();
-  const cart = CART;
 
   const onPressShopNow = useCallback(() => {
     if (navigation.canGoBack()) {
@@ -40,10 +39,10 @@ const PurchaseList: FC = () => {
 
   return (
     <>
-      {cart ? (
+      {CART ? (
         <>
           <FlatList
-            data={cart.included}
+            data={CART.included}
             renderItem={({item}) => (
               <PurchaseItem
                 id={item.id}
@@ -58,12 +57,12 @@ const PurchaseList: FC = () => {
             )}
             ListFooterComponent={() => (
               <PriceDetails
-                priceView={cart.data.attributes.display_pre_tax_item_amount}
-                quantity={cart.data.attributes.item_count}
-                deliveryView={cart.data.attributes.display_ship_total}
-                discountView={cart.data.attributes.display_promo_total}
-                taxView={cart.data.attributes.display_tax_total}
-                totalView={cart.data.attributes.display_total}
+                priceView={CART.data.attributes.display_pre_tax_item_amount}
+                quantity={CART.data.attributes.item_count}
+                deliveryView={CART.data.attributes.display_ship_total}
+                discountView={CART.data.attributes.display_promo_total}
+                taxView={CART.data.attributes.display_tax_total}
+                totalView={CART.data.attributes.display_total}
               />
             )}
             refreshControl={

@@ -7,11 +7,7 @@ import {
   RootStackParamList,
 } from '../../../navigation/types';
 import Input from '../../atoms/Input';
-import {
-  useAppDispatch,
-  useAppSelector,
-  useAppThunkDispatch,
-} from '../../../store/hooks';
+import {useAppDispatch, useAppSelector} from '../../../store/hooks';
 import {signUpThunk} from '../../../store/account/thunk';
 import {
   selectError,
@@ -42,7 +38,6 @@ const SignUpForm: FC = () => {
     useNavigation<StackNavigationProp<RootStackParamList>>();
   const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
   const dispatch = useAppDispatch();
-  const thunkDispatch = useAppThunkDispatch();
 
   const {email: registeredEmail} = useAppSelector(selectUser);
   const error = useAppSelector(selectError);
@@ -94,16 +89,14 @@ const SignUpForm: FC = () => {
       return;
     }
 
-    (async () => {
-      thunkDispatch(signUpThunk({username, email, password}));
-    })();
+    dispatch(signUpThunk({username, email, password}));
   }, [
     username,
     email,
     password,
     passwordConfirmation,
     rootNavigation,
-    thunkDispatch,
+    dispatch,
   ]);
 
   const onPressSignIn = useCallback(() => {

@@ -17,6 +17,5 @@ export const getCartThunk =
     } catch (error) {
       console.log('Error getting cart', error);
       dispatch(setCart(null));
-    } finally {
     }
   };

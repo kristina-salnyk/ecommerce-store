@@ -17,11 +17,7 @@ import Splash from '../../molecules/Splash';
 import ImageSlider from '../../molecules/ImageSlider';
 import NotificationBox from '../NotificationBox';
 import noResults from '../../../assets/images/no-results.png';
-import {
-  useAppDispatch,
-  useAppSelector,
-  useAppThunkDispatch,
-} from '../../../store/hooks';
+import {useAppDispatch, useAppSelector} from '../../../store/hooks';
 import {getProductThunk} from '../../../store/product/thunk';
 import {updateIsRefreshing} from '../../../store/product/actionCreators';
 import {
@@ -51,7 +47,6 @@ const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
   const {productSlug} = route.params;
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const dispatch = useAppDispatch();
-  const thunkDispatch = useAppThunkDispatch();
 
   const token = useAppSelector(selectToken);
   const colorOptions = useAppSelector(selectColorOptions);
@@ -61,19 +56,17 @@ const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
   const error = useAppSelector(selectError);
 
   const getProduct = useCallback(() => {
-    (async () => {
-      thunkDispatch(getProductThunk(productSlug));
-    })();
-  }, [thunkDispatch, productSlug]);
+    dispatch(getProductThunk(productSlug));
+  }, [dispatch, productSlug]);
 
   useEffect(() => {
     getProduct();
-  }, [getProduct, productSlug]);
+  }, [getProduct]);
 
   const refreshProduct = useCallback(() => {
     dispatch(updateIsRefreshing(true));
     getProduct();
-  }, [dispatch, getProduct]);
+  }, [getProduct, dispatch]);
 
   const addProductToCart = useCallback(() => {
     if (!token) {
