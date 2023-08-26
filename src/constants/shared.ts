@@ -88,7 +88,7 @@ export const NOTIFICATIONS = {
     title: 'Login Failed',
     message: 'Something went wrong. Please try again later',
   },
-  signUpFailedNotification: {
+  loadingFailedNotification: {
     title: 'Loading Failed',
     message: 'Something went wrong. Please try again later',
   },

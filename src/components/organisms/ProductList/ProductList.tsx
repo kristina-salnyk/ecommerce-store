@@ -1,9 +1,10 @@
-import React, {FC, ReactElement, useCallback, useEffect, useState} from 'react';
+import React, {FC, useCallback, useEffect, useState} from 'react';
 import {FlatList, RefreshControl} from 'react-native';
 
 import Splash from '../../molecules/Splash';
 import ProductItem from '../../molecules/ProductItem';
-import NotificationBox from '../NotificationBox';
+import EmptyProductList from '../../molecules/EmptyProductList';
+import FooterProductList from '../../molecules/FooterProductList';
 import {getProductsThunk} from '../../../store/products/thunk';
 import {updateIsRefreshing} from '../../../store/products/actionCreators';
 import {useAppDispatch, useAppSelector} from '../../../store/hooks';
@@ -15,8 +16,6 @@ import {
   selectItems,
   selectTotalPages,
 } from '../../../store/products/selectors';
-import noResults from '../../../assets/images/no-results.png';
-import {NOTIFICATIONS} from '../../../constants/shared';
 
 interface ProductListProps {
   options: {
@@ -68,28 +67,6 @@ const ProductList: FC<ProductListProps> = ({options}) => {
     return <Splash />;
   }
 
-  const renderListEmptyComponent = (): ReactElement | null => {
-    if (error) {
-      return (
-        <NotificationBox
-          imageSource={noResults}
-          title={NOTIFICATIONS.signUpFailedNotification.title}
-          message={NOTIFICATIONS.signUpFailedNotification.message}
-          action="Refresh"
-          onPress={refreshProductsList}
-        />
-      );
-    }
-    return null;
-  };
-
-  const renderListFooterComponent = (): ReactElement | null => {
-    if (isLoadingMore) {
-      return <Splash />;
-    }
-    return null;
-  };
-
   return (
     <FlatList
       data={products}
@@ -109,8 +86,10 @@ const ProductList: FC<ProductListProps> = ({options}) => {
       )}
       onEndReachedThreshold={0.2}
       onEndReached={getMoreProducts}
-      ListEmptyComponent={renderListEmptyComponent()}
-      ListFooterComponent={renderListFooterComponent()}
+      ListEmptyComponent={
+        <EmptyProductList error={error} onPress={refreshProductsList} />
+      }
+      ListFooterComponent={<FooterProductList isLoadingMore={isLoadingMore} />}
       refreshControl={
         <RefreshControl refreshing={isRefreshing} onRefresh={refreshProducts} />
       }

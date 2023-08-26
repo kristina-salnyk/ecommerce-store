@@ -27,53 +27,49 @@ const PurchaseList: FC = () => {
 
   const proceedToPayment = useCallback(() => {}, []);
 
-  const renderCartEmptyComponent = () => (
-    <NotificationBox
-      imageSource={emptyCart}
-      title={NOTIFICATIONS.emptyCartNotification.title}
-      message={NOTIFICATIONS.emptyCartNotification.message}
-      action="Shop now"
-      onPress={onPressShopNow}
-    />
-  );
+  if (!CART) {
+    return (
+      <NotificationBox
+        imageSource={emptyCart}
+        title={NOTIFICATIONS.emptyCartNotification.title}
+        message={NOTIFICATIONS.emptyCartNotification.message}
+        action="Shop now"
+        onPress={onPressShopNow}
+      />
+    );
+  }
 
   return (
     <>
-      {CART ? (
-        <>
-          <FlatList
-            data={CART.included}
-            renderItem={({item}) => (
-              <PurchaseItem
-                id={item.id}
-                name={item.attributes.name}
-                options={item.attributes.options_text}
-                price={item.attributes.pre_tax_amount}
-                priceView={item.attributes.display_pre_tax_amount}
-                promo={item.attributes.promo_total}
-                currency={item.attributes.currency}
-                quantity={item.attributes.quantity}
-              />
-            )}
-            ListFooterComponent={() => (
-              <PriceDetails
-                priceView={CART.data.attributes.display_pre_tax_item_amount}
-                quantity={CART.data.attributes.item_count}
-                deliveryView={CART.data.attributes.display_ship_total}
-                discountView={CART.data.attributes.display_promo_total}
-                taxView={CART.data.attributes.display_tax_total}
-                totalView={CART.data.attributes.display_total}
-              />
-            )}
-            refreshControl={
-              <RefreshControl refreshing={isRefreshing} onRefresh={onRefresh} />
-            }
+      <FlatList
+        data={CART.included}
+        renderItem={({item}) => (
+          <PurchaseItem
+            id={item.id}
+            name={item.attributes.name}
+            options={item.attributes.options_text}
+            price={item.attributes.pre_tax_amount}
+            priceView={item.attributes.display_pre_tax_amount}
+            promo={item.attributes.promo_total}
+            currency={item.attributes.currency}
+            quantity={item.attributes.quantity}
           />
-          <ButtonStyled text="Proceed to payment" onPress={proceedToPayment} />
-        </>
-      ) : (
-        renderCartEmptyComponent()
-      )}
+        )}
+        ListFooterComponent={() => (
+          <PriceDetails
+            priceView={CART.data.attributes.display_pre_tax_item_amount}
+            quantity={CART.data.attributes.item_count}
+            deliveryView={CART.data.attributes.display_ship_total}
+            discountView={CART.data.attributes.display_promo_total}
+            taxView={CART.data.attributes.display_tax_total}
+            totalView={CART.data.attributes.display_total}
+          />
+        )}
+        refreshControl={
+          <RefreshControl refreshing={isRefreshing} onRefresh={onRefresh} />
+        }
+      />
+      <ButtonStyled text="Proceed to payment" onPress={proceedToPayment} />
     </>
   );
 };

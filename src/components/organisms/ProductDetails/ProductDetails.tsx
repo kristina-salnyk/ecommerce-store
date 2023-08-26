@@ -1,4 +1,4 @@
-import React, {FC, ReactElement, useCallback, useEffect, useState} from 'react';
+import React, {FC, useCallback, useEffect, useState} from 'react';
 import {RefreshControl, ScrollView} from 'react-native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -100,18 +100,19 @@ const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
     return <Splash />;
   }
 
-  const renderEmptyComponent = (): ReactElement => {
-    if (error) {
-      return (
-        <NotificationBox
-          imageSource={noResults}
-          title={NOTIFICATIONS.signUpFailedNotification.title}
-          message={NOTIFICATIONS.signUpFailedNotification.message}
-          action="Refresh"
-          onPress={getProduct}
-        />
-      );
-    }
+  if (error) {
+    return (
+      <NotificationBox
+        imageSource={noResults}
+        title={NOTIFICATIONS.loadingFailedNotification.title}
+        message={NOTIFICATIONS.loadingFailedNotification.message}
+        action="Refresh"
+        onPress={getProduct}
+      />
+    );
+  }
+
+  if (!product) {
     return (
       <NotificationBox
         imageSource={noResults}
@@ -121,48 +122,42 @@ const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
         onPress={getProduct}
       />
     );
-  };
+  }
 
   return (
     <>
-      {product ? (
-        <>
-          <ScrollView
-            refreshControl={
-              <RefreshControl
-                refreshing={isRefreshing}
-                onRefresh={refreshProduct}
-              />
-            }>
-            <ProductDetailsWrap>
-              <ImageSlider
-                images={product.relationships.images.data}
-                options={options}
-              />
-              <ProductNameStyled text={product.attributes.name} />
-              <ProductCost
-                price={product.attributes.price}
-                priceView={product.attributes.display_price}
-                compareAtPrice={product.attributes.compare_at_price}
-                compareAtPriceView={product.attributes.display_compare_at_price}
-              />
-              <HorizontalLine />
-              <Title text="Select Color" />
-              <ProductSelect
-                colorOptions={colorOptions}
-                selectedId={selectedColorId}
-                onSelect={setSelectedColorId}
-              />
-              <HorizontalLine />
-              <Title text="Description" />
-              <ProductDescription text={product.attributes.description} />
-            </ProductDetailsWrap>
-          </ScrollView>
-          <Button text="Add to cart" onPress={addProductToCart} />
-        </>
-      ) : (
-        renderEmptyComponent()
-      )}
+      <ScrollView
+        refreshControl={
+          <RefreshControl
+            refreshing={isRefreshing}
+            onRefresh={refreshProduct}
+          />
+        }>
+        <ProductDetailsWrap>
+          <ImageSlider
+            images={product.relationships.images.data}
+            options={options}
+          />
+          <ProductNameStyled text={product.attributes.name} />
+          <ProductCost
+            price={product.attributes.price}
+            priceView={product.attributes.display_price}
+            compareAtPrice={product.attributes.compare_at_price}
+            compareAtPriceView={product.attributes.display_compare_at_price}
+          />
+          <HorizontalLine />
+          <Title text="Select Color" />
+          <ProductSelect
+            colorOptions={colorOptions}
+            selectedId={selectedColorId}
+            onSelect={setSelectedColorId}
+          />
+          <HorizontalLine />
+          <Title text="Description" />
+          <ProductDescription text={product.attributes.description} />
+        </ProductDetailsWrap>
+      </ScrollView>
+      <Button text="Add to cart" onPress={addProductToCart} />
     </>
   );
 };
