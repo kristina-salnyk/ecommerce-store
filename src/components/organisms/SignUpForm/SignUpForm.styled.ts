@@ -2,11 +2,20 @@ import styled from 'styled-components/native';
 
 import Link from '../../atoms/Link';
 import Button from '../../atoms/Button';
+import Splash from '../../molecules/Splash';
 
 export const SignUpFormStyled = styled.View`
   padding: ${({theme}) => theme.space.x16} 0;
   gap: ${({theme}) => theme.space.x16};
   flex: 1;
+`;
+
+export const SignUpFormWrap = styled.View`
+  position: relative;
+`;
+
+export const SignUpFormFieldsWrap = styled.View`
+  gap: ${({theme}) => theme.space.x16};
 `;
 
 export const LinkStyled = styled(Link)`
@@ -15,4 +24,10 @@ export const LinkStyled = styled(Link)`
 
 export const ButtonStyled = styled(Button)`
   margin-top: ${({theme}) => theme.space.x16};
+`;
+
+export const SplashStyled = styled(Splash)`
+  position: absolute;
+  height: 100%;
+  align-self: center;
 `;

@@ -1,5 +1,5 @@
 export type RootStackParamList = {
-  Root: undefined;
+  Root: {screen: string};
   Modal: {
     type: string;
     title: string;
@@ -13,7 +13,7 @@ export type RootStackParamList = {
 
 export type MainStackParamList = {
   Drawer: {screen: string};
-  ProductDetails: {productId: string};
+  ProductDetails: {productSlug: string};
   Search: undefined;
   SignUp: undefined;
   Login: undefined;

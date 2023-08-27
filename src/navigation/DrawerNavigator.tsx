@@ -11,15 +11,14 @@ import HeaderContainer from '../containers/HeaderContainer';
 import DrawerContainer from '../containers/DrawerContainer';
 import HeaderTemplate from '../components/templates/HeaderTemplate';
 import DrawerContent from '../components/organisms/DrawerContent';
-import {useAuth} from '../contexts/AuthContext';
+import {useAppSelector} from '../store/hooks';
+import {selectToken} from '../store/account/selectors';
 import {PERCENTAGE_FILLED_BY_DRAWER} from '../constants/shared';
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
 
 const DrawerNavigator = () => {
-  const {
-    state: {token},
-  } = useAuth();
+  const token = useAppSelector(selectToken);
 
   return (
     <Drawer.Navigator

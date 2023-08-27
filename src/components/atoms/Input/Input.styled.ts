@@ -7,7 +7,7 @@ export const InputWrap = styled.View`
 
 export const IconWrap = styled.View`
   position: absolute;
-  top: 0;
+  top: ${({theme}) => theme.space.x8};
   left: ${({theme}) => theme.space.x8};
   height: 100%;
   display: flex;

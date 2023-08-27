@@ -12,7 +12,9 @@ export const PORTRAIT_LIST_COLUMNS = 2;
 
 export const LANDSCAPE_LIST_COLUMNS = 4;
 
-export const PRODUCT_ITEM_IMAGE_SIZE = 160;
+export const PRODUCT_ITEMS_PER_PAGE = 20;
+
+export const PRODUCT_ITEM_IMAGE_SIZE = 150;
 
 export const PURCHASE_ITEM_IMAGE_SIZE = 120;
 
@@ -31,34 +33,75 @@ export const DRAWER_ICON_SIZE = 25;
 export const MODAL_ICON_SIZE = 60;
 
 export const MODAL_OPTIONS = {
-  ERROR: {
+  error: {
     iconName: 'closecircleo',
     iconColor: 'redAccent',
   },
-  WARNING: {
+  warning: {
     iconName: 'exclamationcircleo',
     iconColor: 'orangeAccent',
   },
-  SUCCESS: {
+  success: {
     iconName: 'checkcircleo',
     iconColor: 'greenAccent',
   },
 };
 
 export const MODAL_TYPES = {
-  INFO: 'info',
-  LOGIN: 'login',
-  LOGOUT: 'logout',
+  confirm: 'confirm',
+  auth: 'auth',
+  logout: 'logout',
+  login: 'login',
 };
 
-export const MODAL_TITLES = {
-  colorNotSelected: 'Select color',
-  productAdded: 'Product added to your cart',
-  userNotAuthorized: 'Login To Continue',
-  userLogout: 'Are you sure you want to logout?',
-};
-
-export const MODAL_MESSAGES = {
-  colorNotSelected: 'Please select your color to add this item in your cart',
-  userNotAuthorized: 'Please login to add product in your cart',
+export const NOTIFICATIONS = {
+  selectColorModal: {
+    title: 'Select color',
+    message: 'Please select your color to add this item in your cart',
+  },
+  productAddedModal: {
+    title: 'Product added to your cart',
+  },
+  notAuthorizedModal: {
+    title: 'Login To Continue',
+    message: 'Please login to add product in your cart',
+  },
+  logoutModal: {
+    title: 'Are you sure you want to logout?',
+  },
+  loginModal: {
+    title: 'Sign Up Successful',
+  },
+  emptyFieldsModal: {
+    title: 'Validation Failed',
+    message: 'Please fill all the fields',
+  },
+  passwordConfirmationModal: {
+    title: 'Validation Failed',
+    message: 'Password and confirm password must be same',
+  },
+  signUpFailedModal: {
+    title: 'Sign Up Failed',
+    message: 'Something went wrong. Please try again later',
+  },
+  loginFailedModal: {
+    title: 'Login Failed',
+    message: 'Something went wrong. Please try again later',
+  },
+  loadingFailedNotification: {
+    title: 'Loading Failed',
+    message: 'Something went wrong. Please try again later',
+  },
+  emptyProductDetailsNotification: {
+    title: 'No Product Details',
+    message: 'No product details received',
+  },
+  emptyProductsNotification: {
+    title: 'No Products',
+    message: 'No products received',
+  },
+  emptyCartNotification: {
+    title: 'Your Cart is Empty',
+    message: 'Add product to your cart',
+  },
 };

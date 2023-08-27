@@ -3,13 +3,13 @@ import {useCallback, useState} from 'react';
 import {REFRESHING_DELAY} from '../constants/shared';
 
 const useRefreshing = (): [boolean, () => void] => {
-  const [refreshing, setRefreshing] = useState<boolean>(false);
+  const [refreshing, setIsRefreshing] = useState<boolean>(false);
 
   const onRefresh = useCallback(() => {
-    setRefreshing(true);
+    setIsRefreshing(true);
 
     const timeoutId = setTimeout(() => {
-      setRefreshing(false);
+      setIsRefreshing(false);
     }, REFRESHING_DELAY);
 
     return () => {

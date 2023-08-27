@@ -1,6 +1,12 @@
 import React, {FC} from 'react';
-import {Text} from 'react-native';
 
-const CartScreen: FC = () => <Text>My Cart</Text>;
+import ScreenContainer from '../../containers/ScreenContainer';
+import CartTemplate from '../../components/templates/CartTemplate';
+
+const CartScreen: FC = () => (
+  <ScreenContainer>
+    <CartTemplate />
+  </ScreenContainer>
+);
 
 export default CartScreen;

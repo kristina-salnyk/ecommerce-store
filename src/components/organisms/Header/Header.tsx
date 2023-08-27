@@ -9,11 +9,12 @@ import {
   RootStackParamList,
 } from '../../../navigation/types';
 import IconButton from '../../atoms/IconButton';
-import {useAuth} from '../../../contexts/AuthContext';
+import {useAppSelector} from '../../../store/hooks';
+import {selectToken} from '../../../store/account/selectors';
 import {
   MODAL_OPTIONS,
-  MODAL_TITLES,
   MODAL_TYPES,
+  NOTIFICATIONS,
 } from '../../../constants/shared';
 import {HeaderRight, HeaderStyled, HeaderTitle} from './Header.styled';
 
@@ -27,18 +28,17 @@ const Header: FC<HeaderProps> = ({title, routeName}) => {
     useNavigation<StackNavigationProp<RootStackParamList>>();
   const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
   const backShown = navigation.canGoBack();
-  const {
-    state: {token},
-  } = useAuth();
+
+  const token = useAppSelector(selectToken);
 
   const onPressAddToWish = useCallback(() => {}, []);
 
   const onPressOpenCart = useCallback(() => {
     if (!token) {
       rootNavigation.navigate('Modal', {
-        type: MODAL_TYPES.LOGIN,
-        title: MODAL_TITLES.userNotAuthorized,
-        options: MODAL_OPTIONS.ERROR,
+        type: MODAL_TYPES.auth,
+        title: NOTIFICATIONS.notAuthorizedModal.title,
+        options: MODAL_OPTIONS.error,
       });
       return;
     }

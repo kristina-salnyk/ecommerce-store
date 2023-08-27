@@ -1,24 +1,24 @@
 import React, {FC, useCallback, useRef, useState} from 'react';
-import {LayoutChangeEvent, View} from 'react-native';
+import {LayoutChangeEvent} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 
 import SliderPagination from '../SliderPagination';
 import ProductImage from '../../atoms/ProductImage';
 import SliderButton from '../../atoms/SliderButton';
-import ProductProperty from '../../../interfaces/ProductProperty';
+import ProductRelationship from '../../../interfaces/ProductRelationship';
 import getImagePathById from '../../../utils/getImagePathById';
 import {SLIDER_SIZE} from '../../../constants/shared';
 import {CarouselWrap, ImageSliderStyled} from './ImageSlider.styled';
 
 interface ImageSliderProps {
-  images: ProductProperty[];
+  images: ProductRelationship[];
   options: {sliderSize?: number};
 }
 
 const ImageSlider: FC<ImageSliderProps> = ({images, options}) => {
   const [sliderSize, setSliderSize] = useState<number>(SLIDER_SIZE);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const carouselRef = useRef<Carousel<ProductProperty>>(null);
+  const carouselRef = useRef<Carousel<ProductRelationship>>(null);
   const isPrevDisabled = currentIndex <= 0;
   const isNextDisabled = currentIndex >= images.length - 1;
 
@@ -44,7 +44,7 @@ const ImageSlider: FC<ImageSliderProps> = ({images, options}) => {
   }, []);
 
   return (
-    <View>
+    <>
       <ImageSliderStyled>
         <SliderButton
           iconName="arrow-left"
@@ -81,7 +81,7 @@ const ImageSlider: FC<ImageSliderProps> = ({images, options}) => {
         dotsLength={images.length}
         activeDotIndex={currentIndex}
       />
-    </View>
+    </>
   );
 };
 

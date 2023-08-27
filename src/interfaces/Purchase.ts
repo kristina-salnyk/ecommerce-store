@@ -1,4 +1,4 @@
-import ProductProperty from './ProductProperty';
+import ProductRelationship from './ProductRelationship';
 
 interface Purchase {
   id: string;
@@ -29,10 +29,10 @@ interface Purchase {
   };
   relationships: {
     variant: {
-      data: ProductProperty | null;
+      data: ProductRelationship | null;
     };
     digital_links?: {
-      data: ProductProperty[];
+      data: ProductRelationship[];
     };
   };
 }

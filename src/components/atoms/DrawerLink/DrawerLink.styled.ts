@@ -7,6 +7,10 @@ export const DrawerLinkStyled = styled.TouchableOpacity`
   gap: ${({theme}) => theme.space.x16};
 `;
 
+export const DrawerIconWrap = styled.View<{width: number}>`
+  width: ${({width}) => width}px;
+`;
+
 export const DrawerLinkText = styled.Text`
   font-size: ${({theme}) => theme.font.size.m};
   color: ${({theme}) => theme.color.darkGray};

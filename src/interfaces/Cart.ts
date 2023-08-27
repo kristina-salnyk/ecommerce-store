@@ -1,4 +1,4 @@
-import ProductProperty from './ProductProperty';
+import ProductRelationship from './ProductRelationship';
 import Purchase from './Purchase';
 
 interface Cart {
@@ -41,28 +41,28 @@ interface Cart {
     };
     relationships: {
       line_items: {
-        data: ProductProperty[];
+        data: ProductRelationship[];
       };
       variants: {
-        data: ProductProperty[];
+        data: ProductRelationship[];
       };
       promotions: {
-        data: ProductProperty[];
+        data: ProductRelationship[];
       };
       payments: {
-        data: ProductProperty[];
+        data: ProductRelationship[];
       };
       shipments: {
-        data: ProductProperty[];
+        data: ProductRelationship[];
       };
       user: {
-        data: ProductProperty | null;
+        data: ProductRelationship | null;
       };
       billing_address: {
-        data: ProductProperty | null;
+        data: ProductRelationship | null;
       };
       shipping_address: {
-        data: ProductProperty | null;
+        data: ProductRelationship | null;
       };
     };
   };
