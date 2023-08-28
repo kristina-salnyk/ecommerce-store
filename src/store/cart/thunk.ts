@@ -1,21 +1,22 @@
-import {Dispatch} from 'react';
-import {Action} from 'redux';
-import {ThunkAction} from 'redux-thunk';
-
-import {RootState} from '../index';
+import {AppDispatch, AppThunk, RootState} from '../index';
 import {getCart} from '../../services/api/cart';
-import {setCart} from './actionCreators';
+import {setCart, setError, updateIsLoading} from './actionCreators';
+import {authMiddleware} from '../middlewares/authMiddleware';
 
 export const getCartThunk =
-  (): ThunkAction<void, RootState, undefined, Action> =>
-  async (dispatch: Dispatch<Action>) => {
+  (): AppThunk => async (dispatch: AppDispatch, getState: () => RootState) => {
     try {
-      const response = await getCart();
-      const {data} = response;
+      dispatch(updateIsLoading(true));
 
-      dispatch(setCart(data.result));
+      const response = await authMiddleware(getCart, dispatch, getState);
+      const {data, included: items = []} = response.data;
+
+      dispatch(setCart({data, items}));
     } catch (error) {
-      console.log('Error getting cart', error);
-      dispatch(setCart(null));
+      dispatch(
+        setError(
+          error instanceof Error ? error.message : 'Unknown error' + error,
+        ),
+      );
     }
   };

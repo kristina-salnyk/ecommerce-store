@@ -13,7 +13,7 @@ const ProfileScreen: FC = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const dispatch = useAppDispatch();
 
-  const {username} = useAppSelector(selectUser);
+  const {username, email} = useAppSelector(selectUser);
 
   const onPressLogout = useCallback(() => {
     dispatch(updateLogout());
@@ -26,7 +26,9 @@ const ProfileScreen: FC = () => {
 
   return (
     <>
-      <Text>Hello, {username}!</Text>
+      <Text>
+        Hello, {username}! You current email: {email}
+      </Text>
       <Button text="Logout" onPress={onPressLogout} />
     </>
   );

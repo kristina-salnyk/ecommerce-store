@@ -1,6 +1,6 @@
 import {AxiosError, AxiosResponse} from 'axios';
 
-import {auth, setAuthHeader, storefrontApi} from './index';
+import {auth, storefrontApi} from './index';
 
 export const signUp = async (user: {
   email: string;
@@ -37,13 +37,31 @@ export const login = async (
   }
 };
 
-export const current = async (token: string): Promise<AxiosResponse> => {
-  setAuthHeader(token);
+export const current = async (): Promise<AxiosResponse> => {
   try {
     return await storefrontApi.get('/account');
   } catch (error) {
     if (error instanceof AxiosError && error.response) {
       throw new Error(error.response.data.error);
+    }
+    throw error;
+  }
+};
+
+export const refreshToken = async (token: string): Promise<AxiosResponse> => {
+  const body = {
+    grant_type: 'refresh_token',
+    refresh_token: token,
+  };
+
+  try {
+    return await auth.post('/token', body);
+  } catch (error) {
+    if (error instanceof AxiosError && error.response) {
+      const message = error.response.data.error;
+      throw new Error(
+        message === 'invalid_grant' ? 'Invalid refresh token' : message,
+      );
     }
     throw error;
   }

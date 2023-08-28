@@ -43,7 +43,7 @@ const Header: FC<HeaderProps> = ({title, routeName}) => {
       return;
     }
 
-    navigation.navigate('Drawer', {screen: 'MyCart'});
+    navigation.push('Drawer', {screen: 'MyCart'});
   }, [navigation, rootNavigation, token]);
 
   const onPressToggleDrawer = useCallback(

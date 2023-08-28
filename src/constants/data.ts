@@ -1,6 +1,4 @@
-import Cart from '../interfaces/Cart';
-
-export const CART: Cart = {
+export const CART = {
   data: {
     id: '18',
     type: 'cart',

@@ -1,4 +1,4 @@
-import {AppDispatch, AppThunk} from '../index';
+import {AppDispatch, AppThunk, RootState} from '../index';
 import {
   setError,
   updateIsLoading,
@@ -7,6 +7,7 @@ import {
   updateUser,
 } from './actionCreators';
 import {current, login, signUp} from '../../services/api/account';
+import {authMiddleware} from '../middlewares/authMiddleware';
 
 export const signUpThunk =
   (data: {username: string; email: string; password: string}): AppThunk =>
@@ -43,11 +44,9 @@ export const loginThunk =
       dispatch(updateIsLoading(true));
 
       const response = await login(data.email, data.password);
-      const {access_token: token} = response.data;
+      const {access_token, refresh_token} = response.data;
 
-      dispatch(currentThunk(token));
-
-      dispatch(updateLogin(token));
+      dispatch(updateLogin({token: access_token, refreshToken: refresh_token}));
     } catch (error) {
       dispatch(
         setError(
@@ -58,12 +57,11 @@ export const loginThunk =
   };
 
 export const currentThunk =
-  (data: string): AppThunk =>
-  async (dispatch: AppDispatch) => {
+  (): AppThunk => async (dispatch: AppDispatch, getState: () => RootState) => {
     try {
       dispatch(updateIsLoading(true));
 
-      const response = await current(data);
+      const response = await authMiddleware(current, dispatch, getState);
       const {
         data: {
           attributes: {email, first_name: username = 'Default'},

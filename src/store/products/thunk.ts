@@ -1,4 +1,4 @@
-import {AppDispatch, AppThunk} from '../index';
+import {AppDispatch, AppThunk, RootState} from '../index';
 import {
   setError,
   setProducts,
@@ -8,10 +8,11 @@ import {
 } from './actionCreators';
 import {getProductsList} from '../../services/api/products';
 import ProductOptionType from '../../interfaces/ProductOptionType';
+import {authMiddleware} from '../middlewares/authMiddleware';
 
 export const getProductsThunk =
   (page: number): AppThunk =>
-  async (dispatch: AppDispatch) => {
+  async (dispatch: AppDispatch, getState: () => RootState) => {
     const isUpdating = page > 1;
 
     try {
@@ -21,7 +22,11 @@ export const getProductsThunk =
         dispatch(updateIsLoading(true));
       }
 
-      const response = await getProductsList(page);
+      const response = await authMiddleware(
+        () => getProductsList(page),
+        dispatch,
+        getState,
+      );
       const {
         data: items,
         meta: {

@@ -104,4 +104,8 @@ export const NOTIFICATIONS = {
     title: 'Your Cart is Empty',
     message: 'Add product to your cart',
   },
+  notLoggedNotification: {
+    title: 'Login First',
+    message: 'Login first to view your cart',
+  },
 };

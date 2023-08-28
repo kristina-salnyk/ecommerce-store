@@ -10,12 +10,12 @@ const AuthModalActions: FC = () => {
   const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
 
   const onPressLogin = useCallback(
-    () => navigation.navigate('Login'),
+    () => navigation.push('Login'),
     [navigation],
   );
 
   const onPressSignUp = useCallback(
-    () => navigation.navigate('SignUp'),
+    () => navigation.push('SignUp'),
     [navigation],
   );
 

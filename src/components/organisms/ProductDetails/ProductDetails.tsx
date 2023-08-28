@@ -24,7 +24,7 @@ import {
   selectError,
   selectIsLoading,
   selectIsRefreshing,
-  selectItem,
+  selectProduct,
 } from '../../../store/product/selectors';
 import {selectColorOptions} from '../../../store/products/selectors';
 import {selectToken} from '../../../store/account/selectors';
@@ -49,8 +49,8 @@ const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
   const dispatch = useAppDispatch();
 
   const token = useAppSelector(selectToken);
+  const product = useAppSelector(selectProduct);
   const colorOptions = useAppSelector(selectColorOptions);
-  const product = useAppSelector(selectItem);
   const isLoading = useAppSelector(selectIsLoading);
   const isRefreshing = useAppSelector(selectIsRefreshing);
   const error = useAppSelector(selectError);

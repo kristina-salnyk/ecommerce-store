@@ -1,12 +1,11 @@
 import {RootState} from '../index';
 
-export const selectUser = (state: RootState) => state.account.user;
+export const selectCart = (state: RootState) => state.cart.data;
 
-export const selectToken = (state: RootState) => state.account.token;
+export const selectItems = (state: RootState) => state.cart.items;
 
-export const selectIsLoading = (state: RootState) => state.account.isLoading;
+export const selectIsLoading = (state: RootState) => state.cart.isLoading;
 
-export const selectIsRefreshing = (state: RootState) =>
-  state.account.isRefreshing;
+export const selectIsRefreshing = (state: RootState) => state.cart.isRefreshing;
 
-export const selectError = (state: RootState) => state.account.error;
+export const selectError = (state: RootState) => state.cart.error;

@@ -1,15 +1,14 @@
 import {
+  PRODUCT_SET_DATA,
   PRODUCT_SET_ERROR,
-  PRODUCT_SET_ITEM,
   PRODUCT_UPDATE_IS_LOADING,
   PRODUCT_UPDATE_IS_REFRESHING,
-  PRODUCT_UPDATE_ITEM,
   ProductAction,
 } from './actionTypes';
 import ProductState from '../../interfaces/ProductState';
 
 const initialState: ProductState = {
-  item: null,
+  data: null,
   isLoading: false,
   isRefreshing: false,
   error: null,
@@ -20,18 +19,11 @@ const reducer = (
   action: ProductAction,
 ): ProductState => {
   switch (action.type) {
-    case PRODUCT_SET_ITEM:
+    case PRODUCT_SET_DATA:
       return {
-        ...state,
-        item: {...action.payload},
+        data: {...action.payload},
         isLoading: false,
         isRefreshing: false,
-        error: null,
-      };
-    case PRODUCT_UPDATE_ITEM:
-      return {
-        ...state,
-        item: {...state.item, ...action.payload},
         error: null,
       };
     case PRODUCT_UPDATE_IS_LOADING:

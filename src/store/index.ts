@@ -1,14 +1,14 @@
 import {Action, applyMiddleware, combineReducers, createStore} from 'redux';
 import thunkMiddleware, {ThunkAction, ThunkDispatch} from 'redux-thunk';
 import initSubscriber from 'redux-subscriber';
-import SInfo from 'react-native-sensitive-info';
 
-import accountReducer from './account/reducer';
 import productsReducer from './products/reducer';
 import productReducer from './product/reducer';
 import cartReducer from './cart/reducer';
+import accountReducer from './account/reducer';
 import {updateIsRefreshing, updateLogin} from './account/actionCreators';
-import {clearAuthHeader} from '../services/api';
+import {clearAuthHeader, setAuthHeader} from '../services/api';
+import {deleteItem, getItem, setItem} from '../services/storage';
 
 const rootReducer = combineReducers({
   account: accountReducer,
@@ -27,20 +27,21 @@ subscribe('account.token', async state => {
   const token = state.account.token;
 
   if (token) {
-    try {
-      await SInfo.setItem('token', token, {
-        keychainService: 'auth',
-      });
-    } catch (error) {
-      console.log('Error writing token to storage:', error);
-    }
+    setAuthHeader(token);
+    await setItem('token', token);
   } else {
-    try {
-      await SInfo.deleteItem('token', {keychainService: 'auth'});
-    } catch (error) {
-      console.log('Error deleting token from storage:', error);
-    }
+    await deleteItem('token');
     clearAuthHeader();
+  }
+});
+
+subscribe('account.refreshToken', async state => {
+  const refreshToken = state.account.refreshToken;
+
+  if (refreshToken) {
+    await setItem('refreshToken', refreshToken);
+  } else {
+    await deleteItem('refreshToken');
   }
 });
 
@@ -48,12 +49,14 @@ const initApp = async () => {
   try {
     store.dispatch(updateIsRefreshing(true));
 
-    const token = await SInfo.getItem('token', {keychainService: 'auth'});
-    if (token) {
-      store.dispatch(updateLogin(token));
+    const token = await getItem('token');
+    const refreshToken = await getItem('refreshToken');
+
+    if (token && refreshToken) {
+      store.dispatch(updateLogin({token, refreshToken}));
     }
   } catch (error) {
-    console.log('Error reading token from storage:', error);
+    console.log('Error restoring token:', error);
   } finally {
     store.dispatch(updateIsRefreshing(false));
   }
