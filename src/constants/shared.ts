@@ -14,6 +14,8 @@ export const LANDSCAPE_LIST_COLUMNS = 4;
 
 export const PRODUCT_ITEMS_PER_PAGE = 20;
 
+export const PRODUCT_ITEM_IMAGE_LIMIT = 1084;
+
 export const PRODUCT_ITEM_IMAGE_SIZE = 150;
 
 export const PURCHASE_ITEM_IMAGE_SIZE = 120;
@@ -102,7 +104,7 @@ export const NOTIFICATIONS = {
   },
   emptyCartNotification: {
     title: 'Your Cart is Empty',
-    message: 'Add product to your cart',
+    message: 'Add product to your cart now',
   },
   notLoggedNotification: {
     title: 'Login First',

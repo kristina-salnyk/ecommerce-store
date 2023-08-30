@@ -2,9 +2,11 @@ import React, {FC, useCallback, useEffect} from 'react';
 import {FlatList, RefreshControl} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {DrawerNavigationProp} from '@react-navigation/drawer';
 
-import {DrawerParamList, RootStackParamList} from '../../../navigation/types';
+import {
+  MainStackParamList,
+  RootStackParamList,
+} from '../../../navigation/types';
 import Splash from '../../molecules/Splash';
 import PurchaseItem from '../../molecules/PurchaseItem';
 import PriceDetails from '../../molecules/PriceDetails';
@@ -28,7 +30,8 @@ import {ButtonStyled} from './PurchaseList.styled';
 const PurchaseList: FC = () => {
   const rootNavigation =
     useNavigation<StackNavigationProp<RootStackParamList>>();
-  const navigation = useNavigation<DrawerNavigationProp<DrawerParamList>>();
+  const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
+
   const dispatch = useAppDispatch();
 
   const token = useAppSelector(selectToken);
@@ -60,12 +63,11 @@ const PurchaseList: FC = () => {
     });
   }, [rootNavigation]);
 
-  const onPressShopNow = useCallback(() => {
-    if (navigation.canGoBack()) {
-      navigation.goBack();
-    } else {
-      navigation.navigate('Main');
-    }
+  const onPressSignUp = useCallback(() => {
+    navigation.reset({
+      index: 0,
+      routes: [{name: 'SignUp'}],
+    });
   }, [navigation]);
 
   const proceedToPayment = useCallback(() => {}, []);
@@ -76,8 +78,10 @@ const PurchaseList: FC = () => {
         imageSource={notLogged}
         title={NOTIFICATIONS.notLoggedNotification.title}
         message={NOTIFICATIONS.notLoggedNotification.message}
-        action="Login now"
-        onPress={onPressLoginNow}
+        buttonText="Login now"
+        onPressButton={onPressLoginNow}
+        linkText="New here? Sign Up"
+        onPressLink={onPressSignUp}
       />
     );
   }
@@ -86,30 +90,6 @@ const PurchaseList: FC = () => {
     return <Splash />;
   }
 
-  // if (error) {
-  //   return (
-  //     <NotificationBox
-  //       imageSource={noResults}
-  //       title={NOTIFICATIONS.loadingFailedNotification.title}
-  //       message={NOTIFICATIONS.loadingFailedNotification.message}
-  //       action="Refresh"
-  //       onPress={getCart}
-  //     />
-  //   );
-  // }
-
-  // if (!cart) {
-  //   return (
-  //     <NotificationBox
-  //       imageSource={emptyCart}
-  //       title={NOTIFICATIONS.emptyCartNotification.title}
-  //       message={NOTIFICATIONS.emptyCartNotification.message}
-  //       action="Shop now"
-  //       onPress={onPressShopNow}
-  //     />
-  //   );
-  // }
-
   return (
     <>
       <FlatList
@@ -117,6 +97,7 @@ const PurchaseList: FC = () => {
         renderItem={({item}) => (
           <PurchaseItem
             id={item.id}
+            productId={item.relationships.variant.data.id}
             name={item.attributes.name}
             options={item.attributes.options_text}
             price={item.attributes.pre_tax_amount}
@@ -127,7 +108,7 @@ const PurchaseList: FC = () => {
           />
         )}
         ListEmptyComponent={
-          <EmptyPurchaseList error={error} onPress={getCart} />
+          <EmptyPurchaseList error={error} onPressRefresh={getCart} />
         }
         ListFooterComponent={
           cart && purchases.length > 0 ? (

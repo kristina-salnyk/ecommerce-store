@@ -29,7 +29,7 @@ interface Purchase {
   };
   relationships: {
     variant: {
-      data: ProductRelationship | null;
+      data: ProductRelationship;
     };
     digital_links?: {
       data: ProductRelationship[];

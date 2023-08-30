@@ -106,8 +106,8 @@ const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
         imageSource={noResults}
         title={NOTIFICATIONS.loadingFailedNotification.title}
         message={NOTIFICATIONS.loadingFailedNotification.message}
-        action="Refresh"
-        onPress={getProduct}
+        linkText="Refresh"
+        onPressLink={getProduct}
       />
     );
   }
@@ -118,8 +118,8 @@ const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
         imageSource={noResults}
         title={NOTIFICATIONS.emptyProductDetailsNotification.title}
         message={NOTIFICATIONS.emptyProductDetailsNotification.message}
-        action="Refresh"
-        onPress={getProduct}
+        linkText="Refresh"
+        onPressLink={getProduct}
       />
     );
   }

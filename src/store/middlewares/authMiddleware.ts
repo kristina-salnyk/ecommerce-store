@@ -1,4 +1,5 @@
 import {AxiosResponse} from 'axios';
+
 import {AppDispatch, RootState} from '../index';
 import {setAuthHeader} from '../../services/api';
 import {refreshToken} from '../../services/api/account';

@@ -24,6 +24,7 @@ import {
 
 interface PurchaseItemProps {
   id: string;
+  productId: string;
   name: string;
   options: string;
   price: string;
@@ -35,6 +36,7 @@ interface PurchaseItemProps {
 
 const PurchaseItem: FC<PurchaseItemProps> = ({
   id,
+  productId,
   name,
   options,
   price,
@@ -75,7 +77,7 @@ const PurchaseItem: FC<PurchaseItemProps> = ({
         <PurchaseItemDetailsWrap>
           <PurchaseImageWrap width={PURCHASE_ITEM_IMAGE_SIZE}>
             <ProductImage
-              path={getImagePathById(id, PURCHASE_ITEM_IMAGE_SIZE)}
+              path={getImagePathById(productId, PURCHASE_ITEM_IMAGE_SIZE)}
               options={{
                 height: PURCHASE_ITEM_IMAGE_SIZE,
                 width: PURCHASE_ITEM_IMAGE_SIZE,

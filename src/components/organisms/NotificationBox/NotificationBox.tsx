@@ -4,22 +4,30 @@ import {Image, ImageSourcePropType} from 'react-native';
 import Title from '../../atoms/Title';
 import Message from '../../atoms/Message';
 import useOrientation from '../../../hooks/useOrientation';
-import {LinkStyled, NotificationBoxStyled} from './NotificationBox.styled';
+import {
+  ButtonStyled,
+  LinkStyled,
+  NotificationBoxStyled,
+} from './NotificationBox.styled';
 
 interface NotificationBoxProps {
   imageSource: ImageSourcePropType;
   title: string;
   message: string;
-  action: string;
-  onPress: () => void;
+  buttonText?: string;
+  onPressButton?: () => void;
+  linkText?: string;
+  onPressLink?: () => void;
 }
 
 const NotificationBox: FC<NotificationBoxProps> = ({
   imageSource,
   title,
   message,
-  action,
-  onPress,
+  buttonText,
+  onPressButton,
+  linkText,
+  onPressLink,
 }) => {
   const orientation = useOrientation();
 
@@ -28,7 +36,12 @@ const NotificationBox: FC<NotificationBoxProps> = ({
       <Image source={imageSource} alt={title} />
       <Title text={title} />
       <Message text={message} />
-      <LinkStyled text={action} onPress={onPress} />
+      {buttonText && onPressButton && (
+        <ButtonStyled text={buttonText} onPress={onPressButton} />
+      )}
+      {linkText && onPressLink && (
+        <LinkStyled text={linkText} onPress={onPressLink} />
+      )}
     </NotificationBoxStyled>
   );
 };
