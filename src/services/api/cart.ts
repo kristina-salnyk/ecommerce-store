@@ -3,10 +3,8 @@ import {AxiosError, AxiosResponse} from 'axios';
 import {storefrontApi} from './index';
 
 export const createCart = async (): Promise<AxiosResponse> => {
-  const params = {include: 'line_items'};
-
   try {
-    return await storefrontApi.post('/cart', null, {params});
+    return await storefrontApi.post('/cart');
   } catch (error) {
     if (error instanceof AxiosError && error.response) {
       throw new Error(error.response.data.error);

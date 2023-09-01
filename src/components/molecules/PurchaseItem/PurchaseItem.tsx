@@ -149,21 +149,22 @@ const PurchaseItem: FC<PurchaseItemProps> = ({
               IconComponent={SimpleLineIcon}
               iconName="plus"
               onPress={onPressIncreaseQuantity}
-              color={theme.color.gray}
+              color={theme.color.lightGray}
             />
             <ProductQuantity num={quantity} />
             <IconButton
               IconComponent={SimpleLineIcon}
               iconName="minus"
               onPress={onPressDecreaseQuantity}
-              color={theme.color[quantity > 1 ? 'gray' : 'lightGray']}
+              disabled={quantity === 1}
+              color={theme.color.lightGray}
             />
           </PurchaseQuantityWrap>
           <IconButtonStyled
             IconComponent={FontAwesomeIcon}
             iconName="trash"
             onPress={onPressDelete}
-            color={theme.color.gray}
+            color={theme.color.lightGray}
           />
         </PurchaseItemActions>
       </PurchaseItemStyled>
