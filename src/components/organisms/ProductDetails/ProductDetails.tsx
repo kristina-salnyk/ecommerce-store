@@ -16,7 +16,6 @@ import ProductDescription from '../../atoms/ProductDescription';
 import Splash from '../../molecules/Splash';
 import ImageSlider from '../../molecules/ImageSlider';
 import NotificationBox from '../NotificationBox';
-import noResults from '../../../assets/images/no-results.png';
 import {useAppDispatch, useAppSelector} from '../../../store/hooks';
 import {getProductThunk} from '../../../store/product/thunk';
 import {updateIsRefreshing} from '../../../store/product/actionCreators';
@@ -28,6 +27,9 @@ import {
 } from '../../../store/product/selectors';
 import {selectColorOptions} from '../../../store/products/selectors';
 import {selectToken} from '../../../store/account/selectors';
+import {addCartItemThunk} from '../../../store/cart/thunk';
+import noResults from '../../../assets/images/no-results.png';
+import ProductOption from '../../../interfaces/ProductOption';
 import {
   MODAL_OPTIONS,
   MODAL_TYPES,
@@ -42,7 +44,7 @@ interface ProductDetailsProps {
 }
 
 const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
-  const [selectedColorId, setSelectedColorId] = useState<string>('');
+  const [color, setColor] = useState<ProductOption>();
   const route = useRoute<RouteProp<MainStackParamList, 'ProductDetails'>>();
   const {productSlug} = route.params;
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
@@ -68,6 +70,31 @@ const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
     getProduct();
   }, [getProduct, dispatch]);
 
+  const onSelectColor = useCallback(
+    (id: string) => {
+      const selectedColor = colorOptions.find(option => option.id === id);
+      setColor(selectedColor);
+    },
+    [colorOptions],
+  );
+
+  const onProductAdded = useCallback(() => {
+    navigation.navigate('Modal', {
+      type: MODAL_TYPES.confirm,
+      title: NOTIFICATIONS.productAddedModal.title,
+      options: MODAL_OPTIONS.success,
+    });
+  }, [navigation]);
+
+  const onProductNotAdded = useCallback(() => {
+    navigation.navigate('Modal', {
+      type: MODAL_TYPES.confirm,
+      title: NOTIFICATIONS.productNotAddedModal.title,
+      message: NOTIFICATIONS.productNotAddedModal.message,
+      options: MODAL_OPTIONS.error,
+    });
+  }, [navigation]);
+
   const addProductToCart = useCallback(() => {
     if (!token) {
       navigation.navigate('Modal', {
@@ -79,7 +106,7 @@ const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
       return;
     }
 
-    if (!selectedColorId) {
+    if (!color) {
       navigation.navigate('Modal', {
         type: MODAL_TYPES.confirm,
         title: NOTIFICATIONS.selectColorModal.title,
@@ -89,12 +116,30 @@ const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
       return;
     }
 
-    navigation.navigate('Modal', {
-      type: MODAL_TYPES.confirm,
-      title: NOTIFICATIONS.productAddedModal.title,
-      options: MODAL_OPTIONS.success,
-    });
-  }, [navigation, selectedColorId, token]);
+    if (!product) {
+      return;
+    }
+
+    dispatch(
+      addCartItemThunk(
+        {
+          id: product.id,
+          quantity: 1,
+          options: {color: color.name},
+        },
+        onProductAdded,
+        onProductNotAdded,
+      ),
+    );
+  }, [
+    token,
+    color,
+    product,
+    dispatch,
+    onProductAdded,
+    onProductNotAdded,
+    navigation,
+  ]);
 
   if (isLoading && !isRefreshing) {
     return <Splash />;
@@ -149,8 +194,8 @@ const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
           <Title text="Select Color" />
           <ProductSelect
             colorOptions={colorOptions}
-            selectedId={selectedColorId}
-            onSelect={setSelectedColorId}
+            selectedId={color?.id ?? ''}
+            onSelect={onSelectColor}
           />
           <HorizontalLine />
           <Title text="Description" />

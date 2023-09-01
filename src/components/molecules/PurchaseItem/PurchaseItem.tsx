@@ -1,8 +1,11 @@
-import React, {FC, useCallback, useMemo, useState} from 'react';
+import React, {FC, useCallback, useMemo} from 'react';
 import {useTheme} from 'styled-components';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 import SimpleLineIcon from 'react-native-vector-icons/SimpleLineIcons';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
+import {RootStackParamList} from '../../../navigation/types';
 import IconButton from '../../atoms/IconButton';
 import ProductName from '../../atoms/ProductName';
 import ProductCost from '../../atoms/ProductCost';
@@ -10,7 +13,17 @@ import ProductImage from '../../atoms/ProductImage';
 import ProductOptions from '../../atoms/ProductOptions';
 import ProductQuantity from '../../atoms/ProductQuantity';
 import getImagePathById from '../../../utils/getImagePathById';
-import {PURCHASE_ITEM_IMAGE_SIZE} from '../../../constants/shared';
+import {
+  changeQuantityThunk,
+  deleteCartItemThunk,
+} from '../../../store/cart/thunk';
+import {useAppDispatch} from '../../../store/hooks';
+import {
+  MODAL_OPTIONS,
+  MODAL_TYPES,
+  NOTIFICATIONS,
+  PURCHASE_ITEM_IMAGE_SIZE,
+} from '../../../constants/shared';
 import {
   IconButtonStyled,
   PurchaseImageWrap,
@@ -45,8 +58,9 @@ const PurchaseItem: FC<PurchaseItemProps> = ({
   currency,
   quantity,
 }) => {
-  const [currentQuantity, setCurrentQuantity] = useState(quantity);
   const theme = useTheme();
+  const dispatch = useAppDispatch();
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   const priceNum = Number(price);
   const promoNum = Number(promo);
@@ -61,15 +75,45 @@ const PurchaseItem: FC<PurchaseItemProps> = ({
     [compareAtPrice, currency],
   );
 
-  const onPressIncreaseQuantity = () => {
-    setCurrentQuantity(prevState => prevState + 1);
-  };
+  const onProductNotRemoved = useCallback(() => {
+    navigation.navigate('Modal', {
+      type: MODAL_TYPES.confirm,
+      title: NOTIFICATIONS.productNotRemovedModal.title,
+      message: NOTIFICATIONS.productNotRemovedModal.message,
+      options: MODAL_OPTIONS.error,
+    });
+  }, [navigation]);
 
-  const onPressDecreaseQuantity = () => {
-    setCurrentQuantity(prevState => prevState - 1);
-  };
+  const onProductQuantityNotChanged = useCallback(() => {
+    navigation.navigate('Modal', {
+      type: MODAL_TYPES.confirm,
+      title: NOTIFICATIONS.productQuantityNotChangedModal.title,
+      message: NOTIFICATIONS.productQuantityNotChangedModal.message,
+      options: MODAL_OPTIONS.error,
+    });
+  }, [navigation]);
 
-  const onPressDelete = useCallback(() => {}, []);
+  const onPressIncreaseQuantity = useCallback(() => {
+    dispatch(
+      changeQuantityThunk(
+        {line_item_id: id, quantity: quantity + 1},
+        onProductQuantityNotChanged,
+      ),
+    );
+  }, [dispatch, id, onProductQuantityNotChanged, quantity]);
+
+  const onPressDecreaseQuantity = useCallback(() => {
+    dispatch(
+      changeQuantityThunk(
+        {line_item_id: id, quantity: quantity - 1},
+        onProductQuantityNotChanged,
+      ),
+    );
+  }, [dispatch, id, onProductQuantityNotChanged, quantity]);
+
+  const onPressDelete = useCallback(() => {
+    dispatch(deleteCartItemThunk(id, onProductNotRemoved));
+  }, [dispatch, id, onProductNotRemoved]);
 
   return (
     <PurchaseItemWrap>
@@ -102,21 +146,21 @@ const PurchaseItem: FC<PurchaseItemProps> = ({
               IconComponent={SimpleLineIcon}
               iconName="plus"
               onPress={onPressIncreaseQuantity}
-              color={theme.color.lightGray}
+              color={theme.color.gray}
             />
-            <ProductQuantity num={currentQuantity} />
+            <ProductQuantity num={quantity} />
             <IconButton
               IconComponent={SimpleLineIcon}
               iconName="minus"
               onPress={onPressDecreaseQuantity}
-              color={theme.color.lightGray}
+              color={theme.color[quantity > 1 ? 'gray' : 'lightGray']}
             />
           </PurchaseQuantityWrap>
           <IconButtonStyled
             IconComponent={FontAwesomeIcon}
             iconName="trash"
             onPress={onPressDelete}
-            color={theme.color.lightGray}
+            color={theme.color.gray}
           />
         </PurchaseItemActions>
       </PurchaseItemStyled>

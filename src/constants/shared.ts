@@ -64,6 +64,18 @@ export const NOTIFICATIONS = {
   productAddedModal: {
     title: 'Product added to your cart',
   },
+  productNotAddedModal: {
+    title: 'Product not added',
+    message: 'Product not available, please try again later',
+  },
+  productNotRemovedModal: {
+    title: 'Product not removed',
+    message: 'Product not deleted, please try again later',
+  },
+  productQuantityNotChangedModal: {
+    title: 'Product quantity not changed',
+    message: 'Product quantity not changed, please try again later',
+  },
   notAuthorizedModal: {
     title: 'Login To Continue',
     message: 'Please login to add product in your cart',

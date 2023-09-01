@@ -3,8 +3,6 @@ import Purchase from '../../interfaces/Purchase';
 
 export const CART_SET_DATA = 'cart/setData';
 
-export const CART_UPDATE_DATA = 'cart/updateData';
-
 export const CART_UPDATE_IS_LOADING = 'cart/updateIsLoading';
 
 export const CART_UPDATE_IS_REFRESHING = 'cart/updateIsRefreshing';
