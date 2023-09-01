@@ -1,13 +1,9 @@
 import React, {FC} from 'react';
-import {StyleProp, ViewStyle} from 'react-native';
+import {ViewProps} from 'react-native';
 
 import {HorizontalLineStyled} from './HorizontalLine.styled';
 
-interface HorizontalLineProps {
-  style?: StyleProp<ViewStyle>;
-}
-
-const HorizontalLine: FC<HorizontalLineProps> = ({style}) => {
+const HorizontalLine: FC<ViewProps> = ({style}) => {
   return <HorizontalLineStyled style={style} />;
 };
 

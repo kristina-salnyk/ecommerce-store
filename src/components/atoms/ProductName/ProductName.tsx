@@ -1,11 +1,10 @@
 import React, {FC} from 'react';
-import {StyleProp} from 'react-native';
+import {TextProps} from 'react-native';
 
 import {ProductNameStyled} from './ProductName.styled';
 
-interface ProductNameProps {
+interface ProductNameProps extends TextProps {
   text: string;
-  style?: StyleProp<object>;
 }
 
 const ProductName: FC<ProductNameProps> = ({text, style}) => (

@@ -57,7 +57,7 @@ const ImageSlider: FC<ImageSliderProps> = ({images, options}) => {
             data={images}
             renderItem={({item}) => (
               <ProductImage
-                path={getImagePathById(item.id, sliderSize)}
+                source={{uri: getImagePathById(item.id, sliderSize)}}
                 options={{
                   width: sliderSize,
                   height: sliderSize,

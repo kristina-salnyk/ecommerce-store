@@ -18,6 +18,7 @@ import {
   deleteCartItemThunk,
 } from '../../../store/cart/thunk';
 import {useAppDispatch} from '../../../store/hooks';
+import parseNumber from '../../../utils/parseNumber';
 import {
   MODAL_OPTIONS,
   MODAL_TYPES,
@@ -62,8 +63,8 @@ const PurchaseItem: FC<PurchaseItemProps> = ({
   const dispatch = useAppDispatch();
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
-  const priceNum = Number(price);
-  const promoNum = Number(promo);
+  const priceNum = parseNumber(price);
+  const promoNum = parseNumber(promo);
 
   const compareAtPrice = useMemo(
     () => (priceNum + promoNum).toString(),
@@ -121,7 +122,9 @@ const PurchaseItem: FC<PurchaseItemProps> = ({
         <PurchaseItemDetailsWrap>
           <PurchaseImageWrap width={PURCHASE_ITEM_IMAGE_SIZE}>
             <ProductImage
-              path={getImagePathById(productId, PURCHASE_ITEM_IMAGE_SIZE)}
+              source={{
+                uri: getImagePathById(productId, PURCHASE_ITEM_IMAGE_SIZE),
+              }}
               options={{
                 height: PURCHASE_ITEM_IMAGE_SIZE,
                 width: PURCHASE_ITEM_IMAGE_SIZE,
