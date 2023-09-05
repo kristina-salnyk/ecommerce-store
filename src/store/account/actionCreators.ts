@@ -17,10 +17,9 @@ import {
   AccountUpdateUserAction,
 } from './actionTypes';
 
-export const updateSignUp = (data: string): AccountSignUpAction => {
+export const updateSignUp = (): AccountSignUpAction => {
   return {
     type: ACCOUNT_SIGN_UP,
-    payload: data,
   };
 };
 
@@ -41,8 +40,13 @@ export const updateLogout = (): AccountLogoutAction => {
 };
 
 export const updateUser = (data: {
-  username?: string;
   email?: string;
+  username?: string;
+  phone?: string;
+  city?: string;
+  street?: string;
+  build?: string;
+  avatarURI?: string;
 }): AccountUpdateUserAction => {
   return {
     type: ACCOUNT_UPDATE_USER,

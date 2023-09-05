@@ -7,12 +7,8 @@ import {
   useAppRootNavigation,
 } from '../../../navigation/hooks';
 import {signUpThunk} from '../../../store/account/thunk';
-import {
-  selectError,
-  selectIsLoading,
-  selectUser,
-} from '../../../store/account/selectors';
-import {setError, updateUser} from '../../../store/account/actionCreators';
+import {selectError, selectIsLoading} from '../../../store/account/selectors';
+import {setError} from '../../../store/account/actionCreators';
 import {
   MODAL_OPTIONS,
   MODAL_TYPES,
@@ -36,21 +32,8 @@ const SignUpForm: FC = () => {
   const navigation = useAppMainNavigation();
   const dispatch = useAppDispatch();
 
-  const {email: registeredEmail} = useAppSelector(selectUser);
   const error = useAppSelector(selectError);
   const isLoading = useAppSelector(selectIsLoading);
-
-  useEffect(() => {
-    if (registeredEmail) {
-      rootNavigation.navigate('Modal', {
-        type: MODAL_TYPES.login,
-        title: NOTIFICATIONS.loginModal.title,
-        options: MODAL_OPTIONS.success,
-      });
-
-      dispatch(updateUser({email: ''}));
-    }
-  }, [dispatch, registeredEmail, rootNavigation]);
 
   useEffect(() => {
     if (error) {
@@ -64,6 +47,19 @@ const SignUpForm: FC = () => {
       dispatch(setError(null));
     }
   }, [dispatch, error, rootNavigation]);
+
+  const onSignedUp = useCallback(() => {
+    rootNavigation.navigate('Modal', {
+      type: MODAL_TYPES.login,
+      title: NOTIFICATIONS.loginModal.title,
+      options: MODAL_OPTIONS.success,
+    });
+
+    setUsername('');
+    setEmail('');
+    setPassword('');
+    setPasswordConfirmation('');
+  }, [rootNavigation]);
 
   const onPressSignUp = useCallback(() => {
     if (!username || !email || !password || !passwordConfirmation) {
@@ -86,14 +82,15 @@ const SignUpForm: FC = () => {
       return;
     }
 
-    dispatch(signUpThunk({username, email, password}));
+    dispatch(signUpThunk({username, email, password}, onSignedUp));
   }, [
     username,
     email,
     password,
     passwordConfirmation,
-    rootNavigation,
     dispatch,
+    onSignedUp,
+    rootNavigation,
   ]);
 
   const onPressSignIn = useCallback(() => {

@@ -1,6 +1,6 @@
 import {AxiosError, AxiosResponse} from 'axios';
 
-import {auth, storefrontApi} from './index';
+import {auth, mockStorefrontApi, storefrontApi} from './index';
 
 export const signUp = async (user: {
   email: string;
@@ -37,17 +37,6 @@ export const login = async (
   }
 };
 
-export const current = async (): Promise<AxiosResponse> => {
-  try {
-    return await storefrontApi.get('/account');
-  } catch (error) {
-    if (error instanceof AxiosError && error.response) {
-      throw new Error(error.response.data.error);
-    }
-    throw error;
-  }
-};
-
 export const refreshToken = async (token: string): Promise<AxiosResponse> => {
   const body = {
     grant_type: 'refresh_token',
@@ -62,6 +51,34 @@ export const refreshToken = async (token: string): Promise<AxiosResponse> => {
       throw new Error(
         message === 'invalid_grant' ? 'Invalid refresh token' : message,
       );
+    }
+    throw error;
+  }
+};
+
+export const getUser = async (): Promise<AxiosResponse> => {
+  try {
+    return await mockStorefrontApi.get('/account/1');
+  } catch (error) {
+    if (error instanceof AxiosError && error.response) {
+      throw new Error(error.response.data.error);
+    }
+    throw error;
+  }
+};
+
+export const setUser = async (user: {
+  firstname: string;
+  phone: string;
+  city: string;
+  address1: string;
+  address2: string;
+}): Promise<AxiosResponse> => {
+  try {
+    return await mockStorefrontApi.put('/account/1', user);
+  } catch (error) {
+    if (error instanceof AxiosError && error.response) {
+      throw new Error(error.response.data.error);
     }
     throw error;
   }

@@ -13,8 +13,13 @@ import AccountState from '../../interfaces/AccountState';
 
 const initialState: AccountState = {
   user: {
-    username: '',
     email: '',
+    username: '',
+    phone: '',
+    city: '',
+    street: '',
+    build: '',
+    avatarURI: '',
   },
   token: null,
   refreshToken: null,
@@ -31,7 +36,6 @@ const reducer = (
     case ACCOUNT_SIGN_UP:
       return {
         ...state,
-        user: {...state.user, email: action.payload},
         isLoading: false,
         error: null,
       };
@@ -48,7 +52,12 @@ const reducer = (
         ...initialState,
       };
     case ACCOUNT_UPDATE_USER:
-      return {...state, user: {...state.user, ...action.payload}};
+      return {
+        ...state,
+        user: {...state.user, ...action.payload},
+        isLoading: false,
+        error: null,
+      };
     case ACCOUNT_UPDATE_TOKEN:
       return {
         ...state,

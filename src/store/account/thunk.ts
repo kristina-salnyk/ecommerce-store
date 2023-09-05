@@ -1,4 +1,4 @@
-import {AppDispatch, AppThunk, RootState} from '../index';
+import {AppDispatch, AppThunk} from '../index';
 import {
   setError,
   updateIsLoading,
@@ -6,28 +6,28 @@ import {
   updateSignUp,
   updateUser,
 } from './actionCreators';
-import {current, login, signUp} from '../../services/api/account';
-import {authMiddleware} from '../middlewares/authMiddleware';
+import {getUser, login, setUser, signUp} from '../../services/api/account';
+import {getItem, setItem} from '../../services/storage';
 
 export const signUpThunk =
-  (data: {username: string; email: string; password: string}): AppThunk =>
+  (
+    data: {username: string; email: string; password: string},
+    onSuccess: () => void,
+  ): AppThunk =>
   async (dispatch: AppDispatch) => {
     try {
       dispatch(updateIsLoading(true));
 
-      const response = await signUp({
+      await signUp({
         email: data.email,
         first_name: data.username,
         password: data.password,
         password_confirmation: data.password,
       });
-      const {
-        data: {
-          attributes: {email},
-        },
-      } = response.data;
 
-      dispatch(updateSignUp(email));
+      onSuccess();
+
+      dispatch(updateSignUp());
     } catch (error) {
       dispatch(
         setError(
@@ -56,19 +56,60 @@ export const loginThunk =
     }
   };
 
-export const currentThunk =
-  (): AppThunk => async (dispatch: AppDispatch, getState: () => RootState) => {
+export const getUserThunk = (): AppThunk => async (dispatch: AppDispatch) => {
+  try {
+    dispatch(updateIsLoading(true));
+
+    // TODO: backend doesn't support needed response. Added mocked request
+    const response = await getUser();
+    const {
+      firstname: username,
+      phone,
+      city,
+      address1: street,
+      address2: build,
+    } = response.data;
+
+    const avatarURI = await getItem('avatarURI');
+
+    dispatch(
+      updateUser({
+        username,
+        phone,
+        city,
+        street,
+        build,
+        avatarURI,
+      }),
+    );
+  } catch (error) {
+    dispatch(
+      setError(
+        error instanceof Error ? error.message : 'Unknown error' + error,
+      ),
+    );
+  }
+};
+
+export const setUserThunk =
+  (data: {
+    firstname: string;
+    phone: string;
+    city: string;
+    address1: string;
+    address2: string;
+    avatarURI: string;
+  }): AppThunk =>
+  async (dispatch: AppDispatch) => {
     try {
       dispatch(updateIsLoading(true));
 
-      const response = await authMiddleware(current, dispatch, getState);
-      const {
-        data: {
-          attributes: {email, first_name: username = 'Default'},
-        },
-      } = response.data;
+      // TODO: backend doesn't support needed response. Added mocked request
+      await setUser(data);
 
-      dispatch(updateUser({email, username}));
+      await setItem('avatarURI', data.avatarURI);
+
+      dispatch(updateIsLoading(false));
     } catch (error) {
       dispatch(
         setError(

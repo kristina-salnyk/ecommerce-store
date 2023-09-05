@@ -16,7 +16,6 @@ export const ACCOUNT_SET_ERROR = 'account/setError';
 
 export interface AccountSignUpAction {
   type: typeof ACCOUNT_SIGN_UP;
-  payload: string;
 }
 
 export interface AccountLoginAction {
@@ -30,7 +29,15 @@ export interface AccountLogoutAction {
 
 export interface AccountUpdateUserAction {
   type: typeof ACCOUNT_UPDATE_USER;
-  payload: {username?: string; email?: string};
+  payload: {
+    email?: string;
+    username?: string;
+    phone?: string;
+    city?: string;
+    street?: string;
+    build?: string;
+    avatarURI?: string;
+  };
 }
 
 export interface AccountUpdateTokenAction {
