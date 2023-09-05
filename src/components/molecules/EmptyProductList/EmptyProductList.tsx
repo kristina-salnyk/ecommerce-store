@@ -6,10 +6,13 @@ import {NOTIFICATIONS} from '../../../constants/shared';
 
 interface EmptyProductListProps {
   error: string | null;
-  onPress: () => void;
+  onPressRefresh: () => void;
 }
 
-const EmptyProductList: FC<EmptyProductListProps> = ({error, onPress}) => {
+const EmptyProductList: FC<EmptyProductListProps> = ({
+  error,
+  onPressRefresh,
+}) => {
   if (!error) {
     return null;
   }
@@ -19,8 +22,8 @@ const EmptyProductList: FC<EmptyProductListProps> = ({error, onPress}) => {
       imageSource={noResults}
       title={NOTIFICATIONS.loadingFailedNotification.title}
       message={NOTIFICATIONS.loadingFailedNotification.message}
-      action="Refresh"
-      onPress={onPress}
+      linkText="Refresh"
+      onPressLink={onPressRefresh}
     />
   );
 };

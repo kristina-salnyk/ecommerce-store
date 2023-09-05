@@ -87,7 +87,7 @@ const ProductList: FC<ProductListProps> = ({options}) => {
       onEndReachedThreshold={0.2}
       onEndReached={getMoreProducts}
       ListEmptyComponent={
-        <EmptyProductList error={error} onPress={refreshProductsList} />
+        <EmptyProductList error={error} onPressRefresh={refreshProductsList} />
       }
       ListFooterComponent={<FooterProductList isLoadingMore={isLoadingMore} />}
       refreshControl={

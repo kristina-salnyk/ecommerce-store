@@ -1,8 +1,6 @@
 import Product from '../../interfaces/Product';
 
-export const PRODUCT_SET_ITEM = 'product/setItem';
-
-export const PRODUCT_UPDATE_ITEM = 'product/updateItem';
+export const PRODUCT_SET_DATA = 'product/setData';
 
 export const PRODUCT_UPDATE_IS_LOADING = 'product/updateIsLoading';
 
@@ -10,13 +8,8 @@ export const PRODUCT_UPDATE_IS_REFRESHING = 'product/updateIsRefreshing';
 
 export const PRODUCT_SET_ERROR = 'product/setError';
 
-export interface ProductSetItemAction {
-  type: typeof PRODUCT_SET_ITEM;
-  payload: Product;
-}
-
-export interface ProductUpdateItemAction {
-  type: typeof PRODUCT_UPDATE_ITEM;
+export interface ProductSetDataAction {
+  type: typeof PRODUCT_SET_DATA;
   payload: Product;
 }
 
@@ -36,8 +29,7 @@ export interface ProductSetErrorAction {
 }
 
 export type ProductAction =
-  | ProductSetItemAction
-  | ProductUpdateItemAction
+  | ProductSetDataAction
   | ProductUpdateIsLoadingAction
   | ProductUpdateIsRefreshingAction
   | ProductSetErrorAction;

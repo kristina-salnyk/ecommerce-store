@@ -1,27 +1,18 @@
 import {
+  PRODUCT_SET_DATA,
   PRODUCT_SET_ERROR,
-  PRODUCT_SET_ITEM,
   PRODUCT_UPDATE_IS_LOADING,
   PRODUCT_UPDATE_IS_REFRESHING,
-  PRODUCT_UPDATE_ITEM,
+  ProductSetDataAction,
   ProductSetErrorAction,
-  ProductSetItemAction,
   ProductUpdateIsLoadingAction,
   ProductUpdateIsRefreshingAction,
-  ProductUpdateItemAction,
 } from './actionTypes';
 import Product from '../../interfaces/Product';
 
-export const setProduct = (data: Product): ProductSetItemAction => {
+export const setProduct = (data: Product): ProductSetDataAction => {
   return {
-    type: PRODUCT_SET_ITEM,
-    payload: data,
-  };
-};
-
-export const updateProduct = (data: Product): ProductUpdateItemAction => {
-  return {
-    type: PRODUCT_UPDATE_ITEM,
+    type: PRODUCT_SET_DATA,
     payload: data,
   };
 };

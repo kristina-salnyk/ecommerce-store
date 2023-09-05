@@ -1,6 +1,6 @@
 import {RootState} from '../index';
 
-export const selectItem = (state: RootState) => state.product.item;
+export const selectProduct = (state: RootState) => state.product.data;
 
 export const selectIsLoading = (state: RootState) => state.product.isLoading;
 

@@ -9,6 +9,7 @@ interface IconButtonProps extends TouchableOpacityProps {
   IconComponent: ComponentType<IconProps>;
   iconName: string;
   onPress: () => void;
+  disabled?: boolean;
   color?: string;
 }
 
@@ -17,12 +18,13 @@ const IconButton: FC<IconButtonProps> = ({
   iconName,
   onPress,
   color,
+  disabled,
   style,
 }) => {
   const theme = useTheme();
 
   return (
-    <TouchableOpacity onPress={onPress} style={style}>
+    <TouchableOpacity onPress={onPress} disabled={disabled} style={style}>
       <IconComponent
         name={iconName}
         size={DEFAULT_ICON_SIZE}

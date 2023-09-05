@@ -45,6 +45,11 @@ const DrawerNavigator = () => {
         component={MainScreen}
         options={{headerTitle: 'Ecommerce Store'}}
       />
+      <Drawer.Screen
+        name="MyCart"
+        component={CartScreen}
+        options={{headerTitle: 'My Cart'}}
+      />
       {token && (
         <>
           <Drawer.Screen
@@ -56,11 +61,6 @@ const DrawerNavigator = () => {
             name="MyWishList"
             component={WishListScreen}
             options={{headerTitle: 'My Wish List'}}
-          />
-          <Drawer.Screen
-            name="MyCart"
-            component={CartScreen}
-            options={{headerTitle: 'My Cart'}}
           />
           <Drawer.Screen
             name="MyOrders"

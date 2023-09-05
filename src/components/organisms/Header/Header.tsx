@@ -1,21 +1,10 @@
 import React, {FC, useCallback} from 'react';
-import {DrawerActions, useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
+import {DrawerActions} from '@react-navigation/native';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import {
-  MainStackParamList,
-  RootStackParamList,
-} from '../../../navigation/types';
 import IconButton from '../../atoms/IconButton';
-import {useAppSelector} from '../../../store/hooks';
-import {selectToken} from '../../../store/account/selectors';
-import {
-  MODAL_OPTIONS,
-  MODAL_TYPES,
-  NOTIFICATIONS,
-} from '../../../constants/shared';
+import {useAppMainNavigation} from '../../../navigation/hooks';
 import {HeaderRight, HeaderStyled, HeaderTitle} from './Header.styled';
 
 interface HeaderProps {
@@ -24,27 +13,14 @@ interface HeaderProps {
 }
 
 const Header: FC<HeaderProps> = ({title, routeName}) => {
-  const rootNavigation =
-    useNavigation<StackNavigationProp<RootStackParamList>>();
-  const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
+  const navigation = useAppMainNavigation();
   const backShown = navigation.canGoBack();
-
-  const token = useAppSelector(selectToken);
 
   const onPressAddToWish = useCallback(() => {}, []);
 
   const onPressOpenCart = useCallback(() => {
-    if (!token) {
-      rootNavigation.navigate('Modal', {
-        type: MODAL_TYPES.auth,
-        title: NOTIFICATIONS.notAuthorizedModal.title,
-        options: MODAL_OPTIONS.error,
-      });
-      return;
-    }
-
     navigation.navigate('Drawer', {screen: 'MyCart'});
-  }, [navigation, rootNavigation, token]);
+  }, [navigation]);
 
   const onPressToggleDrawer = useCallback(
     () => navigation.dispatch(DrawerActions.toggleDrawer()),

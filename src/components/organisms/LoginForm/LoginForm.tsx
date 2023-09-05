@@ -1,14 +1,12 @@
 import React, {FC, useCallback, useEffect, useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
 
-import {
-  MainStackParamList,
-  RootStackParamList,
-} from '../../../navigation/types';
 import Link from '../../atoms/Link';
 import Input from '../../atoms/Input';
 import {useAppDispatch, useAppSelector} from '../../../store/hooks';
+import {
+  useAppMainNavigation,
+  useAppRootNavigation,
+} from '../../../navigation/hooks';
 import {selectError, selectIsLoading} from '../../../store/account/selectors';
 import {setError} from '../../../store/account/actionCreators';
 import {loginThunk} from '../../../store/account/thunk';
@@ -29,9 +27,8 @@ import {
 const LoginForm: FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const rootNavigation =
-    useNavigation<StackNavigationProp<RootStackParamList>>();
-  const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
+  const rootNavigation = useAppRootNavigation();
+  const navigation = useAppMainNavigation();
   const dispatch = useAppDispatch();
 
   const error = useAppSelector(selectError);

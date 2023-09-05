@@ -1,11 +1,9 @@
 import React, {FC} from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
 
-import {MainStackParamList} from '../../../navigation/types';
 import ProductCost from '../../atoms/ProductCost';
 import ProductImage from '../../atoms/ProductImage';
 import getImagePathById from '../../../utils/getImagePathById';
+import {useAppMainNavigation} from '../../../navigation/hooks';
 import {PRODUCT_ITEM_IMAGE_SIZE} from '../../../constants/shared';
 import {
   ProductItemStyled,
@@ -36,7 +34,7 @@ const ProductItem: FC<ProductItemProps> = ({
   compareAtPriceView,
   options,
 }) => {
-  const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
+  const navigation = useAppMainNavigation();
 
   return (
     <ProductItemWrap

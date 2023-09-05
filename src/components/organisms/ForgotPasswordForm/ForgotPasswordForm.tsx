@@ -1,9 +1,7 @@
 import React, {FC, useCallback, useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
 
-import {MainStackParamList} from '../../../navigation/types';
 import Input from '../../atoms/Input';
+import {useAppMainNavigation} from '../../../navigation/hooks';
 import {
   ButtonStyled,
   ForgotPasswordFormStyled,
@@ -12,7 +10,7 @@ import {
 
 const ForgotPasswordForm: FC = () => {
   const [email, setEmail] = useState<string>('');
-  const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
+  const navigation = useAppMainNavigation();
 
   const onPressSubmit = useCallback(() => {
     navigation.reset({

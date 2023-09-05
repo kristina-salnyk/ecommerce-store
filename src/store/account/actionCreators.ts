@@ -5,6 +5,7 @@ import {
   ACCOUNT_SIGN_UP,
   ACCOUNT_UPDATE_IS_LOADING,
   ACCOUNT_UPDATE_IS_REFRESHING,
+  ACCOUNT_UPDATE_TOKEN,
   ACCOUNT_UPDATE_USER,
   AccountLoginAction,
   AccountLogoutAction,
@@ -12,6 +13,7 @@ import {
   AccountSignUpAction,
   AccountUpdateIsLoadingAction,
   AccountUpdateIsRefreshingAction,
+  AccountUpdateTokenAction,
   AccountUpdateUserAction,
 } from './actionTypes';
 
@@ -22,7 +24,10 @@ export const updateSignUp = (data: string): AccountSignUpAction => {
   };
 };
 
-export const updateLogin = (data: string | null): AccountLoginAction => {
+export const updateLogin = (data: {
+  token: string;
+  refreshToken: string;
+}): AccountLoginAction => {
   return {
     type: ACCOUNT_LOGIN,
     payload: data,
@@ -41,6 +46,16 @@ export const updateUser = (data: {
 }): AccountUpdateUserAction => {
   return {
     type: ACCOUNT_UPDATE_USER,
+    payload: data,
+  };
+};
+
+export const updateToken = (data: {
+  token: string;
+  refreshToken: string;
+}): AccountUpdateTokenAction => {
+  return {
+    type: ACCOUNT_UPDATE_TOKEN,
     payload: data,
   };
 };

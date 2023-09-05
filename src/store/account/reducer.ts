@@ -5,6 +5,7 @@ import {
   ACCOUNT_SIGN_UP,
   ACCOUNT_UPDATE_IS_LOADING,
   ACCOUNT_UPDATE_IS_REFRESHING,
+  ACCOUNT_UPDATE_TOKEN,
   ACCOUNT_UPDATE_USER,
   AccountAction,
 } from './actionTypes';
@@ -16,6 +17,7 @@ const initialState: AccountState = {
     email: '',
   },
   token: null,
+  refreshToken: null,
   isLoading: false,
   isRefreshing: false,
   error: null,
@@ -36,7 +38,8 @@ const reducer = (
     case ACCOUNT_LOGIN:
       return {
         ...state,
-        token: action.payload,
+        token: action.payload.token,
+        refreshToken: action.payload.refreshToken,
         isLoading: false,
         error: null,
       };
@@ -46,6 +49,12 @@ const reducer = (
       };
     case ACCOUNT_UPDATE_USER:
       return {...state, user: {...state.user, ...action.payload}};
+    case ACCOUNT_UPDATE_TOKEN:
+      return {
+        ...state,
+        token: action.payload.token,
+        refreshToken: action.payload.refreshToken,
+      };
     case ACCOUNT_UPDATE_IS_LOADING:
       return {...state, isLoading: action.payload, error: null};
     case ACCOUNT_UPDATE_IS_REFRESHING:

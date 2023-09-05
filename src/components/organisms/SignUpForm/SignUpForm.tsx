@@ -1,13 +1,11 @@
 import React, {FC, useCallback, useEffect, useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
 
-import {
-  MainStackParamList,
-  RootStackParamList,
-} from '../../../navigation/types';
 import Input from '../../atoms/Input';
 import {useAppDispatch, useAppSelector} from '../../../store/hooks';
+import {
+  useAppMainNavigation,
+  useAppRootNavigation,
+} from '../../../navigation/hooks';
 import {signUpThunk} from '../../../store/account/thunk';
 import {
   selectError,
@@ -34,9 +32,8 @@ const SignUpForm: FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [passwordConfirmation, setPasswordConfirmation] = useState<string>('');
-  const rootNavigation =
-    useNavigation<StackNavigationProp<RootStackParamList>>();
-  const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
+  const rootNavigation = useAppRootNavigation();
+  const navigation = useAppMainNavigation();
   const dispatch = useAppDispatch();
 
   const {email: registeredEmail} = useAppSelector(selectUser);

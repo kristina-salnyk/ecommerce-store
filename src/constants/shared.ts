@@ -14,6 +14,8 @@ export const LANDSCAPE_LIST_COLUMNS = 4;
 
 export const PRODUCT_ITEMS_PER_PAGE = 20;
 
+export const PICSUM_PHOTOS_ID_LIMIT = 1084;
+
 export const PRODUCT_ITEM_IMAGE_SIZE = 150;
 
 export const PURCHASE_ITEM_IMAGE_SIZE = 120;
@@ -62,6 +64,18 @@ export const NOTIFICATIONS = {
   productAddedModal: {
     title: 'Product added to your cart',
   },
+  productNotAddedModal: {
+    title: 'Product not added',
+    message: 'Product not available, please try again later',
+  },
+  productNotRemovedModal: {
+    title: 'Product not removed',
+    message: 'Product not deleted, please try again later',
+  },
+  productQuantityNotChangedModal: {
+    title: 'Product quantity not changed',
+    message: 'Product quantity not changed, please try again later',
+  },
   notAuthorizedModal: {
     title: 'Login To Continue',
     message: 'Please login to add product in your cart',
@@ -102,6 +116,10 @@ export const NOTIFICATIONS = {
   },
   emptyCartNotification: {
     title: 'Your Cart is Empty',
-    message: 'Add product to your cart',
+    message: 'Add product to your cart now',
+  },
+  notLoggedNotification: {
+    title: 'Login First',
+    message: 'Login first to view your cart',
   },
 };
