@@ -1,4 +1,5 @@
 import {
+  CART_RESET_DATA,
   CART_SET_DATA,
   CART_SET_ERROR,
   CART_UPDATE_IS_LOADING,
@@ -27,6 +28,10 @@ const reducer = (
         isLoading: false,
         isRefreshing: false,
         error: null,
+      };
+    case CART_RESET_DATA:
+      return {
+        ...initialState,
       };
     case CART_UPDATE_IS_LOADING:
       return {...state, isLoading: action.payload, error: null};

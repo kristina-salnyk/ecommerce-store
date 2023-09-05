@@ -1,13 +1,10 @@
 import React, {FC} from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
-
-import {RootStackParamList} from '../../../navigation/types';
 import Button from '../../atoms/Button';
+import {useAppRootNavigation} from '../../../navigation/hooks';
 import {ConfirmModalActionsStyled} from './ConfirmModalActions.styled';
 
 const ConfirmModalActions: FC = () => {
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const navigation = useAppRootNavigation();
 
   return (
     <ConfirmModalActionsStyled>

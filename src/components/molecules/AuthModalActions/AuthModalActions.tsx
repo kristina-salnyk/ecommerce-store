@@ -1,13 +1,11 @@
 import React, {FC, useCallback} from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
 
-import {MainStackParamList} from '../../../navigation/types';
 import Button from '../../atoms/Button';
+import {useAppMainNavigation} from '../../../navigation/hooks';
 import {AuthModalActionsStyled} from './AuthModalActions.styled';
 
 const AuthModalActions: FC = () => {
-  const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
+  const navigation = useAppMainNavigation();
 
   const onPressLogin = useCallback(
     () => navigation.navigate('Login'),

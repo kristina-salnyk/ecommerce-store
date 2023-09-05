@@ -14,7 +14,7 @@ export const LANDSCAPE_LIST_COLUMNS = 4;
 
 export const PRODUCT_ITEMS_PER_PAGE = 20;
 
-export const PRODUCT_ITEM_IMAGE_LIMIT = 1084;
+export const PICSUM_PHOTOS_ID_LIMIT = 1084;
 
 export const PRODUCT_ITEM_IMAGE_SIZE = 150;
 

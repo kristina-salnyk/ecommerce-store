@@ -1,18 +1,11 @@
 import React, {FC, useCallback, useEffect} from 'react';
 import {FlatList, RefreshControl} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
 
-import {
-  MainStackParamList,
-  RootStackParamList,
-} from '../../../navigation/types';
 import Splash from '../../molecules/Splash';
 import PurchaseItem from '../../molecules/PurchaseItem';
 import PriceDetails from '../../molecules/PriceDetails';
 import EmptyPurchaseList from '../../molecules/EmptyPurchaseList';
 import NotificationBox from '../NotificationBox';
-import {useAppDispatch, useAppSelector} from '../../../store/hooks';
 import {selectToken} from '../../../store/account/selectors';
 import {
   selectCart,
@@ -23,14 +16,18 @@ import {
 } from '../../../store/cart/selectors';
 import {getCartThunk} from '../../../store/cart/thunk';
 import {updateIsRefreshing} from '../../../store/cart/actionCreators';
+import {useAppDispatch, useAppSelector} from '../../../store/hooks';
+import {
+  useAppMainNavigation,
+  useAppRootNavigation,
+} from '../../../navigation/hooks';
 import notLogged from '../../../assets/images/profile.png';
 import {NOTIFICATIONS} from '../../../constants/shared';
 import {ButtonStyled} from './PurchaseList.styled';
 
 const PurchaseList: FC = () => {
-  const rootNavigation =
-    useNavigation<StackNavigationProp<RootStackParamList>>();
-  const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
+  const rootNavigation = useAppRootNavigation();
+  const navigation = useAppMainNavigation();
 
   const dispatch = useAppDispatch();
 

@@ -1,4 +1,7 @@
-export const CART = {
+import Cart from '../interfaces/Cart';
+import Purchase from '../interfaces/Purchase';
+
+export const CART: {data: Cart; included: Purchase[]} = {
   data: {
     id: '18',
     type: 'cart',

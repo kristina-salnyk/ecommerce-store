@@ -1,17 +1,14 @@
 import React, {FC, useCallback} from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
 
-import {RootStackParamList} from '../../../navigation/types';
 import Button from '../../atoms/Button';
+import {useAppRootNavigation} from '../../../navigation/hooks';
 import {
   ButtonStyled,
   LoginModalActionsStyled,
 } from './LoginModalActions.styled';
 
 const LoginModalActions: FC = () => {
-  const rootNavigation =
-    useNavigation<StackNavigationProp<RootStackParamList>>();
+  const rootNavigation = useAppRootNavigation();
 
   const onPressLogin = useCallback(() => {
     rootNavigation.reset({

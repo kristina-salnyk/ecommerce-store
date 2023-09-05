@@ -5,13 +5,11 @@ import {
   ScrollView,
   TouchableWithoutFeedback,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import {MainStackParamList} from '../../../navigation/types';
 import LogoBanner from '../../molecules/LogoBanner';
 import LoginForm from '../../organisms/LoginForm';
+import {useAppMainNavigation} from '../../../navigation/hooks';
 import {
   ButtonStyled,
   LoginTemplateStyled,
@@ -19,7 +17,7 @@ import {
 } from './LoginTemplate.styled';
 
 const LoginTemplate: FC = () => {
-  const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
+  const navigation = useAppMainNavigation();
 
   const onPressSkipLogin = useCallback(() => {
     if (navigation.canGoBack()) {

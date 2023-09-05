@@ -1,9 +1,11 @@
 import Cart from '../../interfaces/Cart';
 import {
+  CART_RESET_DATA,
   CART_SET_DATA,
   CART_SET_ERROR,
   CART_UPDATE_IS_LOADING,
   CART_UPDATE_IS_REFRESHING,
+  CartResetDataAction,
   CartSetDataAction,
   CartSetErrorAction,
   CartUpdateIsLoadingAction,
@@ -18,6 +20,12 @@ export const setCart = (data: {
   return {
     type: CART_SET_DATA,
     payload: data,
+  };
+};
+
+export const resetCart = (): CartResetDataAction => {
+  return {
+    type: CART_RESET_DATA,
   };
 };
 

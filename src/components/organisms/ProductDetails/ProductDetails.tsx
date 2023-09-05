@@ -1,12 +1,8 @@
 import React, {FC, useCallback, useEffect, useState} from 'react';
 import {RefreshControl, ScrollView} from 'react-native';
-import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
+import {RouteProp, useRoute} from '@react-navigation/native';
 
-import {
-  MainStackParamList,
-  RootStackParamList,
-} from '../../../navigation/types';
+import {MainStackParamList} from '../../../navigation/types';
 import Title from '../../atoms/Title';
 import Button from '../../atoms/Button';
 import ProductCost from '../../atoms/ProductCost';
@@ -16,7 +12,6 @@ import ProductDescription from '../../atoms/ProductDescription';
 import Splash from '../../molecules/Splash';
 import ImageSlider from '../../molecules/ImageSlider';
 import NotificationBox from '../NotificationBox';
-import {useAppDispatch, useAppSelector} from '../../../store/hooks';
 import {getProductThunk} from '../../../store/product/thunk';
 import {updateIsRefreshing} from '../../../store/product/actionCreators';
 import {
@@ -28,6 +23,8 @@ import {
 import {selectColorOptions} from '../../../store/products/selectors';
 import {selectToken} from '../../../store/account/selectors';
 import {addCartItemThunk} from '../../../store/cart/thunk';
+import {useAppDispatch, useAppSelector} from '../../../store/hooks';
+import {useAppRootNavigation} from '../../../navigation/hooks';
 import noResults from '../../../assets/images/no-results.png';
 import ProductOption from '../../../interfaces/ProductOption';
 import {
@@ -47,7 +44,7 @@ const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
   const [color, setColor] = useState<ProductOption>();
   const route = useRoute<RouteProp<MainStackParamList, 'ProductDetails'>>();
   const {productSlug} = route.params;
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const navigation = useAppRootNavigation();
   const dispatch = useAppDispatch();
 
   const token = useAppSelector(selectToken);

@@ -1,10 +1,10 @@
 import parseNumber from './parseNumber';
-import {PRODUCT_ITEM_IMAGE_LIMIT} from '../constants/shared';
+import {PICSUM_PHOTOS_ID_LIMIT} from '../constants/shared';
 
 const getImagePathById = (id: string, size: number): string => {
   const roundSize = Math.floor(size / 10) * 10;
   return `https://picsum.photos/id/${
-    parseNumber(id) > PRODUCT_ITEM_IMAGE_LIMIT ? PRODUCT_ITEM_IMAGE_LIMIT : id
+    parseNumber(id) > PICSUM_PHOTOS_ID_LIMIT ? PICSUM_PHOTOS_ID_LIMIT : id
   }/${roundSize}/${roundSize}`;
 };
 

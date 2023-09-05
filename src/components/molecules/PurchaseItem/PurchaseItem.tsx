@@ -1,11 +1,8 @@
 import React, {FC, useCallback, useMemo} from 'react';
 import {useTheme} from 'styled-components';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
 import SimpleLineIcon from 'react-native-vector-icons/SimpleLineIcons';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
-import {RootStackParamList} from '../../../navigation/types';
 import IconButton from '../../atoms/IconButton';
 import ProductName from '../../atoms/ProductName';
 import ProductCost from '../../atoms/ProductCost';
@@ -13,12 +10,13 @@ import ProductImage from '../../atoms/ProductImage';
 import ProductOptions from '../../atoms/ProductOptions';
 import ProductQuantity from '../../atoms/ProductQuantity';
 import getImagePathById from '../../../utils/getImagePathById';
+import parseNumber from '../../../utils/parseNumber';
 import {
   changeQuantityThunk,
   deleteCartItemThunk,
 } from '../../../store/cart/thunk';
 import {useAppDispatch} from '../../../store/hooks';
-import parseNumber from '../../../utils/parseNumber';
+import {useAppRootNavigation} from '../../../navigation/hooks';
 import {
   MODAL_OPTIONS,
   MODAL_TYPES,
@@ -61,7 +59,7 @@ const PurchaseItem: FC<PurchaseItemProps> = ({
 }) => {
   const theme = useTheme();
   const dispatch = useAppDispatch();
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const navigation = useAppRootNavigation();
 
   const priceNum = parseNumber(price);
   const promoNum = parseNumber(promo);

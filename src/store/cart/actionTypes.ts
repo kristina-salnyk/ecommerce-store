@@ -3,6 +3,8 @@ import Purchase from '../../interfaces/Purchase';
 
 export const CART_SET_DATA = 'cart/setData';
 
+export const CART_RESET_DATA = 'cart/resetData';
+
 export const CART_UPDATE_IS_LOADING = 'cart/updateIsLoading';
 
 export const CART_UPDATE_IS_REFRESHING = 'cart/updateIsRefreshing';
@@ -12,6 +14,10 @@ export const CART_SET_ERROR = 'cart/setError';
 export interface CartSetDataAction {
   type: typeof CART_SET_DATA;
   payload: {data: Cart; items: Purchase[]};
+}
+
+export interface CartResetDataAction {
+  type: typeof CART_RESET_DATA;
 }
 
 export interface CartUpdateIsLoadingAction {
@@ -31,6 +37,7 @@ export interface CartSetErrorAction {
 
 export type CartAction =
   | CartSetDataAction
+  | CartResetDataAction
   | CartUpdateIsLoadingAction
   | CartUpdateIsRefreshingAction
   | CartSetErrorAction;
