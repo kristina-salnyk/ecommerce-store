@@ -6,9 +6,9 @@ import {
   useAppMainNavigation,
   useAppRootNavigation,
 } from '../../../navigation/hooks';
-import {signUpThunk} from '../../../store/account/thunk';
-import {selectError, selectIsLoading} from '../../../store/account/selectors';
-import {setError} from '../../../store/account/actionCreators';
+import {signUpThunk} from '../../../store/auth/thunk';
+import {selectError, selectIsLoading} from '../../../store/auth/selectors';
+import {setError} from '../../../store/auth/actionCreators';
 import {
   MODAL_OPTIONS,
   MODAL_TYPES,

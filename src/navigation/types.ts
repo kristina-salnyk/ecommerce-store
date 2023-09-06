@@ -4,7 +4,7 @@ export type RootStackParamList = {
     type: string;
     title: string;
     message?: string;
-    options: {
+    options?: {
       iconName: string;
       iconColor: string;
     };
@@ -22,7 +22,7 @@ export type MainStackParamList = {
 
 export type DrawerParamList = {
   Main: undefined;
-  MyProfile: undefined;
+  MyProfile: {profileImage: string};
   MyWishList: undefined;
   MyCart: undefined;
   MyOrders: undefined;

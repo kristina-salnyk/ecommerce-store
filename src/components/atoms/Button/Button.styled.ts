@@ -11,6 +11,8 @@ export const ButtonStyled = styled.TouchableOpacity`
   background-color: ${({theme}) => theme.color.primary};
   border-radius: ${({theme}) => theme.shape.radius.xs};
 
+  ${({disabled}) => disabled && 'opacity: 0.5;'}
+
   ${({theme}) =>
     `shadow-color: ${theme.color.black};
     ${

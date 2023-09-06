@@ -9,6 +9,7 @@ import ConfirmModalActions from '../../molecules/ConfirmModalActions';
 import AuthModalActions from '../../molecules/AuthModalActions';
 import LogoutModalActions from '../../molecules/LogoutModalActions';
 import LoginModalActions from '../../molecules/LoginModalActions';
+import AvatarModalActions from '../../molecules/AvatarModalActions';
 import {MODAL_ICON_SIZE, MODAL_TYPES} from '../../../constants/shared';
 import {ModalStyled, TitleStyled} from './Modal.styled';
 
@@ -19,17 +20,20 @@ const Modal: FC = () => {
 
   return (
     <ModalStyled>
-      <AntDesignIcon
-        name={options.iconName}
-        size={MODAL_ICON_SIZE}
-        color={theme.color[options.iconColor]}
-      />
+      {options && (
+        <AntDesignIcon
+          name={options.iconName}
+          size={MODAL_ICON_SIZE}
+          color={theme.color[options.iconColor]}
+        />
+      )}
       <TitleStyled text={title} />
       {message && <Message text={message} />}
       {type === MODAL_TYPES.confirm && <ConfirmModalActions />}
       {type === MODAL_TYPES.auth && <AuthModalActions />}
       {type === MODAL_TYPES.logout && <LogoutModalActions />}
       {type === MODAL_TYPES.login && <LoginModalActions />}
+      {type === MODAL_TYPES.avatar && <AvatarModalActions />}
     </ModalStyled>
   );
 };

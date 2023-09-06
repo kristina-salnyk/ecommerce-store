@@ -1,10 +1,6 @@
-export const ACCOUNT_SIGN_UP = 'account/signUp';
+export const ACCOUNT_SET_DATA = 'account/setData';
 
-export const ACCOUNT_LOGIN = 'account/login';
-
-export const ACCOUNT_LOGOUT = 'account/logout';
-
-export const ACCOUNT_UPDATE_USER = 'account/updateUser';
+export const ACCOUNT_RESET_DATA = 'account/resetData';
 
 export const ACCOUNT_UPDATE_TOKEN = 'account/updateToken';
 
@@ -14,21 +10,8 @@ export const ACCOUNT_UPDATE_IS_REFRESHING = 'account/updateIsRefreshing';
 
 export const ACCOUNT_SET_ERROR = 'account/setError';
 
-export interface AccountSignUpAction {
-  type: typeof ACCOUNT_SIGN_UP;
-}
-
-export interface AccountLoginAction {
-  type: typeof ACCOUNT_LOGIN;
-  payload: {token: string; refreshToken: string};
-}
-
-export interface AccountLogoutAction {
-  type: typeof ACCOUNT_LOGOUT;
-}
-
-export interface AccountUpdateUserAction {
-  type: typeof ACCOUNT_UPDATE_USER;
+export interface AccountSetDataAction {
+  type: typeof ACCOUNT_SET_DATA;
   payload: {
     email?: string;
     username?: string;
@@ -38,6 +21,10 @@ export interface AccountUpdateUserAction {
     build?: string;
     avatarURI?: string;
   };
+}
+
+export interface AccountResetDataAction {
+  type: typeof ACCOUNT_RESET_DATA;
 }
 
 export interface AccountUpdateTokenAction {
@@ -61,10 +48,8 @@ export interface AccountSetErrorAction {
 }
 
 export type AccountAction =
-  | AccountSignUpAction
-  | AccountLoginAction
-  | AccountLogoutAction
-  | AccountUpdateUserAction
+  | AccountSetDataAction
+  | AccountResetDataAction
   | AccountUpdateTokenAction
   | AccountUpdateIsLoadingAction
   | AccountUpdateIsRefreshingAction

@@ -12,7 +12,7 @@ import DrawerContainer from '../containers/DrawerContainer';
 import HeaderTemplate from '../components/templates/HeaderTemplate';
 import DrawerContent from '../components/organisms/DrawerContent';
 import {useAppSelector} from '../store/hooks';
-import {selectToken} from '../store/account/selectors';
+import {selectToken} from '../store/auth/selectors';
 import {PERCENTAGE_FILLED_BY_DRAWER} from '../constants/shared';
 
 const Drawer = createDrawerNavigator<DrawerParamList>();

@@ -12,6 +12,7 @@ import ProductDescription from '../../atoms/ProductDescription';
 import Splash from '../../molecules/Splash';
 import ImageSlider from '../../molecules/ImageSlider';
 import NotificationBox from '../NotificationBox';
+import {useAppRootNavigation} from '../../../navigation/hooks';
 import {getProductThunk} from '../../../store/product/thunk';
 import {updateIsRefreshing} from '../../../store/product/actionCreators';
 import {
@@ -21,10 +22,9 @@ import {
   selectProduct,
 } from '../../../store/product/selectors';
 import {selectColorOptions} from '../../../store/products/selectors';
-import {selectToken} from '../../../store/account/selectors';
+import {selectToken} from '../../../store/auth/selectors';
 import {addCartItemThunk} from '../../../store/cart/thunk';
 import {useAppDispatch, useAppSelector} from '../../../store/hooks';
-import {useAppRootNavigation} from '../../../navigation/hooks';
 import noResults from '../../../assets/images/no-results.png';
 import ProductOption from '../../../interfaces/ProductOption';
 import {

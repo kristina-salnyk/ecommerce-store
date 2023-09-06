@@ -14,7 +14,7 @@ import openCallLink from '../../../utils/openCallLink';
 import openEmailLink from '../../../utils/openEmailLink';
 import openShareLink from '../../../utils/openShareLink';
 import {useAppSelector} from '../../../store/hooks';
-import {selectToken} from '../../../store/account/selectors';
+import {selectToken} from '../../../store/auth/selectors';
 import {
   DrawerContentBlock,
   DrawerLogo,

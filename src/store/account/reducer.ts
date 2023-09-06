@@ -1,18 +1,15 @@
 import {
-  ACCOUNT_LOGIN,
-  ACCOUNT_LOGOUT,
+  ACCOUNT_RESET_DATA,
+  ACCOUNT_SET_DATA,
   ACCOUNT_SET_ERROR,
-  ACCOUNT_SIGN_UP,
   ACCOUNT_UPDATE_IS_LOADING,
   ACCOUNT_UPDATE_IS_REFRESHING,
-  ACCOUNT_UPDATE_TOKEN,
-  ACCOUNT_UPDATE_USER,
   AccountAction,
 } from './actionTypes';
 import AccountState from '../../interfaces/AccountState';
 
 const initialState: AccountState = {
-  user: {
+  data: {
     email: '',
     username: '',
     phone: '',
@@ -21,8 +18,6 @@ const initialState: AccountState = {
     build: '',
     avatarURI: '',
   },
-  token: null,
-  refreshToken: null,
   isLoading: false,
   isRefreshing: false,
   error: null,
@@ -33,36 +28,16 @@ const reducer = (
   action: AccountAction,
 ): AccountState => {
   switch (action.type) {
-    case ACCOUNT_SIGN_UP:
+    case ACCOUNT_SET_DATA:
       return {
-        ...state,
+        data: {...state.data, ...action.payload},
         isLoading: false,
+        isRefreshing: false,
         error: null,
       };
-    case ACCOUNT_LOGIN:
-      return {
-        ...state,
-        token: action.payload.token,
-        refreshToken: action.payload.refreshToken,
-        isLoading: false,
-        error: null,
-      };
-    case ACCOUNT_LOGOUT:
+    case ACCOUNT_RESET_DATA:
       return {
         ...initialState,
-      };
-    case ACCOUNT_UPDATE_USER:
-      return {
-        ...state,
-        user: {...state.user, ...action.payload},
-        isLoading: false,
-        error: null,
-      };
-    case ACCOUNT_UPDATE_TOKEN:
-      return {
-        ...state,
-        token: action.payload.token,
-        refreshToken: action.payload.refreshToken,
       };
     case ACCOUNT_UPDATE_IS_LOADING:
       return {...state, isLoading: action.payload, error: null};
@@ -72,6 +47,7 @@ const reducer = (
       return {
         ...state,
         isLoading: false,
+        isRefreshing: false,
         error: action.payload,
       };
     default:

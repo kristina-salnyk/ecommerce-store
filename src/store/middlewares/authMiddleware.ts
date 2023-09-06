@@ -2,8 +2,8 @@ import {AxiosResponse} from 'axios';
 
 import {AppDispatch, RootState} from '../index';
 import {setAuthHeader} from '../../services/api';
-import {refreshToken} from '../../services/api/account';
-import {updateToken} from '../account/actionCreators';
+import {refreshToken} from '../../services/api/auth';
+import {updateToken} from '../auth/actionCreators';
 
 export const authMiddleware = async (
   request: () => Promise<AxiosResponse>,
@@ -32,7 +32,7 @@ const initTokenRefreshing = async (
   dispatch: AppDispatch,
   getState: () => RootState,
 ) => {
-  const {refreshToken: token} = getState().account;
+  const {refreshToken: token} = getState().auth;
 
   if (!token) {
     throw new Error('No refresh token');
