@@ -1,4 +1,4 @@
-import React, {FC, useCallback, useEffect, useState} from 'react';
+import React, {FC, useCallback, useState} from 'react';
 
 import Link from '../../atoms/Link';
 import Input from '../../atoms/Input';
@@ -7,8 +7,7 @@ import {
   useAppMainNavigation,
   useAppRootNavigation,
 } from '../../../navigation/hooks';
-import {selectError, selectIsLoading} from '../../../store/auth/selectors';
-import {setError} from '../../../store/auth/actionCreators';
+import {selectIsLoading} from '../../../store/auth/selectors';
 import {loginThunk} from '../../../store/auth/thunk';
 import {
   MODAL_OPTIONS,
@@ -31,21 +30,19 @@ const LoginForm: FC = () => {
   const navigation = useAppMainNavigation();
   const dispatch = useAppDispatch();
 
-  const error = useAppSelector(selectError);
   const isLoading = useAppSelector(selectIsLoading);
 
-  useEffect(() => {
-    if (error) {
+  const onNotLoggedIn = useCallback(
+    (message: string) => {
       rootNavigation.navigate('Modal', {
         type: MODAL_TYPES.confirm,
         title: NOTIFICATIONS.loginFailedModal.title,
-        message: error,
+        message: message,
         options: MODAL_OPTIONS.error,
       });
-
-      dispatch(setError(null));
-    }
-  }, [dispatch, error, rootNavigation]);
+    },
+    [rootNavigation],
+  );
 
   const onPressForgotPassword = useCallback(() => {
     navigation.reset({
@@ -65,8 +62,8 @@ const LoginForm: FC = () => {
       return;
     }
 
-    dispatch(loginThunk({email, password}));
-  }, [email, password, rootNavigation, dispatch]);
+    dispatch(loginThunk({email, password}, onNotLoggedIn));
+  }, [email, password, dispatch, onNotLoggedIn, rootNavigation]);
 
   const onPressSignUp = useCallback(() => {
     navigation.reset({

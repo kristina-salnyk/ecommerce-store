@@ -1,11 +1,12 @@
 import {AppDispatch, AppThunk} from '../index';
-import {setError, setLogin, setSignUp, updateIsLoading} from './actionCreators';
+import {setLogin, updateIsLoading} from './actionCreators';
 import {login, signUp} from '../../services/api/auth';
 
 export const signUpThunk =
   (
     data: {username: string; email: string; password: string},
     onSuccess: () => void,
+    onError: (message: string) => void,
   ): AppThunk =>
   async (dispatch: AppDispatch) => {
     try {
@@ -19,19 +20,18 @@ export const signUpThunk =
       });
 
       onSuccess();
-
-      dispatch(setSignUp());
     } catch (error) {
-      dispatch(
-        setError(
-          error instanceof Error ? error.message : 'Unknown error' + error,
-        ),
-      );
+      onError(error instanceof Error ? error.message : 'Unknown error' + error);
+    } finally {
+      dispatch(updateIsLoading(false));
     }
   };
 
 export const loginThunk =
-  (data: {email: string; password: string}): AppThunk =>
+  (
+    data: {email: string; password: string},
+    onError: (message: string) => void,
+  ): AppThunk =>
   async (dispatch: AppDispatch) => {
     try {
       dispatch(updateIsLoading(true));
@@ -41,10 +41,8 @@ export const loginThunk =
 
       dispatch(setLogin({token: access_token, refreshToken: refresh_token}));
     } catch (error) {
-      dispatch(
-        setError(
-          error instanceof Error ? error.message : 'Unknown error' + error,
-        ),
-      );
+      onError(error instanceof Error ? error.message : 'Unknown error' + error);
+    } finally {
+      dispatch(updateIsLoading(false));
     }
   };

@@ -1,8 +1,6 @@
 import {
   AUTH_LOGIN,
   AUTH_LOGOUT,
-  AUTH_SET_ERROR,
-  AUTH_SIGN_UP,
   AUTH_UPDATE_IS_LOADING,
   AUTH_UPDATE_IS_REFRESHING,
   AUTH_UPDATE_TOKEN,
@@ -15,7 +13,6 @@ const initialState: AuthState = {
   refreshToken: null,
   isLoading: false,
   isRefreshing: false,
-  error: null,
 };
 
 const reducer = (
@@ -23,23 +20,17 @@ const reducer = (
   action: AuthAction,
 ): AuthState => {
   switch (action.type) {
-    case AUTH_SIGN_UP:
-      return {
-        ...state,
-        isLoading: false,
-        error: null,
-      };
     case AUTH_LOGIN:
       return {
         ...state,
         token: action.payload.token,
         refreshToken: action.payload.refreshToken,
-        isLoading: false,
-        error: null,
       };
     case AUTH_LOGOUT:
       return {
-        ...initialState,
+        ...state,
+        token: null,
+        refreshToken: null,
       };
     case AUTH_UPDATE_TOKEN:
       return {
@@ -48,15 +39,9 @@ const reducer = (
         refreshToken: action.payload.refreshToken,
       };
     case AUTH_UPDATE_IS_LOADING:
-      return {...state, isLoading: action.payload, error: null};
+      return {...state, isLoading: action.payload};
     case AUTH_UPDATE_IS_REFRESHING:
-      return {...state, isRefreshing: action.payload, error: null};
-    case AUTH_SET_ERROR:
-      return {
-        ...state,
-        isLoading: false,
-        error: action.payload,
-      };
+      return {...state, isRefreshing: action.payload};
     default:
       return state;
   }

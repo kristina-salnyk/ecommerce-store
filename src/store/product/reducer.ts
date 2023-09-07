@@ -21,18 +21,18 @@ const reducer = (
   switch (action.type) {
     case PRODUCT_SET_DATA:
       return {
+        ...state,
         data: {...action.payload},
-        isLoading: false,
-        isRefreshing: false,
         error: null,
       };
     case PRODUCT_UPDATE_IS_LOADING:
-      return {...state, isLoading: action.payload, error: null};
+      return {...state, isLoading: action.payload};
     case PRODUCT_UPDATE_IS_REFRESHING:
-      return {...state, isRefreshing: action.payload, error: null};
+      return {...state, isRefreshing: action.payload};
     case PRODUCT_SET_ERROR:
       return {
-        ...initialState,
+        ...state,
+        data: null,
         error: action.payload,
       };
     default:

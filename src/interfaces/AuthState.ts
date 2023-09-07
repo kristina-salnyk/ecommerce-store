@@ -3,7 +3,6 @@ interface AuthState {
   refreshToken: string | null;
   isLoading: boolean;
   isRefreshing: boolean;
-  error: string | null;
 }
 
 export default AuthState;

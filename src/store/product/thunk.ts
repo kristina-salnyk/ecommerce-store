@@ -1,5 +1,10 @@
 import {AppDispatch, AppThunk, RootState} from '../index';
-import {setError, setProduct, updateIsLoading} from './actionCreators';
+import {
+  setError,
+  setProduct,
+  updateIsLoading,
+  updateIsRefreshing,
+} from './actionCreators';
 import {getProduct} from '../../services/api/products';
 import {authMiddleware} from '../middlewares/authMiddleware';
 
@@ -23,5 +28,8 @@ export const getProductThunk =
           error instanceof Error ? error.message : 'Unknown error' + error,
         ),
       );
+    } finally {
+      dispatch(updateIsLoading(false));
+      dispatch(updateIsRefreshing(false));
     }
   };

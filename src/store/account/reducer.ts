@@ -30,24 +30,24 @@ const reducer = (
   switch (action.type) {
     case ACCOUNT_SET_DATA:
       return {
+        ...state,
         data: {...state.data, ...action.payload},
-        isLoading: false,
-        isRefreshing: false,
         error: null,
       };
     case ACCOUNT_RESET_DATA:
       return {
-        ...initialState,
+        ...state,
+        data: {...initialState.data},
+        error: null,
       };
     case ACCOUNT_UPDATE_IS_LOADING:
-      return {...state, isLoading: action.payload, error: null};
+      return {...state, isLoading: action.payload};
     case ACCOUNT_UPDATE_IS_REFRESHING:
-      return {...state, isRefreshing: action.payload, error: null};
+      return {...state, isRefreshing: action.payload};
     case ACCOUNT_SET_ERROR:
       return {
         ...state,
-        isLoading: false,
-        isRefreshing: false,
+        data: {...initialState.data},
         error: action.payload,
       };
     default:

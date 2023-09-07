@@ -1,4 +1,4 @@
-import React, {FC, useCallback, useEffect, useState} from 'react';
+import React, {FC, useCallback, useState} from 'react';
 
 import Input from '../../atoms/Input';
 import {useAppDispatch, useAppSelector} from '../../../store/hooks';
@@ -7,8 +7,7 @@ import {
   useAppRootNavigation,
 } from '../../../navigation/hooks';
 import {signUpThunk} from '../../../store/auth/thunk';
-import {selectError, selectIsLoading} from '../../../store/auth/selectors';
-import {setError} from '../../../store/auth/actionCreators';
+import {selectIsLoading} from '../../../store/auth/selectors';
 import {
   MODAL_OPTIONS,
   MODAL_TYPES,
@@ -32,34 +31,32 @@ const SignUpForm: FC = () => {
   const navigation = useAppMainNavigation();
   const dispatch = useAppDispatch();
 
-  const error = useAppSelector(selectError);
   const isLoading = useAppSelector(selectIsLoading);
 
-  useEffect(() => {
-    if (error) {
-      rootNavigation.navigate('Modal', {
-        type: MODAL_TYPES.confirm,
-        title: NOTIFICATIONS.signUpFailedModal.title,
-        message: error,
-        options: MODAL_OPTIONS.error,
-      });
-
-      dispatch(setError(null));
-    }
-  }, [dispatch, error, rootNavigation]);
-
   const onSignedUp = useCallback(() => {
+    setUsername('');
+    setEmail('');
+    setPassword('');
+    setPasswordConfirmation('');
+
     rootNavigation.navigate('Modal', {
       type: MODAL_TYPES.login,
       title: NOTIFICATIONS.loginModal.title,
       options: MODAL_OPTIONS.success,
     });
-
-    setUsername('');
-    setEmail('');
-    setPassword('');
-    setPasswordConfirmation('');
   }, [rootNavigation]);
+
+  const onNotSignedUp = useCallback(
+    (message: string) => {
+      rootNavigation.navigate('Modal', {
+        type: MODAL_TYPES.confirm,
+        title: NOTIFICATIONS.signUpFailedModal.title,
+        message: message,
+        options: MODAL_OPTIONS.error,
+      });
+    },
+    [rootNavigation],
+  );
 
   const onPressSignUp = useCallback(() => {
     if (!username || !email || !password || !passwordConfirmation) {
@@ -82,7 +79,9 @@ const SignUpForm: FC = () => {
       return;
     }
 
-    dispatch(signUpThunk({username, email, password}, onSignedUp));
+    dispatch(
+      signUpThunk({username, email, password}, onSignedUp, onNotSignedUp),
+    );
   }, [
     username,
     email,
@@ -90,6 +89,7 @@ const SignUpForm: FC = () => {
     passwordConfirmation,
     dispatch,
     onSignedUp,
+    onNotSignedUp,
     rootNavigation,
   ]);
 

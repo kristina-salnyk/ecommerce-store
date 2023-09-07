@@ -36,6 +36,13 @@ export const MODAL_ICON_SIZE = 60;
 
 export const PROFILE_AVATAR_SIZE = 120;
 
+export const IMAGE_PICKER_OPTIONS = {
+  mediaType: 'photo',
+  includeBase64: false,
+  maxHeight: 2000,
+  maxWidth: 2000,
+};
+
 export const MODAL_OPTIONS = {
   error: {
     iconName: 'closecircleo',

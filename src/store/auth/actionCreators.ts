@@ -1,25 +1,15 @@
 import {
   AUTH_LOGIN,
   AUTH_LOGOUT,
-  AUTH_SET_ERROR,
-  AUTH_SIGN_UP,
   AUTH_UPDATE_IS_LOADING,
   AUTH_UPDATE_IS_REFRESHING,
   AUTH_UPDATE_TOKEN,
   AuthLoginAction,
   AuthLogoutAction,
-  AuthSetErrorAction,
-  AuthSignUpAction,
   AuthUpdateIsLoadingAction,
   AuthUpdateIsRefreshingAction,
   AuthUpdateTokenAction,
 } from './actionTypes';
-
-export const setSignUp = (): AuthSignUpAction => {
-  return {
-    type: AUTH_SIGN_UP,
-  };
-};
 
 export const setLogin = (data: {
   token: string;
@@ -59,13 +49,6 @@ export const updateIsRefreshing = (
 ): AuthUpdateIsRefreshingAction => {
   return {
     type: AUTH_UPDATE_IS_REFRESHING,
-    payload: data,
-  };
-};
-
-export const setError = (data: string | null): AuthSetErrorAction => {
-  return {
-    type: AUTH_SET_ERROR,
     payload: data,
   };
 };

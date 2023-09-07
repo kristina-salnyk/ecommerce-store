@@ -1,5 +1,10 @@
 import {AppDispatch, AppThunk} from '../index';
-import {setAccount, setError, updateIsLoading} from './actionCreators';
+import {
+  setAccount,
+  setError,
+  updateIsLoading,
+  updateIsRefreshing,
+} from './actionCreators';
 import {getItem, setItem} from '../../services/storage';
 import {getAccount, updateAccount} from '../../services/api/account';
 
@@ -30,6 +35,9 @@ export const getAccountThunk =
           error instanceof Error ? error.message : 'Unknown error' + error,
         ),
       );
+    } finally {
+      dispatch(updateIsLoading(false));
+      dispatch(updateIsRefreshing(false));
     }
   };
 
