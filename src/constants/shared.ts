@@ -34,6 +34,15 @@ export const DRAWER_ICON_SIZE = 25;
 
 export const MODAL_ICON_SIZE = 60;
 
+export const PROFILE_AVATAR_SIZE = 120;
+
+export const IMAGE_PICKER_OPTIONS = {
+  mediaType: 'photo',
+  includeBase64: false,
+  maxHeight: 2000,
+  maxWidth: 2000,
+};
+
 export const MODAL_OPTIONS = {
   error: {
     iconName: 'closecircleo',
@@ -54,6 +63,7 @@ export const MODAL_TYPES = {
   auth: 'auth',
   logout: 'logout',
   login: 'login',
+  avatar: 'avatar',
 };
 
 export const NOTIFICATIONS = {
@@ -79,6 +89,16 @@ export const NOTIFICATIONS = {
   notAuthorizedModal: {
     title: 'Login To Continue',
     message: 'Please login to add product in your cart',
+  },
+  profileUpdatedModal: {
+    title: 'Profile updated',
+  },
+  profileNotUpdatedModal: {
+    title: 'Profile not updated',
+    message: 'Profile not updated, please try again later',
+  },
+  chooseAvatarModal: {
+    title: 'Choose uploading method',
   },
   logoutModal: {
     title: 'Are you sure you want to logout?',

@@ -1,79 +1,86 @@
-import {AppDispatch, AppThunk, RootState} from '../index';
+import {AppDispatch, AppThunk} from '../index';
 import {
+  setAccount,
   setError,
   updateIsLoading,
-  updateLogin,
-  updateSignUp,
-  updateUser,
+  updateIsRefreshing,
 } from './actionCreators';
-import {current, login, signUp} from '../../services/api/account';
-import {authMiddleware} from '../middlewares/authMiddleware';
+import {getItem, setItem} from '../../services/storage';
+import {getAccount, updateAccount} from '../../services/api/account';
 
-export const signUpThunk =
-  (data: {username: string; email: string; password: string}): AppThunk =>
-  async (dispatch: AppDispatch) => {
+export const getAccountThunk =
+  (): AppThunk => async (dispatch: AppDispatch) => {
     try {
       dispatch(updateIsLoading(true));
 
-      const response = await signUp({
-        email: data.email,
-        first_name: data.username,
-        password: data.password,
-        password_confirmation: data.password,
+      // TODO: backend doesn't support needed response. Added mocked request
+      const response = await getAccount();
+      const {username, phone, city, street, build} = response.data;
+
+      const avatarURI = await getItem('avatarURI');
+
+      dispatch(
+        setAccount({
+          username,
+          phone,
+          city,
+          street,
+          build,
+          avatarURI,
+        }),
+      );
+    } catch (error) {
+      dispatch(
+        setError(
+          error instanceof Error ? error.message : 'Unknown error' + error,
+        ),
+      );
+    } finally {
+      dispatch(updateIsLoading(false));
+      dispatch(updateIsRefreshing(false));
+    }
+  };
+
+export const updateAccountThunk =
+  (
+    data: {
+      username: string;
+      phone: string;
+      city: string;
+      street: string;
+      build: string;
+      avatarURI: string;
+    },
+    onSuccess: () => void,
+    onError: () => void,
+  ): AppThunk =>
+  async (dispatch: AppDispatch) => {
+    try {
+      // TODO: backend doesn't support needed response. Added mocked request
+      const response = await updateAccount({
+        username: data.username,
+        phone: data.phone,
+        city: data.city,
+        street: data.street,
+        build: data.build,
       });
-      const {
-        data: {
-          attributes: {email},
-        },
-      } = response.data;
+      const {username, phone, city, street, build} = response.data;
 
-      dispatch(updateSignUp(email));
-    } catch (error) {
+      onSuccess();
+
       dispatch(
-        setError(
-          error instanceof Error ? error.message : 'Unknown error' + error,
-        ),
+        setAccount({
+          username,
+          phone,
+          city,
+          street,
+          build,
+          avatarURI: data.avatarURI,
+        }),
       );
-    }
-  };
 
-export const loginThunk =
-  (data: {email: string; password: string}): AppThunk =>
-  async (dispatch: AppDispatch) => {
-    try {
-      dispatch(updateIsLoading(true));
-
-      const response = await login(data.email, data.password);
-      const {access_token, refresh_token} = response.data;
-
-      dispatch(updateLogin({token: access_token, refreshToken: refresh_token}));
+      await setItem('avatarURI', data.avatarURI);
     } catch (error) {
-      dispatch(
-        setError(
-          error instanceof Error ? error.message : 'Unknown error' + error,
-        ),
-      );
-    }
-  };
-
-export const currentThunk =
-  (): AppThunk => async (dispatch: AppDispatch, getState: () => RootState) => {
-    try {
-      dispatch(updateIsLoading(true));
-
-      const response = await authMiddleware(current, dispatch, getState);
-      const {
-        data: {
-          attributes: {email, first_name: username = 'Default'},
-        },
-      } = response.data;
-
-      dispatch(updateUser({email, username}));
-    } catch (error) {
-      dispatch(
-        setError(
-          error instanceof Error ? error.message : 'Unknown error' + error,
-        ),
-      );
+      onError();
     }
   };

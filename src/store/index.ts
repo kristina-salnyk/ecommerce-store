@@ -6,11 +6,15 @@ import productsReducer from './products/reducer';
 import productReducer from './product/reducer';
 import cartReducer from './cart/reducer';
 import accountReducer from './account/reducer';
-import {updateIsRefreshing, updateLogin} from './account/actionCreators';
+import authReducer from './auth/reducer';
+import {resetCart} from './cart/actionCreators';
+import {setLogin, updateIsRefreshing} from './auth/actionCreators';
 import {clearAuthHeader, setAuthHeader} from '../services/api';
 import {deleteItem, getItem, setItem} from '../services/storage';
+import {resetAccount} from './account/actionCreators';
 
 const rootReducer = combineReducers({
+  auth: authReducer,
   account: accountReducer,
   products: productsReducer,
   product: productReducer,
@@ -23,8 +27,8 @@ export const store = createStore(rootReducer, composedEnhancer);
 
 const subscribe = initSubscriber(store);
 
-subscribe('account.token', async state => {
-  const token = state.account.token;
+subscribe('auth.token', async state => {
+  const token = state.auth.token;
 
   if (token) {
     setAuthHeader(token);
@@ -32,11 +36,14 @@ subscribe('account.token', async state => {
   } else {
     await deleteItem('token');
     clearAuthHeader();
+
+    store.dispatch(resetCart());
+    store.dispatch(resetAccount());
   }
 });
 
-subscribe('account.refreshToken', async state => {
-  const refreshToken = state.account.refreshToken;
+subscribe('auth.refreshToken', async state => {
+  const refreshToken = state.auth.refreshToken;
 
   if (refreshToken) {
     await setItem('refreshToken', refreshToken);
@@ -53,7 +60,7 @@ const initApp = async () => {
     const refreshToken = await getItem('refreshToken');
 
     if (token && refreshToken) {
-      store.dispatch(updateLogin({token, refreshToken}));
+      store.dispatch(setLogin({token, refreshToken}));
     }
   } catch (error) {
     console.log('Error restoring token:', error);

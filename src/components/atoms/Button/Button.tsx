@@ -11,6 +11,7 @@ interface ButtonProps extends TouchableOpacityProps {
   onPress: () => void;
   IconComponent?: ComponentType<IconProps>;
   iconName?: string;
+  disabled?: boolean;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -18,12 +19,13 @@ const Button: FC<ButtonProps> = ({
   onPress,
   IconComponent,
   iconName,
+  disabled,
   style,
 }) => {
   const theme = useTheme();
 
   return (
-    <ButtonStyled onPress={onPress} style={style}>
+    <ButtonStyled disabled={disabled} onPress={onPress} style={style}>
       <ButtonText>{text}</ButtonText>
       {IconComponent && iconName && (
         <IconComponent

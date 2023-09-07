@@ -3,6 +3,7 @@ const radius: Readonly<Record<string, string>> = {
   s: '8px',
   m: '16px',
   l: '50px',
+  xl: '100px',
 };
 
 export default {radius};

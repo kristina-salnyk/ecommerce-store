@@ -31,26 +31,26 @@ const reducer = (
         items: [...items],
         totalPages,
         colorOptions,
-        isLoading: false,
-        isRefreshing: false,
         error: null,
       };
     case PRODUCTS_UPDATE_LIST:
       return {
         ...state,
         items: [...state.items, ...action.payload],
-        isLoadingMore: false,
         error: null,
       };
     case PRODUCTS_UPDATE_IS_LOADING:
-      return {...state, isLoading: action.payload, error: null};
+      return {...state, isLoading: action.payload};
     case PRODUCTS_UPDATE_IS_LOADING_MORE:
-      return {...state, isLoadingMore: action.payload, error: null};
+      return {...state, isLoadingMore: action.payload};
     case PRODUCTS_UPDATE_IS_REFRESHING:
-      return {...state, isRefreshing: action.payload, error: null};
+      return {...state, isRefreshing: action.payload};
     case PRODUCTS_SET_ERROR:
       return {
-        ...initialState,
+        ...state,
+        items: [],
+        totalPages: 0,
+        colorOptions: [],
         error: action.payload,
       };
     default:

@@ -4,6 +4,7 @@ import {
   setProducts,
   updateIsLoading,
   updateIsLoadingMore,
+  updateIsRefreshing,
   updateProducts,
 } from './actionCreators';
 import {getProductsList} from '../../services/api/products';
@@ -51,5 +52,12 @@ export const getProductsThunk =
           error instanceof Error ? error.message : 'Unknown error' + error,
         ),
       );
+    } finally {
+      if (isUpdating) {
+        dispatch(updateIsLoadingMore(false));
+      } else {
+        dispatch(updateIsLoading(false));
+        dispatch(updateIsRefreshing(false));
+      }
     }
   };

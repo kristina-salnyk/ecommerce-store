@@ -1,7 +1,13 @@
 interface AccountState {
-  user: {username: string; email: string};
-  token: string | null;
-  refreshToken: string | null;
+  data: {
+    email: string;
+    username: string;
+    phone: string;
+    city: string;
+    street: string;
+    build: string;
+    avatarURI: string;
+  };
   isLoading: boolean;
   isRefreshing: boolean;
   error: string | null;

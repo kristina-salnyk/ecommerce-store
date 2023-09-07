@@ -11,8 +11,8 @@ import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
 import HeaderContainer from '../containers/HeaderContainer';
 import Splash from '../components/molecules/Splash';
 import HeaderTemplate from '../components/templates/HeaderTemplate';
-import {selectIsRefreshing, selectToken} from '../store/account/selectors';
 import {useAppSelector} from '../store/hooks';
+import {selectIsRefreshing, selectToken} from '../store/auth/selectors';
 
 export const MainStack = createNativeStackNavigator<MainStackParamList>();
 

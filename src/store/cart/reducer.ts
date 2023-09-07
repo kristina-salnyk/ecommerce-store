@@ -23,23 +23,27 @@ const reducer = (
   switch (action.type) {
     case CART_SET_DATA:
       return {
+        ...state,
         data: {...action.payload.data},
         items: [...action.payload.items],
-        isLoading: false,
-        isRefreshing: false,
         error: null,
       };
     case CART_RESET_DATA:
       return {
-        ...initialState,
+        ...state,
+        data: null,
+        items: [],
+        error: null,
       };
     case CART_UPDATE_IS_LOADING:
-      return {...state, isLoading: action.payload, error: null};
+      return {...state, isLoading: action.payload};
     case CART_UPDATE_IS_REFRESHING:
-      return {...state, isRefreshing: action.payload, error: null};
+      return {...state, isRefreshing: action.payload};
     case CART_SET_ERROR:
       return {
-        ...initialState,
+        ...state,
+        data: null,
+        items: [],
         error: action.payload,
       };
     default:

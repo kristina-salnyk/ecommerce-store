@@ -6,7 +6,11 @@ import PurchaseItem from '../../molecules/PurchaseItem';
 import PriceDetails from '../../molecules/PriceDetails';
 import EmptyPurchaseList from '../../molecules/EmptyPurchaseList';
 import NotificationBox from '../NotificationBox';
-import {selectToken} from '../../../store/account/selectors';
+import {
+  useAppMainNavigation,
+  useAppRootNavigation,
+} from '../../../navigation/hooks';
+import {selectToken} from '../../../store/auth/selectors';
 import {
   selectCart,
   selectError,
@@ -17,10 +21,6 @@ import {
 import {getCartThunk} from '../../../store/cart/thunk';
 import {updateIsRefreshing} from '../../../store/cart/actionCreators';
 import {useAppDispatch, useAppSelector} from '../../../store/hooks';
-import {
-  useAppMainNavigation,
-  useAppRootNavigation,
-} from '../../../navigation/hooks';
 import notLogged from '../../../assets/images/profile.png';
 import {NOTIFICATIONS} from '../../../constants/shared';
 import {ButtonStyled} from './PurchaseList.styled';

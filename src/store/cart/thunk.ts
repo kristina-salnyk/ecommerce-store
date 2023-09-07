@@ -5,7 +5,12 @@ import {
   deleteCartItem,
   getCart,
 } from '../../services/api/cart';
-import {setCart, setError, updateIsLoading} from './actionCreators';
+import {
+  setCart,
+  setError,
+  updateIsLoading,
+  updateIsRefreshing,
+} from './actionCreators';
 import {authMiddleware} from '../middlewares/authMiddleware';
 import Purchase from '../../interfaces/Purchase';
 import {cartMiddleware} from '../middlewares/cartMiddleware';
@@ -30,6 +35,9 @@ export const getCartThunk =
           error instanceof Error ? error.message : 'Unknown error' + error,
         ),
       );
+    } finally {
+      dispatch(updateIsLoading(false));
+      dispatch(updateIsRefreshing(false));
     }
   };
 

@@ -1,62 +1,34 @@
 import {
-  ACCOUNT_LOGIN,
-  ACCOUNT_LOGOUT,
+  ACCOUNT_RESET_DATA,
+  ACCOUNT_SET_DATA,
   ACCOUNT_SET_ERROR,
-  ACCOUNT_SIGN_UP,
   ACCOUNT_UPDATE_IS_LOADING,
   ACCOUNT_UPDATE_IS_REFRESHING,
-  ACCOUNT_UPDATE_TOKEN,
-  ACCOUNT_UPDATE_USER,
-  AccountLoginAction,
-  AccountLogoutAction,
+  AccountResetDataAction,
+  AccountSetDataAction,
   AccountSetErrorAction,
-  AccountSignUpAction,
   AccountUpdateIsLoadingAction,
   AccountUpdateIsRefreshingAction,
-  AccountUpdateTokenAction,
-  AccountUpdateUserAction,
 } from './actionTypes';
 
-export const updateSignUp = (data: string): AccountSignUpAction => {
-  return {
-    type: ACCOUNT_SIGN_UP,
-    payload: data,
-  };
-};
-
-export const updateLogin = (data: {
-  token: string;
-  refreshToken: string;
-}): AccountLoginAction => {
-  return {
-    type: ACCOUNT_LOGIN,
-    payload: data,
-  };
-};
-
-export const updateLogout = (): AccountLogoutAction => {
-  return {
-    type: ACCOUNT_LOGOUT,
-  };
-};
-
-export const updateUser = (data: {
-  username?: string;
+export const setAccount = (data: {
   email?: string;
-}): AccountUpdateUserAction => {
+  username?: string;
+  phone?: string;
+  city?: string;
+  street?: string;
+  build?: string;
+  avatarURI?: string;
+}): AccountSetDataAction => {
   return {
-    type: ACCOUNT_UPDATE_USER,
+    type: ACCOUNT_SET_DATA,
     payload: data,
   };
 };
 
-export const updateToken = (data: {
-  token: string;
-  refreshToken: string;
-}): AccountUpdateTokenAction => {
+export const resetAccount = (): AccountResetDataAction => {
   return {
-    type: ACCOUNT_UPDATE_TOKEN,
-    payload: data,
+    type: ACCOUNT_RESET_DATA,
   };
 };
 

@@ -1,4 +1,4 @@
-import React, {FC, useCallback, useEffect, useState} from 'react';
+import React, {FC, useCallback, useState} from 'react';
 
 import Input from '../../atoms/Input';
 import {useAppDispatch, useAppSelector} from '../../../store/hooks';
@@ -6,13 +6,8 @@ import {
   useAppMainNavigation,
   useAppRootNavigation,
 } from '../../../navigation/hooks';
-import {signUpThunk} from '../../../store/account/thunk';
-import {
-  selectError,
-  selectIsLoading,
-  selectUser,
-} from '../../../store/account/selectors';
-import {setError, updateUser} from '../../../store/account/actionCreators';
+import {signUpThunk} from '../../../store/auth/thunk';
+import {selectIsLoading} from '../../../store/auth/selectors';
 import {
   MODAL_OPTIONS,
   MODAL_TYPES,
@@ -36,34 +31,32 @@ const SignUpForm: FC = () => {
   const navigation = useAppMainNavigation();
   const dispatch = useAppDispatch();
 
-  const {email: registeredEmail} = useAppSelector(selectUser);
-  const error = useAppSelector(selectError);
   const isLoading = useAppSelector(selectIsLoading);
 
-  useEffect(() => {
-    if (registeredEmail) {
-      rootNavigation.navigate('Modal', {
-        type: MODAL_TYPES.login,
-        title: NOTIFICATIONS.loginModal.title,
-        options: MODAL_OPTIONS.success,
-      });
+  const onSignedUp = useCallback(() => {
+    setUsername('');
+    setEmail('');
+    setPassword('');
+    setPasswordConfirmation('');
 
-      dispatch(updateUser({email: ''}));
-    }
-  }, [dispatch, registeredEmail, rootNavigation]);
+    rootNavigation.navigate('Modal', {
+      type: MODAL_TYPES.login,
+      title: NOTIFICATIONS.loginModal.title,
+      options: MODAL_OPTIONS.success,
+    });
+  }, [rootNavigation]);
 
-  useEffect(() => {
-    if (error) {
+  const onNotSignedUp = useCallback(
+    (message: string) => {
       rootNavigation.navigate('Modal', {
         type: MODAL_TYPES.confirm,
         title: NOTIFICATIONS.signUpFailedModal.title,
-        message: error,
+        message: message,
         options: MODAL_OPTIONS.error,
       });
-
-      dispatch(setError(null));
-    }
-  }, [dispatch, error, rootNavigation]);
+    },
+    [rootNavigation],
+  );
 
   const onPressSignUp = useCallback(() => {
     if (!username || !email || !password || !passwordConfirmation) {
@@ -86,14 +79,18 @@ const SignUpForm: FC = () => {
       return;
     }
 
-    dispatch(signUpThunk({username, email, password}));
+    dispatch(
+      signUpThunk({username, email, password}, onSignedUp, onNotSignedUp),
+    );
   }, [
     username,
     email,
     password,
     passwordConfirmation,
-    rootNavigation,
     dispatch,
+    onSignedUp,
+    onNotSignedUp,
+    rootNavigation,
   ]);
 
   const onPressSignIn = useCallback(() => {
