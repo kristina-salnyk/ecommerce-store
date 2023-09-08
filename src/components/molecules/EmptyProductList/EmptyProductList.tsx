@@ -14,7 +14,15 @@ const EmptyProductList: FC<EmptyProductListProps> = ({
   onPressRefresh,
 }) => {
   if (!error) {
-    return null;
+    return (
+      <NotificationBox
+        imageSource={noResults}
+        title={NOTIFICATIONS.emptyProductsNotification.title}
+        message={NOTIFICATIONS.emptyProductsNotification.message}
+        linkText="Refresh"
+        onPressLink={onPressRefresh}
+      />
+    );
   }
 
   return (

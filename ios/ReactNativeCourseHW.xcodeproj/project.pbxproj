@@ -71,6 +71,7 @@
 		4E05D6702A58AF6F003440B1 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
 		4E05D6712A58AF6F003440B1 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		4E05D6722A58AF6F003440B1 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
+		4E321CB82AAB4E6700E62937 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		679DD296E87FAACF8E6BAC5B /* libPods-ReactNativeCourseHW-ReactNativeCourseHWTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeCourseHW-ReactNativeCourseHWTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ReactNativeCourseHW/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3694B20E8A383DF8A20144C /* Pods-ReactNativeCourseHW-ReactNativeCourseHWTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeCourseHW-ReactNativeCourseHWTests.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeCourseHW-ReactNativeCourseHWTests/Pods-ReactNativeCourseHW-ReactNativeCourseHWTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +174,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				4E321CB82AAB4E6700E62937 /* Config.xcconfig */,
 				13B07FAE1A68108700A75B9A /* ReactNativeCourseHW */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* ReactNativeCourseHWTests */,
@@ -678,7 +680,6 @@
 					"-DFOLLY_NO_CONFIG",
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
-					" ",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
@@ -747,7 +748,6 @@
 					"-DFOLLY_NO_CONFIG",
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
-					" ",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;

@@ -47,7 +47,7 @@ export const PurchaseItemActions = styled.View`
   align-items: center;
 `;
 
-export const PurchaseQuantityWrap = styled.View`
+export const PurchaseItemQuantityWrap = styled.View`
   justify-self: center;
   flex-direction: row;
   align-items: center;

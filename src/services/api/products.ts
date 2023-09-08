@@ -3,8 +3,15 @@ import {AxiosError, AxiosResponse} from 'axios';
 import {storefrontApi} from './index';
 import {PRODUCT_ITEMS_PER_PAGE} from '../../constants/shared';
 
-export const getProductsList = async (page: number): Promise<AxiosResponse> => {
-  const params = {per_page: PRODUCT_ITEMS_PER_PAGE, page};
+export const getProductList = async (
+  page: number,
+  filter: string,
+): Promise<AxiosResponse> => {
+  const params = {
+    per_page: PRODUCT_ITEMS_PER_PAGE,
+    page,
+    ...(filter && {['filter[name]']: filter}),
+  };
 
   try {
     return await storefrontApi.get('/products', {params});

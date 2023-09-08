@@ -7,11 +7,15 @@ import productReducer from './product/reducer';
 import cartReducer from './cart/reducer';
 import accountReducer from './account/reducer';
 import authReducer from './auth/reducer';
+import ordersReducer from './orders/reducer';
+import orderReducer from './order/reducer';
 import {resetCart} from './cart/actionCreators';
 import {setLogin, updateIsRefreshing} from './auth/actionCreators';
 import {clearAuthHeader, setAuthHeader} from '../services/api';
 import {deleteItem, getItem, setItem} from '../services/storage';
 import {resetAccount} from './account/actionCreators';
+import {resetOrder} from './order/actionCreators';
+import {resetOrders} from './orders/actionCreators';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -19,6 +23,8 @@ const rootReducer = combineReducers({
   products: productsReducer,
   product: productReducer,
   cart: cartReducer,
+  orders: ordersReducer,
+  order: orderReducer,
 });
 
 const composedEnhancer = applyMiddleware(thunkMiddleware);
@@ -39,6 +45,8 @@ subscribe('auth.token', async state => {
 
     store.dispatch(resetCart());
     store.dispatch(resetAccount());
+    store.dispatch(resetOrder());
+    store.dispatch(resetOrders());
   }
 });
 

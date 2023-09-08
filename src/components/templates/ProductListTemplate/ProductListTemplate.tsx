@@ -1,7 +1,6 @@
 import React, {FC} from 'react';
 
 import ProductList from '../../organisms/ProductList';
-import SearchBar from '../../molecules/SearchBar';
 import useOrientation from '../../../hooks/useOrientation';
 import {
   LANDSCAPE_LIST_COLUMNS,
@@ -9,10 +8,7 @@ import {
   PERCENTAGE_FILLED_BY_PRODUCT_ITEMS,
   PORTRAIT_LIST_COLUMNS,
 } from '../../../constants/shared';
-import {
-  ProductListTemplateStyled,
-  ProductListWrap,
-} from './ProductListTemplate.styled';
+import {ProductListTemplateStyled} from './ProductListTemplate.styled';
 
 const ProductListTemplate: FC = () => {
   const orientation = useOrientation();
@@ -26,10 +22,7 @@ const ProductListTemplate: FC = () => {
 
   return (
     <ProductListTemplateStyled>
-      <SearchBar />
-      <ProductListWrap>
-        <ProductList options={{columnNum, columnPercentWidth}} />
-      </ProductListWrap>
+      <ProductList options={{columnNum, columnPercentWidth}} />
     </ProductListTemplateStyled>
   );
 };

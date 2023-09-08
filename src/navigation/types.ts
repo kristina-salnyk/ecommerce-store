@@ -18,11 +18,13 @@ export type MainStackParamList = {
   SignUp: undefined;
   Login: undefined;
   ForgotPassword: undefined;
+  OrderDetails: {orderNumber: string};
+  Map: {address: string};
 };
 
 export type DrawerParamList = {
   Main: undefined;
-  MyProfile: {profileImage: string};
+  MyProfile: {profileImage: string} | undefined;
   MyWishList: undefined;
   MyCart: undefined;
   MyOrders: undefined;

@@ -5,13 +5,14 @@ export const InputWrap = styled.View`
   padding-top: ${({theme}) => theme.space.x8};
 `;
 
-export const IconWrap = styled.View`
+export const IconWrap = styled.TouchableOpacity`
   position: absolute;
   top: ${({theme}) => theme.space.x8};
   left: ${({theme}) => theme.space.x8};
   height: 100%;
   display: flex;
   justify-content: center;
+  z-index: 1;
 `;
 
 export const InputLabelWrap = styled.View`

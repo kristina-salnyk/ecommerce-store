@@ -7,12 +7,12 @@ import {
   updateIsRefreshing,
   updateProducts,
 } from './actionCreators';
-import {getProductsList} from '../../services/api/products';
+import {getProductList} from '../../services/api/products';
 import ProductOptionType from '../../interfaces/ProductOptionType';
 import {authMiddleware} from '../middlewares/authMiddleware';
 
 export const getProductsThunk =
-  (page: number): AppThunk =>
+  (page: number, filter: string): AppThunk =>
   async (dispatch: AppDispatch, getState: () => RootState) => {
     const isUpdating = page > 1;
 
@@ -24,7 +24,7 @@ export const getProductsThunk =
       }
 
       const response = await authMiddleware(
-        () => getProductsList(page),
+        () => getProductList(page, filter),
         dispatch,
         getState,
       );
