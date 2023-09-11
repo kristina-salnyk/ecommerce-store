@@ -13,23 +13,15 @@ const EmptyProductList: FC<EmptyProductListProps> = ({
   error,
   onPressRefresh,
 }) => {
-  if (!error) {
-    return (
-      <NotificationBox
-        imageSource={noResults}
-        title={NOTIFICATIONS.emptyProductsNotification.title}
-        message={NOTIFICATIONS.emptyProductsNotification.message}
-        linkText="Refresh"
-        onPressLink={onPressRefresh}
-      />
-    );
-  }
+  const notificationType = error
+    ? 'loadingFailedNotification'
+    : 'emptyProductsNotification';
 
   return (
     <NotificationBox
       imageSource={noResults}
-      title={NOTIFICATIONS.loadingFailedNotification.title}
-      message={NOTIFICATIONS.loadingFailedNotification.message}
+      title={NOTIFICATIONS[notificationType].title}
+      message={NOTIFICATIONS[notificationType].message}
       linkText="Refresh"
       onPressLink={onPressRefresh}
     />

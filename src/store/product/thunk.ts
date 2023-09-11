@@ -25,7 +25,7 @@ export const getProductThunk =
     } catch (error) {
       dispatch(
         setError(
-          error instanceof Error ? error.message : 'Unknown error' + error,
+          error instanceof Error ? error.message : 'Unknown error ' + error,
         ),
       );
     } finally {

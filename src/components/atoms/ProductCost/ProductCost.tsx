@@ -11,8 +11,8 @@ import {
 interface ProductCostProps {
   price: string;
   priceView: string;
-  compareAtPrice?: string | null;
-  compareAtPriceView?: string | null;
+  compareAtPrice: string | null;
+  compareAtPriceView: string | null;
 }
 
 const ProductCost: FC<ProductCostProps> = ({

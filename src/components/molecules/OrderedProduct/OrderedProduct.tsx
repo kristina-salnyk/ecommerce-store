@@ -35,7 +35,12 @@ const OrderedProduct: FC<OrderedProductProps> = ({
       <OrderedProductDetails>
         <ProductName text={name} />
         <ProductOptions text={`${options}\nQty: ${quantity}`} />
-        <ProductCost price={price} priceView={priceView} />
+        <ProductCost
+          price={price}
+          priceView={priceView}
+          compareAtPrice={null}
+          compareAtPriceView={null}
+        />
       </OrderedProductDetails>
       <OrderedProductImageWrap width={ORDER_PURCHASE_IMAGE_SIZE}>
         <ProductImage

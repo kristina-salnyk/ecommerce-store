@@ -54,6 +54,10 @@ const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
   const isRefreshing = useAppSelector(selectIsRefreshing);
   const error = useAppSelector(selectError);
 
+  const notificationType = error
+    ? 'loadingFailedNotification'
+    : 'emptyProductDetailsNotification';
+
   const getProduct = useCallback(() => {
     dispatch(getProductThunk(productSlug));
   }, [dispatch, productSlug]);
@@ -142,24 +146,12 @@ const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
     return <Splash />;
   }
 
-  if (error) {
+  if (error || !product) {
     return (
       <NotificationBox
         imageSource={noResults}
-        title={NOTIFICATIONS.loadingFailedNotification.title}
-        message={NOTIFICATIONS.loadingFailedNotification.message}
-        linkText="Refresh"
-        onPressLink={getProduct}
-      />
-    );
-  }
-
-  if (!product) {
-    return (
-      <NotificationBox
-        imageSource={noResults}
-        title={NOTIFICATIONS.emptyProductDetailsNotification.title}
-        message={NOTIFICATIONS.emptyProductDetailsNotification.message}
+        title={NOTIFICATIONS[notificationType].title}
+        message={NOTIFICATIONS[notificationType].message}
         linkText="Refresh"
         onPressLink={getProduct}
       />
