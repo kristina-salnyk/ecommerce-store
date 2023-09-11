@@ -18,8 +18,8 @@ interface ProductCostProps {
 const ProductCost: FC<ProductCostProps> = ({
   price,
   priceView,
-  compareAtPrice,
-  compareAtPriceView,
+  compareAtPrice = null,
+  compareAtPriceView = null,
 }) => {
   const priceNum = parseNumber(price);
   const compareAtPriceNum = parseNumber(compareAtPrice ?? '');

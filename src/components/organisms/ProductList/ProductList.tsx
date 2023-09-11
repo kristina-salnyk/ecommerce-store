@@ -2,6 +2,7 @@ import React, {FC, useCallback, useEffect, useState} from 'react';
 import {FlatList, RefreshControl} from 'react-native';
 
 import Splash from '../../molecules/Splash';
+import SearchBar from '../../molecules/SearchBar';
 import ProductItem from '../../molecules/ProductItem';
 import EmptyProductList from '../../molecules/EmptyProductList';
 import FooterProductList from '../../molecules/FooterProductList';
@@ -16,6 +17,7 @@ import {
   selectItems,
   selectTotalPages,
 } from '../../../store/products/selectors';
+import {ProductListWrap} from './ProductList.styled';
 
 interface ProductListProps {
   options: {
@@ -26,6 +28,7 @@ interface ProductListProps {
 
 const ProductList: FC<ProductListProps> = ({options}) => {
   const [page, setPage] = useState(1);
+  const [filter, setFilter] = useState<string>('');
   const dispatch = useAppDispatch();
 
   const products = useAppSelector(selectItems);
@@ -36,12 +39,12 @@ const ProductList: FC<ProductListProps> = ({options}) => {
   const error = useAppSelector(selectError);
 
   const getProducts = useCallback(() => {
-    dispatch(getProductsThunk(page));
-  }, [dispatch, page]);
+    dispatch(getProductsThunk(page, filter));
+  }, [dispatch, filter, page]);
 
   useEffect(() => {
     getProducts();
-  }, [getProducts, page]);
+  }, [getProducts, page, filter]);
 
   const getMoreProducts = () => {
     if (isLoadingMore || page >= totalPages) {
@@ -63,37 +66,50 @@ const ProductList: FC<ProductListProps> = ({options}) => {
     refreshProductsList();
   }, [dispatch, refreshProductsList]);
 
-  if (isLoading && !isRefreshing) {
-    return <Splash />;
-  }
-
   return (
-    <FlatList
-      data={products}
-      key={options.columnNum}
-      numColumns={options.columnNum}
-      renderItem={({item}) => (
-        <ProductItem
-          id={item.id}
-          name={item.attributes.name}
-          slug={item.attributes.slug}
-          price={item.attributes.price}
-          priceView={item.attributes.display_price}
-          compareAtPrice={item.attributes.compare_at_price}
-          compareAtPriceView={item.attributes.display_compare_at_price}
-          options={{itemPercentWidth: options.columnPercentWidth}}
-        />
+    <>
+      <SearchBar onChangeSearchQuery={setFilter} />
+      {isLoading && !isRefreshing ? (
+        <Splash />
+      ) : (
+        <ProductListWrap>
+          <FlatList
+            data={products}
+            key={options.columnNum}
+            numColumns={options.columnNum}
+            renderItem={({item}) => (
+              <ProductItem
+                id={item.id}
+                name={item.attributes.name}
+                slug={item.attributes.slug}
+                price={item.attributes.price}
+                priceView={item.attributes.display_price}
+                compareAtPrice={item.attributes.compare_at_price}
+                compareAtPriceView={item.attributes.display_compare_at_price}
+                options={{itemPercentWidth: options.columnPercentWidth}}
+              />
+            )}
+            onEndReachedThreshold={0.2}
+            onEndReached={getMoreProducts}
+            ListEmptyComponent={
+              <EmptyProductList
+                error={error}
+                onPressRefresh={refreshProductsList}
+              />
+            }
+            ListFooterComponent={
+              <FooterProductList isLoadingMore={isLoadingMore} />
+            }
+            refreshControl={
+              <RefreshControl
+                refreshing={isRefreshing}
+                onRefresh={refreshProducts}
+              />
+            }
+          />
+        </ProductListWrap>
       )}
-      onEndReachedThreshold={0.2}
-      onEndReached={getMoreProducts}
-      ListEmptyComponent={
-        <EmptyProductList error={error} onPressRefresh={refreshProductsList} />
-      }
-      ListFooterComponent={<FooterProductList isLoadingMore={isLoadingMore} />}
-      refreshControl={
-        <RefreshControl refreshing={isRefreshing} onRefresh={refreshProducts} />
-      }
-    />
+    </>
   );
 };
 

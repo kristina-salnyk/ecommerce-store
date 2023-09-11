@@ -14,6 +14,7 @@ interface InputProps {
   placeholder?: string;
   label?: string;
   icon?: JSX.Element;
+  onPressIcon?: () => void;
   isSecure?: boolean;
 }
 
@@ -23,10 +24,11 @@ const Input: FC<InputProps> = ({
   placeholder,
   label,
   icon,
+  onPressIcon,
   isSecure,
 }) => (
   <InputWrap>
-    {icon && <IconWrap>{icon}</IconWrap>}
+    {icon && <IconWrap onPress={onPressIcon}>{icon}</IconWrap>}
     {!icon && label && (
       <InputLabelWrap>
         <InputLabel>{label}</InputLabel>

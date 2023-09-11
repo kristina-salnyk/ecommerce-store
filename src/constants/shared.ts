@@ -20,6 +20,8 @@ export const PRODUCT_ITEM_IMAGE_SIZE = 150;
 
 export const PURCHASE_ITEM_IMAGE_SIZE = 120;
 
+export const ORDER_PURCHASE_IMAGE_SIZE = 90;
+
 export const SLIDER_SIZE = 300;
 
 export const SLIDER_BOTTOM_INDENT = 130;
@@ -35,6 +37,11 @@ export const DRAWER_ICON_SIZE = 25;
 export const MODAL_ICON_SIZE = 60;
 
 export const PROFILE_AVATAR_SIZE = 120;
+
+export const MAP_REGION_DELTA = {
+  latitudeDelta: 0.0922,
+  longitudeDelta: 0.0421,
+};
 
 export const IMAGE_PICKER_OPTIONS = {
   mediaType: 'photo',
@@ -133,6 +140,10 @@ export const NOTIFICATIONS = {
   emptyProductsNotification: {
     title: 'No Products',
     message: 'No products received',
+  },
+  emptyOrdersNotification: {
+    title: 'No Orders',
+    message: 'No orders received',
   },
   emptyCartNotification: {
     title: 'Your Cart is Empty',

@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useCallback, useState} from 'react';
 import {useTheme} from 'styled-components';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -6,9 +6,17 @@ import Input from '../../atoms/Input';
 import {DEFAULT_ICON_SIZE} from '../../../constants/shared';
 import {SearchBarStyled} from './SearchBar.styled';
 
-const SearchBar: FC = () => {
+interface SearchBarProps {
+  onChangeSearchQuery: (value: string) => void;
+}
+
+const SearchBar: FC<SearchBarProps> = ({onChangeSearchQuery}) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const theme = useTheme();
+
+  const onPressSearch = useCallback(() => {
+    onChangeSearchQuery(searchQuery);
+  }, [onChangeSearchQuery, searchQuery]);
 
   return (
     <SearchBarStyled>
@@ -22,6 +30,7 @@ const SearchBar: FC = () => {
             color={theme.color.gray}
           />
         }
+        onPressIcon={onPressSearch}
       />
     </SearchBarStyled>
   );

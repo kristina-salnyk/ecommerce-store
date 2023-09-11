@@ -21,7 +21,9 @@ export const signUpThunk =
 
       onSuccess();
     } catch (error) {
-      onError(error instanceof Error ? error.message : 'Unknown error' + error);
+      onError(
+        error instanceof Error ? error.message : 'Unknown error ' + error,
+      );
     } finally {
       dispatch(updateIsLoading(false));
     }
@@ -41,7 +43,9 @@ export const loginThunk =
 
       dispatch(setLogin({token: access_token, refreshToken: refresh_token}));
     } catch (error) {
-      onError(error instanceof Error ? error.message : 'Unknown error' + error);
+      onError(
+        error instanceof Error ? error.message : 'Unknown error ' + error,
+      );
     } finally {
       dispatch(updateIsLoading(false));
     }

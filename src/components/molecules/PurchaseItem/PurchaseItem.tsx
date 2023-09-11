@@ -29,9 +29,9 @@ import {
   PurchaseItemActions,
   PurchaseItemDetails,
   PurchaseItemDetailsWrap,
+  PurchaseItemQuantityWrap,
   PurchaseItemStyled,
   PurchaseItemWrap,
-  PurchaseQuantityWrap,
 } from './PurchaseItem.styled';
 
 interface PurchaseItemProps {
@@ -142,7 +142,7 @@ const PurchaseItem: FC<PurchaseItemProps> = ({
           </PurchaseItemDetails>
         </PurchaseItemDetailsWrap>
         <PurchaseItemActions>
-          <PurchaseQuantityWrap>
+          <PurchaseItemQuantityWrap>
             <IconButton
               IconComponent={SimpleLineIcon}
               iconName="plus"
@@ -157,7 +157,7 @@ const PurchaseItem: FC<PurchaseItemProps> = ({
               disabled={quantity === 1}
               color={theme.color.lightGray}
             />
-          </PurchaseQuantityWrap>
+          </PurchaseItemQuantityWrap>
           <IconButtonStyled
             IconComponent={FontAwesomeIcon}
             iconName="trash"

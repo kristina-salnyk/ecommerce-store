@@ -3,10 +3,12 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import DrawerNavigator from './DrawerNavigator';
 import {MainStackParamList} from './types';
+import MapScreen from '../screens/MapScreen';
 import ProductDetailsScreen from '../screens/ProductDetailsScreen';
 import SearchScreen from '../screens/SearchScreen';
 import LoginScreen from '../screens/LoginScreen';
 import SignUpScreen from '../screens/SignUpScreen';
+import OrderDetailsScreen from '../screens/OrderDetailsScreen';
 import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
 import HeaderContainer from '../containers/HeaderContainer';
 import Splash from '../components/molecules/Splash';
@@ -52,6 +54,16 @@ const MainNavigator = () => {
         name="Search"
         component={SearchScreen}
         options={{headerTitle: 'Search'}}
+      />
+      <MainStack.Screen
+        name="OrderDetails"
+        component={OrderDetailsScreen}
+        options={{headerTitle: ''}}
+      />
+      <MainStack.Screen
+        name="Map"
+        component={MapScreen}
+        options={{headerTitle: ''}}
       />
       {!token && (
         <>

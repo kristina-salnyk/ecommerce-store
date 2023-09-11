@@ -2,14 +2,14 @@ import React, {FC} from 'react';
 
 import {PriceRowStyled, PriceRowText, PriceRowValue} from './PriceRow.styled';
 
-interface ProductDescriptionProps {
+interface PriceRowProps {
   text: string;
   value: string;
   isHighlighted?: boolean;
   color?: string;
 }
 
-const PriceRow: FC<ProductDescriptionProps> = ({
+const PriceRow: FC<PriceRowProps> = ({
   text,
   value,
   isHighlighted = false,

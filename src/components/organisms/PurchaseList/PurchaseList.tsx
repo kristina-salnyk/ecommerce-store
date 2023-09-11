@@ -10,6 +10,7 @@ import {
   useAppMainNavigation,
   useAppRootNavigation,
 } from '../../../navigation/hooks';
+import {useAppDispatch, useAppSelector} from '../../../store/hooks';
 import {selectToken} from '../../../store/auth/selectors';
 import {
   selectCart,
@@ -20,7 +21,6 @@ import {
 } from '../../../store/cart/selectors';
 import {getCartThunk} from '../../../store/cart/thunk';
 import {updateIsRefreshing} from '../../../store/cart/actionCreators';
-import {useAppDispatch, useAppSelector} from '../../../store/hooks';
 import notLogged from '../../../assets/images/profile.png';
 import {NOTIFICATIONS} from '../../../constants/shared';
 import {ButtonStyled} from './PurchaseList.styled';
@@ -28,7 +28,6 @@ import {ButtonStyled} from './PurchaseList.styled';
 const PurchaseList: FC = () => {
   const rootNavigation = useAppRootNavigation();
   const navigation = useAppMainNavigation();
-
   const dispatch = useAppDispatch();
 
   const token = useAppSelector(selectToken);
