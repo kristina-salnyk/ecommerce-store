@@ -1,4 +1,4 @@
-import {RootState} from '../index';
+import {RootState} from 'store';
 
 export const selectAccount = (state: RootState) => state.account.data;
 

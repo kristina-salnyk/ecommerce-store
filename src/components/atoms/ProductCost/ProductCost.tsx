@@ -1,6 +1,6 @@
 import React, {FC, useMemo} from 'react';
 
-import parseNumber from '../../../utils/parseNumber';
+import parseNumber from 'utils/parseNumber';
 import {
   ProductCompareAtPrice,
   ProductCostStyled,
@@ -11,8 +11,8 @@ import {
 interface ProductCostProps {
   price: string;
   priceView: string;
-  compareAtPrice?: string | null;
-  compareAtPriceView?: string | null;
+  compareAtPrice: string | null;
+  compareAtPriceView: string | null;
 }
 
 const ProductCost: FC<ProductCostProps> = ({

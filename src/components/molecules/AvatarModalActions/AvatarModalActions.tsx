@@ -1,9 +1,9 @@
 import React, {FC, useCallback} from 'react';
 
 import Button from '../../atoms/Button';
-import {useAppDrawerNavigation} from '../../../navigation/hooks';
-import getImageFromLibrary from '../../../utils/getImageFromLibrary';
-import getImageFromCamera from '../../../utils/getImageFromCamera';
+import {useAppDrawerNavigation} from 'navigation/hooks';
+import getImageFromLibrary from 'utils/getImageFromLibrary';
+import getImageFromCamera from 'utils/getImageFromCamera';
 import {AvatarModalActionsStyled} from './AvatarModalActions.styled';
 
 const AvatarModalActions: FC = () => {

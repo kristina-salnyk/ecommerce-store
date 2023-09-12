@@ -3,7 +3,7 @@ import {TouchableOpacity, TouchableOpacityProps} from 'react-native';
 import {IconProps} from 'react-native-vector-icons/Icon';
 import {useTheme} from 'styled-components';
 
-import {DEFAULT_ICON_SIZE} from '../../../constants/shared';
+import {DEFAULT_ICON_SIZE} from 'constants/shared';
 
 interface IconButtonProps extends TouchableOpacityProps {
   IconComponent: ComponentType<IconProps>;

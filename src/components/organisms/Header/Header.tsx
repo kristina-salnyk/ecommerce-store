@@ -4,7 +4,7 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import IconButton from '../../atoms/IconButton';
-import {useAppMainNavigation} from '../../../navigation/hooks';
+import {useAppMainNavigation} from 'navigation/hooks';
 import {HeaderRight, HeaderStyled, HeaderTitle} from './Header.styled';
 
 interface HeaderProps {
@@ -43,7 +43,7 @@ const Header: FC<HeaderProps> = ({title, routeName}) => {
           onPress={navigation.goBack}
         />
       )}
-      <HeaderTitle>{title}</HeaderTitle>
+      <HeaderTitle accessibilityRole="header">{title}</HeaderTitle>
       <HeaderRight>
         {routeName === 'ProductDetails' && (
           <IconButton

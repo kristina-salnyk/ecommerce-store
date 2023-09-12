@@ -1,9 +1,9 @@
 import React, {FC, useCallback} from 'react';
 
 import Button from '../../atoms/Button';
-import {useAppRootNavigation} from '../../../navigation/hooks';
-import {setLogout} from '../../../store/auth/actionCreators';
-import {useAppDispatch} from '../../../store/hooks';
+import {useAppRootNavigation} from 'navigation/hooks';
+import {setLogout} from 'store/auth/actionCreators';
+import {useAppDispatch} from 'store/hooks';
 import {
   ButtonStyled,
   LogoutModalActionsStyled,

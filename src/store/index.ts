@@ -11,11 +11,11 @@ import ordersReducer from './orders/reducer';
 import orderReducer from './order/reducer';
 import {resetCart} from './cart/actionCreators';
 import {setLogin, updateIsRefreshing} from './auth/actionCreators';
-import {clearAuthHeader, setAuthHeader} from '../services/api';
-import {deleteItem, getItem, setItem} from '../services/storage';
 import {resetAccount} from './account/actionCreators';
 import {resetOrder} from './order/actionCreators';
 import {resetOrders} from './orders/actionCreators';
+import {clearAuthHeader, setAuthHeader} from 'services/api';
+import {deleteItem, getItem, setItem} from 'services/storage';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -71,7 +71,7 @@ const initApp = async () => {
       store.dispatch(setLogin({token, refreshToken}));
     }
   } catch (error) {
-    console.log('Error restoring token:', error);
+    console.log('Error restoring token: ', error);
   } finally {
     store.dispatch(updateIsRefreshing(false));
   }

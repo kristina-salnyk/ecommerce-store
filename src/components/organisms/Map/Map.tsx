@@ -3,9 +3,9 @@ import {RouteProp, useRoute} from '@react-navigation/native';
 import {Marker} from 'react-native-maps';
 import Geocoder from 'react-native-geocoding';
 
-import {MainStackParamList} from '../../../navigation/types';
-import getLocationByAddress from '../../../utils/getLocationByAddress';
-import {MAP_REGION_DELTA} from '../../../constants/shared';
+import {MainStackParamList} from 'navigation/types';
+import getLocationByAddress from 'utils/getLocationByAddress';
+import {MAP_REGION_DELTA} from 'constants/shared';
 import {MapStyled} from './Map.styled';
 
 const Map: FC = () => {

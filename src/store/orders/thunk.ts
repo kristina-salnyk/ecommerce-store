@@ -1,4 +1,3 @@
-import {AppDispatch, AppThunk, RootState} from '../index';
 import {
   setError,
   setOrders,
@@ -6,7 +5,8 @@ import {
   updateIsRefreshing,
 } from './actionCreators';
 import {authMiddleware} from '../middlewares/authMiddleware';
-import {getOrderList} from '../../services/api/orders';
+import {AppDispatch, AppThunk, RootState} from 'store';
+import {getOrderList} from 'services/api/orders';
 
 export const getOrdersThunk =
   (): AppThunk => async (dispatch: AppDispatch, getState: () => RootState) => {
@@ -20,7 +20,7 @@ export const getOrdersThunk =
     } catch (error) {
       dispatch(
         setError(
-          error instanceof Error ? error.message : 'Unknown error' + error,
+          error instanceof Error ? error.message : 'Unknown error ' + error,
         ),
       );
     } finally {

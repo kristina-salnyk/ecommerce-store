@@ -3,7 +3,7 @@ import {
   launchImageLibrary,
 } from 'react-native-image-picker';
 
-import {IMAGE_PICKER_OPTIONS} from '../constants/shared';
+import {IMAGE_PICKER_OPTIONS} from 'constants/shared';
 
 const getImageFromLibrary = async (): Promise<string | undefined> => {
   try {
@@ -14,7 +14,7 @@ const getImageFromLibrary = async (): Promise<string | undefined> => {
       return response.assets[0].uri;
     }
   } catch (error) {
-    console.log('Error choosing image:', error);
+    console.log('Error choosing image: ', error);
   }
 };
 

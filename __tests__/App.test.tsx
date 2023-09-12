@@ -1,17 +1,13 @@
-/**
- * @format
- */
-
-import 'react-native';
 import React from 'react';
+import '@testing-library/jest-native/extend-expect';
+
 import App from '../App';
+import renderWithTheme from 'utils/renderWithTheme';
 
-// Note: import explicitly to use the types shiped with jest.
-import {it} from '@jest/globals';
+describe('App', () => {
+  it('renders correctly', () => {
+    const {getByRole} = renderWithTheme(<App />);
 
-// Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
-
-it('renders correctly', () => {
-  renderer.create(<App />);
+    expect(getByRole('banner')).toBeOnTheScreen();
+  });
 });

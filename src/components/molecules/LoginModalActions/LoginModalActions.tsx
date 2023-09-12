@@ -1,7 +1,7 @@
 import React, {FC, useCallback} from 'react';
 
 import Button from '../../atoms/Button';
-import {useAppRootNavigation} from '../../../navigation/hooks';
+import {useAppRootNavigation} from 'navigation/hooks';
 import {
   ButtonStyled,
   LoginModalActionsStyled,

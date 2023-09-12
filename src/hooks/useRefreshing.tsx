@@ -1,6 +1,6 @@
 import {useCallback, useState} from 'react';
 
-import {REFRESHING_DELAY} from '../constants/shared';
+import {REFRESHING_DELAY} from 'constants/shared';
 
 const useRefreshing = (): [boolean, () => void] => {
   const [refreshing, setIsRefreshing] = useState<boolean>(false);

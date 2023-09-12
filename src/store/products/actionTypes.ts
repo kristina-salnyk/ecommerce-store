@@ -1,5 +1,5 @@
-import Product from '../../interfaces/Product';
-import ProductOption from '../../interfaces/ProductOption';
+import Product from 'interfaces/Product';
+import ProductOption from 'interfaces/ProductOption';
 
 export const PRODUCTS_SET_LIST = 'products/setList';
 

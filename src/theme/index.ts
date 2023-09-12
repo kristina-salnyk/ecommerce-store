@@ -3,11 +3,9 @@ import space from './space';
 import shape from './shape';
 import color from './color';
 
-const theme = {
+export const theme = {
   color,
   font,
   space,
   shape,
 };
-
-export default theme;

@@ -1,4 +1,4 @@
-import Product from '../../interfaces/Product';
+import Product from 'interfaces/Product';
 
 export const PRODUCT_SET_DATA = 'product/setData';
 

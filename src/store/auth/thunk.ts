@@ -1,6 +1,6 @@
-import {AppDispatch, AppThunk} from '../index';
 import {setLogin, updateIsLoading} from './actionCreators';
-import {login, signUp} from '../../services/api/auth';
+import {AppDispatch, AppThunk} from 'store';
+import {login, signUp} from 'services/api/auth';
 
 export const signUpThunk =
   (
@@ -21,7 +21,9 @@ export const signUpThunk =
 
       onSuccess();
     } catch (error) {
-      onError(error instanceof Error ? error.message : 'Unknown error' + error);
+      onError(
+        error instanceof Error ? error.message : 'Unknown error ' + error,
+      );
     } finally {
       dispatch(updateIsLoading(false));
     }
@@ -41,7 +43,9 @@ export const loginThunk =
 
       dispatch(setLogin({token: access_token, refreshToken: refresh_token}));
     } catch (error) {
-      onError(error instanceof Error ? error.message : 'Unknown error' + error);
+      onError(
+        error instanceof Error ? error.message : 'Unknown error ' + error,
+      );
     } finally {
       dispatch(updateIsLoading(false));
     }

@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {useTheme} from 'styled-components';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
-import {DEFAULT_ICON_SIZE} from '../../../constants/shared';
+import {DEFAULT_ICON_SIZE} from 'constants/shared';
 import {SecureBannerStyled, SecureBannerText} from './SecureBanner.styled';
 
 const SecureBanner: FC = () => {

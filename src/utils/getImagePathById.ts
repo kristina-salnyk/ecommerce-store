@@ -1,5 +1,5 @@
 import parseNumber from './parseNumber';
-import {PICSUM_PHOTOS_ID_LIMIT} from '../constants/shared';
+import {PICSUM_PHOTOS_ID_LIMIT} from 'constants/shared';
 
 const getImagePathById = (id: string, size: number): string => {
   const roundSize = Math.floor(size / 10) * 10;

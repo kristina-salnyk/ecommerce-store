@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {Pagination} from 'react-native-snap-carousel';
 import {useTheme} from 'styled-components';
 
-import {PAGINATION_DOT_SCALE} from '../../../constants/shared';
+import {PAGINATION_DOT_SCALE} from 'constants/shared';
 import {SliderPaginationStyle} from './SliderPagination.style';
 
 interface SliderPaginationProps {

@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 
 export const SelectButtonStyled = styled.TouchableOpacity<{
+  accessibilityRole: string;
   selected: boolean;
   color: string;
 }>`

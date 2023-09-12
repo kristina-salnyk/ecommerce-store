@@ -6,7 +6,7 @@ import {
   AUTH_UPDATE_TOKEN,
   AuthAction,
 } from './actionTypes';
-import AuthState from '../../interfaces/AuthState';
+import AuthState from 'interfaces/AuthState';
 
 const initialState: AuthState = {
   token: null,

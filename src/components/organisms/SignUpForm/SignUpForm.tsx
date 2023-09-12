@@ -1,18 +1,11 @@
 import React, {FC, useCallback, useState} from 'react';
 
 import Input from '../../atoms/Input';
-import {useAppDispatch, useAppSelector} from '../../../store/hooks';
-import {
-  useAppMainNavigation,
-  useAppRootNavigation,
-} from '../../../navigation/hooks';
-import {signUpThunk} from '../../../store/auth/thunk';
-import {selectIsLoading} from '../../../store/auth/selectors';
-import {
-  MODAL_OPTIONS,
-  MODAL_TYPES,
-  NOTIFICATIONS,
-} from '../../../constants/shared';
+import {useAppDispatch, useAppSelector} from 'store/hooks';
+import {useAppMainNavigation, useAppRootNavigation} from 'navigation/hooks';
+import {signUpThunk} from 'store/auth/thunk';
+import {selectIsLoading} from 'store/auth/selectors';
+import {MODAL_OPTIONS, MODAL_TYPES, NOTIFICATIONS} from 'constants/shared';
 import {
   ButtonStyled,
   LinkStyled,
@@ -41,7 +34,7 @@ const SignUpForm: FC = () => {
 
     rootNavigation.navigate('Modal', {
       type: MODAL_TYPES.login,
-      title: NOTIFICATIONS.loginModal.title,
+      title: NOTIFICATIONS.signUpModal.title,
       options: MODAL_OPTIONS.success,
     });
   }, [rootNavigation]);
@@ -101,18 +94,30 @@ const SignUpForm: FC = () => {
   }, [navigation]);
 
   return (
-    <SignUpFormStyled>
+    <SignUpFormStyled accessibilityRole="form" accessible={true}>
       <SignUpFormWrap>
         <SignUpFormFieldsWrap>
-          <Input value={username} onChange={setUsername} label="Full name" />
-          <Input value={email} onChange={setEmail} label="Email address" />
           <Input
+            accessibilityLabel="Full name"
+            value={username}
+            onChange={setUsername}
+            label="Full name"
+          />
+          <Input
+            accessibilityLabel="Email"
+            value={email}
+            onChange={setEmail}
+            label="Email address"
+          />
+          <Input
+            accessibilityLabel="Password"
             value={password}
             onChange={setPassword}
             label="Password"
             isSecure={true}
           />
           <Input
+            accessibilityLabel="Confirm password"
             value={passwordConfirmation}
             onChange={setPasswordConfirmation}
             label="Confirm password"

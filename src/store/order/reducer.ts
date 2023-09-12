@@ -1,4 +1,3 @@
-import OrderState from '../../interfaces/OrderState';
 import {
   ORDER_RESET_DATA,
   ORDER_SET_DATA,
@@ -7,6 +6,7 @@ import {
   ORDER_UPDATE_IS_REFRESHING,
   OrderAction,
 } from './actionTypes';
+import OrderState from 'interfaces/OrderState';
 
 const initialState: OrderState = {
   data: null,

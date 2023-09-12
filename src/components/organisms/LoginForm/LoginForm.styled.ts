@@ -4,7 +4,7 @@ import Link from '../../atoms/Link';
 import Button from '../../atoms/Button';
 import Splash from '../../molecules/Splash';
 
-export const LoginFormStyled = styled.View`
+export const LoginFormStyled = styled.View<{accessibilityRole: string}>`
   padding: ${({theme}) => theme.space.x16} 0;
   gap: ${({theme}) => theme.space.x16};
   flex: 1;

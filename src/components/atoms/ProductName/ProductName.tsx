@@ -8,7 +8,9 @@ interface ProductNameProps extends TextProps {
 }
 
 const ProductName: FC<ProductNameProps> = ({text, style}) => (
-  <ProductNameStyled style={style}>{text}</ProductNameStyled>
+  <ProductNameStyled accessibilityRole="text" style={style}>
+    {text}
+  </ProductNameStyled>
 );
 
 export default ProductName;

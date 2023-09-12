@@ -2,18 +2,11 @@ import React, {FC, useCallback, useState} from 'react';
 
 import Link from '../../atoms/Link';
 import Input from '../../atoms/Input';
-import {useAppDispatch, useAppSelector} from '../../../store/hooks';
-import {
-  useAppMainNavigation,
-  useAppRootNavigation,
-} from '../../../navigation/hooks';
-import {selectIsLoading} from '../../../store/auth/selectors';
-import {loginThunk} from '../../../store/auth/thunk';
-import {
-  MODAL_OPTIONS,
-  MODAL_TYPES,
-  NOTIFICATIONS,
-} from '../../../constants/shared';
+import {useAppDispatch, useAppSelector} from 'store/hooks';
+import {useAppMainNavigation, useAppRootNavigation} from 'navigation/hooks';
+import {selectIsLoading} from 'store/auth/selectors';
+import {loginThunk} from 'store/auth/thunk';
+import {MODAL_OPTIONS, MODAL_TYPES, NOTIFICATIONS} from 'constants/shared';
 import {
   ButtonStyled,
   LinkStyled,
@@ -73,11 +66,17 @@ const LoginForm: FC = () => {
   }, [navigation]);
 
   return (
-    <LoginFormStyled>
+    <LoginFormStyled accessibilityRole="form" accessible={true}>
       <LoginFormWrap>
         <LoginFormFieldsWrap>
-          <Input value={email} onChange={setEmail} label="Email" />
           <Input
+            accessibilityLabel="Email"
+            value={email}
+            onChange={setEmail}
+            label="Email"
+          />
+          <Input
+            accessibilityLabel="Password"
             value={password}
             onChange={setPassword}
             label="Password"

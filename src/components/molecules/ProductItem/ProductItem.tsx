@@ -2,9 +2,9 @@ import React, {FC} from 'react';
 
 import ProductCost from '../../atoms/ProductCost';
 import ProductImage from '../../atoms/ProductImage';
-import getImagePathById from '../../../utils/getImagePathById';
-import {useAppMainNavigation} from '../../../navigation/hooks';
-import {PRODUCT_ITEM_IMAGE_SIZE} from '../../../constants/shared';
+import {useAppMainNavigation} from 'navigation/hooks';
+import getImagePathById from 'utils/getImagePathById';
+import {PRODUCT_ITEM_IMAGE_SIZE} from 'constants/shared';
 import {
   ProductItemStyled,
   ProductItemWrap,
@@ -40,7 +40,7 @@ const ProductItem: FC<ProductItemProps> = ({
     <ProductItemWrap
       percentWidth={options.itemPercentWidth}
       onPress={() => navigation.push('ProductDetails', {productSlug: slug})}>
-      <ProductItemStyled>
+      <ProductItemStyled accessibilityRole="listitem" accessible={true}>
         <ProductImage
           source={{uri: getImagePathById(id, PRODUCT_ITEM_IMAGE_SIZE)}}
           options={{

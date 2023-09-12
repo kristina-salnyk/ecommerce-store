@@ -3,14 +3,14 @@ import {useTheme} from 'styled-components';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 
-import {RootStackParamList} from '../../../navigation/types';
 import Message from '../../atoms/Message';
 import ConfirmModalActions from '../../molecules/ConfirmModalActions';
 import AuthModalActions from '../../molecules/AuthModalActions';
 import LogoutModalActions from '../../molecules/LogoutModalActions';
 import LoginModalActions from '../../molecules/LoginModalActions';
 import AvatarModalActions from '../../molecules/AvatarModalActions';
-import {MODAL_ICON_SIZE, MODAL_TYPES} from '../../../constants/shared';
+import {RootStackParamList} from 'navigation/types';
+import {MODAL_ICON_SIZE, MODAL_TYPES} from 'constants/shared';
 import {ModalStyled, TitleStyled} from './Modal.styled';
 
 const Modal: FC = () => {
@@ -19,7 +19,7 @@ const Modal: FC = () => {
   const theme = useTheme();
 
   return (
-    <ModalStyled>
+    <ModalStyled accessibilityRole="alert" accessible={true}>
       {options && (
         <AntDesignIcon
           name={options.iconName}

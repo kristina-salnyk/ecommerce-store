@@ -9,20 +9,17 @@ import ProductCost from '../../atoms/ProductCost';
 import ProductImage from '../../atoms/ProductImage';
 import ProductOptions from '../../atoms/ProductOptions';
 import ProductQuantity from '../../atoms/ProductQuantity';
-import getImagePathById from '../../../utils/getImagePathById';
-import parseNumber from '../../../utils/parseNumber';
-import {
-  changeQuantityThunk,
-  deleteCartItemThunk,
-} from '../../../store/cart/thunk';
-import {useAppDispatch} from '../../../store/hooks';
-import {useAppRootNavigation} from '../../../navigation/hooks';
+import getImagePathById from 'utils/getImagePathById';
+import parseNumber from 'utils/parseNumber';
+import {changeQuantityThunk, deleteCartItemThunk} from 'store/cart/thunk';
+import {useAppDispatch} from 'store/hooks';
+import {useAppRootNavigation} from 'navigation/hooks';
 import {
   MODAL_OPTIONS,
   MODAL_TYPES,
   NOTIFICATIONS,
   PURCHASE_ITEM_IMAGE_SIZE,
-} from '../../../constants/shared';
+} from 'constants/shared';
 import {
   IconButtonStyled,
   PurchaseImageWrap,

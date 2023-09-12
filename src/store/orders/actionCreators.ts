@@ -1,4 +1,3 @@
-import Order from '../../interfaces/Order';
 import {
   ORDERS_RESET_ITEMS,
   ORDERS_SET_ERROR,
@@ -11,7 +10,8 @@ import {
   OrdersUpdateIsLoadingAction,
   OrdersUpdateIsRefreshingAction,
 } from './actionTypes';
-import Purchase from '../../interfaces/Purchase';
+import Order from 'interfaces/Order';
+import Purchase from 'interfaces/Purchase';
 
 export const setOrders = (data: {
   items: {data: Order; included: Purchase[]}[];

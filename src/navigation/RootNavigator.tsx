@@ -3,7 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import MainNavigator from './MainNavigator';
 import {RootStackParamList} from './types';
-import ModalScreen from '../screens/ModalScreen';
+import ModalScreen from 'screens/ModalScreen';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 

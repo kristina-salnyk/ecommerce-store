@@ -2,7 +2,7 @@ import React, {ComponentType, FC} from 'react';
 import {IconProps} from 'react-native-vector-icons/Icon';
 import {useTheme} from 'styled-components';
 
-import {DRAWER_ICON_SIZE} from '../../../constants/shared';
+import {DRAWER_ICON_SIZE} from 'constants/shared';
 import {
   DrawerIconWrap,
   DrawerLinkStyled,

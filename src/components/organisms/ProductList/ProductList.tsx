@@ -6,9 +6,9 @@ import SearchBar from '../../molecules/SearchBar';
 import ProductItem from '../../molecules/ProductItem';
 import EmptyProductList from '../../molecules/EmptyProductList';
 import FooterProductList from '../../molecules/FooterProductList';
-import {getProductsThunk} from '../../../store/products/thunk';
-import {updateIsRefreshing} from '../../../store/products/actionCreators';
-import {useAppDispatch, useAppSelector} from '../../../store/hooks';
+import {getProductsThunk} from 'store/products/thunk';
+import {updateIsRefreshing} from 'store/products/actionCreators';
+import {useAppDispatch, useAppSelector} from 'store/hooks';
 import {
   selectError,
   selectIsLoading,
@@ -16,7 +16,7 @@ import {
   selectIsRefreshing,
   selectItems,
   selectTotalPages,
-} from '../../../store/products/selectors';
+} from 'store/products/selectors';
 import {ProductListWrap} from './ProductList.styled';
 
 interface ProductListProps {
@@ -74,6 +74,8 @@ const ProductList: FC<ProductListProps> = ({options}) => {
       ) : (
         <ProductListWrap>
           <FlatList
+            accessibilityRole="list"
+            accessible={true}
             data={products}
             key={options.columnNum}
             numColumns={options.columnNum}

@@ -2,26 +2,26 @@ import React, {FC, useCallback, useEffect} from 'react';
 import {RefreshControl, ScrollView} from 'react-native';
 import {RouteProp, useRoute} from '@react-navigation/native';
 
-import {MainStackParamList} from '../../../navigation/types';
+import NotificationBox from '../NotificationBox';
 import Link from '../../atoms/Link';
 import PropertyRow from '../../atoms/PropertyRow';
 import Splash from '../../molecules/Splash';
 import OrderedProduct from '../../molecules/OrderedProduct';
-import NotificationBox from '../NotificationBox';
-import {updateIsRefreshing} from '../../../store/order/actionCreators';
+import {MainStackParamList} from 'navigation/types';
+import {useAppMainNavigation} from 'navigation/hooks';
+import {updateIsRefreshing} from 'store/order/actionCreators';
 import {
   selectError,
   selectIsLoading,
   selectIsRefreshing,
   selectItems,
   selectOrder,
-} from '../../../store/order/selectors';
-import {getOrderThunk} from '../../../store/order/thunk';
-import {useAppDispatch, useAppSelector} from '../../../store/hooks';
-import {useAppMainNavigation} from '../../../navigation/hooks';
-import formatDate from '../../../utils/formateDate';
+} from 'store/order/selectors';
+import {getOrderThunk} from 'store/order/thunk';
+import {useAppDispatch, useAppSelector} from 'store/hooks';
+import formatDate from 'utils/formateDate';
 import noResults from '../../../assets/images/no-results.png';
-import {NOTIFICATIONS} from '../../../constants/shared';
+import {NOTIFICATIONS} from 'constants/shared';
 import {OrderDetailsWrap, TitleStyled} from './OrderDetails.styled';
 
 const OrderDetails: FC = () => {
@@ -35,6 +35,10 @@ const OrderDetails: FC = () => {
   const isLoading = useAppSelector(selectIsLoading);
   const isRefreshing = useAppSelector(selectIsRefreshing);
   const error = useAppSelector(selectError);
+
+  const notificationType = error
+    ? 'loadingFailedNotification'
+    : 'emptyProductDetailsNotification';
 
   const getOrder = useCallback(() => {
     dispatch(getOrderThunk(orderNumber));
@@ -53,24 +57,12 @@ const OrderDetails: FC = () => {
     return <Splash />;
   }
 
-  if (error) {
+  if (error || !order) {
     return (
       <NotificationBox
         imageSource={noResults}
-        title={NOTIFICATIONS.loadingFailedNotification.title}
-        message={NOTIFICATIONS.loadingFailedNotification.message}
-        linkText="Refresh"
-        onPressLink={getOrder}
-      />
-    );
-  }
-
-  if (!order) {
-    return (
-      <NotificationBox
-        imageSource={noResults}
-        title={NOTIFICATIONS.emptyProductDetailsNotification.title}
-        message={NOTIFICATIONS.emptyProductDetailsNotification.message}
+        title={NOTIFICATIONS[notificationType].title}
+        message={NOTIFICATIONS[notificationType].message}
         linkText="Refresh"
         onPressLink={getOrder}
       />

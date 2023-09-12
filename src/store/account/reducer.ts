@@ -6,7 +6,7 @@ import {
   ACCOUNT_UPDATE_IS_REFRESHING,
   AccountAction,
 } from './actionTypes';
-import AccountState from '../../interfaces/AccountState';
+import AccountState from 'interfaces/AccountState';
 
 const initialState: AccountState = {
   data: {

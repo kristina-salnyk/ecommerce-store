@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 
 import useDimensions from './useDimensions';
-import {MOBILE_BREAKPOINT, ORIENTATION_TYPES} from '../constants/shared';
+import {MOBILE_BREAKPOINT, ORIENTATION_TYPES} from 'constants/shared';
 
 const useOrientation = (): string => {
   const dimensions = useDimensions();

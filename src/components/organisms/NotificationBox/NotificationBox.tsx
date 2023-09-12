@@ -3,7 +3,7 @@ import {Image, ImageSourcePropType} from 'react-native';
 
 import Title from '../../atoms/Title';
 import Message from '../../atoms/Message';
-import useOrientation from '../../../hooks/useOrientation';
+import useOrientation from 'hooks/useOrientation';
 import {
   ButtonStyled,
   LinkStyled,

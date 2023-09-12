@@ -6,7 +6,7 @@ import {
   ORDERS_UPDATE_IS_REFRESHING,
   OrdersAction,
 } from './actionTypes';
-import OrdersState from '../../interfaces/OrdersState';
+import OrdersState from 'interfaces/OrdersState';
 
 const initialState: OrdersState = {
   items: [],

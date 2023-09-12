@@ -1,12 +1,19 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 
-import ScreenContainer from '../../containers/ScreenContainer';
-import SignUpTemplate from '../../components/templates/SignUpTemplate';
+import ScreenContainer from 'containers/ScreenContainer';
+import SignUpTemplate from 'components/templates/SignUpTemplate';
+import onScreenOpen from 'utils/onScreenOpen';
 
-const SignUpScreen: FC = () => (
-  <ScreenContainer>
-    <SignUpTemplate />
-  </ScreenContainer>
-);
+const SignUpScreen: FC = () => {
+  useEffect(() => {
+    onScreenOpen('SignUp');
+  }, []);
+
+  return (
+    <ScreenContainer>
+      <SignUpTemplate />
+    </ScreenContainer>
+  );
+};
 
 export default SignUpScreen;

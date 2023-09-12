@@ -6,15 +6,15 @@ import IoniconsIcon from 'react-native-vector-icons/Ionicons';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import {DrawerParamList} from '../../../navigation/types';
 import Logo from '../../atoms/Logo';
 import Title from '../../atoms/Title';
 import DrawerLink from '../../atoms/DrawerLink';
-import openCallLink from '../../../utils/openCallLink';
-import openEmailLink from '../../../utils/openEmailLink';
-import openShareLink from '../../../utils/openShareLink';
-import {useAppSelector} from '../../../store/hooks';
-import {selectToken} from '../../../store/auth/selectors';
+import {DrawerParamList} from 'navigation/types';
+import openCallLink from 'utils/openCallLink';
+import openEmailLink from 'utils/openEmailLink';
+import openShareLink from 'utils/openShareLink';
+import {useAppSelector} from 'store/hooks';
+import {selectToken} from 'store/auth/selectors';
 import {
   DrawerContentBlock,
   DrawerLogo,

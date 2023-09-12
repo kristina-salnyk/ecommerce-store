@@ -3,22 +3,19 @@ import {RefreshControl, ScrollView} from 'react-native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 
-import {DrawerParamList, RootStackParamList} from '../../../navigation/types';
+import NotificationBox from '../NotificationBox';
 import Input from '../../atoms/Input';
 import Splash from '../../molecules/Splash';
-import NotificationBox from '../NotificationBox';
-import {useAppDispatch, useAppSelector} from '../../../store/hooks';
+import {DrawerParamList, RootStackParamList} from 'navigation/types';
+import {useAppDispatch, useAppSelector} from 'store/hooks';
 import {
   selectAccount,
   selectError,
   selectIsLoading,
   selectIsRefreshing,
-} from '../../../store/account/selectors';
-import {
-  getAccountThunk,
-  updateAccountThunk,
-} from '../../../store/account/thunk';
-import {updateIsRefreshing} from '../../../store/account/actionCreators';
+} from 'store/account/selectors';
+import {getAccountThunk, updateAccountThunk} from 'store/account/thunk';
+import {updateIsRefreshing} from 'store/account/actionCreators';
 import noResults from '../../../assets/images/no-results.png';
 import defaultAvatar from '../../../assets/images/avatar.png';
 import {
@@ -26,7 +23,7 @@ import {
   MODAL_TYPES,
   NOTIFICATIONS,
   PROFILE_AVATAR_SIZE,
-} from '../../../constants/shared';
+} from 'constants/shared';
 import {
   ButtonStyled,
   ProfileFormFieldsWrap,

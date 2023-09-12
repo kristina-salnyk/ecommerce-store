@@ -8,7 +8,7 @@ import {
   ProductUpdateIsLoadingAction,
   ProductUpdateIsRefreshingAction,
 } from './actionTypes';
-import Product from '../../interfaces/Product';
+import Product from 'interfaces/Product';
 
 export const setProduct = (data: Product): ProductSetDataAction => {
   return {

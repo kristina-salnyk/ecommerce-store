@@ -1,10 +1,3 @@
-import {AppDispatch, AppThunk, RootState} from '../index';
-import {
-  addCartItem,
-  changeQuantity,
-  deleteCartItem,
-  getCart,
-} from '../../services/api/cart';
 import {
   setCart,
   setError,
@@ -12,8 +5,15 @@ import {
   updateIsRefreshing,
 } from './actionCreators';
 import {authMiddleware} from '../middlewares/authMiddleware';
-import Purchase from '../../interfaces/Purchase';
 import {cartMiddleware} from '../middlewares/cartMiddleware';
+import {AppDispatch, AppThunk, RootState} from 'store';
+import Purchase from 'interfaces/Purchase';
+import {
+  addCartItem,
+  changeQuantity,
+  deleteCartItem,
+  getCart,
+} from 'services/api/cart';
 
 export const getCartThunk =
   (): AppThunk => async (dispatch: AppDispatch, getState: () => RootState) => {
@@ -32,7 +32,7 @@ export const getCartThunk =
     } catch (error) {
       dispatch(
         setError(
-          error instanceof Error ? error.message : 'Unknown error' + error,
+          error instanceof Error ? error.message : 'Unknown error ' + error,
         ),
       );
     } finally {

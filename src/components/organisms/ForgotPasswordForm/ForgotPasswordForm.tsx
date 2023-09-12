@@ -1,7 +1,7 @@
 import React, {FC, useCallback, useState} from 'react';
 
 import Input from '../../atoms/Input';
-import {useAppMainNavigation} from '../../../navigation/hooks';
+import {useAppMainNavigation} from 'navigation/hooks';
 import {
   ButtonStyled,
   ForgotPasswordFormStyled,

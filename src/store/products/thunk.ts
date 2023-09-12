@@ -1,4 +1,3 @@
-import {AppDispatch, AppThunk, RootState} from '../index';
 import {
   setError,
   setProducts,
@@ -7,9 +6,10 @@ import {
   updateIsRefreshing,
   updateProducts,
 } from './actionCreators';
-import {getProductList} from '../../services/api/products';
-import ProductOptionType from '../../interfaces/ProductOptionType';
 import {authMiddleware} from '../middlewares/authMiddleware';
+import {AppDispatch, AppThunk, RootState} from 'store';
+import ProductOptionType from 'interfaces/ProductOptionType';
+import {getProductList} from 'services/api/products';
 
 export const getProductsThunk =
   (page: number, filter: string): AppThunk =>
@@ -49,7 +49,7 @@ export const getProductsThunk =
     } catch (error) {
       dispatch(
         setError(
-          error instanceof Error ? error.message : 'Unknown error' + error,
+          error instanceof Error ? error.message : 'Unknown error ' + error,
         ),
       );
     } finally {

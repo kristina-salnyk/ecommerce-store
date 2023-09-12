@@ -1,9 +1,9 @@
 import {AxiosResponse} from 'axios';
 
-import {AppDispatch, RootState} from '../index';
-import {setAuthHeader} from '../../services/api';
-import {refreshToken} from '../../services/api/auth';
 import {updateToken} from '../auth/actionCreators';
+import {AppDispatch, RootState} from 'store';
+import {setAuthHeader} from 'services/api';
+import {refreshToken} from 'services/api/auth';
 
 export const authMiddleware = async (
   request: () => Promise<AxiosResponse>,

@@ -1,10 +1,10 @@
 import React, {FC} from 'react';
 import {useTheme} from 'styled-components';
 
+import SecureBanner from '../SecureBanner';
 import Title from '../../atoms/Title';
 import PriceRow from '../../atoms/PriceRow';
 import HorizontalLine from '../../atoms/HorizontalLine';
-import SecureBanner from '../SecureBanner';
 import {PriceDetailsStyled, PriceDetailsWrap} from './PriceDetails.styled';
 
 interface PriceDetailsProps {

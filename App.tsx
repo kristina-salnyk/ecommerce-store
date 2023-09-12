@@ -7,12 +7,15 @@ import Geocoder from 'react-native-geocoding';
 import {REACT_APP_GOOGLE_API_KEY} from '@env';
 
 import RootNavigator from './src/navigation/RootNavigator';
-import theme from './src/theme/theme';
+import onAppStart from './src/utils/onAppStart';
 import {store} from './src/store';
+import {theme} from './src/theme';
 
 const App: FC = () => {
   useEffect(() => {
     Geocoder.init(REACT_APP_GOOGLE_API_KEY);
+
+    onAppStart();
   }, []);
 
   return (

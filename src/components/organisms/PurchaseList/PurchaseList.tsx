@@ -1,28 +1,26 @@
 import React, {FC, useCallback, useEffect} from 'react';
 import {FlatList, RefreshControl} from 'react-native';
+import Crashes from 'appcenter-crashes';
 
 import Splash from '../../molecules/Splash';
 import PurchaseItem from '../../molecules/PurchaseItem';
 import PriceDetails from '../../molecules/PriceDetails';
 import EmptyPurchaseList from '../../molecules/EmptyPurchaseList';
 import NotificationBox from '../NotificationBox';
-import {
-  useAppMainNavigation,
-  useAppRootNavigation,
-} from '../../../navigation/hooks';
-import {useAppDispatch, useAppSelector} from '../../../store/hooks';
-import {selectToken} from '../../../store/auth/selectors';
+import {useAppMainNavigation, useAppRootNavigation} from 'navigation/hooks';
+import {useAppDispatch, useAppSelector} from 'store/hooks';
+import {selectToken} from 'store/auth/selectors';
 import {
   selectCart,
   selectError,
   selectIsLoading,
   selectIsRefreshing,
   selectItems,
-} from '../../../store/cart/selectors';
-import {getCartThunk} from '../../../store/cart/thunk';
-import {updateIsRefreshing} from '../../../store/cart/actionCreators';
+} from 'store/cart/selectors';
+import {getCartThunk} from 'store/cart/thunk';
+import {updateIsRefreshing} from 'store/cart/actionCreators';
 import notLogged from '../../../assets/images/profile.png';
-import {NOTIFICATIONS} from '../../../constants/shared';
+import {NOTIFICATIONS} from 'constants/shared';
 import {ButtonStyled} from './PurchaseList.styled';
 
 const PurchaseList: FC = () => {
@@ -66,7 +64,9 @@ const PurchaseList: FC = () => {
     });
   }, [navigation]);
 
-  const proceedToPayment = useCallback(() => {}, []);
+  const proceedToPayment = useCallback(() => {
+    Crashes.generateTestCrash();
+  }, []);
 
   if (!token) {
     return (

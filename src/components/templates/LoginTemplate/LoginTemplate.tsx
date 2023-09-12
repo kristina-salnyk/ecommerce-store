@@ -9,7 +9,7 @@ import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIc
 
 import LogoBanner from '../../molecules/LogoBanner';
 import LoginForm from '../../organisms/LoginForm';
-import {useAppMainNavigation} from '../../../navigation/hooks';
+import {useAppMainNavigation} from 'navigation/hooks';
 import {
   ButtonStyled,
   LoginTemplateStyled,
