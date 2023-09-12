@@ -3,12 +3,13 @@ import styled from 'styled-components/native';
 import ProductName from '../../atoms/ProductName';
 import ShadowBox from '../../atoms/ShadowBox';
 
-export const ProductItemWrap = styled.TouchableOpacity<{percentWidth: number}>`
+export const ProductItemWrap = styled.TouchableOpacity<{ percentWidth: number }>`
   padding: ${({theme}) => theme.space.x8};
   width: ${({percentWidth}) => percentWidth}%;
 `;
 
-export const ProductItemStyled = styled(ShadowBox)<{accessibilityRole: string}>`
+
+export const ProductItemStyled = styled(ShadowBox)<{ accessibilityRole: string }>`
   padding: ${({theme}) => theme.space.x8};
   background-color: ${({theme}) => theme.color.white};
   border-radius: ${({theme}) => theme.shape.radius.xs};
