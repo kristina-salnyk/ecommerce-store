@@ -21,10 +21,10 @@ describe('SignUp', () => {
     mockStorefrontApi.onPost('/account').reply(200, SIGN_UP_SUCCESS_RESPONSE);
 
     const user = userEvent.setup();
-    const {getByRole, findByText, findByLabelText, findByRole} =
+    const {getByRole, findByText, findByLabelText, findByRole, getByTestId} =
       renderWithTheme(<App />);
 
-    expect(getByRole('banner')).toBeOnTheScreen();
+    expect(getByTestId('banner')).toBeOnTheScreen();
 
     await user.press(getByRole('link', {name: 'New here? Sign Up'}));
 
@@ -49,10 +49,10 @@ describe('SignUp', () => {
 
   it('user will see warning if the sign up form is not filled in', async () => {
     const user = userEvent.setup();
-    const {getByRole, findByLabelText, findByText, findByRole} =
+    const {getByRole, findByLabelText, findByText, findByRole, getByTestId} =
       renderWithTheme(<App />);
 
-    expect(getByRole('banner')).toBeOnTheScreen();
+    expect(getByTestId('banner')).toBeOnTheScreen();
 
     await user.press(getByRole('link', {name: 'New here? Sign Up'}));
 
@@ -76,10 +76,10 @@ describe('SignUp', () => {
     mockStorefrontApi.onPost('/account').reply(422, SIGN_UP_ERROR_RESPONSE);
 
     const user = userEvent.setup();
-    const {getByRole, findByLabelText, findByText, findByRole} =
+    const {getByRole, findByLabelText, findByText, findByRole, getByTestId} =
       renderWithTheme(<App />);
 
-    expect(getByRole('banner')).toBeOnTheScreen();
+    expect(getByTestId('banner')).toBeOnTheScreen();
 
     await user.press(getByRole('link', {name: 'New here? Sign Up'}));
 

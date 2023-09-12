@@ -6,8 +6,8 @@ import renderWithTheme from 'utils/renderWithTheme';
 
 describe('App', () => {
   it('renders correctly', () => {
-    const {getByRole} = renderWithTheme(<App />);
+    const {getByTestId} = renderWithTheme(<App />);
 
-    expect(getByRole('banner')).toBeOnTheScreen();
+    expect(getByTestId('banner')).toBeOnTheScreen();
   });
 });

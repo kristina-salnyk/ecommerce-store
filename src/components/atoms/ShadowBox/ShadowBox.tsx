@@ -9,12 +9,14 @@ interface ShadowBoxProps extends ViewProps {
 
 const ShadowBox: FC<ShadowBoxProps> = ({
   accessibilityRole,
+  testID,
   children,
   style,
 }) => (
   <ShadowBoxStyled
     style={style}
-    {...(accessibilityRole && {accessibilityRole, accessible: true})}>
+    {...(accessibilityRole && {accessibilityRole, accessible: true})}
+    {...(testID && {testID, accessible: true})}>
     {children}
   </ShadowBoxStyled>
 );

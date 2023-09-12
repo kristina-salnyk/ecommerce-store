@@ -21,15 +21,16 @@ describe('Main', () => {
     mockStorefrontApi.onGet('/products').reply(200, PRODUCTS_SUCCESS_RESPONSE);
 
     const user = userEvent.setup();
-    const {getByRole, findAllByRole, findByRole} = renderWithTheme(<App />);
+    const {getByRole, findAllByTestId, findByRole, getByTestId} =
+      renderWithTheme(<App />);
 
-    expect(getByRole('banner')).toBeOnTheScreen();
+    expect(getByTestId('banner')).toBeOnTheScreen();
 
     await user.press(getByRole('button', {name: 'Skip login'}));
 
     expect(await findByRole('list')).toBeOnTheScreen();
 
-    const listItems = await findAllByRole('listitem');
+    const listItems = await findAllByTestId('listitem');
     expect(listItems.length).toBeGreaterThan(0);
   });
 
@@ -40,15 +41,16 @@ describe('Main', () => {
       .reply(200, PRODUCT_SUCCESS_RESPONSE);
 
     const user = userEvent.setup();
-    const {getByRole, findAllByRole, findByRole} = renderWithTheme(<App />);
+    const {getByRole, findAllByTestId, findByRole, getByTestId} =
+      renderWithTheme(<App />);
 
-    expect(getByRole('banner')).toBeOnTheScreen();
+    expect(getByTestId('banner')).toBeOnTheScreen();
 
     await user.press(getByRole('button', {name: 'Skip login'}));
 
     expect(await findByRole('list')).toBeOnTheScreen();
 
-    const listItems = await findAllByRole('listitem');
+    const listItems = await findAllByTestId('listitem');
     await user.press(listItems[0]);
 
     expect(await findByRole('scrollbar')).toBeOnTheScreen();

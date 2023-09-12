@@ -41,15 +41,14 @@ describe('ProductDetails', () => {
       .reply(200, PRODUCT_SUCCESS_RESPONSE);
 
     const user = userEvent.setup();
-    const {getByRole, getByText, findAllByRole, findByRole} = renderWithTheme(
-      <App />,
-    );
+    const {getByRole, getByText, findAllByTestId, findByRole, getByTestId} =
+      renderWithTheme(<App />);
 
-    expect(getByRole('banner')).toBeOnTheScreen();
+    expect(getByTestId('banner')).toBeOnTheScreen();
 
     await user.press(getByRole('button', {name: 'Skip login'}));
 
-    const listItems = await findAllByRole('listitem');
+    const listItems = await findAllByTestId('listitem');
 
     const product = listItems.find(item => {
       const {queryByRole} = within(item);
@@ -64,7 +63,7 @@ describe('ProductDetails', () => {
 
     expect(await findByRole('scrollbar')).toBeOnTheScreen();
 
-    expect(getByRole('slider')).toBeOnTheScreen();
+    expect(getByTestId('slider')).toBeOnTheScreen();
     expect(
       getByText('Denim Shirt', {normalizer: getDefaultNormalizer()}),
     ).toBeOnTheScreen();
@@ -90,10 +89,16 @@ describe('ProductDetails', () => {
       .reply(200, ADD_TO_CART_SUCCESS_RESPONSE);
 
     const user = userEvent.setup();
-    const {getByRole, getByLabelText, getByText, getAllByRole, findByRole} =
-      renderWithTheme(<App />);
+    const {
+      getByRole,
+      getByLabelText,
+      getByText,
+      getAllByTestId,
+      findByRole,
+      getByTestId,
+    } = renderWithTheme(<App />);
 
-    expect(getByRole('form')).toBeOnTheScreen();
+    expect(getByTestId('form')).toBeOnTheScreen();
 
     await user.type(getByLabelText('Email'), 'user@example.com');
     await user.type(getByLabelText('Password'), 'password_example');
@@ -102,16 +107,25 @@ describe('ProductDetails', () => {
 
     expect(await findByRole('list')).toBeOnTheScreen();
 
-    const listItems = getAllByRole('listitem');
+    const listItems = getAllByTestId('listitem');
     await user.press(listItems[0]);
 
     expect(await findByRole('scrollbar')).toBeOnTheScreen();
 
-    const option = getByRole('option', {name: 'Blue'});
+    const listOptions = getAllByTestId('option');
 
-    await user.press(option);
+    const option = listOptions.find(item => {
+      const {queryByText} = within(item);
+      return queryByText('Blue', {exact: true});
+    });
 
-    expect(option.props.style.backgroundColor).toBe('#0000FF');
+    expect(option).toBeTruthy();
+
+    if (option) {
+      await user.press(option);
+
+      expect(option.props.style.backgroundColor).toBe('#0000FF');
+    }
 
     await user.press(getByRole('button', {name: 'Add to cart'}));
 
@@ -134,26 +148,34 @@ describe('ProductDetails', () => {
       .reply(200, ADD_TO_CART_SUCCESS_RESPONSE);
 
     const user = userEvent.setup();
-    const {getByRole, getAllByRole, findByRole, getByText} = renderWithTheme(
-      <App />,
-    );
+    const {getByRole, getAllByTestId, findByRole, getByText, getByTestId} =
+      renderWithTheme(<App />);
 
-    expect(getByRole('banner')).toBeOnTheScreen();
+    expect(getByTestId('banner')).toBeOnTheScreen();
 
     await user.press(getByRole('button', {name: 'Skip login'}));
 
     expect(await findByRole('list')).toBeOnTheScreen();
 
-    const listItems = getAllByRole('listitem');
+    const listItems = getAllByTestId('listitem');
     await user.press(listItems[0]);
 
     expect(await findByRole('scrollbar')).toBeOnTheScreen();
 
-    const option = getByRole('option', {name: 'Blue'});
+    const listOptions = getAllByTestId('option');
 
-    await user.press(option);
+    const option = listOptions.find(item => {
+      const {queryByText} = within(item);
+      return queryByText('Blue', {exact: true});
+    });
 
-    expect(option.props.style.backgroundColor).toBe('#0000FF');
+    expect(option).toBeTruthy();
+
+    if (option) {
+      await user.press(option);
+
+      expect(option.props.style.backgroundColor).toBe('#0000FF');
+    }
 
     await user.press(getByRole('button', {name: 'Add to cart'}));
 
@@ -174,10 +196,16 @@ describe('ProductDetails', () => {
       .reply(200, PRODUCT_SUCCESS_RESPONSE);
 
     const user = userEvent.setup();
-    const {getByRole, getByLabelText, getAllByRole, findByRole, getByText} =
-      renderWithTheme(<App />);
+    const {
+      getByRole,
+      getByLabelText,
+      getAllByTestId,
+      findByRole,
+      getByText,
+      getByTestId,
+    } = renderWithTheme(<App />);
 
-    expect(getByRole('form')).toBeOnTheScreen();
+    expect(getByTestId('form')).toBeOnTheScreen();
 
     await user.type(getByLabelText('Email'), 'user@example.com');
     await user.type(getByLabelText('Password'), 'password_example');
@@ -186,7 +214,7 @@ describe('ProductDetails', () => {
 
     expect(await findByRole('list')).toBeOnTheScreen();
 
-    const listItems = getAllByRole('listitem');
+    const listItems = getAllByTestId('listitem');
     await user.press(listItems[0]);
 
     expect(await findByRole('scrollbar')).toBeOnTheScreen();

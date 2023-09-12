@@ -66,7 +66,7 @@ const LoginForm: FC = () => {
   }, [navigation]);
 
   return (
-    <LoginFormStyled accessibilityRole="form" accessible={true}>
+    <LoginFormStyled testID="form" accessible={true}>
       <LoginFormWrap>
         <LoginFormFieldsWrap>
           <Input

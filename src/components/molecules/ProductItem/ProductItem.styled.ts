@@ -8,7 +8,7 @@ export const ProductItemWrap = styled.TouchableOpacity<{percentWidth: number}>`
   width: ${({percentWidth}) => percentWidth}%;
 `;
 
-export const ProductItemStyled = styled(ShadowBox)<{accessibilityRole: string}>`
+export const ProductItemStyled = styled(ShadowBox)<{testID: string}>`
   padding: ${({theme}) => theme.space.x8};
   background-color: ${({theme}) => theme.color.white};
   border-radius: ${({theme}) => theme.shape.radius.xs};

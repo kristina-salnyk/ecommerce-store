@@ -17,7 +17,7 @@
   NSString* googleAPIKey = [[NSProcessInfo processInfo] environment][@"REACT_APP_GOOGLE_API_KEY"];
   [GMSServices provideAPIKey: googleAPIKey];
 
-  NSString* appCenterKey = [[NSProcessInfo processInfo] environment][@"REACT_APP_APP_CENTER_KEY"];
+  NSString* appCenterKey = [[NSProcessInfo processInfo] environment][@"REACT_APP_APP_CENTER_KEY_IOS"];
   [AppCenterReactNativeShared setStartAutomatically:YES];
   [AppCenterReactNativeShared setAppSecret: appCenterKey];
   [AppCenterReactNative register];

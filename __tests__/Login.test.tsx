@@ -34,11 +34,12 @@ describe('Login', () => {
       getByRole,
       getByLabelText,
       findByRole,
-      queryByRole,
+      queryByTestId,
       queryByLabelText,
+      getByTestId,
     } = renderWithTheme(<App />);
 
-    expect(getByRole('form')).toBeOnTheScreen();
+    expect(getByTestId('form')).toBeOnTheScreen();
 
     await user.type(getByLabelText('Email'), 'user@example.com');
     await user.type(getByLabelText('Password'), 'password_example');
@@ -49,18 +50,17 @@ describe('Login', () => {
       await findByRole('header', {name: 'Ecommerce Store'}),
     ).toBeOnTheScreen();
 
-    expect(queryByRole('form')).not.toBeOnTheScreen();
+    expect(queryByTestId('form')).not.toBeOnTheScreen();
     expect(queryByLabelText('Email')).not.toBeOnTheScreen();
     expect(queryByLabelText('Password')).not.toBeOnTheScreen();
   });
 
   it('user will see warning if the login from is not filled in', async () => {
     const user = userEvent.setup();
-    const {getByRole, getByLabelText, findByRole, getByText} = renderWithTheme(
-      <App />,
-    );
+    const {getByRole, getByLabelText, findByRole, getByText, getByTestId} =
+      renderWithTheme(<App />);
 
-    expect(getByRole('form')).toBeOnTheScreen();
+    expect(getByTestId('form')).toBeOnTheScreen();
 
     await user.type(getByLabelText('Email'), '');
     await user.type(getByLabelText('Password'), '');
@@ -78,11 +78,10 @@ describe('Login', () => {
     mockAuth.onPost('/token').reply(400, LOGIN_ERROR_RESPONSE);
 
     const user = userEvent.setup();
-    const {getByRole, getByLabelText, findByRole, getByText} = renderWithTheme(
-      <App />,
-    );
+    const {getByRole, getByLabelText, findByRole, getByText, getByTestId} =
+      renderWithTheme(<App />);
 
-    expect(getByRole('form')).toBeOnTheScreen();
+    expect(getByTestId('form')).toBeOnTheScreen();
 
     await user.type(getByLabelText('Email'), 'user@example.com');
     await user.type(getByLabelText('Password'), 'password_example');

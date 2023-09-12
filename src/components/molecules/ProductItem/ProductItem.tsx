@@ -40,7 +40,7 @@ const ProductItem: FC<ProductItemProps> = ({
     <ProductItemWrap
       percentWidth={options.itemPercentWidth}
       onPress={() => navigation.push('ProductDetails', {productSlug: slug})}>
-      <ProductItemStyled accessibilityRole="listitem" accessible={true}>
+      <ProductItemStyled testID="listitem" accessible={true}>
         <ProductImage
           source={{uri: getImagePathById(id, PRODUCT_ITEM_IMAGE_SIZE)}}
           options={{

@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
 import {ThemeProvider} from 'styled-components';
 import Geocoder from 'react-native-geocoding';
-import {REACT_APP_GOOGLE_API_KEY} from '@env';
+import {REACT_APP_GOOGLE_API_KEY, REACT_APP_STORYBOOK_ENABLED} from '@env';
 
 import RootNavigator from './src/navigation/RootNavigator';
 import onAppStart from './src/utils/onAppStart';
@@ -30,4 +30,12 @@ const App: FC = () => {
   );
 };
 
-export default App;
+let AppEntryPoint = App;
+
+console.log('REACT_APP_STORYBOOK_ENABLED', REACT_APP_STORYBOOK_ENABLED);
+//
+// if (REACT_APP_STORYBOOK_ENABLED === 'true') {
+//   AppEntryPoint = require('./.storybook').default;
+// }
+
+export default AppEntryPoint;

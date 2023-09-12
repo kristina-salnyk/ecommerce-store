@@ -8,7 +8,7 @@ const LogoBanner: FC = () => {
 
   return (
     <LogoBannerStyled
-      accessibilityRole="banner"
+      testID="banner"
       accessible={true}
       orientation={orientation}>
       <LogoStyled />
