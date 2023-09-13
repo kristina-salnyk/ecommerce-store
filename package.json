@@ -10,7 +10,13 @@
     "test": "jest",
     "postinstall": "npx patch-package",
     "storybook-generate": "sb-rn-get-stories",
-    "storybook-watch": "sb-rn-watcher"
+    "storybook-watch": "sb-rn-watcher",
+    "android:staging": "react-native run-android --variant=stagingdebug",
+    "android:staging-release": "react-native run-android --variant=stagingrelease",
+    "android:dev": "react-native run-android --variant=developmentdebug",
+    "android:dev-release": "react-native run-android --variant=developmentrelease",
+    "android:prod": "react-native run-android --variant=productiondebug",
+    "android:prod-release": "react-native run-android --variant=productionrelease"
   },
   "dependencies": {
     "@jest/globals": "^29.7.0",
@@ -26,6 +32,7 @@
     "jest-environment-jsdom": "^29.6.4",
     "react": "18.2.0",
     "react-native": "0.72.0",
+    "react-native-config": "^1.5.1",
     "react-native-geocoding": "^0.5.0",
     "react-native-gesture-handler": "^2.12.1",
     "react-native-image-picker": "^5.6.1",
