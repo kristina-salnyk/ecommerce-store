@@ -16,7 +16,7 @@ const SelectButton: FC<SelectButtonProps> = ({
   onPress,
 }) => (
   <SelectButtonStyled
-    testID="option"
+    testID="select-option"
     selected={selected}
     color={color}
     onPress={onPress}>

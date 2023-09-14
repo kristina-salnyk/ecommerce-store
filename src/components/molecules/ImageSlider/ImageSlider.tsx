@@ -45,7 +45,7 @@ const ImageSlider: FC<ImageSliderProps> = ({images, options}) => {
 
   return (
     <>
-      <ImageSliderStyled testID="slider" accessible={true}>
+      <ImageSliderStyled testID="slider">
         <SliderButton
           iconName="arrow-left"
           onPress={onPressPrev}

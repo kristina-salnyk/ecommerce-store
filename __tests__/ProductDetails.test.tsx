@@ -112,7 +112,7 @@ describe('ProductDetails', () => {
 
     expect(await findByRole('scrollbar')).toBeOnTheScreen();
 
-    const listOptions = getAllByTestId('option');
+    const listOptions = getAllByTestId('select-option');
 
     const option = listOptions.find(item => {
       const {queryByText} = within(item);
@@ -162,7 +162,7 @@ describe('ProductDetails', () => {
 
     expect(await findByRole('scrollbar')).toBeOnTheScreen();
 
-    const listOptions = getAllByTestId('option');
+    const listOptions = getAllByTestId('select-option');
 
     const option = listOptions.find(item => {
       const {queryByText} = within(item);

@@ -21,27 +21,26 @@ describe('SignUp', () => {
     mockStorefrontApi.onPost('/account').reply(200, SIGN_UP_SUCCESS_RESPONSE);
 
     const user = userEvent.setup();
-    const {getByRole, findByText, findByLabelText, findByRole, getByTestId} =
+    const {getByRole, getByText, getByLabelText, findByRole, getByTestId} =
       renderWithTheme(<App />);
 
     expect(getByTestId('banner')).toBeOnTheScreen();
 
     await user.press(getByRole('link', {name: 'New here? Sign Up'}));
 
-    await user.type(await findByLabelText('Full name'), 'User Name');
-    await user.type(await findByLabelText('Email'), 'user@example.com');
-    await user.type(await findByLabelText('Password'), 'password_example');
-    await user.type(
-      await findByLabelText('Confirm password'),
-      'password_example',
-    );
+    expect(getByTestId('form')).toBeOnTheScreen();
 
-    await user.press(await findByRole('button', {name: 'Sign Up'}));
+    await user.type(getByLabelText('Full name'), 'User Name');
+    await user.type(getByLabelText('Email'), 'user@example.com');
+    await user.type(getByLabelText('Password'), 'password_example');
+    await user.type(getByLabelText('Confirm password'), 'password_example');
+
+    await user.press(getByRole('button', {name: 'Sign Up'}));
 
     expect(await findByRole('alert')).toBeOnTheScreen();
 
     expect(
-      await findByText('Sign Up Successful', {
+      getByText('Sign Up Successful', {
         normalizer: getDefaultNormalizer(),
       }),
     ).toBeOnTheScreen();
@@ -49,24 +48,26 @@ describe('SignUp', () => {
 
   it('user will see warning if the sign up form is not filled in', async () => {
     const user = userEvent.setup();
-    const {getByRole, findByLabelText, findByText, findByRole, getByTestId} =
+    const {getByRole, getByLabelText, getByText, findByRole, getByTestId} =
       renderWithTheme(<App />);
 
     expect(getByTestId('banner')).toBeOnTheScreen();
 
     await user.press(getByRole('link', {name: 'New here? Sign Up'}));
 
-    await user.type(await findByLabelText('Full name'), '');
-    await user.type(await findByLabelText('Email'), '');
-    await user.type(await findByLabelText('Password'), '');
-    await user.type(await findByLabelText('Confirm password'), '');
+    expect(getByTestId('form')).toBeOnTheScreen();
 
-    await user.press(await findByRole('button', {name: 'Sign Up'}));
+    await user.type(getByLabelText('Full name'), '');
+    await user.type(getByLabelText('Email'), '');
+    await user.type(getByLabelText('Password'), '');
+    await user.type(getByLabelText('Confirm password'), '');
+
+    await user.press(getByRole('button', {name: 'Sign Up'}));
 
     expect(await findByRole('alert')).toBeOnTheScreen();
 
     expect(
-      await findByText('Validation Failed', {
+      getByText('Validation Failed', {
         normalizer: getDefaultNormalizer(),
       }),
     ).toBeOnTheScreen();
@@ -76,24 +77,26 @@ describe('SignUp', () => {
     mockStorefrontApi.onPost('/account').reply(422, SIGN_UP_ERROR_RESPONSE);
 
     const user = userEvent.setup();
-    const {getByRole, findByLabelText, findByText, findByRole, getByTestId} =
+    const {getByRole, getByLabelText, getByText, findByRole, getByTestId} =
       renderWithTheme(<App />);
 
     expect(getByTestId('banner')).toBeOnTheScreen();
 
     await user.press(getByRole('link', {name: 'New here? Sign Up'}));
 
-    await user.type(await findByLabelText('Full name'), 'User Name');
-    await user.type(await findByLabelText('Email'), 'user@example');
-    await user.type(await findByLabelText('Password'), 'pw');
-    await user.type(await findByLabelText('Confirm password'), 'pw');
+    expect(getByTestId('form')).toBeOnTheScreen();
 
-    await user.press(await findByRole('button', {name: 'Sign Up'}));
+    await user.type(getByLabelText('Full name'), 'User Name');
+    await user.type(getByLabelText('Email'), 'user@example');
+    await user.type(getByLabelText('Password'), 'pw');
+    await user.type(getByLabelText('Confirm password'), 'pw');
+
+    await user.press(getByRole('button', {name: 'Sign Up'}));
 
     expect(await findByRole('alert')).toBeOnTheScreen();
 
     expect(
-      await findByText('Sign Up Failed', {normalizer: getDefaultNormalizer()}),
+      getByText('Sign Up Failed', {normalizer: getDefaultNormalizer()}),
     ).toBeOnTheScreen();
   });
 });

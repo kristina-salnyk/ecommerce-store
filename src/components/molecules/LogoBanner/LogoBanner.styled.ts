@@ -4,7 +4,7 @@ import Logo from '../../atoms/Logo';
 import {ORIENTATION_TYPES} from 'constants/shared';
 
 export const LogoBannerStyled = styled.View<{
-  testID: string;
+  testID?: string;
   orientation: string;
 }>`
   padding: ${({theme, orientation}) =>

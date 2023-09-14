@@ -11,7 +11,7 @@ export const ShadowBoxStyled = styled.View<{
         ? `
         shadow-offset: 0;
         shadow-opacity: 0.2;
-        shadow-radius: 4px; 
+        shadow-radius: 4px;
       `
         : `
         elevation: 4;

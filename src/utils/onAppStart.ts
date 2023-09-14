@@ -2,7 +2,8 @@ import Crashes from 'appcenter-crashes';
 
 const onAppStart = async () => {
   try {
-    if (await Crashes.hasCrashedInLastSession()) {
+    const didCrash = await Crashes.hasCrashedInLastSession();
+    if (didCrash) {
       const report = await Crashes.lastSessionCrashReport();
       console.log('Crash report: ', report);
     }
