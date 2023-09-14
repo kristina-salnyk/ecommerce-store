@@ -21,7 +21,7 @@ describe('Main', () => {
     mockStorefrontApi.onGet('/products').reply(200, PRODUCTS_SUCCESS_RESPONSE);
 
     const user = userEvent.setup();
-    const {getByRole, findAllByTestId, findByRole, getByTestId} =
+    const {getByRole, getAllByTestId, findByRole, getByTestId} =
       renderWithTheme(<App />);
 
     expect(getByTestId('banner')).toBeOnTheScreen();
@@ -30,7 +30,7 @@ describe('Main', () => {
 
     expect(await findByRole('list')).toBeOnTheScreen();
 
-    const listItems = await findAllByTestId('listitem');
+    const listItems = getAllByTestId('listitem');
     expect(listItems.length).toBeGreaterThan(0);
   });
 
@@ -41,7 +41,7 @@ describe('Main', () => {
       .reply(200, PRODUCT_SUCCESS_RESPONSE);
 
     const user = userEvent.setup();
-    const {getByRole, findAllByTestId, findByRole, getByTestId} =
+    const {getByRole, getAllByTestId, findByRole, getByTestId} =
       renderWithTheme(<App />);
 
     expect(getByTestId('banner')).toBeOnTheScreen();
@@ -50,7 +50,7 @@ describe('Main', () => {
 
     expect(await findByRole('list')).toBeOnTheScreen();
 
-    const listItems = await findAllByTestId('listitem');
+    const listItems = getAllByTestId('listitem');
     await user.press(listItems[0]);
 
     expect(await findByRole('scrollbar')).toBeOnTheScreen();

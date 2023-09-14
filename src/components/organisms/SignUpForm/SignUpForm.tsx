@@ -94,7 +94,7 @@ const SignUpForm: FC = () => {
   }, [navigation]);
 
   return (
-    <SignUpFormStyled testID="form" accessible={true}>
+    <SignUpFormStyled testID="form">
       <SignUpFormWrap>
         <SignUpFormFieldsWrap>
           <Input

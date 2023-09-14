@@ -7,10 +7,7 @@ const LogoBanner: FC = () => {
   const orientation = useOrientation();
 
   return (
-    <LogoBannerStyled
-      testID="banner"
-      accessible={true}
-      orientation={orientation}>
+    <LogoBannerStyled testID="banner" orientation={orientation}>
       <LogoStyled />
     </LogoBannerStyled>
   );

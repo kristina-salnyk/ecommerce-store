@@ -16,7 +16,7 @@ const ShadowBox: FC<ShadowBoxProps> = ({
   <ShadowBoxStyled
     style={style}
     {...(accessibilityRole && {accessibilityRole, accessible: true})}
-    {...(testID && {testID, accessible: true})}>
+    {...(testID && {testID})}>
     {children}
   </ShadowBoxStyled>
 );
