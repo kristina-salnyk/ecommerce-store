@@ -25,7 +25,16 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'ReactNativeCourseHW' do
+abstract_target 'ReactNativeCourseHWCommonPods' do
+  target 'ReactNativeCourseHWDev' do
+  end
+
+  target 'ReactNativeCourseHWStg' do
+  end
+
+  target 'ReactNativeCourseHW' do
+  end
+
   # React Native Maps dependencies
   rn_maps_path = '../node_modules/react-native-maps'
   pod 'react-native-google-maps', :path => rn_maps_path

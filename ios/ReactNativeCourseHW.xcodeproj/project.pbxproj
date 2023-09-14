@@ -11,6 +11,9 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2B204D7ED4292296BB1A15D5 /* libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2407C3DA9E0A501D782F9830 /* libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests.a */; };
+		391E6CBCA72F1478DEAB1422 /* libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACAF55FAA728C1DF912D6136 /* libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev.a */; };
+		409AB98EC4E0B8F7FA7148F4 /* libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15559925137758D0B43B70DF /* libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW.a */; };
 		4E05D6732A58AF6F003440B1 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6632A58AF6F003440B1 /* Fontisto.ttf */; };
 		4E05D6742A58AF6F003440B1 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6642A58AF6F003440B1 /* Octicons.ttf */; };
 		4E05D6752A58AF6F003440B1 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6652A58AF6F003440B1 /* Feather.ttf */; };
@@ -27,8 +30,47 @@
 		4E05D6802A58AF6F003440B1 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6702A58AF6F003440B1 /* EvilIcons.ttf */; };
 		4E05D6812A58AF6F003440B1 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6712A58AF6F003440B1 /* SimpleLineIcons.ttf */; };
 		4E05D6822A58AF6F003440B1 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6722A58AF6F003440B1 /* MaterialIcons.ttf */; };
-		60E4E8DCCEBF45660F483F69 /* libPods-ReactNativeCourseHW-ReactNativeCourseHWTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 679DD296E87FAACF8E6BAC5B /* libPods-ReactNativeCourseHW-ReactNativeCourseHWTests.a */; };
-		805EC79F3438717B36E3310E /* libPods-ReactNativeCourseHW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6232E6698809293C64343BF /* libPods-ReactNativeCourseHW.a */; };
+		4EFE74B22AB1EFB900422044 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
+		4EFE74B32AB1EFB900422044 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		4EFE74B72AB1EFB900422044 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6632A58AF6F003440B1 /* Fontisto.ttf */; };
+		4EFE74B82AB1EFB900422044 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D66E2A58AF6F003440B1 /* FontAwesome.ttf */; };
+		4EFE74B92AB1EFB900422044 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D66A2A58AF6F003440B1 /* Foundation.ttf */; };
+		4EFE74BA2AB1EFB900422044 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D66D2A58AF6F003440B1 /* FontAwesome5_Regular.ttf */; };
+		4EFE74BB2AB1EFB900422044 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D66B2A58AF6F003440B1 /* Ionicons.ttf */; };
+		4EFE74BC2AB1EFB900422044 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6702A58AF6F003440B1 /* EvilIcons.ttf */; };
+		4EFE74BD2AB1EFB900422044 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6662A58AF6F003440B1 /* Entypo.ttf */; };
+		4EFE74BE2AB1EFB900422044 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		4EFE74BF2AB1EFB900422044 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D66F2A58AF6F003440B1 /* Zocial.ttf */; };
+		4EFE74C02AB1EFB900422044 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6712A58AF6F003440B1 /* SimpleLineIcons.ttf */; };
+		4EFE74C12AB1EFB900422044 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6652A58AF6F003440B1 /* Feather.ttf */; };
+		4EFE74C22AB1EFB900422044 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6642A58AF6F003440B1 /* Octicons.ttf */; };
+		4EFE74C32AB1EFB900422044 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6672A58AF6F003440B1 /* FontAwesome5_Brands.ttf */; };
+		4EFE74C42AB1EFB900422044 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6692A58AF6F003440B1 /* AntDesign.ttf */; };
+		4EFE74C52AB1EFB900422044 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6722A58AF6F003440B1 /* MaterialIcons.ttf */; };
+		4EFE74C62AB1EFB900422044 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D66C2A58AF6F003440B1 /* FontAwesome5_Solid.ttf */; };
+		4EFE74C72AB1EFB900422044 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6682A58AF6F003440B1 /* MaterialCommunityIcons.ttf */; };
+		4EFE74C82AB1EFB900422044 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		4EFE74D52AB1EFD100422044 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
+		4EFE74D62AB1EFD100422044 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		4EFE74DA2AB1EFD100422044 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6632A58AF6F003440B1 /* Fontisto.ttf */; };
+		4EFE74DB2AB1EFD100422044 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D66E2A58AF6F003440B1 /* FontAwesome.ttf */; };
+		4EFE74DC2AB1EFD100422044 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D66A2A58AF6F003440B1 /* Foundation.ttf */; };
+		4EFE74DD2AB1EFD100422044 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D66D2A58AF6F003440B1 /* FontAwesome5_Regular.ttf */; };
+		4EFE74DE2AB1EFD100422044 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D66B2A58AF6F003440B1 /* Ionicons.ttf */; };
+		4EFE74DF2AB1EFD100422044 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6702A58AF6F003440B1 /* EvilIcons.ttf */; };
+		4EFE74E02AB1EFD100422044 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6662A58AF6F003440B1 /* Entypo.ttf */; };
+		4EFE74E12AB1EFD100422044 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		4EFE74E22AB1EFD100422044 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D66F2A58AF6F003440B1 /* Zocial.ttf */; };
+		4EFE74E32AB1EFD100422044 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6712A58AF6F003440B1 /* SimpleLineIcons.ttf */; };
+		4EFE74E42AB1EFD100422044 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6652A58AF6F003440B1 /* Feather.ttf */; };
+		4EFE74E52AB1EFD100422044 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6642A58AF6F003440B1 /* Octicons.ttf */; };
+		4EFE74E62AB1EFD100422044 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6672A58AF6F003440B1 /* FontAwesome5_Brands.ttf */; };
+		4EFE74E72AB1EFD100422044 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6692A58AF6F003440B1 /* AntDesign.ttf */; };
+		4EFE74E82AB1EFD100422044 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6722A58AF6F003440B1 /* MaterialIcons.ttf */; };
+		4EFE74E92AB1EFD100422044 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D66C2A58AF6F003440B1 /* FontAwesome5_Solid.ttf */; };
+		4EFE74EA2AB1EFD100422044 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E05D6682A58AF6F003440B1 /* MaterialCommunityIcons.ttf */; };
+		4EFE74EB2AB1EFD100422044 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		57258859D6775703237CC983 /* libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D748E9BF53D4BF1338706EE /* libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +88,7 @@
 		00E356EE1AD99517003FC87E /* ReactNativeCourseHWTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactNativeCourseHWTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* ReactNativeCourseHWTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactNativeCourseHWTests.m; sourceTree = "<group>"; };
+		0523EBDCD2BD424AC59AB4D0 /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg.debug.xcconfig"; sourceTree = "<group>"; };
 		0C8BB752A032304737841BA8 /* Pods-ReactNativeCourseHW-ReactNativeCourseHWTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeCourseHW-ReactNativeCourseHWTests.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeCourseHW-ReactNativeCourseHWTests/Pods-ReactNativeCourseHW-ReactNativeCourseHWTests.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* ReactNativeCourseHW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactNativeCourseHW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ReactNativeCourseHW/AppDelegate.h; sourceTree = "<group>"; };
@@ -53,8 +96,11 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ReactNativeCourseHW/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ReactNativeCourseHW/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ReactNativeCourseHW/main.m; sourceTree = "<group>"; };
+		15559925137758D0B43B70DF /* libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1925888482C5ED78C966E068 /* Pods-ReactNativeCourseHW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeCourseHW.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeCourseHW/Pods-ReactNativeCourseHW.debug.xcconfig"; sourceTree = "<group>"; };
+		2407C3DA9E0A501D782F9830 /* libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33CC40E762012F7BF6A33C9C /* Pods-ReactNativeCourseHW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeCourseHW.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeCourseHW/Pods-ReactNativeCourseHW.release.xcconfig"; sourceTree = "<group>"; };
+		48CD855BAAF1F9EF8F5E153D /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg.release.xcconfig"; sourceTree = "<group>"; };
 		4E05D6632A58AF6F003440B1 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
 		4E05D6642A58AF6F003440B1 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		4E05D6652A58AF6F003440B1 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
@@ -72,10 +118,20 @@
 		4E05D6712A58AF6F003440B1 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		4E05D6722A58AF6F003440B1 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
 		4E321CB82AAB4E6700E62937 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		679DD296E87FAACF8E6BAC5B /* libPods-ReactNativeCourseHW-ReactNativeCourseHWTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeCourseHW-ReactNativeCourseHWTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EFE74CF2AB1EFB900422044 /* ReactNativeCourseHWDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactNativeCourseHWDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EFE74D02AB1EFBA00422044 /* ReactNativeCourseHW dev-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ReactNativeCourseHW dev-Info.plist"; path = "/Users/kristinasalnyk/MyFolder/ReactNativeCourseHW/ios/ReactNativeCourseHW dev-Info.plist"; sourceTree = "<absolute>"; };
+		4EFE74F22AB1EFD100422044 /* ReactNativeCourseHWStg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactNativeCourseHWStg.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EFE74F32AB1EFD100422044 /* ReactNativeCourseHW stg-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ReactNativeCourseHW stg-Info.plist"; path = "/Users/kristinasalnyk/MyFolder/ReactNativeCourseHW/ios/ReactNativeCourseHW stg-Info.plist"; sourceTree = "<absolute>"; };
+		504443E60AFB1171CB8DDF02 /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW.debug.xcconfig"; sourceTree = "<group>"; };
+		5D96E11AABF39ED09B98201E /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests.debug.xcconfig"; sourceTree = "<group>"; };
+		70641C89EF899B7BB461B448 /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW.release.xcconfig"; sourceTree = "<group>"; };
+		7D748E9BF53D4BF1338706EE /* libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ReactNativeCourseHW/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ACAF55FAA728C1DF912D6136 /* libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1535E6EF50F923334D587D0 /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests.release.xcconfig"; sourceTree = "<group>"; };
+		B1A889F4E5A30E7D27038DCB /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev.release.xcconfig"; sourceTree = "<group>"; };
 		C3694B20E8A383DF8A20144C /* Pods-ReactNativeCourseHW-ReactNativeCourseHWTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeCourseHW-ReactNativeCourseHWTests.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeCourseHW-ReactNativeCourseHWTests/Pods-ReactNativeCourseHW-ReactNativeCourseHWTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E6232E6698809293C64343BF /* libPods-ReactNativeCourseHW.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeCourseHW.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF52E8A14738DF682350CD30 /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -84,7 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60E4E8DCCEBF45660F483F69 /* libPods-ReactNativeCourseHW-ReactNativeCourseHWTests.a in Frameworks */,
+				2B204D7ED4292296BB1A15D5 /* libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +148,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				805EC79F3438717B36E3310E /* libPods-ReactNativeCourseHW.a in Frameworks */,
+				409AB98EC4E0B8F7FA7148F4 /* libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4EFE74B42AB1EFB900422044 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				391E6CBCA72F1478DEAB1422 /* libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4EFE74D72AB1EFD100422044 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57258859D6775703237CC983 /* libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,8 +206,10 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				E6232E6698809293C64343BF /* libPods-ReactNativeCourseHW.a */,
-				679DD296E87FAACF8E6BAC5B /* libPods-ReactNativeCourseHW-ReactNativeCourseHWTests.a */,
+				15559925137758D0B43B70DF /* libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW.a */,
+				ACAF55FAA728C1DF912D6136 /* libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev.a */,
+				7D748E9BF53D4BF1338706EE /* libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg.a */,
+				2407C3DA9E0A501D782F9830 /* libPods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -181,6 +255,8 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				4EFE74D02AB1EFBA00422044 /* ReactNativeCourseHW dev-Info.plist */,
+				4EFE74F32AB1EFD100422044 /* ReactNativeCourseHW stg-Info.plist */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -192,6 +268,8 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* ReactNativeCourseHW.app */,
 				00E356EE1AD99517003FC87E /* ReactNativeCourseHWTests.xctest */,
+				4EFE74CF2AB1EFB900422044 /* ReactNativeCourseHWDev.app */,
+				4EFE74F22AB1EFD100422044 /* ReactNativeCourseHWStg.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,6 +281,14 @@
 				33CC40E762012F7BF6A33C9C /* Pods-ReactNativeCourseHW.release.xcconfig */,
 				C3694B20E8A383DF8A20144C /* Pods-ReactNativeCourseHW-ReactNativeCourseHWTests.debug.xcconfig */,
 				0C8BB752A032304737841BA8 /* Pods-ReactNativeCourseHW-ReactNativeCourseHWTests.release.xcconfig */,
+				504443E60AFB1171CB8DDF02 /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW.debug.xcconfig */,
+				70641C89EF899B7BB461B448 /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW.release.xcconfig */,
+				CF52E8A14738DF682350CD30 /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev.debug.xcconfig */,
+				B1A889F4E5A30E7D27038DCB /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev.release.xcconfig */,
+				0523EBDCD2BD424AC59AB4D0 /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg.debug.xcconfig */,
+				48CD855BAAF1F9EF8F5E153D /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg.release.xcconfig */,
+				5D96E11AABF39ED09B98201E /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests.debug.xcconfig */,
+				B1535E6EF50F923334D587D0 /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -253,6 +339,50 @@
 			productReference = 13B07F961A680F5B00A75B9A /* ReactNativeCourseHW.app */;
 			productType = "com.apple.product-type.application";
 		};
+		4EFE74AE2AB1EFB900422044 /* ReactNativeCourseHWDev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4EFE74CC2AB1EFB900422044 /* Build configuration list for PBXNativeTarget "ReactNativeCourseHWDev" */;
+			buildPhases = (
+				4EFE74AF2AB1EFB900422044 /* [CP] Check Pods Manifest.lock */,
+				4EFE74B02AB1EFB900422044 /* Start Packager */,
+				4EFE74B12AB1EFB900422044 /* Sources */,
+				4EFE74B42AB1EFB900422044 /* Frameworks */,
+				4EFE74B62AB1EFB900422044 /* Resources */,
+				4EFE74C92AB1EFB900422044 /* Bundle React Native code and images */,
+				4EFE74CA2AB1EFB900422044 /* [CP] Embed Pods Frameworks */,
+				4EFE74CB2AB1EFB900422044 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReactNativeCourseHWDev;
+			productName = ReactNativeCourseHW;
+			productReference = 4EFE74CF2AB1EFB900422044 /* ReactNativeCourseHWDev.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4EFE74D12AB1EFD100422044 /* ReactNativeCourseHWStg */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4EFE74EF2AB1EFD100422044 /* Build configuration list for PBXNativeTarget "ReactNativeCourseHWStg" */;
+			buildPhases = (
+				4EFE74D22AB1EFD100422044 /* [CP] Check Pods Manifest.lock */,
+				4EFE74D32AB1EFD100422044 /* Start Packager */,
+				4EFE74D42AB1EFD100422044 /* Sources */,
+				4EFE74D72AB1EFD100422044 /* Frameworks */,
+				4EFE74D92AB1EFD100422044 /* Resources */,
+				4EFE74EC2AB1EFD100422044 /* Bundle React Native code and images */,
+				4EFE74ED2AB1EFD100422044 /* [CP] Embed Pods Frameworks */,
+				4EFE74EE2AB1EFD100422044 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReactNativeCourseHWStg;
+			productName = ReactNativeCourseHW;
+			productReference = 4EFE74F22AB1EFD100422044 /* ReactNativeCourseHWStg.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -285,6 +415,8 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* ReactNativeCourseHW */,
 				00E356ED1AD99517003FC87E /* ReactNativeCourseHWTests */,
+				4EFE74AE2AB1EFB900422044 /* ReactNativeCourseHWDev */,
+				4EFE74D12AB1EFD100422044 /* ReactNativeCourseHWStg */,
 			);
 		};
 /* End PBXProject section */
@@ -322,6 +454,56 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4EFE74B62AB1EFB900422044 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EFE74B72AB1EFB900422044 /* Fontisto.ttf in Resources */,
+				4EFE74B82AB1EFB900422044 /* FontAwesome.ttf in Resources */,
+				4EFE74B92AB1EFB900422044 /* Foundation.ttf in Resources */,
+				4EFE74BA2AB1EFB900422044 /* FontAwesome5_Regular.ttf in Resources */,
+				4EFE74BB2AB1EFB900422044 /* Ionicons.ttf in Resources */,
+				4EFE74BC2AB1EFB900422044 /* EvilIcons.ttf in Resources */,
+				4EFE74BD2AB1EFB900422044 /* Entypo.ttf in Resources */,
+				4EFE74BE2AB1EFB900422044 /* LaunchScreen.storyboard in Resources */,
+				4EFE74BF2AB1EFB900422044 /* Zocial.ttf in Resources */,
+				4EFE74C02AB1EFB900422044 /* SimpleLineIcons.ttf in Resources */,
+				4EFE74C12AB1EFB900422044 /* Feather.ttf in Resources */,
+				4EFE74C22AB1EFB900422044 /* Octicons.ttf in Resources */,
+				4EFE74C32AB1EFB900422044 /* FontAwesome5_Brands.ttf in Resources */,
+				4EFE74C42AB1EFB900422044 /* AntDesign.ttf in Resources */,
+				4EFE74C52AB1EFB900422044 /* MaterialIcons.ttf in Resources */,
+				4EFE74C62AB1EFB900422044 /* FontAwesome5_Solid.ttf in Resources */,
+				4EFE74C72AB1EFB900422044 /* MaterialCommunityIcons.ttf in Resources */,
+				4EFE74C82AB1EFB900422044 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4EFE74D92AB1EFD100422044 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EFE74DA2AB1EFD100422044 /* Fontisto.ttf in Resources */,
+				4EFE74DB2AB1EFD100422044 /* FontAwesome.ttf in Resources */,
+				4EFE74DC2AB1EFD100422044 /* Foundation.ttf in Resources */,
+				4EFE74DD2AB1EFD100422044 /* FontAwesome5_Regular.ttf in Resources */,
+				4EFE74DE2AB1EFD100422044 /* Ionicons.ttf in Resources */,
+				4EFE74DF2AB1EFD100422044 /* EvilIcons.ttf in Resources */,
+				4EFE74E02AB1EFD100422044 /* Entypo.ttf in Resources */,
+				4EFE74E12AB1EFD100422044 /* LaunchScreen.storyboard in Resources */,
+				4EFE74E22AB1EFD100422044 /* Zocial.ttf in Resources */,
+				4EFE74E32AB1EFD100422044 /* SimpleLineIcons.ttf in Resources */,
+				4EFE74E42AB1EFD100422044 /* Feather.ttf in Resources */,
+				4EFE74E52AB1EFD100422044 /* Octicons.ttf in Resources */,
+				4EFE74E62AB1EFD100422044 /* FontAwesome5_Brands.ttf in Resources */,
+				4EFE74E72AB1EFD100422044 /* AntDesign.ttf in Resources */,
+				4EFE74E82AB1EFD100422044 /* MaterialIcons.ttf in Resources */,
+				4EFE74E92AB1EFD100422044 /* FontAwesome5_Solid.ttf in Resources */,
+				4EFE74EA2AB1EFD100422044 /* MaterialCommunityIcons.ttf in Resources */,
+				4EFE74EB2AB1EFD100422044 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -341,6 +523,188 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
+		4EFE74AF2AB1EFB900422044 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4EFE74B02AB1EFB900422044 /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4EFE74C92AB1EFB900422044 /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/.xcode.env",
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
+		};
+		4EFE74CA2AB1EFB900422044 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4EFE74CB2AB1EFB900422044 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4EFE74D22AB1EFD100422044 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4EFE74D32AB1EFD100422044 /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4EFE74EC2AB1EFD100422044 /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/.xcode.env",
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
+		};
+		4EFE74ED2AB1EFD100422044 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4EFE74EE2AB1EFD100422044 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		562C4CD9CE6CB402030DEE1E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -356,7 +720,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ReactNativeCourseHW-ReactNativeCourseHWTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -369,15 +733,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHW/Pods-ReactNativeCourseHW-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHW/Pods-ReactNativeCourseHW-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHW/Pods-ReactNativeCourseHW-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A9072686E35C0AA24B6FAD79 /* [CP] Embed Pods Frameworks */ = {
@@ -386,15 +750,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHW-ReactNativeCourseHWTests/Pods-ReactNativeCourseHW-ReactNativeCourseHWTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHW-ReactNativeCourseHWTests/Pods-ReactNativeCourseHW-ReactNativeCourseHWTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHW-ReactNativeCourseHWTests/Pods-ReactNativeCourseHW-ReactNativeCourseHWTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BDBB5C72B22724E26E1ED701 /* [CP] Copy Pods Resources */ = {
@@ -403,15 +767,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHW-ReactNativeCourseHWTests/Pods-ReactNativeCourseHW-ReactNativeCourseHWTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHW-ReactNativeCourseHWTests/Pods-ReactNativeCourseHW-ReactNativeCourseHWTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHW-ReactNativeCourseHWTests/Pods-ReactNativeCourseHW-ReactNativeCourseHWTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CA78BE6CEE1C420CB917A5A6 /* [CP] Embed Pods Frameworks */ = {
@@ -420,15 +784,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHW/Pods-ReactNativeCourseHW-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHW/Pods-ReactNativeCourseHW-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHW/Pods-ReactNativeCourseHW-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F40FD8B0CE7B0FE59F63F31D /* [CP] Check Pods Manifest.lock */ = {
@@ -446,7 +810,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ReactNativeCourseHW-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -492,6 +856,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4EFE74B12AB1EFB900422044 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EFE74B22AB1EFB900422044 /* AppDelegate.mm in Sources */,
+				4EFE74B32AB1EFB900422044 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4EFE74D42AB1EFD100422044 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EFE74D52AB1EFD100422044 /* AppDelegate.mm in Sources */,
+				4EFE74D62AB1EFD100422044 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -505,7 +887,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C3694B20E8A383DF8A20144C /* Pods-ReactNativeCourseHW-ReactNativeCourseHWTests.debug.xcconfig */;
+			baseConfigurationReference = 5D96E11AABF39ED09B98201E /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = U6QA3836D9;
@@ -533,7 +915,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C8BB752A032304737841BA8 /* Pods-ReactNativeCourseHW-ReactNativeCourseHWTests.release.xcconfig */;
+			baseConfigurationReference = B1535E6EF50F923334D587D0 /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -558,7 +940,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1925888482C5ED78C966E068 /* Pods-ReactNativeCourseHW.debug.xcconfig */;
+			baseConfigurationReference = 504443E60AFB1171CB8DDF02 /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -566,6 +948,7 @@
 				DEVELOPMENT_TEAM = U6QA3836D9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ReactNativeCourseHW/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Ecommerce Store";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -586,13 +969,14 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 33CC40E762012F7BF6A33C9C /* Pods-ReactNativeCourseHW.release.xcconfig */;
+			baseConfigurationReference = 70641C89EF899B7BB461B448 /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHW.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U6QA3836D9;
 				INFOPLIST_FILE = ReactNativeCourseHW/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Ecommerce Store";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -605,6 +989,118 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ReactNativeCourseHW;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		4EFE74CD2AB1EFB900422044 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF52E8A14738DF682350CD30 /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U6QA3836D9;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "ReactNativeCourseHW dev-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ecommerce Store Dev";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		4EFE74CE2AB1EFB900422044 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1A889F4E5A30E7D27038DCB /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWDev.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U6QA3836D9;
+				INFOPLIST_FILE = "ReactNativeCourseHW dev-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ecommerce Store Dev";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		4EFE74F02AB1EFD100422044 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0523EBDCD2BD424AC59AB4D0 /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U6QA3836D9;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "ReactNativeCourseHW stg-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ecommerce Store QA";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		4EFE74F12AB1EFD100422044 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48CD855BAAF1F9EF8F5E153D /* Pods-ReactNativeCourseHWCommonPods-ReactNativeCourseHWStg.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U6QA3836D9;
+				INFOPLIST_FILE = "ReactNativeCourseHW stg-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ecommerce Store QA";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -671,10 +1167,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_CFLAGS = "$(inherited)  ";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
@@ -739,10 +1232,7 @@
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_CFLAGS = "$(inherited)  ";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
@@ -772,6 +1262,24 @@
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
 				13B07F951A680F5B00A75B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4EFE74CC2AB1EFB900422044 /* Build configuration list for PBXNativeTarget "ReactNativeCourseHWDev" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4EFE74CD2AB1EFB900422044 /* Debug */,
+				4EFE74CE2AB1EFB900422044 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4EFE74EF2AB1EFD100422044 /* Build configuration list for PBXNativeTarget "ReactNativeCourseHWStg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4EFE74F02AB1EFD100422044 /* Debug */,
+				4EFE74F12AB1EFD100422044 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
