@@ -1,5 +1,5 @@
-import Cart from '../../interfaces/Cart';
-import Purchase from '../../interfaces/Purchase';
+import Cart from 'interfaces/Cart';
+import Purchase from 'interfaces/Purchase';
 
 export const CART_SET_DATA = 'cart/setData';
 

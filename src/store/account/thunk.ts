@@ -1,12 +1,12 @@
-import {AppDispatch, AppThunk} from '../index';
 import {
   setAccount,
   setError,
   updateIsLoading,
   updateIsRefreshing,
 } from './actionCreators';
-import {getItem, setItem} from '../../services/storage';
-import {getAccount, updateAccount} from '../../services/api/account';
+import {AppDispatch, AppThunk} from 'store';
+import {getItem, setItem} from 'services/storage';
+import {getAccount, updateAccount} from 'services/api/account';
 
 export const getAccountThunk =
   (): AppThunk => async (dispatch: AppDispatch) => {

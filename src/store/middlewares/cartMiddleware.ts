@@ -1,5 +1,6 @@
 import {AxiosResponse} from 'axios';
-import {createCart} from '../../services/api/cart';
+
+import {createCart} from 'services/api/cart';
 
 export const cartMiddleware = async (
   request: () => Promise<AxiosResponse>,

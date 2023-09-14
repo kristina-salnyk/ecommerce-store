@@ -1,12 +1,19 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 
-import OrdersTemplate from '../../components/templates/OrdersTemplate';
-import ScreenContainer from '../../containers/ScreenContainer';
+import ScreenContainer from 'containers/ScreenContainer';
+import OrdersTemplate from 'components/templates/OrdersTemplate';
+import onScreenOpen from 'utils/onScreenOpen';
 
-const OrdersScreen: FC = () => (
-  <ScreenContainer>
-    <OrdersTemplate />
-  </ScreenContainer>
-);
+const OrdersScreen: FC = () => {
+  useEffect(() => {
+    onScreenOpen('Orders');
+  }, []);
+
+  return (
+    <ScreenContainer>
+      <OrdersTemplate />
+    </ScreenContainer>
+  );
+};
 
 export default OrdersScreen;

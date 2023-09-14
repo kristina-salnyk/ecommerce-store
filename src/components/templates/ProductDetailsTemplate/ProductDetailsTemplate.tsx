@@ -1,12 +1,9 @@
 import React, {FC} from 'react';
 
 import ProductDetails from '../../organisms/ProductDetails';
-import useOrientation from '../../../hooks/useOrientation';
-import useDimensions from '../../../hooks/useDimensions';
-import {
-  ORIENTATION_TYPES,
-  SLIDER_BOTTOM_INDENT,
-} from '../../../constants/shared';
+import useOrientation from 'hooks/useOrientation';
+import useDimensions from 'hooks/useDimensions';
+import {ORIENTATION_TYPES, SLIDER_BOTTOM_INDENT} from 'constants/shared';
 import {ProductDetailsTemplateStyled} from './ProductDetailsTemplate.styled';
 
 const ProductDetailsTemplate: FC = () => {

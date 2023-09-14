@@ -5,9 +5,9 @@ import Carousel from 'react-native-snap-carousel';
 import SliderPagination from '../SliderPagination';
 import ProductImage from '../../atoms/ProductImage';
 import SliderButton from '../../atoms/SliderButton';
-import ProductRelationship from '../../../interfaces/ProductRelationship';
-import getImagePathById from '../../../utils/getImagePathById';
-import {SLIDER_SIZE} from '../../../constants/shared';
+import ProductRelationship from 'interfaces/ProductRelationship';
+import getImagePathById from 'utils/getImagePathById';
+import {SLIDER_SIZE} from 'constants/shared';
 import {CarouselWrap, ImageSliderStyled} from './ImageSlider.styled';
 
 interface ImageSliderProps {
@@ -45,7 +45,7 @@ const ImageSlider: FC<ImageSliderProps> = ({images, options}) => {
 
   return (
     <>
-      <ImageSliderStyled>
+      <ImageSliderStyled testID="slider">
         <SliderButton
           iconName="arrow-left"
           onPress={onPressPrev}

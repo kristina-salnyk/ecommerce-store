@@ -3,7 +3,7 @@ import {useTheme} from 'styled-components';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Input from '../../atoms/Input';
-import {DEFAULT_ICON_SIZE} from '../../../constants/shared';
+import {DEFAULT_ICON_SIZE} from 'constants/shared';
 import {SearchBarStyled} from './SearchBar.styled';
 
 interface SearchBarProps {

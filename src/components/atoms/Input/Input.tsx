@@ -11,6 +11,7 @@ import {
 interface InputProps {
   value: string;
   onChange: (value: string) => void;
+  accessibilityLabel?: string;
   placeholder?: string;
   label?: string;
   icon?: JSX.Element;
@@ -21,6 +22,7 @@ interface InputProps {
 const Input: FC<InputProps> = ({
   value,
   onChange,
+  accessibilityLabel,
   placeholder,
   label,
   icon,
@@ -35,6 +37,7 @@ const Input: FC<InputProps> = ({
       </InputLabelWrap>
     )}
     <InputStyled
+      accessibilityLabel={accessibilityLabel}
       value={value}
       onChangeText={onChange}
       placeholder={placeholder}

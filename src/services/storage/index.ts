@@ -6,7 +6,7 @@ export const setItem = async (key: string, value: string) => {
       keychainService: 'auth',
     });
   } catch (error) {
-    throw new Error(`Error writing ${key} to storage: ${error}`);
+    console.log(`Error writing ${key} to storage: ${error}`);
   }
 };
 
@@ -14,7 +14,7 @@ export const deleteItem = async (key: string) => {
   try {
     await SInfo.deleteItem(key, {keychainService: 'auth'});
   } catch (error) {
-    throw new Error(`Error deleting ${key} from storage: ${error}`);
+    console.log(`Error deleting ${key} from storage: ${error}`);
   }
 };
 
@@ -22,6 +22,6 @@ export const getItem = async (key: string) => {
   try {
     return await SInfo.getItem(key, {keychainService: 'auth'});
   } catch (error) {
-    throw new Error(`Error reading ${key} from storage: ${error}`);
+    console.log(`Error reading ${key} from storage: ${error}`);
   }
 };

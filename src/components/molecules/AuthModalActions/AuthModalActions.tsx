@@ -1,7 +1,7 @@
 import React, {FC, useCallback} from 'react';
 
 import Button from '../../atoms/Button';
-import {useAppMainNavigation} from '../../../navigation/hooks';
+import {useAppMainNavigation} from 'navigation/hooks';
 import {AuthModalActionsStyled} from './AuthModalActions.styled';
 
 const AuthModalActions: FC = () => {

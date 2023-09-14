@@ -2,7 +2,6 @@ import React, {FC, useCallback, useEffect, useState} from 'react';
 import {RefreshControl, ScrollView} from 'react-native';
 import {RouteProp, useRoute} from '@react-navigation/native';
 
-import {MainStackParamList} from '../../../navigation/types';
 import Title from '../../atoms/Title';
 import Button from '../../atoms/Button';
 import ProductCost from '../../atoms/ProductCost';
@@ -12,26 +11,23 @@ import ProductDescription from '../../atoms/ProductDescription';
 import Splash from '../../molecules/Splash';
 import ImageSlider from '../../molecules/ImageSlider';
 import NotificationBox from '../NotificationBox';
-import {useAppRootNavigation} from '../../../navigation/hooks';
-import {getProductThunk} from '../../../store/product/thunk';
-import {updateIsRefreshing} from '../../../store/product/actionCreators';
+import {MainStackParamList} from 'navigation/types';
+import {useAppRootNavigation} from 'navigation/hooks';
+import {getProductThunk} from 'store/product/thunk';
+import {updateIsRefreshing} from 'store/product/actionCreators';
 import {
   selectError,
   selectIsLoading,
   selectIsRefreshing,
   selectProduct,
-} from '../../../store/product/selectors';
-import {selectColorOptions} from '../../../store/products/selectors';
-import {selectToken} from '../../../store/auth/selectors';
-import {addCartItemThunk} from '../../../store/cart/thunk';
-import {useAppDispatch, useAppSelector} from '../../../store/hooks';
+} from 'store/product/selectors';
+import {selectColorOptions} from 'store/products/selectors';
+import {selectToken} from 'store/auth/selectors';
+import {addCartItemThunk} from 'store/cart/thunk';
+import {useAppDispatch, useAppSelector} from 'store/hooks';
 import noResults from '../../../assets/images/no-results.png';
-import ProductOption from '../../../interfaces/ProductOption';
-import {
-  MODAL_OPTIONS,
-  MODAL_TYPES,
-  NOTIFICATIONS,
-} from '../../../constants/shared';
+import ProductOption from 'interfaces/ProductOption';
+import {MODAL_OPTIONS, MODAL_TYPES, NOTIFICATIONS} from 'constants/shared';
 import {ProductDetailsWrap, ProductNameStyled} from './ProductDetails.styled';
 
 interface ProductDetailsProps {
@@ -161,6 +157,8 @@ const ProductDetails: FC<ProductDetailsProps> = ({options}) => {
   return (
     <>
       <ScrollView
+        accessibilityRole="scrollbar"
+        accessible={true}
         refreshControl={
           <RefreshControl
             refreshing={isRefreshing}

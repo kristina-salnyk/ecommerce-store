@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 
-import ForgotPasswordTemplate from '../../components/templates/ForgotPasswordTemplate';
-import ScreenContainer from '../../containers/ScreenContainer';
+import ScreenContainer from 'containers/ScreenContainer';
+import ForgotPasswordTemplate from 'components/templates/ForgotPasswordTemplate';
 
 const ForgotPasswordScreen: FC = () => (
   <ScreenContainer>

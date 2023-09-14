@@ -6,7 +6,7 @@ import {
   CART_UPDATE_IS_REFRESHING,
   CartAction,
 } from './actionTypes';
-import CartState from '../../interfaces/CartState';
+import CartState from 'interfaces/CartState';
 
 const initialState: CartState = {
   data: null,

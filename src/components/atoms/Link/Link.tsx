@@ -9,7 +9,7 @@ interface LinkProps extends TouchableOpacityProps {
 }
 
 const Link: FC<LinkProps> = ({text, onPress, style}) => (
-  <LinkStyled onPress={onPress} style={style}>
+  <LinkStyled accessibilityRole="link" onPress={onPress} style={style}>
     <LinkText>{text}</LinkText>
   </LinkStyled>
 );

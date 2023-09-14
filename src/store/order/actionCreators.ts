@@ -1,4 +1,3 @@
-import Order from '../../interfaces/Order';
 import {
   ORDER_RESET_DATA,
   ORDER_SET_DATA,
@@ -11,7 +10,8 @@ import {
   OrderUpdateIsLoadingAction,
   OrderUpdateIsRefreshingAction,
 } from './actionTypes';
-import Purchase from '../../interfaces/Purchase';
+import Order from 'interfaces/Order';
+import Purchase from 'interfaces/Purchase';
 
 export const setOrder = (data: {
   data: Order;

@@ -2,11 +2,11 @@ import React, {FC, useCallback} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {DrawerNavigationProp} from '@react-navigation/drawer';
 
-import {DrawerParamList} from '../../../navigation/types';
 import NotificationBox from '../../organisms/NotificationBox';
+import {DrawerParamList} from 'navigation/types';
 import noResults from '../../../assets/images/no-results.png';
 import cart from '../../../assets/images/cart.png';
-import {NOTIFICATIONS} from '../../../constants/shared';
+import {NOTIFICATIONS} from 'constants/shared';
 
 interface EmptyPurchaseListProps {
   error: string | null;

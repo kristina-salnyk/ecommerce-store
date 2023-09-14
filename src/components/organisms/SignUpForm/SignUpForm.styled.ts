@@ -4,7 +4,7 @@ import Link from '../../atoms/Link';
 import Button from '../../atoms/Button';
 import Splash from '../../molecules/Splash';
 
-export const SignUpFormStyled = styled.View`
+export const SignUpFormStyled = styled.View<{testID?: string}>`
   padding: ${({theme}) => theme.space.x16} 0;
   gap: ${({theme}) => theme.space.x16};
   flex: 1;

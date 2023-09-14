@@ -5,7 +5,7 @@ import {
   PRODUCT_UPDATE_IS_REFRESHING,
   ProductAction,
 } from './actionTypes';
-import ProductState from '../../interfaces/ProductState';
+import ProductState from 'interfaces/ProductState';
 
 const initialState: ProductState = {
   data: null,

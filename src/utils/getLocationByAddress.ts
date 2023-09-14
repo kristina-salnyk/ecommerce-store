@@ -9,7 +9,7 @@ const getLocationByAddress = async (
       return response.results[0].geometry.location;
     }
   } catch (error) {
-    console.log('Error address geocoding:', error);
+    console.log('Error address geocoding: ', error);
   }
 };
 

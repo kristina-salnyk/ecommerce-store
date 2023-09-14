@@ -7,7 +7,7 @@ import {
   PRODUCTS_UPDATE_LIST,
   ProductsAction,
 } from './actionTypes';
-import ProductsState from '../../interfaces/ProductsState';
+import ProductsState from 'interfaces/ProductsState';
 
 const initialState: ProductsState = {
   items: [],

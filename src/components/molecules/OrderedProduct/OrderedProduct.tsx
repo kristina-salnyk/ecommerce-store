@@ -4,8 +4,8 @@ import ProductName from '../../atoms/ProductName';
 import ProductCost from '../../atoms/ProductCost';
 import ProductImage from '../../atoms/ProductImage';
 import ProductOptions from '../../atoms/ProductOptions';
-import getImagePathById from '../../../utils/getImagePathById';
-import {ORDER_PURCHASE_IMAGE_SIZE} from '../../../constants/shared';
+import getImagePathById from 'utils/getImagePathById';
+import {ORDER_PURCHASE_IMAGE_SIZE} from 'constants/shared';
 import {
   OrderedProductDetails,
   OrderedProductImageWrap,

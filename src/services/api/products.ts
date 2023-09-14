@@ -1,7 +1,7 @@
 import {AxiosError, AxiosResponse} from 'axios';
 
 import {storefrontApi} from './index';
-import {PRODUCT_ITEMS_PER_PAGE} from '../../constants/shared';
+import {PRODUCT_ITEMS_PER_PAGE} from 'constants/shared';
 
 export const getProductList = async (
   page: number,

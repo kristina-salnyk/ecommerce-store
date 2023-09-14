@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {TouchableOpacity} from 'react-native';
 
-import {DEFAULT_ICON_SIZE} from '../../../constants/shared';
+import {DEFAULT_ICON_SIZE} from 'constants/shared';
 import {SliderButtonIcon} from './SliderButton.styled';
 
 interface SliderButtonProps {

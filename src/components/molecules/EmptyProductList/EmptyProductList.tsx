@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 
 import NotificationBox from '../../organisms/NotificationBox';
 import noResults from '../../../assets/images/no-results.png';
-import {NOTIFICATIONS} from '../../../constants/shared';
+import {NOTIFICATIONS} from 'constants/shared';
 
 interface EmptyProductListProps {
   error: string | null;

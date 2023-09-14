@@ -7,7 +7,7 @@ const openCallLink = async () => {
     try {
       await Linking.openURL('tel:+1234567890');
     } catch (error) {
-      console.log('Error calling:', error);
+      console.log('Error calling: ', error);
     }
   } else {
     console.log('Device does not support calling phone numbers.');

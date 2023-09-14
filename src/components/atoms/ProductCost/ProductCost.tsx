@@ -1,6 +1,6 @@
 import React, {FC, useMemo} from 'react';
 
-import parseNumber from '../../../utils/parseNumber';
+import parseNumber from 'utils/parseNumber';
 import {
   ProductCompareAtPrice,
   ProductCostStyled,

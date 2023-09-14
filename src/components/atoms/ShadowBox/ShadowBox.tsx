@@ -7,8 +7,18 @@ interface ShadowBoxProps extends ViewProps {
   children: ReactNode;
 }
 
-const ShadowBox: FC<ShadowBoxProps> = ({children, style}) => (
-  <ShadowBoxStyled style={style}>{children}</ShadowBoxStyled>
+const ShadowBox: FC<ShadowBoxProps> = ({
+  accessibilityRole,
+  testID,
+  children,
+  style,
+}) => (
+  <ShadowBoxStyled
+    style={style}
+    {...(accessibilityRole && {accessibilityRole, accessible: true})}
+    {...(testID && {testID})}>
+    {children}
+  </ShadowBoxStyled>
 );
 
 export default ShadowBox;

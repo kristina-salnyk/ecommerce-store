@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 import Link from '../../atoms/Link';
 import Button from '../../atoms/Button';
-import {ORIENTATION_TYPES} from '../../../constants/shared';
+import {ORIENTATION_TYPES} from 'constants/shared';
 
 export const NotificationBoxStyled = styled.View<{orientation: string}>`
   padding: 0 ${({theme}) => theme.space.x8};

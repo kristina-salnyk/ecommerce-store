@@ -1,5 +1,5 @@
-import Order from '../../interfaces/Order';
-import Purchase from '../../interfaces/Purchase';
+import Order from 'interfaces/Order';
+import Purchase from 'interfaces/Purchase';
 
 export const ORDER_SET_DATA = 'order/setData';
 

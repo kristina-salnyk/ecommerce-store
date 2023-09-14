@@ -1,4 +1,4 @@
-import {RootState} from '../index';
+import {RootState} from 'store';
 
 export const selectOrder = (state: RootState) => state.order.data;
 

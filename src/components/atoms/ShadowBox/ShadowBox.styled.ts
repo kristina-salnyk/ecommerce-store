@@ -1,7 +1,9 @@
 import styled from 'styled-components/native';
 import {Platform} from 'react-native';
 
-export const ShadowBoxStyled = styled.View`
+export const ShadowBoxStyled = styled.View<{
+  accessibilityRole?: string;
+}>`
   ${({theme}) =>
     `shadow-color: ${theme.color.black};
     ${

@@ -1,6 +1,6 @@
-import {AppDispatch, AppThunk} from '../index';
 import {setLogin, updateIsLoading} from './actionCreators';
-import {login, signUp} from '../../services/api/auth';
+import {AppDispatch, AppThunk} from 'store';
+import {login, signUp} from 'services/api/auth';
 
 export const signUpThunk =
   (

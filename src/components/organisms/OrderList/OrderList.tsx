@@ -1,26 +1,23 @@
 import React, {FC, useCallback, useEffect} from 'react';
 import {FlatList, RefreshControl} from 'react-native';
 
+import NotificationBox from '../NotificationBox';
 import Splash from '../../molecules/Splash';
 import OrderItem from '../../molecules/OrderItem';
 import EmptyOrderList from '../../molecules/EmptyOrderList';
-import NotificationBox from '../NotificationBox';
-import {selectToken} from '../../../store/auth/selectors';
-import {updateIsRefreshing} from '../../../store/orders/actionCreators';
+import {useAppMainNavigation, useAppRootNavigation} from 'navigation/hooks';
+import {selectToken} from 'store/auth/selectors';
+import {updateIsRefreshing} from 'store/orders/actionCreators';
 import {
   selectError,
   selectIsLoading,
   selectIsRefreshing,
   selectItems,
-} from '../../../store/orders/selectors';
-import {getOrdersThunk} from '../../../store/orders/thunk';
-import {useAppDispatch, useAppSelector} from '../../../store/hooks';
-import {
-  useAppMainNavigation,
-  useAppRootNavigation,
-} from '../../../navigation/hooks';
+} from 'store/orders/selectors';
+import {getOrdersThunk} from 'store/orders/thunk';
+import {useAppDispatch, useAppSelector} from 'store/hooks';
 import notLogged from '../../../assets/images/orders.png';
-import {NOTIFICATIONS} from '../../../constants/shared';
+import {NOTIFICATIONS} from 'constants/shared';
 
 const OrderList: FC = () => {
   const rootNavigation = useAppRootNavigation();

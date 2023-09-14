@@ -1,12 +1,12 @@
-import {AppDispatch, AppThunk, RootState} from '../index';
 import {
   setError,
   setProduct,
   updateIsLoading,
   updateIsRefreshing,
 } from './actionCreators';
-import {getProduct} from '../../services/api/products';
 import {authMiddleware} from '../middlewares/authMiddleware';
+import {AppDispatch, AppThunk, RootState} from 'store';
+import {getProduct} from 'services/api/products';
 
 export const getProductThunk =
   (slug: string): AppThunk =>

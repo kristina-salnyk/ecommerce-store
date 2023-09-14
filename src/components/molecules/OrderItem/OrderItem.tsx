@@ -1,11 +1,11 @@
 import React, {FC} from 'react';
 
-import Purchase from '../../../interfaces/Purchase';
+import OrderPurchase from '../OrderPurchase';
 import Link from '../../atoms/Link';
 import OrderCreationDate from '../../atoms/OrderCreationDate';
-import OrderPurchase from '../OrderPurchase';
-import formatDate from '../../../utils/formateDate';
-import {useAppMainNavigation} from '../../../navigation/hooks';
+import {useAppMainNavigation} from 'navigation/hooks';
+import Purchase from 'interfaces/Purchase';
+import formatDate from 'utils/formateDate';
 import {OrderItemStyled, OrderItemWrap} from './OrderItem.styled';
 
 interface OrderItemProps {

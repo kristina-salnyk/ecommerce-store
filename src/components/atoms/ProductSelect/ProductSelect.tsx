@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 
 import SelectButton from '../SelectButton';
-import formatColorOption from '../../../utils/formatColorOption';
-import ProductOption from '../../../interfaces/ProductOption';
+import ProductOption from 'interfaces/ProductOption';
+import formatColorOption from 'utils/formatColorOption';
 import {ProductSelectStyled} from './ProductSelect.styled';
 
 interface ProductSelectProps {

@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react';
 import {Dimensions} from 'react-native';
 
-import getDimensions from '../utils/getDimensions';
-import WindowDimensions from '../interfaces/WindowDimensions';
+import WindowDimensions from 'interfaces/WindowDimensions';
+import getDimensions from 'utils/getDimensions';
 
 const useDimensions = (): WindowDimensions => {
   const [dimensions, setDimensions] = useState<WindowDimensions>(getDimensions);

@@ -110,7 +110,7 @@ export const NOTIFICATIONS = {
   logoutModal: {
     title: 'Are you sure you want to logout?',
   },
-  loginModal: {
+  signUpModal: {
     title: 'Sign Up Successful',
   },
   emptyFieldsModal: {

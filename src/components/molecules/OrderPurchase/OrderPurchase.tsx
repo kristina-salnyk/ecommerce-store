@@ -3,8 +3,8 @@ import React, {FC} from 'react';
 import ProductName from '../../atoms/ProductName';
 import ProductImage from '../../atoms/ProductImage';
 import HorizontalLine from '../../atoms/HorizontalLine';
-import getImagePathById from '../../../utils/getImagePathById';
-import {ORDER_PURCHASE_IMAGE_SIZE} from '../../../constants/shared';
+import getImagePathById from 'utils/getImagePathById';
+import {ORDER_PURCHASE_IMAGE_SIZE} from 'constants/shared';
 import {
   OrderPurchaseImageWrap,
   OrderPurchaseStyled,

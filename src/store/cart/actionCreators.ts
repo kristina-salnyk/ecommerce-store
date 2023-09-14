@@ -1,4 +1,3 @@
-import Cart from '../../interfaces/Cart';
 import {
   CART_RESET_DATA,
   CART_SET_DATA,
@@ -11,7 +10,8 @@ import {
   CartUpdateIsLoadingAction,
   CartUpdateIsRefreshingAction,
 } from './actionTypes';
-import Purchase from '../../interfaces/Purchase';
+import Cart from 'interfaces/Cart';
+import Purchase from 'interfaces/Purchase';
 
 export const setCart = (data: {
   data: Cart;
