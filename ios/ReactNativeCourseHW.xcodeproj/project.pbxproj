@@ -948,7 +948,7 @@
 				DEVELOPMENT_TEAM = U6QA3836D9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ReactNativeCourseHW/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ReactNativeCourseHW;
+				INFOPLIST_KEY_CFBundleDisplayName = "Ecommerce Store";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -976,7 +976,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U6QA3836D9;
 				INFOPLIST_FILE = ReactNativeCourseHW/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ReactNativeCourseHW;
+				INFOPLIST_KEY_CFBundleDisplayName = "Ecommerce Store";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1004,7 +1004,7 @@
 				DEVELOPMENT_TEAM = U6QA3836D9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "ReactNativeCourseHW dev-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "ReactNativeCourseHW dev";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ecommerce Store Dev";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1032,7 +1032,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U6QA3836D9;
 				INFOPLIST_FILE = "ReactNativeCourseHW dev-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "ReactNativeCourseHW dev";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ecommerce Store Dev";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1060,7 +1060,7 @@
 				DEVELOPMENT_TEAM = U6QA3836D9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "ReactNativeCourseHW stg-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "ReactNativeCourseHW qa";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ecommerce Store QA";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1088,7 +1088,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U6QA3836D9;
 				INFOPLIST_FILE = "ReactNativeCourseHW stg-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "ReactNativeCourseHW qa";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ecommerce Store QA";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
