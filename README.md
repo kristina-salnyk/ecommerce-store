@@ -194,7 +194,7 @@ quickly.
 
 ## Screenshots
 
-<img alt="App Screenshot" src="assets/images/LoginScreenshot.png" width="250"/>
+<div style='display: flex;'><img alt="App Screenshot" src="assets/images/LoginScreenshot.png" width="250"/>
 <img alt="App Screenshot" src="assets/images/SignUpScreenshot.png" width="250"/>
 <img alt="App Screenshot" src="assets/images/MainScreenshot.png" width="250"/>
 <img alt="App Screenshot" src="assets/images/MenuScreenshot.png" width="250"/>
@@ -206,7 +206,7 @@ quickly.
 <img alt="App Screenshot" src="assets/images/OrdersScreenshot.png" width="250"/>
 <img alt="App Screenshot" src="assets/images/OrderDetailsScreenshot.png" width="250"/>
 <img alt="App Screenshot" src="assets/images/MapScreenshot.png" width="250"/>
-<img alt="App Screenshot" src="assets/images/RotatedScreenshot.png" width="500"/>
+<img alt="App Screenshot" src="assets/images/RotatedScreenshot.png" width="500"/></div>
 
 ## Deployment
 
