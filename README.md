@@ -74,7 +74,7 @@ This command will build the app and launch it on the default iOS simulator.
 3. Run the following command to start the app on the Android emulator or device:
 
 ```bash
-  npm run abdroid
+  npm run android
 ```
 
 This command will build the app and launch it on the default Android emulator or the connected device.
