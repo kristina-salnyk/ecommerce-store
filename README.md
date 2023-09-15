@@ -19,8 +19,8 @@ Before running the app, ensure you have the following prerequisites installed on
 To get started with the project, clone the repository and install the necessary dependencies:
 
 ```bash
-  git clone https://github.com/kristina-salnyk/ReactNativeCourseHW.git
-  cd ReactNativeCourseHW
+  git clone https://github.com/kristina-salnyk/ecommerce-store.git
+  cd ecommerce-store
   npm install or yarn install
 ```
 
@@ -43,13 +43,17 @@ To run this project, you will need to add the following environment variables to
 
 Now that you have the project and its dependencies installed, you can start the app:
 
+```bash
+  npm start
+```
+
 ### iOS
 
 1. To run the app on an iOS simulator, make sure you have Xcode installed on your macOS machine.
 2. Open a terminal window and navigate to the project directory:
 
 ```bash
-  cd ReactNativeCourseHW
+  cd ecommerce-store
 ```
 
 3. Run the following command to start the app on the iOS simulator:
@@ -68,7 +72,7 @@ This command will build the app and launch it on the default iOS simulator.
 2. Open a terminal window and navigate to the project directory:
 
 ```bash
-  cd ReactNativeCourseHW
+  cd ecommerce-store
 ```
 
 3. Run the following command to start the app on the Android emulator or device:
